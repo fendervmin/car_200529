@@ -8,7 +8,8 @@
 <h1>
 	Hello world!  
 </h1>
-
+<c:import url="menubar.jsp"/>
 <P>  The time on the server is ${serverTime}. </P>
+<c:import url="footer.jsp"/>
 </body>
 </html>
