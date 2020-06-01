@@ -9,7 +9,6 @@
 	Hello world!  
 </h1>
 <c:import url="common/menubar.jsp"/>
-<P>  The time on the server is ${serverTime}. </P>
 <c:import url="common/footer.jsp"/>
 </body>
 </html>
