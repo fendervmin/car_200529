@@ -7,8 +7,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="${ contextPath }/resources/css/mainView/common.css">
-<script type="text/javascript" src="${ contextPath }/resources/js/jquery-3.4.1.min.js"></script>
+<link rel="stylesheet" href="${contextPath }/resources/css/mainView/common.css">
+<script type="text/javascript" src="${contextPath }/resources/js/jquery-3.4.1.min.js"></script>
 <style>
 #header .subLyr{
 	display: block;
@@ -67,10 +67,10 @@ $(window).scroll(function(event) {
 			
 			<c:if test="${ empty sessionScope.loginUser }">
 			<dd id="header_loginbtn">
-				<a href='loginView.do'>로그인</a>
+				<a href='../user/login'>로그인</a>
 			</dd>
 			<dd id="header_joinbtn">
-				<a href='joinView.do'>회원가입</a>
+				<a href='../user/signUp'>회원가입</a>
 			</dd>
 <%-- 				<h3 align="right">
 					<c:out value="로그인 계정 없음"/>
@@ -82,9 +82,6 @@ $(window).scroll(function(event) {
 			</dd>
 			<dd class="arw">
 				<a href='mypage.do'>마이페이지</a>
-			</dd>
-			<dd>
-				<a href='chatListView.do'>나의 스터디 채팅방</a>
 			</dd>
 			<dd>
 				<a href='logout.do'>로그아웃</a>
@@ -119,10 +116,7 @@ $(window).scroll(function(event) {
 		<!-- 상단 로고입니다 (로고 이미지 임시) -->
 		<div class="hd_top">
 			<h1 class="sd">
-				<a href="<%=request.getContextPath()%>/index.jsp"><img
-					style="margin-top: -30px; width: 270px; height:98px;"
-					src="<%=request.getContextPath()%>/resources/images/mainlogo.jpg"
-					alt="IT PLANET"></a>
+				<a href="<%=request.getContextPath()%>../home.jsp"></a>
 			</h1>
 		</div>
 	</div>
@@ -134,20 +128,13 @@ $(window).scroll(function(event) {
 		<h3 class="ir">카테고리메뉴</h3>
 		<ul id="menubar">
 
-			<!-- 공모전 -->
-			<li class="menubar_li" style="color:white;"><a href="competitionView.do">공모전</a></li>
+			<li class="menubar_li" style="color:white;"><a href="competitionView.do">신차비교</a></li>
 			
-			<!-- 공모전 -->
-			<li class="menubar_li" style="color:white;"><a href="lcsView.do">자격증</a></li>
+			<li class="menubar_li" style="color:white;"><a href="lcsView.do">자동차백과</a></li>
 
-			<!-- 채용공고 -->
-			<li class="menubar_li" style="color:white;"><a onclick="javascript:location.href='hList.do'">채용공고</a></li>
+			<li class="menubar_li" style="color:white;"><a onclick="javascript:location.href='hList.do'">커뮤니티</a></li>
 
-			<!-- 스터디 -->
-			<li class="menubar_li" style="color:white;"><a onclick="javascript:location.href='studyListView.do';">스터디</a></li>
-
-			<!-- 코딩테스트 -->
-			<li class="menubar_li" style="color:white;"><a onclick="javascript:location.href='codingTestListView.do'">코딩테스트</a>
+			<li class="menubar_li" style="color:white;"><a onclick="javascript:location.href='studyListView.do';">뉴스</a></li>
 			
 			
 		</ul>

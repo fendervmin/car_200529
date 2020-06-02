@@ -1,0 +1,149 @@
+@charset "UTF-8";
+
+
+#container{
+	margin: 16px auto 16px auto; 
+	width: 1150px;
+	display: block;
+  	.center-block();
+}
+
+.center-block() {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#container .filter {
+	margin: 10px auto 16px auto;
+	padding: 0 20px;
+}
+
+#container .filter select {
+	width: 110px; 
+	height: 41px;
+	display: inline-block;
+	margin: auto 10px auto 10px;
+	font-size: 15px;
+	color: #999;
+	border: 2px solid #ddd;
+	
+}
+
+
+
+
+#container .search-box {
+	background:#003458;
+	height: 60px;
+	width: 270px;
+	border-radius: 40px;
+	padding: 10px;
+	display: flex;
+	margin: 15px;
+}
+
+#container .filter .search-btn {
+	color: #e84118;
+	width: 45px;
+	height: 45px;
+	border-radius: 50%;
+	background: #2f3640;
+	display: inline-block;
+	justify-content: center;
+	align-items: center;
+	
+}
+#container .filter #search-txt{
+	border: 2px solid #ddd;
+	background: none;
+	padding: 15px;
+	color: #999;
+	border-radius: 40px;
+	font-size: 16px;
+	width: 240px;
+	height: 41px;
+	
+}
+
+#container .filter .search-btn .fa-search{
+	diplay
+}
+
+#container > div.list > div.item {
+	display: inline-block;
+	width: 500px;
+	border: 1px solid #003458;
+	margin: 0 10px 10px 10px;
+	vertical-align: top;
+}
+
+#container .list {
+	margin-top: 20px;
+	padding: 20px;
+}
+
+#container .pageFrame {
+	margin: 10px;
+	padding: 20px;
+}
+
+.top {
+	display: block;
+	padding: 16px;
+}
+
+.company {
+	 line-height: 24px; color: #292929; font-size: 16px; font-weight: bold; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;
+}
+
+
+.fa-bookmark {
+	display: block;
+	width: 50px;
+    margin-inline-start: 430px;
+    font-size: 25px;
+}
+
+#container p.info > span {
+  display: inline-block; margin-right: 8px; line-height: 18px;  font-size: 15px; letter-spacing: 0;
+  margin-left: 25px;
+  width: 110px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+#container p.info > span.dday {
+  font-weight: bold;
+  color: #FE2E2E;
+}
+
+#container .item #desc {
+	margin-top: 4px;
+	margin-left: 0px;
+	padding-inline-start: 0px;
+}
+ 
+#container .item #desc li:first-child, #container .item #desc li:second-child{
+	margin-left: 0px;
+	
+} 
+
+.item #desc li {
+    float: left;
+    margin-left: 20px;
+    font-size: 12px;
+    color: #949494;
+    letter-spacing: -1px;
+    line-height: 17px;
+    line-style: none;
+     width: 130px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#container > .pow {
+	margin: 16px;
+}
+

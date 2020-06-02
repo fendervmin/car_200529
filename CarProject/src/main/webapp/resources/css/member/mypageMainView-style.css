@@ -1,0 +1,234 @@
+@charset "UTF-8";
+
+#wrap dd{
+	display: block;
+	float: none;
+}
+#wrap .section h3{
+	background: #f1f1f1;
+    padding: 8px 0 5px 28px;
+}
+#wrap .middleSection{
+	width: 598px;
+	margin-left: 20px;
+}
+#wrap .middleSection .article{
+	position: relative;
+	border-top: 2px solid #555;
+}
+#wrap .alarm h3{
+	background: #002358;
+}
+#wrap .article{
+	min-height: 232px;
+}
+#wrap .compe h3, .hire h3, .lcs h3{
+	padding-left: 28px;
+} 
+.scpList {
+	overflow: hidden;
+	margin-top: 26px;
+	padding-left: 13px;
+}
+.lcs li{
+	padding-top: 30px;
+} 
+.detail div{
+	position: absolute; 
+	left: 35%; 
+	padding-top: 30px;
+}
+.detail div span, .alaramList span{
+	font-size: 14px;
+}
+.bGoBtn{
+	margin: 15px auto;
+    display: block;
+    background-color: #002358;
+    border: 1px solid #002358;
+    width: 120px;
+    padding: 8px 0 8px;
+    font-size: 12px;
+    text-align: center;
+    line-height: 13px;
+    cursor: pointer;
+    box-sizing: border-box;
+    color: #fff !important;
+}
+.middleSection .article .more{
+	position: absolute;
+	top: 7px;
+	right: 10px;
+	color: #777;
+	font-size: 11px;
+}
+.scpList li{
+	float: left;
+	position: relative;
+	width: 142px;
+	background: none;
+	text-align: center;
+	border-left: 0.5px solid #ededed;
+}
+.scpList li:first-child .figure, .scpList li:first-child{
+	border: 0;
+}
+.scpList li .figure{
+	display: block;
+	width: 106px;
+	padding: 0 18px;
+	border-left: 1px dotted #ddd;
+}
+.scpList li .figure img{
+	vertical-align: top;
+}
+.scpName{
+	width: 106px;
+	margin: 0 auto;
+	height: 20px;
+	display: block;
+	color: #777;
+	font-size: 11px;
+	line-height: 14px;
+	font-weight: bold;
+	word-break: break-all;
+	padding: 8px;
+}
+.rightSection{
+	width: 288px;
+	margin-left: 22px;
+}
+.alarm{
+	position: relative;
+}
+.alarm h3{
+	position: relative;
+	padding: 12px 10px 12px 25px;
+	/* background: #555; */
+	background: #003458;
+	color: #fff;
+}
+.alarm span{
+	position: relative;
+	padding-left: 10px;
+	width: 13px;
+	height: 14px;
+}
+.myAalam{
+	font-size: 11px;
+}
+.alarmList:first-child{
+	padding-top: 20px;
+}
+.alarmList{
+	position: relative;
+	padding: 0 20px;
+	overflow: hidden;
+	font-size: 11px;
+	border-bottom: 0.5px solid #f1f1f1;
+}
+.alarmList .almToday{
+	padding-top: 0;
+	padding-bottom: 0;
+	background: none;
+}
+.almToday{
+	padding: 15px 0;
+}
+.almToday .todayBox{
+	width: 256px;
+	font-size: 11px;
+	background: #f7f7f7;
+}
+.todayBox{
+	margin: 0 auto;
+	height: 22px;
+	text-align: center;
+	font-weight: bold;
+	color: #333;
+	line-height: 22px;
+	vertical-align: middle;
+}
+.alarmList ul.alarmUnit{
+	padding-bottom: 0;
+}
+ul.alarmUnit{
+	float: none;
+}
+.alarmList .alarmUnit li{
+	overflow: hiddem;
+	margin-bottom: -1px;
+	padding: 20px 8px 22px 90px;
+}
+.alarmUnit li{
+	position: relative;
+	float: none;
+	vertical-align: middle;
+}
+.alarmList .alarmUnit li a{
+	display: block;
+}
+li.itemPart span.alarmIco{
+	background-position: 0 -250px;
+}
+.alarmUnit li span.alarmIco{
+	display: block;
+	position: absolute;
+	left: 0px;
+	top: 30%;
+	margin-top: -32px;
+	width: 66px;
+	height: 66px;
+	background-image: url(../../image/changePwd6.png);
+	background-repeat: no-repeat;
+	padding: 0;
+}
+.alarmUnit li span.alarmIco .scpName{
+	width: 50px;	
+}
+.alarmUnit li span.alarmIco img{
+    padding-top: 15px;
+    width: 60px;
+    height: 65px;
+}
+.alarmUnit li dl{
+	padding-bottom: 5px;
+}
+.itemPart dt{
+	padding-top: 7px;
+    background: url(http://fiximage.10x10.co.kr/web2015/my10x10/bg_sprite.png) no-repeat 0 -388px;
+}
+.alarmUnit li dl dt{
+	font-weight: bold;
+	color: #555;
+}
+.alarmUnit li dl dt{
+	color: #555;
+}
+.alarmList .alarmUnit li p{
+	color: #555;
+}
+.alarmUnit li p{
+	letter-spacing: -0.05em;
+}
+.alarm .expire{
+	padding: 13px 0 11px;
+	background-color: #f7f7f7;
+    color: #aaa;
+    font-size: 11px;
+    text-align: center;
+}
+.alarmIsNull{
+	text-align: center;
+}
+.alarmIsNull p{
+	width: 256px;
+    font-size: 11px;
+    background: #f7f7f7;
+    color: #555;
+    padding: 5px 0;
+    margin: 15px auto 0 15px;
+}
+.alarmIsNull .alaramList{
+	padding: 20px 0;
+}
