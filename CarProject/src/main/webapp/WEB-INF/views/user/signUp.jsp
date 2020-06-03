@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>회원가입</title>
 <script type="text/javascript">
-
+<c:import url="common/menubar.jsp"/>
 function signUpValidation(){
 	
 	var userId = $("#member_UserId").val();

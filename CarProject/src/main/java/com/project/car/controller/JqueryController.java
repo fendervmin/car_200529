@@ -79,4 +79,15 @@ public class JqueryController {
 		
 		return result;
 	}
+	
+	/*@RequestMapping(value="jquery/userSearch", method = RequestMethod.POST)
+	@ResponseBody
+	public int userSearch(MemberVO member) {
+		int result = 0;
+		String col = null;
+		
+		col = "member_UserId";
+		
+		
+	}*/
 }

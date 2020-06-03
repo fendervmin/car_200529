@@ -20,4 +20,10 @@ public class UserController {
 		ModelAndView mav = new ModelAndView();
 		return mav;
 	}
+	
+	@RequestMapping(value="user/userSearch", method = RequestMethod.GET)
+	public ModelAndView userSearch() {
+		ModelAndView mav = new ModelAndView();
+		return mav;
+	}
 }
