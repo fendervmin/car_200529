@@ -5,7 +5,7 @@
 <head>
 <title>로그인</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> 
-<c:import url="common/menubar.jsp"/>
+<c:import url="common/header.jsp"/>
 <style>
 body {
    font: 13px/20px 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -248,7 +248,6 @@ function enterKeyCheck(){
    <input type="button" value="로그인" onclick="loginValidation()" class="loginButton">
    <input type="button" value="회원가입" onclick="location.href='/user/signUp'" class="signUpButton">
    <input type="button" value="아이디/비밀번호찾기" onclick="location.href='/user/userSearch'" class="userSearchButton">
-   
 </form>
 </body>
 </html>
