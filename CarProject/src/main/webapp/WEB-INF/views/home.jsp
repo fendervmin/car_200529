@@ -7,9 +7,10 @@
 </head>
 <body>
 <h1>
-	Hello world!  
+	아녕
 </h1>
 <c:import url="common/menubar.jsp"/>
+<c:import url="board/writeBoard.jsp"/>
 <c:import url="common/footer.jsp"/>
 </body>
 </html>

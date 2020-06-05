@@ -11,7 +11,7 @@ public class UserController {
 
 	@RequestMapping(value="user/login",method = RequestMethod.GET)
 	public ModelAndView login() {
-		ModelAndView mav = new ModelAndView();
+		ModelAndView mav = new ModelAndView();//원래 모델앤뷰객체로 보냄->받을 때 모델앤뷰객체로 받음 바로 리턴~
 		return mav;
 	}
 	
