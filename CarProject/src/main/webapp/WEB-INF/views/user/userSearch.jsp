@@ -62,13 +62,13 @@ var idSearch_click = function(){
 					<div class="form-group">
 						<label class="font-weight-bold text-white" for="inputName_1">이름</label>
 						<div>
-							<input type="text" class="userSearchId" id="member_UserId"  placeholder="이름">
+							<input type="text" class="userSearchId" id="member_Name" name="member_Name"  placeholder="이름">
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="font-weight-bold text-white" for="inputEmail_1">이메일</label>
 						<div>
-							<input type="text" class="userSearchId" id="member_Email" placeholder="이메일">
+							<input type="text" class="userSearchId" id="member_Email" name="member_Email" placeholder="이메일">
 						</div>
 					</div>
 					<div class="form-group">
@@ -80,19 +80,19 @@ var idSearch_click = function(){
 					<div class="form-group">
 						<label class="font-weight-bold text-white" for="inputId">아이디</label>
 						<div>
-							<input type="text" class="userSearchPwd" id="member_UserId"placeholder="이름">
+							<input type="text" class="userSearchPwd" id="member_UserId" name="member_UserId" placeholder="아이디">
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="font-weight-bold text-white" for="inputName_2">이름</label>
 						<div>
-							<input type="text" class="userSearchPwd" id="member_UserId"  placeholder="이름">
+							<input type="text" class="userSearchPwd" id="member_Name" name="member_Name2" placeholder="이름">
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="font-weight-bold text-white" for="inputEmail_2">이메일</label>
 						<div>
-							<input type="email" class="userSearchPwd" id="member_Email"	placeholder="이메일">
+							<input type="email" class="userSearchPwd" id="member_Email" name="member_Email2" placeholder="이메일">
 						</div>
 					</div>
 					<div class="form-group">

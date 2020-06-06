@@ -14,7 +14,34 @@ public class MemberVO {
 	private Date member_In;
 	private Date member_Out;
 	private String domain;
+	private String member_Key;
 	
+	public MemberVO() {}
+	
+	public MemberVO(String member_UserId, String member_Pwd) {
+		super();
+		this.member_UserId = member_UserId;
+		this.member_Pwd = member_Pwd;
+	}
+
+
+
+	public MemberVO(String member_UserId, String member_Name, String member_Email) {
+		super();
+		this.member_UserId = member_UserId;
+		this.member_Name = member_Name;
+		this.member_Email = member_Email;
+	}
+	
+
+	public MemberVO(int member_Id, String member_UserId, String member_Name, String member_Email) {
+		super();
+		this.member_Id = member_Id;
+		this.member_UserId = member_UserId;
+		this.member_Name = member_Name;
+		this.member_Email = member_Email;
+	}
+
 	public int getMember_Id() {
 		return member_Id;
 	}
@@ -75,5 +102,13 @@ public class MemberVO {
 	public void setDomain(String domain) {
 		this.domain = domain;
 	}
+	public String getMember_Key() {
+		return member_Key;
+	}
+	public void setMember_Key(String member_Key) {
+		this.member_Key = member_Key;
+	}
+	
+	
 	
 }
