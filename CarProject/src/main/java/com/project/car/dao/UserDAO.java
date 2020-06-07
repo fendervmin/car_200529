@@ -1,11 +1,13 @@
 package com.project.car.dao;
 
+import java.awt.List;
 import java.util.HashMap;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.project.car.vo.GoodsVO;
 import com.project.car.vo.MemberVO;
 
 @Repository("uDAO")
@@ -26,4 +28,5 @@ public class UserDAO {
 	public int userJoin(MemberVO member) {
 		return sqlSession.insert("userJoin",member);
 	}
+	
 }

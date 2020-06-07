@@ -7,4 +7,5 @@ public interface UserService {
 	MemberVO getUserOne(String common, String col);
 
 	int userJoin(MemberVO member);
+	
 }
