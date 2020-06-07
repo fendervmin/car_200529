@@ -5,9 +5,11 @@
 <configuration>
   <typeAliases>
   	<typeAlias alias="member" type="com.project.car.vo.MemberVO"/>
+  	<typeAlias alias="car" type="com.project.car.vo.GoodsVO"/>
   </typeAliases>
   
   <mappers>
   	<mapper resource="mappers/userMapper.xml"/>
+  	<mapper resource="mappers/goodsMapper.xml"/>
   </mappers>
 </configuration>
