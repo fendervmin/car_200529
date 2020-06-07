@@ -73,9 +73,20 @@ public class UserDAO {
 	}
 
 
-
 	public MemberVO login(MemberVO member) {
 		return sqlSession.selectOne("mappers.userMapper.login", member);
-	}	
+	}
+
+
+	public int signUp(MemberVO member) {
+		return sqlSession.insert("mappers.userMapper.signUp", member);
+	}
+
+
+
+	public int selectUserId(String userId) {
+		return sqlSession.selectOne("mappers.userMapper.selectUserId", userId);
+	}
+
 
 }

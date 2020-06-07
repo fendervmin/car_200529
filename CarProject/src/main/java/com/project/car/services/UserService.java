@@ -15,5 +15,9 @@ public interface UserService {
 	boolean searchPwd(MemberVO member);
 
 	MemberVO login(MemberVO member);
-	
+
+	int signUp(MemberVO member);
+
+	int selectUserId(String userId);
+
 }

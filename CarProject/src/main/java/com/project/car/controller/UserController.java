@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.SessionAttribute;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.project.car.services.UserService;
@@ -60,19 +60,37 @@ public class UserController {
 	
 	// 회원가입을 수행하는 메소드
 	@RequestMapping(value="signUp.do")
-	public ModelAndView signUp() {
+	public ModelAndView signUp(@ModelAttribute MemberVO member) {
 		ModelAndView mav = new ModelAndView();
 		
-		// 기능 구현할것 
-		// jsp에서 값을 받아와서 해당 정보를 토대로 db 저장 
+		member.setMember_Email(member.getMember_Email() + "@" + member.getDomain());
 		
+		int result = uService.signUp(member);
 		
-		// 저장한 후에 페이지는 로그인페이지로 
-		mav.setViewName("redirect:/user/loginPage.do");
+		if(result > 0 ) {
+			// 회원가입 성공
+			mav.setViewName("redirect:/user/loginPage.do");
+		}else {
+			// 회원가입 실패
+			mav.setViewName("redirect:/user/signUpPage.do");
+		}
 		
 		return mav;
 	}
 	
+	// 아이디 체크
+	@RequestMapping("checkUserId.do")
+	@ResponseBody
+	public String checkUserId(@RequestParam("member_UserId") String userId) {
+		int result = uService.selectUserId(userId);
+		if(result > 0) {
+			return "success";
+		} else {
+			return "fail";
+		}
+	}
+	
+
 	@RequestMapping(value="userSearch.do")
 	public ModelAndView userSearch() {
 		ModelAndView mav = new ModelAndView();

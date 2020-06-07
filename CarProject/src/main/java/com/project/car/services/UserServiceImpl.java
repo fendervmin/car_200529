@@ -105,6 +105,16 @@ public class UserServiceImpl implements UserService {
 		return userDAO.login(member);
 	}
 
+	@Override
+	public int signUp(MemberVO member) {
+		return userDAO.signUp(member);
+	}
+
+	@Override
+	public int selectUserId(String userId) {
+		return userDAO.selectUserId(userId);
+	}
+
 
 
 }
