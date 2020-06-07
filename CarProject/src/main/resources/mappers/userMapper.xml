@@ -4,6 +4,26 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mappers.userMapper">
 
+<resultMap type="member" id="resultCheckUser">
+	<id column="MEMBER_ID" property="member_Id"/>
+	<result column="MEMBER_USERID" property="member_UserId"/>
+	<result column="MEMBER_NAME" property="member_Name"/>
+	<result column="MEMBER_EMAIL" property="member_Email"/>
+</resultMap>
+
+<resultMap type="member" id="fullMemberInfo">
+	<id column="MEMBER_ID" property="member_Id"/>
+	<result column="MEMBER_USERID" property="member_UserId"/>
+	<result column="MEMBER_TYPE" property="member_Type"/>
+	<result column="MEMBER_NAME" property="member_Name"/>
+	<result column="MEMBER_NICNAME" property="member_Nicname"/>
+	<result column="MEMBER_PWD" property="member_Pwd"/>
+	<result column="MEMBER_EMAIL" property="member_Email"/>
+	<result column="MEMBER_In" property="member_In"/>
+	<result column="MEMBER_Out" property="member_Out"/>
+</resultMap>
+	
+
 <select id="getUserOne" resultType="member">
 SELECT * FROM MEMBER 
 <if test="member_UserId != null">
@@ -19,4 +39,84 @@ insert into MEMBER (member_Id,member_UserId,member_Pwd,member_Nicname,member_Ema
 values (#{member_Id},#{member_UserId},#{member_Pwd},#{member_Nicname},#{member_Email},#{member_In},#{member_Out})
 </insert>
 
+<update id="GetKey" parameterType="Map">
+	update MEMBER set MEMBER_KEY = #{param2} where MEMBER_USERID = #{param1}</update>
+	
+<update id="alter_userKey" parameterType="Map">
+	update MEMBER set MEMBER_KEY = 'Y' where MEMBER_USERID = #{param1} and MEMBER_KEY = #{param2} </update>
+
+<!-- 아이디 찾기 -->
+<select id="searchId" resultType="String" parameterType="java.util.Map">
+	select nvl(user_id, 0) from MEMBER
+	where MEMBER_NAME = #{member_Name} and MEMBER_EMAIL = #{member_Email}
+</select>
+	
+<!-- 회원 임시 비밀번호 -->
+<!-- <update id="searchPwd" parameterType="Map" -->
+
+<select id="checkUser" parameterType="member" resultMap="resultCheckUser">
+	SELECT 
+		MEMBER_ID,
+		MEMBER_USERID,
+		MEMBER_NAME,
+		MEMBER_EMAIL		
+	FROM
+		MEMBER
+	WHERE
+		MEMBER_USERID = #{member_UserId}
+		AND MEMBER_NAME = #{member_Name}
+		AND MEMBER_EMAIL = #{member_Email}
+		
+</select>
+
+<update id="updatePassword" parameterType="java.util.Map">
+	UPDATE 
+		MEMBER
+	SET 
+		MEMBER_PWD = #{key}
+	WHERE 
+		MEMBER_USERID = #{member_UserId}
+</update>
+
+<select id="login" parameterType="member" resultMap="fullMemberInfo">
+	SELECT
+		MEMBER_ID,
+		MEMBER_USERID,
+		MEMBER_TYPE,
+		MEMBER_NAME,
+		MEMBER_NICNAME,
+		MEMBER_PWD,
+		MEMBER_EMAIL,
+		MEMBER_IN,
+		MEMBER_OUT
+	FROM
+		MEMBER
+	WHERE
+		MEMBER_USERID = #{member_UserId}
+		AND MEMBER_PWD = #{member_Pwd}
+</select>
+
+<!-- =======
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mappers.userMapper">
+
+<select id="getUserOne" resultType="member">
+SELECT * FROM MEMBER 
+<if test="member_UserId != null">
+where member_UserId = #{member_UserId};
+</if>
+<if test="member_Nicname != null">
+where member_Nicname= #{member_Nicname};
+</if>
+</select>
+
+<insert id="userJoin">
+insert into MEMBER (member_Id,member_UserId,member_Pwd,member_Nicname,member_Email,member_In,member_Out)
+values (#{member_Id},#{member_UserId},#{member_Pwd},#{member_Nicname},#{member_Email},#{member_In},#{member_Out})
+</insert>
+
+>>>>>>> branch 'master' of https://github.com/fendervmin/car_200529.git -->
 </mapper>

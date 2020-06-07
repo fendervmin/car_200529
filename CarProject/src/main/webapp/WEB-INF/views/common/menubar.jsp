@@ -65,6 +65,7 @@ $(window).scroll(function(event) {
 </script>
 </head>
 <body>
+<<<<<<< HEAD
    <div id="header" class="header" style="outline: none;">
    <!-- 오른쪽 맨 위 상단에 로그인, 회원가입, 등등 버튼있는 부분입니다... -->
    <div class="contain">
@@ -109,6 +110,52 @@ $(window).scroll(function(event) {
             <a href='admin.do'>관리자</a>
          </dd>
          </c:if>
+=======
+	<div id="header" class="header" style="outline: none;">
+	<!-- 오른쪽 맨 위 상단에 로그인, 회원가입, 등등 버튼있는 부분입니다... -->
+	<div class="contain">
+		<dl class="hd_my">
+			<dt class="ir">마이메뉴</dt>
+			
+			<c:if test="${ empty sessionScope.loginUser }">
+			<dd id="header_loginbtn">
+				<a href='user/loginPage.do'>로그인</a>
+			</dd>
+			<dd id="header_joinbtn">
+				<a href='user/signUpPage.do'>회원가입</a>
+			</dd>
+<%-- 				<h3 align="right">
+					<c:out value="로그인 계정 없음"/>
+				</h3> --%>
+			</c:if>
+			<c:if test="${ !empty sessionScope.loginUser && loginUser.userName != '관리자' }">
+			<dd>
+				<a style="font-size:12px;"> ${ loginUser.userName }님 환영합니다.</a>
+			</dd>
+			<dd class="arw">
+				<a href='mypage.do'>마이페이지</a>
+			</dd>
+			<dd>
+				<a href='logout.do'>로그아웃</a>
+			</dd>
+			</c:if>
+			
+			<!-- 관리자 로그인시 -->
+			<c:if test="${loginUser.userName == '관리자' }">
+			<dd>
+				<a style="font-size:12px;"> ${ loginUser.userName }님 환영합니다.</a>
+			</dd>
+			<dd class="arw">
+				<a href='mypage.do'>마이페이지</a>
+			</dd>
+			<dd>
+				<a href='logout.do'>로그아웃</a>
+			</dd>
+			<dd>
+				<a href='admin.do'>관리자</a>
+			</dd>
+			</c:if>
+>>>>>>> refs/remotes/origin/master
 
          <%-- <%} %> --%>
 
