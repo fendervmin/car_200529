@@ -7,8 +7,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="${contextPath }/resources/css/mainView/common.css">
-<script type="text/javascript" src="${contextPath }/resources/js/jquery-3.4.1.min.js"></script>
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/mainView/common.css">
+<script type="text/javascript" src="${pageContext.request.contextPath }/resources/js/jquery-3.4.1.min.js"></script>
 <style>
 #header .subLyr{
 	display: block;
