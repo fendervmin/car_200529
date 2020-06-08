@@ -6,10 +6,12 @@
   <typeAliases>
   	<typeAlias alias="member" type="com.project.car.vo.MemberVO"/>
   	<typeAlias alias="car" type="com.project.car.vo.GoodsVO"/>
+  	<typeAlias alias="board" type="com.project.car.vo.BoardVO"/>
   </typeAliases>
   
   <mappers>
   	<mapper resource="mappers/userMapper.xml"/>
   	<mapper resource="mappers/goodsMapper.xml"/>
+  	<mapper resource="mappers/boardMapper.xml"/>
   </mappers>
 </configuration>

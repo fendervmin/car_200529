@@ -14,7 +14,6 @@ public class MemberVO {
 	private Date member_In;
 	private Date member_Out;
 	private String domain;
-	private String member_Key;
 	
 	public MemberVO() {}
 	
@@ -102,15 +101,7 @@ public class MemberVO {
 	public void setDomain(String domain) {
 		this.domain = domain;
 	}
-	public String getMember_Key() {
-		return member_Key;
-	}
-	public void setMember_Key(String member_Key) {
-		this.member_Key = member_Key;
-	}
 	
 	
 	
 }
-
-

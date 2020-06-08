@@ -106,7 +106,7 @@ var idSearch_click = function(){
 	</div>
 </form>
 </body>
-=======
+<%-- =======
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -214,5 +214,5 @@ var idSearch_click = function(){
 	</div>
 </form>
 </body>
->>>>>>> branch 'master' of https://github.com/fendervmin/car_200529.git
+>>>>>>> branch 'master' of https://github.com/fendervmin/car_200529.git --%>
 </html>

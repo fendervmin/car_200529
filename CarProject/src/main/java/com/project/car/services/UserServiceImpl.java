@@ -11,9 +11,8 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
 import com.project.car.dao.UserDAO;
-import com.project.car.vo.MemberVO;
+import com.project.car.vo.MemberVO;@Service("uService")
 
-@Service("uService")
 public class UserServiceImpl implements UserService {
 	
 	@Autowired
@@ -57,11 +56,6 @@ public class UserServiceImpl implements UserService {
 	public void mailSendWithPassword(String member_Name, String member_UserId, String member_Email) {
 		// 비밀번호는 6자리로 보내고 데이터베이스 비밀번호를 바꿔준다
 				String key = mailsender.getKey(false, 6);
-//				userDAO = sqlSession.getMapper(UserDAO.class);
-				
-				// 회원 이름 꺼내는 코드
-				/*MemberVO vo = userDAO.userInfo(member_UserId);*/
-//				String name = vo.getMember_Name();
 				
 				userDAO.updatePassword(member_UserId, key);
 				
@@ -103,6 +97,16 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public MemberVO login(MemberVO member) {
 		return userDAO.login(member);
+	}
+
+	@Override
+	public int signUp(MemberVO member) {
+		return userDAO.signUp(member);
+	}
+
+	@Override
+	public int selectUserId(String userId) {
+		return userDAO.selectUserId(userId);
 	}
 
 

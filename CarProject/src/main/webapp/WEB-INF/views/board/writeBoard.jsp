@@ -13,19 +13,28 @@
 <body>	
 	<h2 style="margin-left:45%;">자유게시판</h2>
 	<div class="container">
-		<form method="POST" action="board/writeView">
 			<table class="table table-hover">
 				<thead>
 					<tr>
 						<th scope="col" class="text-center">게시글번호</th>
 						<th scope="col" class="text-center">제목</th>
 						<th scope="col" class="text-center">이름</th>
-						<th scope="col" class="text-center">작성일</th>
 					</tr>
 				</thead>
+				<c:forEach var="list" items="${list}" varStatus="vs" begin="1" step="1">
+					<tbody>
+						
+						<tr>
+							<th scope="col" class="text-center">${vs.index}</th>
+							<th scope="col" class="text-center"><a href='writeDetail?index=${vs.index}'>${list.post_title}</a></th>
+							<th scope="col" class="text-center">${list.post_content}</th>
+							
+						</tr>
+						
+					</tbody>
+				</c:forEach>
 			</table>
-			<button type="submit">작성하기</button>
-		</form>
+			<a href="writeView">글작성</a>
 	</div>
 </body>
 </html>

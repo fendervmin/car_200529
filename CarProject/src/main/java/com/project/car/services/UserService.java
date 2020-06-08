@@ -8,9 +8,6 @@ public interface UserService {
 
 	int userJoin(MemberVO member);
 	
-<<<<<<< HEAD
-}
-=======
 	String get_searchId(String member_Name, String member_Email);
 	
 	void mailSendWithPassword(String user_name, String user_id, String user_email);
@@ -18,6 +15,9 @@ public interface UserService {
 	boolean searchPwd(MemberVO member);
 
 	MemberVO login(MemberVO member);
-	
+
+	int signUp(MemberVO member);
+
+	int selectUserId(String userId);
+
 }
->>>>>>> refs/remotes/origin/master

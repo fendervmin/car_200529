@@ -2,18 +2,28 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="boardMapper">
-   <insert id="insert">
-   		INSERT INTO MP_BOARD(
+<mapper namespace="mappers.boardMapper">
+<!-- 게시판에서 작성한 제목과 내용을 #{}파라미터로 받아서 값으로 넣어주기 -->
+   <insert id="insert" parameterType="board">
+   		INSERT INTO POST(
    			POST_ID
-   			,TITLE
-   			,CONTENT
+   			,POST_TITLE
+   			,POST_CONTENT
    			,MEMBER_ID			)
    			VALUES(
    				MP_POST_SEQ.NEXTVAL
-   				,#{title}
-   				,#{content}
+   				,#{post_title}
+   				,#{post_content}
    				,10
    			)
    </insert>
+   
+   	<!-- 작성한 게시판의 내용을 select로 불러와서 boardVO객체타입으로 불러오기 -->
+   	<select id="writeList" resultType="board">
+   		SELECT POST_TITLE,POST_CONTENT,POST_TIME,MEMBER_ID FROM POST 
+   </select>
+   
+   <select id="Modify" resultType="board">
+   		SELECT POST_TITLE,POST_CONTENT,POST_TIME,MEMBER_ID FROM POST 
+   </select>
 </mapper>

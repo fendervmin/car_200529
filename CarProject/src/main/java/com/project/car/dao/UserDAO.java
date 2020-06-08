@@ -1,7 +1,5 @@
-
 package com.project.car.dao;
 
-import java.awt.List;
 import java.util.HashMap;
 
 import org.apache.ibatis.annotations.Param;
@@ -10,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import com.project.car.vo.GoodsVO;
 import com.project.car.vo.MemberVO;
 
 @Repository("userDAO")
@@ -73,16 +70,22 @@ public class UserDAO {
 		sqlSession.update("mappers.userMapper.updatePassword", map);
 		
 	}
-<<<<<<< HEAD
-	
-}
-=======
-
 
 
 	public MemberVO login(MemberVO member) {
 		return sqlSession.selectOne("mappers.userMapper.login", member);
-	}	
+	}
+
+
+	public int signUp(MemberVO member) {
+		return sqlSession.insert("mappers.userMapper.signUp", member);
+	}
+
+
+
+	public int selectUserId(String userId) {
+		return sqlSession.selectOne("mappers.userMapper.selectUserId", userId);
+	}
+
 
 }
->>>>>>> refs/remotes/origin/master
