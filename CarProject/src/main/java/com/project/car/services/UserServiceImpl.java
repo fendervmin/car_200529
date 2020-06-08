@@ -108,7 +108,4 @@ public class UserServiceImpl implements UserService {
 	public int selectUserId(String userId) {
 		return userDAO.selectUserId(userId);
 	}
-
-
-
 }

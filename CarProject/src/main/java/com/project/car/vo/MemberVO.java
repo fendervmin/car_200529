@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 package com.project.car.vo;
 
 import java.util.Date;
@@ -101,7 +102,4 @@ public class MemberVO {
 	public void setDomain(String domain) {
 		this.domain = domain;
 	}
-	
-	
-	
 }

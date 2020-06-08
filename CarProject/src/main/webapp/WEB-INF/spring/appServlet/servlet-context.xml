@@ -20,12 +20,7 @@
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
-<<<<<<< HEAD
-
-	 <context:component-scan base-package="com.project.car"/>
 	 
-=======
-	
 	<!-- 회원가입 메일 인증 -->
 	<beans:bean id="mailSender"	class="org.springframework.mail.javamail.JavaMailSenderImpl">
 		<beans:property name="host" value="smtp.gmail.com" />
@@ -45,5 +40,4 @@
 	
 	 <context:component-scan base-package="com.project.car" />
 	
->>>>>>> refs/remotes/origin/master
 </beans:beans>
