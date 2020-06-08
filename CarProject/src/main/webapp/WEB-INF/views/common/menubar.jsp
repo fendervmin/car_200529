@@ -65,7 +65,6 @@ $(window).scroll(function(event) {
 </script>
 </head>
 <body>
-<<<<<<< HEAD
    <div id="header" class="header" style="outline: none;">
    <!-- 오른쪽 맨 위 상단에 로그인, 회원가입, 등등 버튼있는 부분입니다... -->
    <div class="contain">
@@ -110,7 +109,6 @@ $(window).scroll(function(event) {
             <a href='admin.do'>관리자</a>
          </dd>
          </c:if>
-=======
 	<div id="header" class="header" style="outline: none;">
 	<!-- 오른쪽 맨 위 상단에 로그인, 회원가입, 등등 버튼있는 부분입니다... -->
 	<div class="contain">
@@ -155,7 +153,6 @@ $(window).scroll(function(event) {
 				<a href='admin.do'>관리자</a>
 			</dd>
 			</c:if>
->>>>>>> refs/remotes/origin/master
 
          <%-- <%} %> --%>
 
