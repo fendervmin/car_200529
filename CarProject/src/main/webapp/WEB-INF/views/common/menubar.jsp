@@ -65,7 +65,6 @@ $(window).scroll(function(event) {
 </script>
 </head>
 <body>
-<<<<<<< HEAD
    <div id="header" class="header" style="outline: none;">
    <!-- 오른쪽 맨 위 상단에 로그인, 회원가입, 등등 버튼있는 부분입니다... -->
    <div class="contain">
@@ -110,7 +109,7 @@ $(window).scroll(function(event) {
             <a href='admin.do'>관리자</a>
          </dd>
          </c:if>
-=======
+         
 	<div id="header" class="header" style="outline: none;">
 	<!-- 오른쪽 맨 위 상단에 로그인, 회원가입, 등등 버튼있는 부분입니다... -->
 	<div class="contain">
@@ -155,7 +154,6 @@ $(window).scroll(function(event) {
 				<a href='admin.do'>관리자</a>
 			</dd>
 			</c:if>
->>>>>>> refs/remotes/origin/master
 
          <%-- <%} %> --%>
 
@@ -181,9 +179,9 @@ $(window).scroll(function(event) {
 	
 	         <li class="menubar_li" style="color:white;"><a href="competitionView.do">신차비교</a></li>
 	         
-	         <li class="menubar_li" style="color:white;"><a href="goods/brandList">자동차백과</a></li>
+	         <li class="menubar_li" style="color:white;"><a href="goods/brandList.do">자동차백과</a></li>
 	
-	         <li class="menubar_li" style="color:white;"><a onclick="javascript:location.href='hList.do'">커뮤니티</a></li>
+	         <li class="menubar_li" style="color:white;"><a href="board/writeBoard.do">커뮤니티</a></li>
 	
 	         <li class="menubar_li" style="color:white;"><a onclick="javascript:location.href='studyListView.do';">뉴스</a></li>
 	      </ul>

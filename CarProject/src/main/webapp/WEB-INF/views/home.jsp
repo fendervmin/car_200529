@@ -7,7 +7,6 @@
    <title>Home</title>
 </head>
 <body>
-<<<<<<< HEAD
 <div id="root">
 	<header id="header">
 		<div id="header_box">
@@ -26,13 +25,11 @@
 		</div>
 	</footer>
 </div>
-=======
 <h1>
 	아녕
 </h1>
 <c:import url="common/menubar.jsp"/>
 <c:import url="board/writeBoard.jsp"/>
 <c:import url="common/footer.jsp"/>
->>>>>>> refs/remotes/origin/master
 </body>
 </html>

@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,12 +11,13 @@
 	float:left;
 	width:150px;
 	display: block;
+	margin-left:50px;
 }
 
 .col-lg-9{
 	float:left;
+	
 }
-
 </style>
 
 <meta charset="utf-8">
@@ -38,7 +41,7 @@
 			</div>
 		</header>
 		
-		<section id="container">
+		<section id="container" style="margin-top:150px">
 			<div id="container_box">
 				<div class="container">
 				    <div class="row">
@@ -61,12 +64,28 @@
 				            4.0 stars
 				          </div>
 				        </div>
-				        
-				        </div>
 				        <!-- /.card -->
-				      </div>
+				        <div class="card card-outline-secondary my-4">
+				          <div class="card-header">
+				            	국산
+				          </div>
+				          <div class="card-body">
+				            <dd class='noLine'>
+								<ul class='brandList imageLarge'>
+								<%-- <a href="goodsDetail.do">
+									<% for(int i=1; i<=5; i++) 
+										{%>
+									   		<li class='li_img'><img src="/resources/hyundai/<%=i %>.png" style="display:block;"/></li>
+									  	<% }
+									%></a> --%>
+								</ul>
+							</dd>
+				          </div>
+				       </div>
+				        <!-- /.card -->
+				     </div>
 				      <!-- /.col-lg-9 -->
-				   </div>
+				  </div>
 			   </div>
 			</div>
 		</section>

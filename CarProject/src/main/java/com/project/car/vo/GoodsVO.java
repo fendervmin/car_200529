@@ -3,71 +3,61 @@ package com.project.car.vo;
 import org.springframework.web.multipart.MultipartFile;
 
 public class GoodsVO {
-	    private int CAR_ID;
-	    private String CART_YPE;
-	    private String FUEL_TYPE;
-	    private String CAR_FUEL;
-	    private String CAR_NAME;
-	    private int CAR_PRICE;
-        private int BRAND_ID;
-        private String pic_url;
-        private MultipartFile file1;
-        
-		public String getPic_url() {
-			return pic_url;
+	    private int car_ID;
+	    private String car_Type;
+	    private String fuel_Type;
+	    private String car_Fuel;
+	    private String car_Name;
+	    private int car_Price;
+        private int brand_Id;
+        private String pic_Url;
+		public int getCar_ID() {
+			return car_ID;
 		}
-		public void setPic_url(String pic_url) {
-			this.pic_url = pic_url;
+		public void setCar_ID(int car_ID) {
+			this.car_ID = car_ID;
 		}
-		public MultipartFile getFile1() {
-			return file1;
+		public String getCar_Type() {
+			return car_Type;
 		}
-		public void setFile1(MultipartFile file1) {
-			this.file1 = file1;
+		public void setCar_Type(String car_Type) {
+			this.car_Type = car_Type;
 		}
-		public int getCAR_ID() {
-			return CAR_ID;
+		public String getFuel_Type() {
+			return fuel_Type;
 		}
-		public void setCAR_ID(int cAR_ID) {
-			CAR_ID = cAR_ID;
+		public void setFuel_Type(String fuel_Type) {
+			this.fuel_Type = fuel_Type;
 		}
-		public String getCART_YPE() {
-			return CART_YPE;
+		public String getCar_Fuel() {
+			return car_Fuel;
 		}
-		public void setCART_YPE(String cART_YPE) {
-			CART_YPE = cART_YPE;
+		public void setCar_Fuel(String car_Fuel) {
+			this.car_Fuel = car_Fuel;
 		}
-		public String getFUEL_TYPE() {
-			return FUEL_TYPE;
+		public String getCar_Name() {
+			return car_Name;
 		}
-		public void setFUEL_TYPE(String fUEL_TYPE) {
-			FUEL_TYPE = fUEL_TYPE;
+		public void setCar_Name(String car_Name) {
+			this.car_Name = car_Name;
 		}
-		public String getCAR_FUEL() {
-			return CAR_FUEL;
+		public int getCar_Price() {
+			return car_Price;
 		}
-		public void setCAR_FUEL(String cAR_FUEL) {
-			CAR_FUEL = cAR_FUEL;
+		public void setCar_Price(int car_Price) {
+			this.car_Price = car_Price;
 		}
-		public String getCAR_NAME() {
-			return CAR_NAME;
+		public int getBrand_Id() {
+			return brand_Id;
 		}
-		public void setCAR_NAME(String cAR_NAME) {
-			CAR_NAME = cAR_NAME;
+		public void setBrand_Id(int brand_Id) {
+			this.brand_Id = brand_Id;
 		}
-		public int getCAR_PRICE() {
-			return CAR_PRICE;
+		public String getPic_Url() {
+			return pic_Url;
 		}
-		public void setCAR_PRICE(int cAR_PRICE) {
-			CAR_PRICE = cAR_PRICE;
+		public void setPic_Url(String pic_Url) {
+			this.pic_Url = pic_Url;
 		}
-		public int getBRAND_ID() {
-			return BRAND_ID;
-		}
-		public void setBRAND_ID(int bRAND_ID) {
-			BRAND_ID = bRAND_ID;
-		}
-        
-       
         
 }

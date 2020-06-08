@@ -10,42 +10,13 @@ import com.project.car.vo.GoodsVO;
 public class GoodsServiceImpl implements GoodsService {
 	
 	@Inject
-	GoodsDAO goodsDao;
+	private GoodsDAO dao;
+
+	@Override
+	public List<GoodsVO> list(int brand_id) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.list(brand_id);
+	}
 	
-	@Override
-	public List<GoodsVO> listGoods() {
-		// TODO Auto-generated method stub
-		return goodsDao.listGoods();
-	}
-
-	@Override
-	public GoodsVO detailGoods(int car_id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void updateGoods(GoodsVO vo) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void deleteGoods(int CAR_ID) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void insertGoods(GoodsVO vo) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public String fileInfo(int CAR_ID) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 }
