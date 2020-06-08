@@ -30,4 +30,9 @@ public class BoardDAOImpl implements BoardDAO {
 		List<BoardVO> list = sqlSession.selectList("mappers.boardMapper.writeList");//mappersql경로중요
 		return list;//list 객체를  return
 	}
+
+	@Override
+	public void modify(BoardVO boardVO) throws Exception{
+		sqlSession.update("mappers.boardMapper.modify",boardVO);
+	}
 }
