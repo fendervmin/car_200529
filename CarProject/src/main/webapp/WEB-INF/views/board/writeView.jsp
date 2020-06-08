@@ -14,18 +14,18 @@
 
 </head>
 <body class="pt-5">
-	<form:form modelAttribute="boardVO" action="writeView">
+	<form:form modelAttribute="boardVO" action="writeView.do">
 		<table border="1">
 			<tr>
 				<th><form:label path="post_title">제목</form:label></th>
 				<td>
-					<form:input path="post_title"/>
+					<form:input path="post_title" value="${boardVO.post_title}" id="title"/>
 				</td>
 			</tr>
 			<tr>
 				<th><form:label path="post_content">내용</form:label></th>
 				<td>
-					<form:textarea path="post_content"/>
+					<form:textarea path="post_content" value="${boardVO.post_content}" id="title"/>
 				</td>
 			</tr>
 		</table>

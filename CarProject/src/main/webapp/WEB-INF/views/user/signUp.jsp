@@ -9,7 +9,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> 
 </head>
 <body style="background-color:#f0f5f3">
-<c:import url="common/menubar.jsp"/>
+<c:import url="../common/menubar.jsp"/>
 <form id="registerform">
         <div class="fieldlabel"><label for="member_UserId">*아이디</label></div>
         <div class="formfield"><input type="text" id="member_UserId" name="member_UserId" maxlength="20" value=""><input type="button" onclick="existId()" value="ID중복확인"><div class="error_box" id="idMsg" style="display: none;"></div></div>

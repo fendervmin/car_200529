@@ -9,5 +9,7 @@ public interface BoardService {
 	public void write(BoardVO boardVO) throws Exception;
 	
 	public List<BoardVO> list() throws Exception;
+	
+	public void modify(BoardVO boardVO) throws Exception;
 
 }

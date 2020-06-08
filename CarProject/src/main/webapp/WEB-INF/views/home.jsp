@@ -15,7 +15,7 @@
 	</header>
 	
 	<section id="container">
-		<div id="container_box">본문영역
+		<div id="container_box">
 		</div>
 	</section>
 	

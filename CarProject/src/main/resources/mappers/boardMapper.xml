@@ -23,7 +23,10 @@
    		SELECT POST_TITLE,POST_CONTENT,POST_TIME,MEMBER_ID FROM POST 
    </select>
    
-   <select id="Modify" resultType="board">
+   <!-- <select id="Modify" resultType="board">
    		SELECT POST_TITLE,POST_CONTENT,POST_TIME,MEMBER_ID FROM POST 
-   </select>
+   </select> -->
+   <update id="modify" parameterType="board">
+   		UPDATE POST SET POST_TITLE=#{post_title},POST_CONTENT=#{post_content} WHERE POST_ID=#{post_id}
+   </update>
 </mapper>
