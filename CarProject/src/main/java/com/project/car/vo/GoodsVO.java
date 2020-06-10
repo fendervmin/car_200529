@@ -9,8 +9,16 @@ public class GoodsVO {
 	    private String car_Fuel;
 	    private String car_Name;
 	    private int car_Price;
+        private String car_Img;
         private int brand_Id;
-        private String pic_Url;
+        private String brand_Name;
+        
+		public String getBrand_Name() {
+			return brand_Name;
+		}
+		public void setBrand_Name(String brand_Name) {
+			this.brand_Name = brand_Name;
+		}
 		public int getCar_ID() {
 			return car_ID;
 		}
@@ -53,11 +61,12 @@ public class GoodsVO {
 		public void setBrand_Id(int brand_Id) {
 			this.brand_Id = brand_Id;
 		}
-		public String getPic_Url() {
-			return pic_Url;
+		public String getCar_Img() {
+			return car_Img;
 		}
-		public void setPic_Url(String pic_Url) {
-			this.pic_Url = pic_Url;
+		public void setCar_Img(String car_Img) {
+			this.car_Img = car_Img;
 		}
+		
         
 }

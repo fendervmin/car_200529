@@ -4,9 +4,11 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import org.springframework.stereotype.Service;
+
 import com.project.car.dao.GoodsDAO;
 import com.project.car.vo.GoodsVO;
-
+@Service
 public class GoodsServiceImpl implements GoodsService {
 	
 	@Inject
@@ -17,6 +19,4 @@ public class GoodsServiceImpl implements GoodsService {
 		// TODO Auto-generated method stub
 		return dao.list(brand_id);
 	}
-	
-
 }

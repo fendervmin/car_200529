@@ -5,13 +5,13 @@
 <mapper namespace="goods">
 
     <!-- 01. 상품 전체 목록 -->
-    <select id="list" resultType="car">
+    <select id="list" resultType="car" parameterType="int">
         select
-        	brand_name,car_name
-        		from car c
-        			inner join brand b
-        				on c.brand_id=b.brand_id
-        			where b.brand_id=#{brand_id};
+    c.car_id, c.car_name,b.brand_id, b.brand_name, c.car_img
+        from car c
+            inner join brand b
+                on c.brand_id = b.brand_id           
+            where c.brand_id=#{brand_id}
     </select>
    
 </mapper>

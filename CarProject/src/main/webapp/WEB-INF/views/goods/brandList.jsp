@@ -63,11 +63,11 @@
 				          <div class="card-body">
 				            <dd class='noLine'>
 								<ul class='brandList imageLarge'>
-									<li class='li_img'><a href="goodsList.do" target='_blank'><img src='http://autoimg.danawa.com/photo/brand/303_90.png' alt='현대' style="display:block;"/>현대</a></li>
-									<li class='li_img'><a href='/auto/?Work=brand&Brand=307' target='_blank'><img src='http://autoimg.danawa.com/photo/brand/307_90.png' alt='기아' style="display:block;"/>기아</a></li>
-									<li class='li_img'><a href='/auto/?Work=brand&Brand=326' target='_blank'><img src='http://autoimg.danawa.com/photo/brand/326_90.png' alt='쌍용' style="display:block;"/>쌍용</a></li>
-									<li class='li_img'><a href='/auto/?Work=brand&Brand=321' target='_blank'><img src='http://autoimg.danawa.com/photo/brand/321_90.png' alt='르노삼성' style="display:block;"/>르노삼성</a></li>
-									<li class='li_img'><a href='/auto/?Work=brand&Brand=312' target='_blank'><img src='http://autoimg.danawa.com/photo/brand/312_90.png' alt='쉐보레' style="display:block;"/>쉐보레</a></li>
+									<li class='li_img'><a href="goodsList.do?b=1" target='_blank'><img src='http://autoimg.danawa.com/photo/brand/303_90.png' alt='현대' style="display:block;"/>현대</a></li>
+									<li class='li_img'><a href='goodsList.do?brand=2' target='_blank'><img src='http://autoimg.danawa.com/photo/brand/307_90.png' alt='기아' style="display:block;"/>기아</a></li>
+									<li class='li_img'><a href='goodsList.do?brand=3' target='_blank'><img src='http://autoimg.danawa.com/photo/brand/326_90.png' alt='쌍용' style="display:block;"/>쌍용</a></li>
+									<li class='li_img'><a href='goodsList.do?brand=4' target='_blank'><img src='http://autoimg.danawa.com/photo/brand/321_90.png' alt='르노삼성' style="display:block;"/>르노삼성</a></li>
+									<li class='li_img'><a href='goodsList.do?brand=5' target='_blank'><img src='http://autoimg.danawa.com/photo/brand/312_90.png' alt='쉐보레' style="display:block;"/>쉐보레</a></li>
 								</ul>
 							</dd>
 				          </div>

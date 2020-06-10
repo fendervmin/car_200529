@@ -7,11 +7,9 @@
 
 <style>
 
-.li_img{
+.goodsImg{
 	float:left;
-	width:150px;
 	display: block;
-	margin-left:50px;
 }
 
 .col-lg-9{
@@ -56,22 +54,41 @@
 				      <!-- /.col-lg-3 -->
 				      <div class="col-lg-9">
 				        <div class="card mt-4">
-          				<img class="card-img-top img-fluid" src="http://autoimg.danawa.com/history/brand/303/logo.gif" alt="">
-				          <div class="card-body">
-				            <h3 class="card-title">현대</h3>
-				            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente dicta fugit fugiat hic aliquam itaque facere, soluta. Totam id dolores, sint aperiam sequi pariatur praesentium animi perspiciatis molestias iure, ducimus!</p>
-				            <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
-				            4.0 stars
-				          </div>
+	          				<div class="card-img" style="display:inline-block;">
+	          					<img class="card-img-top img-fluid" src="http://autoimg.danawa.com/history/brand/303/logo.gif" alt="" style="width:300px;height:200px;">
+	          				</div>
+					        <div class="card-body" style="display:inline-block;">
+					            <h3 class="card-title">
+					            <c:forEach items="${list}" var="list" begin="0" end="0">
+					            	${list.brand_Name}
+					            </c:forEach>
+					            </h3>
+					            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente dicta fugit fugiat hic aliquam itaque facere, soluta. Totam id dolores, sint aperiam sequi pariatur praesentium animi perspiciatis molestias iure, ducimus!</p>
+					            <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
+					            4.0 stars
+					        </div>
 				        </div>
+				        
 				        <!-- /.card -->
 				        <div class="card card-outline-secondary my-4">
 				          <div class="card-header">
-				            	국산
+				          <c:forEach items="${list}" var="list" begin="0" end="0">
+				            	${list.brand_Name}
+				            </c:forEach>	
 				          </div>
 				          <div class="card-body">
 				            <dd class='noLine'>
 								<ul class='brandList imageLarge'>
+									<c:forEach items="${list}" var="list">
+									<li class="goodsImg">
+										<div class="goodsImg_box">
+											<img src="${pageContext.request.contextPath}/resources/${list.brand_Id}/${list.car_Img}.png">
+										</div>
+										<div class="goodsName">
+											<a href="goodsDetail.do?c=${list.car_ID}" style="display:block;">${list.car_Name}</a>
+										</div>
+									</li>
+									</c:forEach>
 								<%-- <a href="goodsDetail.do">
 									<% for(int i=1; i<=5; i++) 
 										{%>
