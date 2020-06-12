@@ -114,7 +114,7 @@ function signUp(){
 		data :  $("#registerform").serialize(),
 		success:function(data){
 			if(data == 1){
-				alert("회원가입이 완료됐습니다/");
+				alert("회원가입이 완료됐습니다");
 				location.href = "/user/loginPage.do";
 			}else if(data == 2){
 				alert("이미 존재하는 아이디입니다.");

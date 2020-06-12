@@ -22,7 +22,7 @@
 				<li class="myPage_li"><h3>나의 게시글 보기</h3></li>
 				<li class="myPage_li"><h3>개인정보</h3></li>
 
-				<li class="myPage_li">회원정보수정</li>
+				<li class="myPage_li" href="/modify">회원정보수정</li>
 				<li class="myPage_li">회원탈퇴</li>
 			</ul>
 		</div>

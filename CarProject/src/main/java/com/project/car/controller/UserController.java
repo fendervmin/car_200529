@@ -86,6 +86,8 @@ public class UserController {
 		return mav;
 	}
 	
+	// 마이페이지 기능을 수행하는 메소드
+	
 	// 아이디 체크
 	@RequestMapping("checkUserId.do")
 	@ResponseBody
