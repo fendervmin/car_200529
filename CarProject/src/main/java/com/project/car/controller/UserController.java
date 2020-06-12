@@ -32,7 +32,6 @@ public class UserController {
 			// 페이지 바꿔야됨
 			mav.setViewName("user/signUp");
 		}else {
-			
 			mav.addObject("loginFail", "아이디 또는 비밀번호가 다릅니다.");
 			mav.setViewName("user/login");
 		}
@@ -78,6 +77,15 @@ public class UserController {
 		return mav;
 	}
 	
+	// 마이페이지로 가는 메소드
+	@RequestMapping(value="mypage.do")
+	public ModelAndView myPage() {
+		ModelAndView mav = new ModelAndView();
+		
+		mav.setViewName("user/myPage");
+		return mav;
+	}
+	
 	// 아이디 체크
 	@RequestMapping("checkUserId.do")
 	@ResponseBody
@@ -90,7 +98,6 @@ public class UserController {
 		}
 	}
 	
-
 	@RequestMapping(value="userSearch.do")
 	public ModelAndView userSearch() {
 		ModelAndView mav = new ModelAndView();
