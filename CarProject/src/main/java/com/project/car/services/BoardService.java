@@ -11,5 +11,6 @@ public interface BoardService {
 	public List<BoardVO> list() throws Exception;
 	
 	public void modify(BoardVO boardVO) throws Exception;
-
+	
+	public BoardVO post(int post_id) throws Exception;
 }

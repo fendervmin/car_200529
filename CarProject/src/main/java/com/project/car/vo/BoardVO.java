@@ -4,11 +4,17 @@ package com.project.car.vo;
 
 public class BoardVO {
 	
+	private int post_id;
 	private String post_title;
 	private String post_content;
 	private String post_time;
 	private int member_id;
 
+	
+	public int getPost_id() {
+		return post_id;
+	}
+	
 	public String getPost_time() {
 		return post_time;
 	}

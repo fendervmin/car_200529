@@ -10,10 +10,7 @@
 	src="${pageContext.request.contextPath }/resources/js/jquery-3.4.1.min.js"></script>
 <title>Insert title here</title>
 <script>
-	function f_boardModify(){
-		
-		location.href="writeModify.do";
-	}
+	
 </script>
 </head>
 <body>
@@ -31,9 +28,9 @@
 				<div class="row">
 
 					<div class="col-md-auto">
-						<a href=''></a>
-						<button type="submit" class="btn btn-secondary btn-sm"
-							onclick="f_boardList">글목록</button>
+						
+						<a href='writeView.do?indexs=${detail.post_id }'>수정하기</a>
+						
 					</div>
 				</div>
 			</div>

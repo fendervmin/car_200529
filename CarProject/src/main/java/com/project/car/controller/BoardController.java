@@ -21,13 +21,17 @@ public class BoardController {
 	private static final Logger logger=LoggerFactory.getLogger(BoardController.class);
 	@Autowired
 	BoardService service;
-	
 	//get방식으로 writeView페이지 요청이오면 메소드 실행
+	
+	
 	@RequestMapping(value="writeView.do",method=RequestMethod.GET)
-	public String getWriteView(BoardVO boardVO,Model model) throws Exception {
-		logger.info("get writeView");
-		//요청받은 후 게시판 작성폼에서 받아올 값을 담을 객체를 생성해 model에 담아줌
-		model.addAttribute("boardVO", new BoardVO());
+	public String getWriteView(BoardVO boardVO,Model model,String indexs) throws Exception {
+		int a= Integer.parseInt(indexs);
+		logger.info("get writeView"+a);
+		
+		if(a!=0)
+		model.addAttribute("boardVO", service.post(a));
+		
 		return "board/writeView";//writeView get타입 메소드에서 BoardVO타입의 boardVO키값을 model에 저장?알려줘야함 
 	}
 	
@@ -43,22 +47,13 @@ public class BoardController {
 	}
 	
 	
-	@RequestMapping(value="writeModify.do",method=RequestMethod.GET)
-	public String getWriteModify(BoardVO boardVO,Model model,int index) throws Exception {
-		logger.info("get writeModify");
-		service.list().get(index);
-		model.addAttribute("boardVO", service.list().get(index));
-		return "board/writeView";
-	}
-	
-	
-	@RequestMapping(value="writeModify.do", method=RequestMethod.POST)
-	public String postWriteModify(@ModelAttribute("boardVO")BoardVO boardVO,Model model) throws Exception{
-		logger.info("post 방식의 writeModify");
+	@RequestMapping(value="writeSuccess.do", method=RequestMethod.POST)
+	public String postWriteModify(BoardVO boardVO,Model model) throws Exception{
+		logger.info("post 방식의 writeSuccess");
+
 		service.modify(boardVO);
 		return "board/writeDetail";
 	}
-	
 	
 	@RequestMapping(value="writeBoard.do", method=RequestMethod.GET)
 	public String getWriteBoard(Model model) throws Exception{//값을 매핑해줄 model객체를 생성
@@ -69,12 +64,13 @@ public class BoardController {
 	
 	
 	//값을 매핑해줄 model객체생성
-		//get에서 parameter값 준걸 받아오기 위해 파라미터에 int값 index넣어줌 
+		//get에서 parameter값(post_id) 준걸 받아오기 위해 파라미터에 String값 post넣어줌 
 	@RequestMapping(value="writeDetail.do", method=RequestMethod.GET)//GET방식으로 writeDetail주소를 받아오면 메소드 실행
-	public String getWriteDetail(int index,Model model) throws Exception{
-		logger.info("Get writeBoard");
-		model.addAttribute("detail", service.list().get(index));//list에서 index값과 매핑되는 게시판 정보를 불러와서 detail이름으로 model에 넣어줌
+	public String getWriteDetail(String post,Model model) throws Exception{
+		logger.info("Get writeBoard"+Integer.parseInt(post));
+		model.addAttribute("detail", service.post(Integer.parseInt(post)));//list에서 index값과 매핑되는 게시판 정보를 불러와서 detail이름으로 model에 넣어줌
 		return "board/writeDetail";//writeDetail페이지로 이동
 	}
+	
 	
 }

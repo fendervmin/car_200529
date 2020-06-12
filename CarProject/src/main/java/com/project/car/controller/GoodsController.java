@@ -21,7 +21,7 @@ public class GoodsController {
 	private static final Logger logger = LoggerFactory.getLogger(GoodsController.class); 
 	
 	// 브랜드 리스트
-	@RequestMapping(value = "brandList", method = RequestMethod.GET)
+	@RequestMapping(value = "brandList.do", method = RequestMethod.GET)
 	public String getBrandList() throws Exception {
 	 logger.info("get brand list");
 	 
@@ -37,7 +37,7 @@ public class GoodsController {
 	}*/
 	
 	// 상품 리스트
-		@RequestMapping(value = "goodsList", method = RequestMethod.GET)
+		@RequestMapping(value = "goodsList.do", method = RequestMethod.GET)
 		public String getGoodsList() throws Exception {
 		 logger.info("get goods list");
 		 return "goods/goodsList";

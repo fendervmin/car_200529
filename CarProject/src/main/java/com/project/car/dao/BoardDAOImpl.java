@@ -35,4 +35,10 @@ public class BoardDAOImpl implements BoardDAO {
 	public void modify(BoardVO boardVO) throws Exception{
 		sqlSession.update("mappers.boardMapper.modify",boardVO);
 	}
+	
+	@Override
+	public BoardVO post(int post_id) throws Exception{
+		BoardVO board = sqlSession.selectOne("mappers.boardMapper.post",post_id);
+		return board;
+	}
 }

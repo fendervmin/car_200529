@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 package com.project.car.vo;
 
 import java.util.Date;

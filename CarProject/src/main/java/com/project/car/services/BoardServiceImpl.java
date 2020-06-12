@@ -27,5 +27,10 @@ public class BoardServiceImpl implements BoardService {
 	public void modify(BoardVO boardVO) throws Exception{
 		dao.modify(boardVO);
 	}
+	@Override
+	public BoardVO post(int post_id) throws Exception{
+		return dao.post(post_id);
+	}
+
 
 }

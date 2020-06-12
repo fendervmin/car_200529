@@ -30,15 +30,13 @@
 							
 							<tr>
 								<th scope="col" class="text-center">${vs.index}</th>
-								<th scope="col" class="text-center"><a href='writeDetail.do?index=${vs.index}'>${list.post_title}</a></th>
+								<th scope="col" class="text-center"><a href='writeDetail.do?post=${list.post_id}'>${list.post_title}</a></th>
 								<th scope="col" class="text-center">${list.post_content}</th>
-								
-							</tr>
-							
+							</tr>							
 						</tbody>
 					</c:forEach>
 				</table>
-				<a href="writeView.do">글작성</a>
+				<a href="writeView.do?index=0">글작성</a>
 		</div>
 	<div id="footer_box">
 		<c:import url="../common/footer.jsp"/>
