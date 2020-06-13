@@ -108,13 +108,13 @@ values (#{member_Id},#{member_UserId},#{member_Pwd},#{member_Nicname},#{member_E
 		MEMBER_IN,
 		MEMBER_OUT)
 			VALUES (
-		#{MEMBER_ID},
-		#{MEMBER_USERID},
+		MEMBER_SEQ.NEXTVAL,
+		#{member_UserId},
 		'회원',
-		#{MEMBER_NAME},
-		#{MEMBER_NICNAME},
-		#{MEMBER_PWD},
-		#{MEMBER_EMAIL},
+		#{member_Name},
+		#{member_Nicname},
+		#{member_Pwd},
+		#{member_Email},
 		SYSDATE,
 		null)
 </insert>

@@ -90,7 +90,7 @@ function existmodify() {
 	var member_Name = $("member_Name").val();
 	var member_Email = $("member_Email").val();
 	var member_Nicname = $("member_Nicname").val();
-	//console.log('성공');
+	
 	$.ajax({
 		url: "/user/modify.do",
 		method: "POST",
@@ -110,6 +110,7 @@ function existmodify() {
 			} else {
 				alert("회원정보가 수정되었습니다.");
 				location.href="/user/myPage.do";
+				console.log('성공');
 			}
 		}
 	});
