@@ -20,13 +20,18 @@
    
    	<!-- 작성한 게시판의 내용을 select로 불러와서 boardVO객체타입으로 불러오기 -->
    	<select id="writeList" resultType="board">
-   		SELECT POST_ID,POST_TITLE,POST_CONTENT,POST_TIME,MEMBER_ID FROM POST
+   		SELECT POST_ID,POST_TITLE,POST_CONTENT,POST_TIME,MEMBER_ID FROM POST ORDER BY POST_ID
    </select>
   
    <select id="post" parameterType="int" resultType="board">
    		SELECT POST_ID,POST_TITLE,POST_CONTENT,POST_TIME,MEMBER_ID FROM POST WHERE POST_ID=#{post_id}
    </select>
-   <update id="modify" parameterType="board">
-   		UPDATE POST SET POST_TITLE=#{post_title},POST_CONTENT=#{post_content} WHERE POST_ID=#{post_id}
+   <update id="update" parameterType="board">
+   		UPDATE POST 
+   		SET POST_TITLE=#{post_title},POST_CONTENT=#{post_content} 
+   		WHERE POST_ID=#{post_id}
    </update>
+   <delete id="delete" parameterType="int">
+   		DELETE FROM POST WHERE POST_ID=#{post_id}
+   </delete>
 </mapper>

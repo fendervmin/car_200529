@@ -6,59 +6,47 @@
 <head>
 
 <title>Home</title>
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/resources/css/mainView/common.css">
-<script type="text/javascript"
-	src="${pageContext.request.contextPath }/resources/js/jquery-3.4.1.min.js">
-/* 		
-	int index =function url(){
-		var url = unescape(location.href);
-		int param = Integer.parseInt(url.substring(url.indexOf("=")+1,url.length));
-		return param;
-}
- if(index!=0)
-	 location.href='writeView.do';
- else
-	 location.href='writeSuccess.do'; */
+<link href="css/styles.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
+<script type="text/javascript" src="${pageContext.request.contextPath }/resources/js/jquery-3.4.1.min.js"></script>
 
-		
-	</script>
+<script type="text/javascript">
+			
+	function fn(select){
+		alert("돼 된다고!!");
+		if(select == '0'){
+			$('#writeForm').attr('action', 'writeBoard.do').submit();
+		}else if(select =='1'){
+			$('#writeForm').attr('action', 'writeDetail.do').submit();
+		}
+	}
+</script>
 	
-
+<meta charset="UTF-8">
 </head>
 <body class="pt-5">
 	
-	<form:form modelAttribute="boardVO" method="post" id="boardVO" name="write">
+	<form:form modelAttribute="boardVO" method="post" id="writeForm"><!-- 커맨드 객체 생성 -->
 		<table border="1">
 			<tr>
-				<th><form:label path="post_title">제목</form:label></th>
+				<td><form:label path="post_title">제목</form:label></td>
 				<td>
-					<form:input path="post_title" value="${boardVO.post_title}" id="title"/>
+					<form:input path="post_title"/>
 				</td>
 			</tr>
 			<tr>
-				<th><form:label path="post_content">내용</form:label></th>
+				<td><form:label path="post_content">내용</form:label></td>
 				<td>
-					<form:textarea path="post_content" value="${boardVO.post_content}" id="title"/>
+					<form:textarea cols="50" rows="10"  path="post_content"/>
 				</td>
 			</tr>
-		</table>
-		<div>
-			<a href="#" onclick="fn_update()">수정</a>
-		</div>
+		</table>			
+			<c:if test="${num=='0'}">
+				<input type="button" value="작성" onclick="fn(0)"/>
+			</c:if>
+			<c:if test="${num!='0'}">
+				<input type="button" value="수정" onclick="fn(1)"/>
+			</c:if>
 	</form:form>
-	<script>
-		function fn_update(){
-			var form = document.getElementById("write");
-			form.action="<c:url value='writeView.do'/>";
-			form.submit();
-		}
-		
-		function fn_write(){
-			var form = document.getElementById(write);
-			form.action="<c:url value='writeSuccess.do'/>";
-			form.submit();
-		}
-	</script>
 </body>
 </html>

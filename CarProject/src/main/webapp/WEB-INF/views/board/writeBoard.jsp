@@ -6,7 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-	<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/mainView/common.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/dbwls/carbook-master">
 <script type="text/javascript" src="${pageContext.request.contextPath }/resources/js/jquery-3.4.1.min.js"></script>
 
 </head>
@@ -16,7 +16,7 @@
 			<div id="header_box">
 				<c:import url="../common/menubar.jsp"/>
 			</div>
-		<div class="container" style="margin-top:150px">
+		<div class="card" style="margin-top:150px">
 				<table class="table table-hover">
 					<thead>
 						<tr>
@@ -30,7 +30,7 @@
 							
 							<tr>
 								<th scope="col" class="text-center">${vs.index}</th>
-								<th scope="col" class="text-center"><a href='writeDetail.do?post=${list.post_id}'>${list.post_title}</a></th>
+								<th scope="col" class="text-center"><a href='writeDetail.do?index=${list.post_id}'>${list.post_title}</a></th>
 								<th scope="col" class="text-center">${list.post_content}</th>
 							</tr>							
 						</tbody>

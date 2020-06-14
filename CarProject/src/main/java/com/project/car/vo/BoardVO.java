@@ -9,8 +9,36 @@ public class BoardVO {
 	private String post_content;
 	private String post_time;
 	private int member_id;
-
+	private String SelNum;
 	
+	
+	
+	@Override
+	public String toString() {
+		return "BoardVO [post_id=" + post_id + ", post_title=" + post_title + ", post_content=" + post_content
+				+ ", post_time=" + post_time + ", member_id=" + member_id + ", SelNum=" + SelNum + "]";
+	}
+
+	public String getSelNum() {
+		return SelNum;
+	}
+
+	public void setSelNum(String selNum) {
+		SelNum = selNum;
+	}
+
+	public void setPost_id(int post_id) {
+		this.post_id = post_id;
+	}
+
+	public void setPost_time(String post_time) {
+		this.post_time = post_time;
+	}
+
+	public void setMember_id(int member_id) {
+		this.member_id = member_id;
+	}
+
 	public int getPost_id() {
 		return post_id;
 	}

@@ -4,10 +4,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/resources/css/mainView/common.css">
-<script type="text/javascript"
-	src="${pageContext.request.contextPath }/resources/js/jquery-3.4.1.min.js"></script>
+<link href="css/styles.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
+<script type="text/javascript" src="${pageContext.request.contextPath }/resources/js/jquery-3.4.1.min.js"></script>
+
 <title>Insert title here</title>
 <script>
 	
@@ -29,7 +29,8 @@
 
 					<div class="col-md-auto">
 						
-						<a href='writeView.do?indexs=${detail.post_id }'>수정하기</a>
+						<a href='writeView.do?index=${detail.post_id }'>수정하기</a>
+						<a href='writeBoard.do?index=${detail.post_id}'>삭제하기</a>
 						
 					</div>
 				</div>

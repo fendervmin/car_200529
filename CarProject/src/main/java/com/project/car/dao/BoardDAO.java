@@ -11,4 +11,6 @@ public interface BoardDAO {
 	public List<BoardVO> list() throws Exception;
 	public void modify(BoardVO boardVO) throws Exception;
 	public BoardVO post(int post_id) throws Exception;
+	public void delete(int post_id) throws Exception;
+	
 }

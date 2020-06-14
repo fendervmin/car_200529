@@ -33,12 +33,22 @@ public class BoardDAOImpl implements BoardDAO {
 
 	@Override
 	public void modify(BoardVO boardVO) throws Exception{
-		sqlSession.update("mappers.boardMapper.modify",boardVO);
+		sqlSession.update("mappers.boardMapper.update",boardVO);
 	}
 	
 	@Override
 	public BoardVO post(int post_id) throws Exception{
+		System.out.println(post_id);
 		BoardVO board = sqlSession.selectOne("mappers.boardMapper.post",post_id);
+		
+		
 		return board;
+	}
+	@Override
+	public void delete(int post_id) throws Exception{
+		
+		sqlSession.insert("mappers.boardMapper.delete",post_id);
+
+		
 	}
 }
