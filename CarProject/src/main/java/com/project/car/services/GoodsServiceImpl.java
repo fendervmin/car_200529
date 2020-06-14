@@ -19,4 +19,9 @@ public class GoodsServiceImpl implements GoodsService {
 		// TODO Auto-generated method stub
 		return dao.list(brand_id);
 	}
+	
+	public GoodsVO detail(int car_id) throws Exception {
+		return dao.detail(car_id);
+	}
+	
 }

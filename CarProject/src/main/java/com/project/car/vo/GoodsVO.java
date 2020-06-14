@@ -12,7 +12,23 @@ public class GoodsVO {
         private String car_Img;
         private int brand_Id;
         private String brand_Name;
+        private String brand_Img;
+		private String brand_Explain;
+		
         
+        public String getBrand_Img() {
+			return brand_Img;
+		}
+		public void setBrand_Img(String brand_Img) {
+			this.brand_Img = brand_Img;
+		}
+        
+		public String getBrand_Explain() {
+			return brand_Explain;
+		}
+		public void setBrand_Explain(String brand_Explain) {
+			this.brand_Explain = brand_Explain;
+		}
 		public String getBrand_Name() {
 			return brand_Name;
 		}

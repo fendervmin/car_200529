@@ -55,7 +55,7 @@
 				      <div class="col-lg-9">
 				        <div class="card mt-4">
 	          				<div class="card-img" style="display:inline-block;">
-	          					<img class="card-img-top img-fluid" src="http://autoimg.danawa.com/history/brand/303/logo.gif" alt="" style="width:300px;height:200px;">
+	          					<img class="card-img-top img-fluid" src="http://autoimg.danawa.com/history/brand/303/logo.gif"alt="" style="width:300px;height:200px;" >
 	          				</div>
 					        <div class="card-body" style="display:inline-block;">
 					            <h3 class="card-title">
@@ -63,7 +63,20 @@
 					            	${list.brand_Name}
 					            </c:forEach>
 					            </h3>
-					            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente dicta fugit fugiat hic aliquam itaque facere, soluta. Totam id dolores, sint aperiam sequi pariatur praesentium animi perspiciatis molestias iure, ducimus!</p>
+					            
+					            <p class="card-text">
+								<details>
+								    <summary>회사 설명 보기</summary>
+								    <p>
+								    	<c:forEach items="${list}" var="list">
+					            			${list.brand_Explain}
+					            		</c:forEach>
+								    </p>
+								</details>
+					            
+					            <!-- <a href=# onclick=this.nextSibling.style.display=(this.nextSibling.style.display=="none")?"block":"none";>
+									펼치기
+									</a><div style="display:none;">롸롸롸</div></p> -->
 					            <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
 					            4.0 stars
 					        </div>
@@ -85,7 +98,7 @@
 											<img src="${pageContext.request.contextPath}/resources/${list.brand_Id}/${list.car_Img}.png">
 										</div>
 										<div class="goodsName">
-											<a href="goodsDetail.do?c=${list.car_ID}" style="display:block;">${list.car_Name}</a>
+											<a href="goodsDetail.do?b=${list.brand_Id}&c=${list.car_ID}" style="display:block;">${list.car_Name}</a>
 										</div>
 									</li>
 									</c:forEach>
