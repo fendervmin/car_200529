@@ -6,10 +6,7 @@ import com.project.car.vo.GoodsVO;
 
 public interface GoodsDAO {
 	
-	List<GoodsVO> listGoods();
-	GoodsVO detailGoods(int CAR_ID);
-	void updateGoods(GoodsVO vo);
-	void deleteGoods(int CAR_ID);
-	void insertGoods(GoodsVO vo);
-	String fileInfo(int CAR_ID);
+	public List<GoodsVO> list(int brand_id) throws Exception;
+
+	public GoodsVO detail(int car_id) throws Exception;
 }

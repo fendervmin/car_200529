@@ -23,7 +23,10 @@ public class UserServiceImpl implements UserService {
 	
 	@Autowired
 	private JavaMailSender mailSender;
-
+	
+	@Autowired
+	public SqlSession sqlSession;
+	
 	@Override
 	public MemberVO getUserOne(String common,String col) {
 		return userDAO.getUserOne(common,col);
@@ -33,9 +36,6 @@ public class UserServiceImpl implements UserService {
 	public int userJoin(MemberVO member) {
 		return userDAO.userJoin(member);
 	}
-	
-	@Autowired
-	public SqlSession sqlSession;
 	
 	public String get_searchId(String member_Name, String member_Email) {
 		userDAO = sqlSession.getMapper(UserDAO.class);
@@ -107,5 +107,30 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public int selectUserId(String userId) {
 		return userDAO.selectUserId(userId);
+	}
+
+	@Override
+	public int checkEmail(MemberVO member) {
+		return userDAO.checkEmail(member);
+	}
+
+	@Override
+	public int checkNickName(MemberVO member) {
+		return userDAO.checkNickName(member);
+	}
+
+	@Override
+	public void modifyUser(MemberVO member) {
+		userDAO.modifyUser(member);
+	}
+
+	@Override
+	public void updatePwd(MemberVO member) {
+		userDAO.updatePwd(member);
+	}
+
+	@Override
+	public void removeUser(String loginId) {
+		userDAO.removeUser(loginId);
 	}
 }

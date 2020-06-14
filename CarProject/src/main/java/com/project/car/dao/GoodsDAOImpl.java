@@ -13,43 +13,32 @@ import com.project.car.vo.GoodsVO;
 public class GoodsDAOImpl implements GoodsDAO {
 	
 	@Inject
-	SqlSession sqlSession;
+	private SqlSession sql;
+	
+	private static String namespace="goods";
+
 	
 	@Override
-	public List<GoodsVO> listGoods() {
+	public List<GoodsVO> list(int brand_id) throws Exception {
 		// TODO Auto-generated method stub
-		return sqlSession.selectList("goods.goodsList");
+		GoodsVO g = new GoodsVO();
+		g.setBrand_Id(brand_id);
+		List<GoodsVO> list = sql.selectList("goods.list",brand_id);
+		return list;
 	}
-
+	
 	@Override
-	public GoodsVO detailGoods(int car_id) {
+	public GoodsVO detail(int car_id) throws Exception {
 		// TODO Auto-generated method stub
-		return null;
+		GoodsVO g = new GoodsVO();
+		g.setCar_ID(car_id);
+		System.out.println(car_id);
+		GoodsVO detail = sql.selectOne("goods.detail",car_id);
+		return detail;
 	}
-
-	@Override
-	public void updateGoods(GoodsVO vo) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void deleteGoods(int CAR_ID) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void insertGoods(GoodsVO vo) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public String fileInfo(int CAR_ID) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
+	
+	
+	
+	
 
 }

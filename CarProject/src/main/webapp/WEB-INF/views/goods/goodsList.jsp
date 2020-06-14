@@ -1,20 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
 
 <style>
 
-.li_img{
+.goodsImg{
 	float:left;
-	width:150px;
 	display: block;
 }
 
 .col-lg-9{
 	float:left;
+	
 }
-
 </style>
 
 <meta charset="utf-8">
@@ -38,7 +39,7 @@
 			</div>
 		</header>
 		
-		<section id="container">
+		<section id="container" style="margin-top:150px">
 			<div id="container_box">
 				<div class="container">
 				    <div class="row">
@@ -53,20 +54,68 @@
 				      <!-- /.col-lg-3 -->
 				      <div class="col-lg-9">
 				        <div class="card mt-4">
-          				<img class="card-img-top img-fluid" src="http://autoimg.danawa.com/history/brand/303/logo.gif" alt="">
-				          <div class="card-body">
-				            <h3 class="card-title">현대</h3>
-				            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente dicta fugit fugiat hic aliquam itaque facere, soluta. Totam id dolores, sint aperiam sequi pariatur praesentium animi perspiciatis molestias iure, ducimus!</p>
-				            <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
-				            4.0 stars
-				          </div>
+	          				<div class="card-img" style="display:inline-block;">
+	          					<img class="card-img-top img-fluid" src="http://autoimg.danawa.com/history/brand/303/logo.gif"alt="" style="width:300px;height:200px;" >
+	          				</div>
+					        <div class="card-body" style="display:inline-block;">
+					            <h3 class="card-title">
+					            <c:forEach items="${list}" var="list" begin="0" end="0">
+					            	${list.brand_Name}
+					            </c:forEach>
+					            </h3>
+					            
+					            <p class="card-text">
+								<details>
+								    <summary>회사 설명 보기</summary>
+								    <p>
+								    	<c:forEach items="${list}" var="list">
+					            			${list.brand_Explain}
+					            		</c:forEach>
+								    </p>
+								</details>
+					            
+					            <!-- <a href=# onclick=this.nextSibling.style.display=(this.nextSibling.style.display=="none")?"block":"none";>
+									펼치기
+									</a><div style="display:none;">롸롸롸</div></p> -->
+					            <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
+					            4.0 stars
+					        </div>
 				        </div>
 				        
-				        </div>
 				        <!-- /.card -->
-				      </div>
+				        <div class="card card-outline-secondary my-4">
+				          <div class="card-header">
+				          <c:forEach items="${list}" var="list" begin="0" end="0">
+				            	${list.brand_Name}
+				            </c:forEach>	
+				          </div>
+				          <div class="card-body">
+				            <dd class='noLine'>
+								<ul class='brandList imageLarge'>
+									<c:forEach items="${list}" var="list">
+									<li class="goodsImg">
+										<div class="goodsImg_box">
+											<img src="${pageContext.request.contextPath}/resources/${list.brand_Id}/${list.car_Img}.png">
+										</div>
+										<div class="goodsName">
+											<a href="goodsDetail.do?b=${list.brand_Id}&c=${list.car_ID}" style="display:block;">${list.car_Name}</a>
+										</div>
+									</li>
+									</c:forEach>
+								<%-- <a href="goodsDetail.do">
+									<% for(int i=1; i<=5; i++) 
+										{%>
+									   		<li class='li_img'><img src="/resources/hyundai/<%=i %>.png" style="display:block;"/></li>
+									  	<% }
+									%></a> --%>
+								</ul>
+							</dd>
+				          </div>
+				       </div>
+				        <!-- /.card -->
+				     </div>
 				      <!-- /.col-lg-9 -->
-				   </div>
+				  </div>
 			   </div>
 			</div>
 		</section>

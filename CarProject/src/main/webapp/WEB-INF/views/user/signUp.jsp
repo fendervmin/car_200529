@@ -9,11 +9,15 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> 
 </head>
 <body style="background-color:#f0f5f3">
-<c:import url="common/menubar.jsp"/>
+<c:import url="../common/menubar.jsp"/>
 <form id="registerform">
         <div class="fieldlabel"><label for="member_UserId">*아이디</label></div>
         <div class="formfield"><input type="text" id="member_UserId" name="member_UserId" maxlength="20" value=""><input type="button" onclick="existId()" value="ID중복확인"><div class="error_box" id="idMsg" style="display: none;"></div></div>
         
+        <div class="fieldlabel"><label for="member_Name">*이름</label></div>
+        <div class="formfield"><input type="text" id="member_Name" name="member_Name" maxlength="20" autocomplete="off">
+</div>
+
         <div class="fieldlabel"><label for="member_Pwd">*패스워드</label></div>
         <div class="formfield"><input type="password" id="member_Pwd" name="member_Pwd" maxlength="20" autocomplete="off">
 </div>
@@ -46,24 +50,28 @@
 
 function signUpValidation(){
 	
-	var userId = $("#member_UserId").val();
-	var userPw = $("#member_Pwd").val();
-	var userPwCheck = $("#passwordCheck").val();
-	var nickName = $("#member_Nicname").val();
-	var email = $("#member_Email").val();
+	var member_UserId = $("#member_UserId").val();
+	var member_Name = $("#member_Name").val();
+	var member_Pwd = $("#member_Pwd").val();
+	var passwordCheck = $("#passwordCheck").val();
+	var member_Nicname = $("#member_Nicname").val();
+	var member_Email = $("#member_Email").val();
 	
 	if(!member_UserId){
 		alert("아이디 입력은 필수입니다.");
 		$("#member_UserId").focus();
+	}else if(!member_Name) {
+		alert("이름 입력은 필수입니다.");
+		$("#member_Name").focus();
 	}else if(!member_Pwd){
 		alert("비밀번호 입력은 필수입니다.");
 		$("#member_Pwd").focus();
-	}else if(!userPwCheck){
+	}else if(!passwordCheck){
 		alert("비밀번호 확인 입력은 필수입니다.");
 		$("#passwordCheck").focus();
-	}else if(member_Pwd != userPwCheck){
+	}else if(member_Pwd != passwordCheck){
 		alert("비밀번호가 맞지 않습니다.");
-		$("#member_Pwd").focus();		
+		$("#member_Pwd").focus();	
 	}else if(!member_Nicname){
 		alert("닉네임 입력은 필수입니다.");
 		$("#member_Nicname").focus();
@@ -71,7 +79,7 @@ function signUpValidation(){
 		alert("이메일 입력은 필수입니다.");
 		$("#member_Email").focus();
 	}else {
-		signUp()
+		signUp();
 	}
 	
 }
@@ -114,13 +122,10 @@ function signUp(){
 		data :  $("#registerform").serialize(),
 		success:function(data){
 			if(data == 1){
-				alert("회원가입이 완료됐습니다/");
+				alert("회원가입이 완료됐습니다");
 				location.href = "/user/loginPage.do";
 			}else if(data == 2){
-				alert("이미 존재하는 아이디입니다.");
-				return false;
-			}else if(data == 3){
-				alert("이미 존재하는 닉네임입니다.");
+				alert("회원가입이 실패했습니다.");
 				return false;
 			}
 		}
