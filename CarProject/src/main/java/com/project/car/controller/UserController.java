@@ -1,5 +1,8 @@
 package com.project.car.controller;
 
+import java.io.IOException;
+
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,9 +33,8 @@ public class UserController {
 			session.setAttribute("loginUser", user);
 			session.setMaxInactiveInterval(6000);
 			// 페이지 바꿔야됨
-			mav.setViewName("user/signUp");
+			mav.setViewName("home");
 		}else {
-			
 			mav.addObject("loginFail", "아이디 또는 비밀번호가 다릅니다.");
 			mav.setViewName("user/login");
 		}
@@ -60,22 +62,42 @@ public class UserController {
 	
 	// 회원가입을 수행하는 메소드
 	@RequestMapping(value="signUp.do")
-	public ModelAndView signUp(@ModelAttribute MemberVO member) {
+	public void signUp(@ModelAttribute MemberVO member, HttpServletResponse response) throws IOException {
 		ModelAndView mav = new ModelAndView();
+		
+		System.out.println(member.getMember_UserId());
 		
 		member.setMember_Email(member.getMember_Email() + "@" + member.getDomain());
 		
 		int result = uService.signUp(member);
 		
+		response.setContentType("text/plain");
+		response.setCharacterEncoding("UTF-8");
 		if(result > 0 ) {
 			// 회원가입 성공
-			mav.setViewName("redirect:/user/loginPage.do");
+			response.getWriter().write("1");
 		}else {
 			// 회원가입 실패
-			mav.setViewName("redirect:/user/signUpPage.do");
+			response.getWriter().write("2");
 		}
+	}
+	
+	// 마이페이지로 가는 메소드
+	@RequestMapping(value="mypagePage.do")
+	public ModelAndView myPage() {
+		ModelAndView mav = new ModelAndView();
 		
+		mav.setViewName("user/myPage");
 		return mav;
+	}
+	
+	// 마이페이지 기능을 수행하는 메소드
+	@RequestMapping(value="myPage.do")
+	public ModelAndView myPage(@ModelAttribute MemberVO member) {
+		ModelAndView mav = new ModelAndView();
+		
+		return null;
+		
 	}
 	
 	// 아이디 체크
@@ -90,7 +112,6 @@ public class UserController {
 		}
 	}
 	
-
 	@RequestMapping(value="userSearch.do")
 	public ModelAndView userSearch() {
 		ModelAndView mav = new ModelAndView();

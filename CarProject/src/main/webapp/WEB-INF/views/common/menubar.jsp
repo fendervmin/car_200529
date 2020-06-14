@@ -82,9 +82,9 @@ $(window).scroll(function(event) {
                <c:out value="로그인 계정 없음"/>
             </h3> --%>
          </c:if>
-         <c:if test="${ !empty sessionScope.loginUser && loginUser.userName != '관리자' }">
+         <c:if test="${ !empty sessionScope.loginUser && loginUser.member_Type != '관리자' }">
          <dd>
-            <a style="font-size:12px;"> ${ loginUser.userName }님 환영합니다.</a>
+            <a style="font-size:12px;"> ${ loginUser.member_Name }님 환영합니다.</a>
          </dd>
          <dd class="arw">
             <a href='mypage.do'>마이페이지</a>
@@ -95,9 +95,9 @@ $(window).scroll(function(event) {
          </c:if>
          
          <!-- 관리자 로그인시 -->
-         <c:if test="${loginUser.userName == '관리자' }">
+         <c:if test="${loginUser.member_Type == '관리자' }">
          <dd>
-            <a style="font-size:12px;"> ${ loginUser.userName }님 환영합니다.</a>
+            <a style="font-size:12px;"> ${ loginUser.member_Name }님 환영합니다.</a>
          </dd>
          <dd class="arw">
             <a href='mypage.do'>마이페이지</a>
@@ -109,10 +109,6 @@ $(window).scroll(function(event) {
             <a href='admin.do'>관리자</a>
          </dd>
          </c:if>
-<<<<<<< HEAD
-         
-=======
->>>>>>> refs/remotes/origin/master
 	<div id="header" class="header" style="outline: none;">
 	<!-- 오른쪽 맨 위 상단에 로그인, 회원가입, 등등 버튼있는 부분입니다... -->
 	<div class="contain">
@@ -130,12 +126,12 @@ $(window).scroll(function(event) {
 					<c:out value="로그인 계정 없음"/>
 				</h3> --%>
 			</c:if>
-			<c:if test="${ !empty sessionScope.loginUser && loginUser.userName != '관리자' }">
+			<c:if test="${ !empty sessionScope.loginUser && loginUser.member_Type != '관리자' }">
 			<dd>
-				<a style="font-size:12px;"> ${ loginUser.userName }님 환영합니다.</a>
+				<a style="font-size:12px;"> ${ loginUser.member_Name }님 환영합니다.</a>
 			</dd>
 			<dd class="arw">
-				<a href='mypage.do'>마이페이지</a>
+				<a href='mypagePage.do'>마이페이지</a>
 			</dd>
 			<dd>
 				<a href='logout.do'>로그아웃</a>
@@ -143,12 +139,12 @@ $(window).scroll(function(event) {
 			</c:if>
 			
 			<!-- 관리자 로그인시 -->
-			<c:if test="${loginUser.userName == '관리자' }">
+			<c:if test="${loginUser.member_Type == '관리자' }">
 			<dd>
-				<a style="font-size:12px;"> ${ loginUser.userName }님 환영합니다.</a>
+				<a style="font-size:12px;"> ${ loginUser.member_Name }님 환영합니다.</a>
 			</dd>
 			<dd class="arw">
-				<a href='mypage.do'>마이페이지</a>
+				<a href='mypagePage.do'>마이페이지</a>
 			</dd>
 			<dd>
 				<a href='logout.do'>로그아웃</a>
