@@ -94,6 +94,7 @@ values (#{member_Id},#{member_UserId},#{member_Pwd},#{member_Nicname},#{member_E
 	WHERE
 		MEMBER_USERID = #{member_UserId}
 		AND MEMBER_PWD = #{member_Pwd}
+		AND MEMBER_OUT IS NULL
 </select>
 
 <insert id="signUp" parameterType="member">
@@ -127,4 +128,53 @@ values (#{member_Id},#{member_UserId},#{member_Pwd},#{member_Nicname},#{member_E
 	WHERE
 		MEMBER_USERID = #{userId}
 </select>
+
+<select id="checkEmail" parameterType="member" resultType="_int">
+	SELECT
+		COUNT(*)
+	FROM
+		MEMBER
+	WHERE
+		MEMBER_EMAIL = #{member_Email}
+		AND MEMBER_USERID != #{member_UserId}
+</select>
+
+<select id="checkNickName" parameterType="member" resultType="_int">
+	SELECT
+		COUNT(*)
+	FROM
+		MEMBER
+	WHERE
+		MEMBER_NICNAME = #{member_Nicname}
+		AND MEMBER_USERID != #{member_UserId}
+</select>
+
+<update id="modifyUser" parameterType="member">
+	UPDATE
+		MEMBER
+	SET
+		MEMBER_NAME = #{member_Name},
+		MEMBER_EMAIL = #{member_Email},
+		MEMBER_NICNAME = #{member_Nicname}
+	WHERE
+		MEMBER_USERID = #{member_UserId}
+</update>
+
+<update id="updatePwd" parameterType = "member">
+	UPDATE
+		MEMBER
+	SET
+		MEMBER_PWD = #{member_Pwd}
+	WHERE
+		MEMBER_USERID = #{member_UserId}
+</update>
+
+<update id="removeUser" parameterType="String">
+	UPDATE
+		MEMBER
+	SET
+		MEMBER_OUT = SYSDATE
+	WHERE
+		MEMBER_USERID = #{loginId}
+</update>
 </mapper>

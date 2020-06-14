@@ -101,4 +101,14 @@ public class MemberVO {
 	public void setDomain(String domain) {
 		this.domain = domain;
 	}
+
+	@Override
+	public String toString() {
+		return "MemberVO [member_Id=" + member_Id + ", member_UserId=" + member_UserId + ", member_Type=" + member_Type
+				+ ", member_Name=" + member_Name + ", member_Nicname=" + member_Nicname + ", member_Pwd=" + member_Pwd
+				+ ", member_Email=" + member_Email + ", member_In=" + member_In + ", member_Out=" + member_Out
+				+ ", domain=" + domain + "]";
+	}
+	
+	
 }

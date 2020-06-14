@@ -88,4 +88,34 @@ public class UserDAO {
 	}
 
 
+
+	public int checkEmail(MemberVO member) {
+		return sqlSession.selectOne("mappers.userMapper.checkEmail", member);
+	}
+
+
+
+	public int checkNickName(MemberVO member) {
+		return sqlSession.selectOne("mappers.userMapper.checkNickName", member);
+	}
+
+
+
+	public void modifyUser(MemberVO member) {
+		sqlSession.update("mappers.userMapper.modifyUser", member);
+	}
+
+
+
+	public void updatePwd(MemberVO member) {
+		sqlSession.update("mappers.userMapper.updatePwd", member);
+	}
+
+
+
+	public void removeUser(String loginId) {
+		sqlSession.update("mappers.userMapper.removeUser", loginId);
+	}
+
+
 }

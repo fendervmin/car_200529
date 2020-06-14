@@ -53,8 +53,8 @@ function enterKeyCheck(){
    <input type="text" id="member_UserId" name="member_UserId" class="signUpInput" placeholder="ID" autofocus onkeyup="enterKeyCheck()">
    <input type="password" id="member_Pwd" name="member_Pwd" class="signUpInput" placeholder="Password" onkeyup="enterKeyCheck()">
    <input type="button" value="로그인" onclick="loginValidation()" class="loginButton">
-   <input type="button" value="회원가입" onclick="location.href='/user/signUp'" class="signUpButton">
-   <input type="button" value="아이디/비밀번호찾기" onclick="location.href='/user/userSearch'" class="userSearchButton">
+   <input type="button" value="회원가입" onclick="location.href='/user/signUpPage.do'" class="signUpButton">
+   <input type="button" value="아이디/비밀번호찾기" onclick="location.href='/user/userSearchPage.do'" class="userSearchButton">
    
 </form>
 </body>

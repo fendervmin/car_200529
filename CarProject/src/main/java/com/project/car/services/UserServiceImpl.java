@@ -108,4 +108,29 @@ public class UserServiceImpl implements UserService {
 	public int selectUserId(String userId) {
 		return userDAO.selectUserId(userId);
 	}
+
+	@Override
+	public int checkEmail(MemberVO member) {
+		return userDAO.checkEmail(member);
+	}
+
+	@Override
+	public int checkNickName(MemberVO member) {
+		return userDAO.checkNickName(member);
+	}
+
+	@Override
+	public void modifyUser(MemberVO member) {
+		userDAO.modifyUser(member);
+	}
+
+	@Override
+	public void updatePwd(MemberVO member) {
+		userDAO.updatePwd(member);
+	}
+
+	@Override
+	public void removeUser(String loginId) {
+		userDAO.removeUser(loginId);
+	}
 }
