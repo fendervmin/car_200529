@@ -4,4 +4,16 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mappers.newsMapper">
 
+<resultMap type="news" id="fullnewsInfo">
+	<id column="NEWS_ID" property="news_Id"/>
+	<result column="NEWS_TITLE" property="news_Title"/>
+	<result column="NEWS_CONTENT" property="news_Content"/>
+	<result column="NEWS_URL" property="news_Url"/>
+	<result column="NEWS_IMG" property="news_Img"/>
+</resultMap>
+
+<select id="getnews" parameterType="news" resultMap="fullnewsInfo">
+SELECT * FROM NEWS
+</select>
+
 </mapper>

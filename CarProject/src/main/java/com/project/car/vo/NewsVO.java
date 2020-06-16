@@ -6,7 +6,27 @@ public class NewsVO {
 	private String news_Title;
 	private String news_Content;
 	private String news_Url;
+	private String news_Img;
 	
+	public NewsVO() {}
+	
+	public NewsVO(int news_Id, String news_Title, String news_Content, String news_Url, String news_Img) {
+		super();
+		this.news_Id = news_Id;
+		this.news_Title = news_Title;
+		this.news_Content = news_Content;
+		this.news_Url = news_Url;
+		this.news_Img = news_Img;
+	}
+
+
+
+	public String getNews_Img() {
+		return news_Img;
+	}
+	public void setNews_Img(String news_Img) {
+		this.news_Img = news_Img;
+	}
 	public int getNews_Id() {
 		return news_Id;
 	}
@@ -31,5 +51,7 @@ public class NewsVO {
 	public void setNews_Url(String news_Url) {
 		this.news_Url = news_Url;
 	}
+	
+	
 	
 }
