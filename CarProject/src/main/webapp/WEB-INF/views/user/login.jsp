@@ -57,4 +57,10 @@ function enterKeyCheck(){
    <input type="button" value="아이디/비밀번호찾기" onclick="location.href='/user/userSearchPage.do'" class="userSearchButton">
    
 </form>
+
+	<footer id="footer">
+		<div id="footer_box">
+			<%@ include file="../common/footer.jsp" %>
+		</div>
+	</footer>
 </body>

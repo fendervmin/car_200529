@@ -27,7 +27,11 @@
 			</ul>
 		</div>
 	</aside>
-	
+	<footer id="footer">
+		<div id="footer_box">
+			<%@ include file="../common/footer.jsp" %>
+		</div>
+	</footer>
 	<script type="text/javascript">
 		function removeCheck(){
 			if(confirm("정말로 탈퇴하시겠습니까?") == true){

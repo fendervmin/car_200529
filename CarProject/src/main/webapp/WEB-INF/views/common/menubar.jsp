@@ -176,21 +176,19 @@ $(window).scroll(function(event) {
       <h3 class="ir">카테고리메뉴</h3>
 	      <ul id="menubar">
 	
-	         <li class="menubar_li" style="color:white;"><a href="competitionView.do">신차비교</a></li>
+	         <li class="menubar_li" style="color:white;">카테고리</li> <!-- 드롭다운 -->
 	         
-	         <li class="menubar_li" style="color:white;"><a href="goods/brandList.do">자동차백과</a></li>
+	         <li class="menubar_li" style="color:white;"><a href="../goods/brandList.do">자동차백과</a></li>
 	
-	         <li class="menubar_li" style="color:white;"><a href="board/writeBoard.do">커뮤니티</a></li>
+	         <li class="menubar_li" style="color:white;"><a href="../board/writeBoard.do">커뮤니티</a></li>
 	
-	         <li class="menubar_li" style="color:white;"><a onclick="javascript:location.href='studyListView.do';">뉴스</a></li>
+	         <li class="menubar_li" style="color:white;"><a href="../news/newsmainPage.do">뉴스</a></li>
 	      </ul>
 	   </div>
 	</div>
    <!-- 코드 끝!! -->
    <div style="margin-top:150px"></div>
    <br clear="all">
-   
-   
    
    <!-- 메뉴바 슬라이드 옵션 관련 스크립트 -->
    <script>

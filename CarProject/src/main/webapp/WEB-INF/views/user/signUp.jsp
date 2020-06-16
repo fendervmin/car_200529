@@ -45,7 +45,11 @@
             <input type="button" onclick="signUpValidation()" value="회원가입">
         </div>
     </form>
-    
+    <footer id="footer">
+		<div id="footer_box">
+			<%@ include file="../common/footer.jsp" %>
+		</div>
+	</footer>
 <script type="text/javascript">
 
 function signUpValidation(){

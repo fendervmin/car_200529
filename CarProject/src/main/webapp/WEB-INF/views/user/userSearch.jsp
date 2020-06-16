@@ -104,6 +104,11 @@ var idSearch_click = function(){
 			</div>
 		</div>
 	</div>
+	<footer id="footer">
+		<div id="footer_box">
+			<%@ include file="../common/footer.jsp" %>
+		</div>
+	</footer>
 </form>
 </body>
 </html>
