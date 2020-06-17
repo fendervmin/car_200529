@@ -1,5 +1,7 @@
 package com.project.car.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -14,8 +16,14 @@ public class NewsServiceImpl implements NewsService{
 	
 	
 	@Override
-	public NewsVO getnews (NewsVO news) {
+	public List<NewsVO> getnews (NewsVO news) {
 		return newsDAO.getnews(news);
 	}
+	
+	@Override
+	public List<NewsVO> getnewsCount (NewsVO news) {
+		return newsDAO.getnewsCount(news);
+	}
+	
 
 }

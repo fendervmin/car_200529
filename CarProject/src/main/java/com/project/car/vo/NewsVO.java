@@ -1,5 +1,7 @@
 package com.project.car.vo;
 
+import java.util.Date;
+
 public class NewsVO {
 
 	private int news_Id;
@@ -7,19 +9,21 @@ public class NewsVO {
 	private String news_Content;
 	private String news_Url;
 	private String news_Img;
+	private Date news_Date;
+	private int news_Count;
 	
 	public NewsVO() {}
 	
-	public NewsVO(int news_Id, String news_Title, String news_Content, String news_Url, String news_Img) {
+	public NewsVO(int news_Id, String news_Title, String news_Content, String news_Url, String news_Img, Date news_Date, int news_Count) {
 		super();
 		this.news_Id = news_Id;
 		this.news_Title = news_Title;
 		this.news_Content = news_Content;
 		this.news_Url = news_Url;
 		this.news_Img = news_Img;
+		this.news_Date = news_Date;
+		this.news_Count = news_Count;
 	}
-
-
 
 	public String getNews_Img() {
 		return news_Img;
@@ -51,7 +55,22 @@ public class NewsVO {
 	public void setNews_Url(String news_Url) {
 		this.news_Url = news_Url;
 	}
-	
+
+	public Date getNews_Date() {
+		return news_Date;
+	}
+
+	public void setNews_Date(Date news_Date) {
+		this.news_Date = news_Date;
+	}
+
+	public int getNews_Count() {
+		return news_Count;
+	}
+
+	public void setNews_Count(int news_Count) {
+		this.news_Count = news_Count;
+	}
 	
 	
 }
