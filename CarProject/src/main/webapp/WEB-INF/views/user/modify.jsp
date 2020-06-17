@@ -67,7 +67,11 @@
 			</form>
 		</div>
 	</div>
-	
+	<footer id="footer">
+		<div id="footer_box">
+			<%@ include file="../common/footer.jsp" %>
+		</div>
+	</footer>
 <script type="text/javascript">
 
 

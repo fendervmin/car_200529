@@ -67,7 +67,7 @@ $(window).scroll(function(event) {
 <body>
    <div id="header" class="header" style="outline: none;">
    <!-- 오른쪽 맨 위 상단에 로그인, 회원가입, 등등 버튼있는 부분입니다... -->
-   <div class="contain">
+   	<div class="contain">
       <dl class="hd_my">
          <dt class="ir">마이메뉴</dt>
          
@@ -78,9 +78,6 @@ $(window).scroll(function(event) {
          <dd id="header_joinbtn">
             <a href='../user/signUp'>회원가입</a>
          </dd>
-<%--             <h3 align="right">
-               <c:out value="로그인 계정 없음"/>
-            </h3> --%>
          </c:if>
          <c:if test="${ !empty sessionScope.loginUser && loginUser.member_Type != '관리자' }">
          <dd>
@@ -109,54 +106,6 @@ $(window).scroll(function(event) {
             <a href='admin.do'>관리자</a>
          </dd>
          </c:if>
-	<div id="header" class="header" style="outline: none;">
-	<!-- 오른쪽 맨 위 상단에 로그인, 회원가입, 등등 버튼있는 부분입니다... -->
-	<div class="contain">
-		<dl class="hd_my">
-			<dt class="ir">마이메뉴</dt>
-			
-			<c:if test="${ empty sessionScope.loginUser }">
-			<dd id="header_loginbtn">
-				<a href='user/loginPage.do'>로그인</a>
-			</dd>
-			<dd id="header_joinbtn">
-				<a href='user/signUpPage.do'>회원가입</a>
-			</dd>
-<%-- 				<h3 align="right">
-					<c:out value="로그인 계정 없음"/>
-				</h3> --%>
-			</c:if>
-			<c:if test="${ !empty sessionScope.loginUser && loginUser.member_Type != '관리자' }">
-			<dd>
-				<a style="font-size:12px;"> ${ loginUser.member_Name }님 환영합니다.</a>
-			</dd>
-			<dd class="arw">
-				<a href='mypagePage.do'>마이페이지</a>
-			</dd>
-			<dd>
-				<a href='logout.do'>로그아웃</a>
-			</dd>
-			</c:if>
-			
-			<!-- 관리자 로그인시 -->
-			<c:if test="${loginUser.member_Type == '관리자' }">
-			<dd>
-				<a style="font-size:12px;"> ${ loginUser.member_Name }님 환영합니다.</a>
-			</dd>
-			<dd class="arw">
-				<a href='mypagePage.do'>마이페이지</a>
-			</dd>
-			<dd>
-				<a href='logout.do'>로그아웃</a>
-			</dd>
-			<dd>
-				<a href='admin.do'>관리자</a>
-			</dd>
-			</c:if>
-
-
-         <%-- <%} %> --%>
-
          <dd class="arw">
             <!-- <a href="">고객센터<em class="ir">메뉴보기</em></a> -->
             <div class="lys" style="display: none;"></div>
@@ -177,19 +126,24 @@ $(window).scroll(function(event) {
       <h3 class="ir">카테고리메뉴</h3>
 	      <ul id="menubar">
 	
-	         <li class="menubar_li" style="color:white;"><a href="competitionView.do">신차비교</a></li>
+	         <li class="menubar_li" style="color:white;">카테고리</li> <!-- 드롭다운 -->
 	         
 	         <li class="menubar_li" style="color:white;"><a href="../goods/brandList.do">자동차백과</a></li>
 	
 	         <li class="menubar_li" style="color:white;"><a href="../board/writeBoard.do">커뮤니티</a></li>
 	
-	         <li class="menubar_li" style="color:white;"><a onclick="javascript:location.href='studyListView.do';">뉴스</a></li>
+	         <li class="menubar_li" style="color:white;"><a href="../news/newsmainPage.do">뉴스</a></li>
 	      </ul>
 	   </div>
 	</div>
    <!-- 코드 끝!! -->
    <div style="margin-top:150px"></div>
    <br clear="all">
+<<<<<<< HEAD
+=======
+
+   
+>>>>>>> branch 'master' of https://github.com/fendervmin/car_200529.git
    <!-- 메뉴바 슬라이드 옵션 관련 스크립트 -->
    <script>
       /* 메인 메뉴바 슬라이드 옵션 */

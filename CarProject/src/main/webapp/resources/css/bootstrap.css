@@ -4,6 +4,18 @@
  * Copyright 2011-2019 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
+.modal-content {
+     position: relative;
+     background-color: #fff;
+     -webkit-background-clip: padding-box;
+     background-clip: padding-box;
+     border: 0;
+     border: 0;
+     border-radius: 0;
+     outline: 0;
+     max-height: 500px;
+     overflow: scroll;
+}
 :root {
   --blue: #007bff;
   --indigo: #6610f2;
