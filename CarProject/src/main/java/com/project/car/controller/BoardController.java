@@ -69,7 +69,8 @@ public class BoardController {
 		return "board/writeBoard";//writeBoard페이지로 이동
 	}
 	@RequestMapping(value="writeBoard.do", method=RequestMethod.POST)
-	public String postWriteBoard(@ModelAttribute BoardVO boardVO,Model model) throws Exception{//값을 매핑해줄 model객체를 생성
+	public String postWriteBoard(@ModelAttribute BoardVO boardVO,Model model
+			,@RequestParam(defaultValue="1") int curPage) throws Exception{//값을 매핑해줄 model객체를 생성
 		logger.info("Post writeBoard: 게시판 내용 insert");
 			
 		service.write(boardVO);
@@ -90,8 +91,8 @@ public class BoardController {
 	}
 	@RequestMapping(value="writeDetail.do", method=RequestMethod.POST)//GET방식으로 writeDetail주소를 받아오면 메소드 실행
 	public String postWriteDetail(@ModelAttribute BoardVO boardVO,HttpServletRequest req,Model model) throws Exception{
-		int post_id = boardVO.getPost_id();
-		logger.info("Post writeDetail: 게시판 내용 update"+post_id);
+		int post_id = Integer.parseInt(req.getParameter("id"));
+		logger.info("Post writeDetail: 게시판 내용 update"+post_id+boardVO.toString());
 		service.modify(boardVO);
 		model.addAttribute("detail", service.post(post_id));
 		return "board/writeDetail";//writeDetail페이지로 이동

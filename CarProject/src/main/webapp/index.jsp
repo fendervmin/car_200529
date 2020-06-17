@@ -10,6 +10,7 @@
 	Hello world!  
 </h1>
 <c:import url="/WEB-INF/views/common/menubar.jsp"/>
+<c:import url="/WEB-INF/views/common/main.jsp"/>
 <c:import url="/WEB-INF/views/common/footer.jsp"/>
 </body>
 </html>
