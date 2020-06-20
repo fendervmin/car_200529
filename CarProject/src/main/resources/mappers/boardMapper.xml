@@ -3,35 +3,67 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mappers.boardMapper">
-<!-- 게시판에서 작성한 제목과 내용을 #{}파라미터로 받아서 값으로 넣어주기 -->
-   <insert id="insert" parameterType="board">
-   		INSERT INTO POST(
-   			POST_ID
-   			,POST_TITLE
-   			,POST_CONTENT
-   			,MEMBER_ID			)
-   			VALUES(
-   				MP_POST_SEQ.NEXTVAL
-   				,#{post_title}
-   				,#{post_content}
-   				,10
-   			)
-   </insert>
-   
-   	<!-- 작성한 게시판의 내용을 select로 불러와서 boardVO객체타입으로 불러오기 -->
-   	<select id="writeList" resultType="board">
-   		SELECT POST_ID,POST_TITLE,POST_CONTENT,POST_TIME,MEMBER_ID FROM POST ORDER BY POST_ID
-   </select>
-  
-   <select id="post" parameterType="int" resultType="board">
-   		SELECT POST_ID,POST_TITLE,POST_CONTENT,POST_TIME,MEMBER_ID FROM POST WHERE POST_ID=#{post_id}
-   </select>
-   <update id="update" parameterType="board">
-   		UPDATE POST 
-   		SET POST_TITLE=#{post_title},POST_CONTENT=#{post_content} 
-   		WHERE POST_ID=#{post_id}
-   </update>
-   <delete id="delete" parameterType="int">
-   		DELETE FROM POST WHERE POST_ID=#{post_id}
-   </delete>
+	<!-- 게시판에서 작성한 제목과 내용을 #{}파라미터로 받아서 값으로 넣어주기 -->
+	<insert id="insert" parameterType="board">
+		INSERT INTO POST(
+		P_ID
+		,P_TITLE
+		,P_CONTENT
+		,MEMBER_ID )
+		VALUES(
+		MP_POST_SEQ.NEXTVAL
+		,#{p_title}
+		,#{p_content}
+		,10
+		)
+	</insert>
+
+	<!-- 작성한 게시판의 내용을 select로 불러와서 boardVO객체타입으로 불러오기 -->
+	<!-- <select id="writeList" resultType="board"> SELECT POST_ID,POST_TITLE,POST_CONTENT,POST_TIME,MEMBER_ID 
+		FROM POST ORDER BY POST_ID DESC </select> -->
+
+	<select id="post" parameterType="int" resultType="board">
+		SELECT P_ID,P_TITLE,P_CONTENT,P_TIME,MEMBER_ID,P_VIEW FROM POST WHERE
+		P_ID=#{p_id}
+	</select>
+	<update id="update" parameterType="board">
+		UPDATE POST
+		SET P_TITLE=#{p_title},P_CONTENT=#{p_content}
+		WHERE P_ID=#{p_id}
+	</update>
+	<delete id="delete" parameterType="int">
+		DELETE FROM POST WHERE P_ID=#{p_id}
+	</delete>
+	<select id="listPage" resultType="board" parameterType="pagination">
+		SELECT
+			P_ID,
+			P_TITLE,
+			P_CONTENT,
+			MEMBER_ID,
+			P_TIME,
+			P_VIEW
+		FROM (
+				SELECT P_ID,
+				P_TITLE,
+				P_CONTENT,
+				MEMBER_ID,
+				P_TIME,
+				P_VIEW,
+				ROW_NUMBER() OVER(ORDER BY P_ID DESC) AS RNUM
+				FROM POST
+				) MP
+		WHERE RNUM BETWEEN #{rowStart} AND #{rowEnd}
+		ORDER BY P_ID DESC
+	</select>
+	<select id="listCount" resultType="int">
+	<![CDATA[
+		SELECT COUNT(P_ID)
+		  FROM POST
+		 WHERE P_ID > 0
+	]]>
+	</select>
+	<select id="view" parameterType="board">
+		UPDATE POST SET P_VIEW = P_VIEW + 1 WHERE P_ID =#{p_id}
+	</select>
+
 </mapper>

@@ -7,7 +7,9 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 
 import com.project.car.dao.BoardDAO;
+import com.project.car.vo.AnswerVO;
 import com.project.car.vo.BoardVO;
+import com.project.car.vo.Pagination;
 
 @Service
 public class BoardServiceImpl implements BoardService {
@@ -20,21 +22,29 @@ public class BoardServiceImpl implements BoardService {
 		dao.write(boardVO);
 	}
 	@Override
-	public List<BoardVO> list() throws Exception{
-		return dao.list();
+	public List<BoardVO> list(Pagination pg) throws Exception{
+		return dao.list(pg);
 	}
 	@Override
 	public void modify(BoardVO boardVO) throws Exception{
 		dao.modify(boardVO);
 	}
 	@Override
-	public BoardVO post(int post_id) throws Exception{
-		return dao.post(post_id);
+	public BoardVO post(int p_id) throws Exception{
+		return dao.post(p_id);
 	}
 	@Override
-	public void delete(int post_id) throws Exception{
-		dao.delete(post_id);
+	public void delete(int p_id) throws Exception{
+		dao.delete(p_id);
 	}
-
-
+	@Override
+	public int listCount() throws Exception{
+		 return dao.listCount();
+	}
+	@Override
+	public void count(int p_id) throws Exception{
+		dao.count(p_id);
+	}
+	
+	
 }

@@ -10,18 +10,19 @@
 	<result column="NEWS_CONTENT" property="news_Content"/>
 	<result column="NEWS_URL" property="news_Url"/>
 	<result column="NEWS_IMG" property="news_Img"/>
+	<result column="NEWS_DATE" property="news_Date"/>
 </resultMap>
 
-<select id="getOneNews" parameterType="_int" resultMap="fullnewsInfo">
+<select id="getOneNews" parameterType="int" resultMap="fullnewsInfo">
 SELECT * FROM NEWS WHERE NEWS_ID = #{news_Id}
 </select>
 
 <select id="getNews" parameterType="news" resultMap="fullnewsInfo">
 SELECT * FROM NEWS
 </select>
-
-<select id="getnewsCount" parameterType="_int" resultMap="_int">
+<!-- 
+<select id="getnewsCount" parameterType="int" resultMap="int">
 SELECT NEWS_ID FROM NEWS WHERE NEWS_COUNT = #{news_Count} > 99
-</select>
+</select> -->
 
 </mapper>

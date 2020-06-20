@@ -1,69 +1,54 @@
 package com.project.car.vo;
 
-
-
 public class BoardVO {
 	
-	private int post_id;
-	private String post_title;
-	private String post_content;
-	private String post_time;
+	private int p_id;
+	private String p_title;
+	private String p_content;
+	private String p_time;
 	private int member_id;
-	private String SelNum;
-	
-	
-	
+	private int p_view;
+	public int getP_view() {
+		return p_view;
+	}
+	public int getP_id() {
+		return p_id;
+	}
+	public void setP_id(int p_id) {
+		this.p_id = p_id;
+	}
+	public String getP_title() {
+		return p_title;
+	}
+	public void setP_title(String p_title) {
+		this.p_title = p_title;
+	}
+	public String getP_content() {
+		return p_content;
+	}
+	public void setP_content(String p_content) {
+		this.p_content = p_content;
+	}
 	@Override
 	public String toString() {
-		return "BoardVO [post_id=" + post_id + ", post_title=" + post_title + ", post_content=" + post_content
-				+ ", post_time=" + post_time + ", member_id=" + member_id + ", SelNum=" + SelNum + "]";
+		return "BoardVO [p_id=" + p_id + ", p_title=" + p_title + ", p_content=" + p_content + ", p_time=" + p_time
+				+ ", member_id=" + member_id + ", p_view=" + p_view + "]";
 	}
-
-	public String getSelNum() {
-		return SelNum;
+	public String getP_time() {
+		return p_time;
 	}
-
-	public void setSelNum(String selNum) {
-		SelNum = selNum;
-	}
-
-	public void setPost_id(int post_id) {
-		this.post_id = post_id;
-	}
-
-	public void setPost_time(String post_time) {
-		this.post_time = post_time;
-	}
-
-	public void setMember_id(int member_id) {
-		this.member_id = member_id;
-	}
-
-	public int getPost_id() {
-		return post_id;
-	}
-	
-	public String getPost_time() {
-		return post_time;
+	public void setP_time(String p_time) {
+		this.p_time = p_time;
 	}
 	public int getMember_id() {
 		return member_id;
 	}
-	public String getPost_title() {
-		return post_title;
-	}
-	public void setPost_title(String post_title) {
-		this.post_title = post_title;
-	}
-	public String getPost_content() {
-		return post_content;
-	}
-	public void setPost_content(String post_content) {
-		this.post_content = post_content;
+	public void setMember_id(int member_id) {
+		this.member_id = member_id;
 	}
 	
 	
-	
+
 	
 
 }

@@ -132,18 +132,13 @@ $(window).scroll(function(event) {
 	
 	         <li class="menubar_li" style="color:white;"><a href="../board/writeBoard.do">커뮤니티</a></li>
 	
-	         <li class="menubar_li" style="color:white;"><a href="../news/newsmainPage.do">뉴스</a></li>
+	         <li class="menubar_li" style="color:white;"><a href="../news/newsmain.do">뉴스</a></li>
 	      </ul>
 	   </div>
 	</div>
    <!-- 코드 끝!! -->
    <div style="margin-top:150px"></div>
    <br clear="all">
-<<<<<<< HEAD
-=======
-
-   
->>>>>>> branch 'master' of https://github.com/fendervmin/car_200529.git
    <!-- 메뉴바 슬라이드 옵션 관련 스크립트 -->
    <script>
       /* 메인 메뉴바 슬라이드 옵션 */
