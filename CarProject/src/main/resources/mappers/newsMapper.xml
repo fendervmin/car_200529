@@ -10,6 +10,7 @@
 	<result column="NEWS_CONTENT" property="news_Content"/>
 	<result column="NEWS_URL" property="news_Url"/>
 	<result column="NEWS_IMG" property="news_Img"/>
+	<result column="NEWS_DATE" property="news_Date"/>
 </resultMap>
 
 <select id="getOneNews" parameterType="_int" resultMap="fullnewsInfo">

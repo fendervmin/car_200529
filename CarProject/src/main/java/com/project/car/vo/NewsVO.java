@@ -10,11 +10,10 @@ public class NewsVO {
 	private String news_Url;
 	private String news_Img;
 	private Date news_Date;
-	private int news_Count;
 	
 	public NewsVO() {}
 	
-	public NewsVO(int news_Id, String news_Title, String news_Content, String news_Url, String news_Img, Date news_Date, int news_Count) {
+	public NewsVO(int news_Id, String news_Title, String news_Content, String news_Url, String news_Img, Date news_Date) {
 		super();
 		this.news_Id = news_Id;
 		this.news_Title = news_Title;
@@ -22,7 +21,6 @@ public class NewsVO {
 		this.news_Url = news_Url;
 		this.news_Img = news_Img;
 		this.news_Date = news_Date;
-		this.news_Count = news_Count;
 	}
 
 	public String getNews_Img() {
@@ -64,13 +62,6 @@ public class NewsVO {
 		this.news_Date = news_Date;
 	}
 
-	public int getNews_Count() {
-		return news_Count;
-	}
-
-	public void setNews_Count(int news_Count) {
-		this.news_Count = news_Count;
-	}
 	
 	
 }
