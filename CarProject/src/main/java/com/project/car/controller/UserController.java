@@ -2,6 +2,7 @@ package com.project.car.controller;
 
 import java.io.IOException;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -32,7 +33,6 @@ public class UserController {
 		if(user != null) {
 			session.setAttribute("loginUser", user);
 			session.setMaxInactiveInterval(6000);
-			// 페이지 바꿔야됨
 			mav.setViewName("home");
 		}else {
 			mav.addObject("loginFail", "아이디 또는 비밀번호가 다릅니다.");
@@ -48,6 +48,17 @@ public class UserController {
 		ModelAndView mav = new ModelAndView();
 		
 		mav.setViewName("user/login");
+		return mav;
+	}
+	
+	// 로그아웃 기능 메소드
+	@RequestMapping(value="logout.do")
+	public ModelAndView logout(HttpSession session) {
+		ModelAndView mav = new ModelAndView();
+		
+		session.invalidate();
+		
+		mav.setViewName("redirect:/");
 		return mav;
 	}
 	
@@ -84,7 +95,7 @@ public class UserController {
 	
 	// 마이페이지로 가는 메소드
 	@RequestMapping(value="mypagePage.do")
-	public ModelAndView myPage() {
+	public ModelAndView myPagePage() {
 		ModelAndView mav = new ModelAndView();
 		
 		mav.setViewName("user/myPage");
@@ -100,6 +111,54 @@ public class UserController {
 		
 	}
 	
+	@RequestMapping(value="updateUserPage.do")
+	public ModelAndView updateUserPage(ModelAndView mv) {
+		mv.setViewName("user/modify");
+		return mv;
+	}
+	
+	@RequestMapping(value="modify.do")
+	@ResponseBody
+	public String modifyUser(@ModelAttribute MemberVO member, HttpServletResponse response, HttpSession session, HttpServletRequest request) throws IOException {
+		session = request.getSession();
+		MemberVO loginUser = (MemberVO) session.getAttribute("loginUser");
+		String loginID = loginUser.getMember_UserId();
+		
+		member.setMember_UserId(loginID);
+		
+		int emailCount = uService.checkEmail(member);
+		int nickNameCount = uService.checkNickName(member);
+		
+		if(emailCount > 0 ) {
+			return "1";
+		}else if(nickNameCount > 0) {
+			return "2";
+		}else {
+			loginUser.setMember_Email(member.getMember_Email());
+			loginUser.setMember_Name(member.getMember_Name());
+			loginUser.setMember_Nicname(member.getMember_Nicname());
+			
+			session.setAttribute("loginUser", loginUser);
+			uService.modifyUser(member);
+			return "0";
+		}
+		
+	}
+	
+	@RequestMapping(value="updatePwd.do")
+	public ModelAndView updatePwd(@ModelAttribute MemberVO member, HttpServletRequest request, ModelAndView mv) {
+		HttpSession session = request.getSession();
+		MemberVO loginUser = (MemberVO) session.getAttribute("loginUser");
+		String loginID = loginUser.getMember_UserId();
+		
+		member.setMember_UserId(loginID);
+		
+		uService.updatePwd(member);
+		mv.setViewName("redirect:/user/mypagePage.do");
+		
+		return mv;
+	}
+	
 	// 아이디 체크
 	@RequestMapping("checkUserId.do")
 	@ResponseBody
@@ -112,7 +171,7 @@ public class UserController {
 		}
 	}
 	
-	@RequestMapping(value="userSearch.do")
+	@RequestMapping(value="userSearchPage.do")
 	public ModelAndView userSearch() {
 		ModelAndView mav = new ModelAndView();
 		
@@ -133,6 +192,19 @@ public class UserController {
 			mv.setViewName("");
 		}
 		
+		return mv;
+	}
+	
+	@RequestMapping(value="removeUser.do")
+	public ModelAndView removeUser(ModelAndView mv, HttpSession session, HttpServletRequest request) {
+		session =  request.getSession();
+		MemberVO loginUser = (MemberVO) session.getAttribute("loginUser");
+		String loginId = loginUser.getMember_UserId();
+		
+		uService.removeUser(loginId);
+		session.invalidate();
+		
+		mv.setViewName("redirect:/");
 		return mv;
 	}
 }

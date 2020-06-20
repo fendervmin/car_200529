@@ -196,28 +196,40 @@
 					        	<div class='modelSummary auto stock'>
 					                <h2 class='screen_out'>현대 아반떼 소개</h2>
 					                <div class='photo'>
-					                    <img src="${pageContext.request.contextPath}/resources/${detail.brand_Id}/${detail.car_Img}.png">
+					                    <img id="img" src="${pageContext.request.contextPath}/resources/${detail.brand_Id}/${detail.car_Img}.png">
 					                    <div class='modelColor'>
-					                    <div class='this'>팬텀 블랙 [NKA]</div>
+					                    <div>
+					                    	<button id="btn0" onclick="toggleImg()" class='' style='background:${color.color_0}' type='button' color=C11 >
+					                            
+					                        </button>
+					                        <button id="btn1" onclick="toggleImg1()" class='' style='background:${color.color_1}' type='button' color=C11 >
+					                            
+					                        </button>
+					                        <button id="btn2" onclick="toggleImg2()" class='' style='background:${color.color_2}' type='button' color=C12>
+					                            
+					                        </button>
+					                        <button id="btn3" onclick="toggleImg3()" class='' style='background:${color.color_3}' type='button' color=C14>
+					                
+					                        </button>
+					                    </div>
 					                    
-					                        <button class='' style='background:#e8e7e6' type='button' color=C11>
-					                            <span class='screen_out'>폴라 화이트 [WAW]</span>
-					                        </button>
-					                        <button class='' style='background:#021152' type='button' color=C12>
-					                            <span class='screen_out'>인텐스 블루 [YP5]</span>
-					                        </button>
-					                        <button class='on' style='background:#121313' type='button' color=C14>
-					                            <span class='screen_out'>팬텀 블랙 [NKA]</span>
-					                        </button>
-					                        <button class='' style='background:#93181b' type='button' color=C16>
-					                            <span class='screen_out'>파이어리 레드 [PR2]</span>
-					                        </button>
-					                        <button class='' style='background:#868e9b' type='button' color=C17>
-					                            <span class='screen_out'>타이푼 실버 [T2X]</span>
-					                        </button>
-					                        <button class='' style='background:#263143' type='button' color=C18>
-					                            <span class='screen_out'>더 데님 [TN6]</span>
-					                        </button>
+					                    <script>
+											
+						                    function toggleImg() {
+									      		document.getElementById("img").src="${pageContext.request.contextPath}/resources/${detail.brand_Id}/${detail.car_Img}.png";
+						                    
+						                    }
+										    function toggleImg1() {
+										      	document.getElementById("img").src="${pageContext.request.contextPath}/resources/${detail.brand_Id}/${detail.car_ID}/${color.color_1}.png";
+										    }
+										    function toggleImg2() {
+									      		document.getElementById("img").src="${pageContext.request.contextPath}/resources/${detail.brand_Id}/${detail.car_ID}/${color.color_2}.png";
+									    	}
+										    function toggleImg3() {
+									      		document.getElementById("img").src="${pageContext.request.contextPath}/resources/${detail.brand_Id}/${detail.car_ID}/${color.color_3}.png";
+									    	}
+									        
+										</script>
 					                </div>
 					            </div>
 					            <div class='info'>

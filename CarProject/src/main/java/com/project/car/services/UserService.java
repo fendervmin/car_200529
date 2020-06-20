@@ -20,4 +20,14 @@ public interface UserService {
 
 	int selectUserId(String userId);
 
+	int checkEmail(MemberVO member);
+
+	int checkNickName(MemberVO member);
+
+	void modifyUser(MemberVO member);
+
+	void updatePwd(MemberVO member);
+
+	void removeUser(String loginId);
+
 }

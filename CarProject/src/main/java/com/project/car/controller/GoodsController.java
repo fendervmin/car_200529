@@ -34,11 +34,14 @@ public class GoodsController {
 	@RequestMapping(value="goodsDetail.do", method=RequestMethod.GET)
 	public String getgoodsDetail(@RequestParam("c") int car_id,Model model) throws Exception{
 		logger.info("Get goodsDetail");
+		System.out.println("car_id : " + car_id);
 		GoodsVO detail = service.detail(car_id);
-		
 		model.addAttribute("detail", detail);
+		GoodsVO color = service.color(car_id);
+		model.addAttribute("color", color);		
 		return "goods/goodsDetail";//writeBoard페이지로 이동
 	}
+	
 	
 	// 카테고리별 상품 리스트
 		 @RequestMapping(value = "goodsList.do", method = RequestMethod.GET)

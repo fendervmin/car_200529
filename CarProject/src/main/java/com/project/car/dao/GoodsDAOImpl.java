@@ -37,8 +37,14 @@ public class GoodsDAOImpl implements GoodsDAO {
 		return detail;
 	}
 	
-	
-	
-	
+	@Override
+	public GoodsVO color(int car_id) throws Exception {
+		// TODO Auto-generated method stub
+		GoodsVO g = new GoodsVO();
+		g.setCar_ID(car_id);
+		System.out.println(car_id);
+		GoodsVO color = sql.selectOne("goods.color",car_id);
+		return color;
+	}
 
 }
