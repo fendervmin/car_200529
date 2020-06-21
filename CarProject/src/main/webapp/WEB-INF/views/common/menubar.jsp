@@ -132,7 +132,7 @@ $(window).scroll(function(event) {
 	
 	         <li class="menubar_li" style="color:white;"><a href="../board/writeBoard.do">커뮤니티</a></li>
 	
-	         <li class="menubar_li" style="color:white;"><a href="../news/newsmain.do">뉴스</a></li>
+	         <li class="menubar_li" style="color:white;"><a href="../news/newsmainPage.do">뉴스</a></li>
 	      </ul>
 	   </div>
 	</div>
