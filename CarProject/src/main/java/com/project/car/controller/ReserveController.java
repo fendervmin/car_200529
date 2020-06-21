@@ -1,5 +1,7 @@
 package com.project.car.controller;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Controller;
@@ -22,12 +24,14 @@ public class ReserveController {
 	
 	    // 예약하기 페이지로 이동
 		@RequestMapping(value = "reservemainPage.do")
-		public ModelAndView reservemainPage(@RequestParam(value="c") int car_id, Model model) throws Exception {
+		public ModelAndView reservemainPage(@RequestParam("b") int brand_id, Model model) throws Exception {
 			ModelAndView mav = new ModelAndView();
 			
-			GoodsVO detail = Gservice.detail(car_id);
-			model.addAttribute("detail", detail);
+			List <GoodsVO> goods_list = Gservice.list(brand_id); 
+			model.addAttribute("list", goods_list);
 			
+			model.addAttribute("brand", goods_list.get(0).getBrand_Name());
+			  
 			mav.setViewName("reserve/reservemain");
 			return mav;
 		}

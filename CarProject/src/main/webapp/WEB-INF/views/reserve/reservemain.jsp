@@ -31,7 +31,7 @@ var map = new kakao.maps.Map(mapContainer, mapOption);
 var ps = new kakao.maps.services.Places(); 
 
 //키워드로 장소를 검색합니다
-ps.keywordSearch('${detail.brand_Name}', placesSearchCB); 
+ps.keywordSearch('${list.brand_Name}', placesSearchCB); 
 
 //키워드 검색 완료 시 호출되는 콜백함수 입니다
 function placesSearchCB (data, status, pagination) {
