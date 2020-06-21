@@ -139,11 +139,6 @@ $(window).scroll(function(event) {
    <!-- 코드 끝!! -->
    <div style="margin-top:150px"></div>
    <br clear="all">
-<<<<<<< HEAD
-=======
-
-   
->>>>>>> branch 'master' of https://github.com/fendervmin/car_200529.git
    <!-- 메뉴바 슬라이드 옵션 관련 스크립트 -->
    <script>
       /* 메인 메뉴바 슬라이드 옵션 */

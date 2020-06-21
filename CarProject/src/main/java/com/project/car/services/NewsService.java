@@ -8,5 +8,4 @@ public interface NewsService {
 	
 	List<NewsVO> getnews(NewsVO news);
 	
-	List<NewsVO> getnewsCount (NewsVO news);;
 }

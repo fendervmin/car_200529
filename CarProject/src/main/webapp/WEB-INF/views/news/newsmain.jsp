@@ -43,7 +43,6 @@
         <h5 class="my-4"> 뉴스 메인 > 모든 뉴스</h5> 
         <div class="list-group">
           <a href="/news/newsmainPage.do" class="list-group-item">모든 뉴스</a>
-          <a href="/news/hotnewsPage.do" class="list-group-item">주요 뉴스</a>
         </div>
 
       </div>

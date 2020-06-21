@@ -32,16 +32,4 @@ public class NewsController {
 	}
 	
 
-	// 주요뉴스 페이지로 가는 메소드
-	@RequestMapping(value = "hotnewsPage.do")
-	public ModelAndView hotnewsPage(Model model, NewsVO news) {
-		ModelAndView mav = new ModelAndView();
-
-		List<NewsVO> getnewsCount = NewsService.getnewsCount(news);
-		model.addAttribute("getnewsCount", getnewsCount);
-		
-		mav.setViewName("news/hotnews");
-		return mav;
-	}
-
 }
