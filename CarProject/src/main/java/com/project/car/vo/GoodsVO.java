@@ -14,9 +14,37 @@ public class GoodsVO {
         private String brand_Name;
         private String brand_Img;
 		private String brand_Explain;
+		private String color_0;
+		private String color_1;
+		private String color_2;
+		private String color_3;
 		
-        
-        public String getBrand_Img() {
+
+		public String getColor_0() {
+			return color_0;
+		}
+		public void setColor_0(String color_0) {
+			this.color_0 = color_0;
+		}
+		public String getColor_1() {
+			return color_1;
+		}
+		public void setColor_1(String color_1) {
+			this.color_1 = color_1;
+		}
+		public String getColor_2() {
+			return color_2;
+		}
+		public void setColor_2(String color_2) {
+			this.color_2 = color_2;
+		}
+		public String getColor_3() {
+			return color_3;
+		}
+		public void setColor_3(String color_3) {
+			this.color_3 = color_3;
+		}
+		public String getBrand_Img() {
 			return brand_Img;
 		}
 		public void setBrand_Img(String brand_Img) {

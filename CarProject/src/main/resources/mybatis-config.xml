@@ -8,13 +8,17 @@
   	<typeAlias alias="car" type="com.project.car.vo.GoodsVO"/>
   	<typeAlias alias="board" type="com.project.car.vo.BoardVO"/>
   	<typeAlias alias="news" type="com.project.car.vo.NewsVO"/>
+  	<typeAlias alias="pagination" type="com.project.car.vo.Pagination"/>
+  	<typeAlias alias="answer" type="com.project.car.vo.AnswerVO"/>
   </typeAliases>
   
   <mappers>
   	<mapper resource="mappers/userMapper.xml"/>
   	<mapper resource="mappers/goodsMapper.xml"/>
   	<mapper resource="mappers/boardMapper.xml"/>
+ 
   	<mapper resource="mappers/newsMapper.xml"/>
+  	<mapper resource="mappers/answerMapper.xml"/>
   	
   </mappers>
 </configuration>

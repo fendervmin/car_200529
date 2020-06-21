@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mappers.answerMapper">
+	<select id="replyList" resultType="answer" parameterType="int">
+		SELECT A_ID, P_ID, MEMBER_ID, A_CONTENT FROM ANSWER WHERE P_ID = #{p_id}
+	</select>
+	<insert id="replyInsert" parameterType="answer">
+		INSERT INTO ANSWER (
+							A_ID,
+							MEMBER_ID,
+							P_ID,
+							A_CONTENT
+							)VALUES(
+								ANSWER_SEQUENCE,
+								5,
+								#{p_id},
+								#{a_content}
+							)
+	</insert>
+	<delete id="replyDelete" parameterType="int">
+		DELETE FROM ANSWER WHERE A_ID = #{a_id}
+	</delete>
+	<delete id="simulDelete"><!-- 게시판 하나를 지웠을 때 같이 사용할 delete -->
+		DELETE FROM ANSWER WHERE P_ID=#{p_id}
+	</delete>
+</mapper>

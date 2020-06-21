@@ -39,27 +39,26 @@
 			</div>
 		</header>
 		<c:import url="../common/menubar.jsp" />
-		<section id="container"
-			style="margin-top: 150px; margin-left: -200px;">
+		<section id="container">
 			<div id="container">
 				<form:form modelAttribute="boardVO" method="post" id="writeForm">
 					<!-- 커맨드 객체 생성 -->
 					<table border="1" class="table table-hover">
 						<tr>
-							<td><form:label path="post_title">제목</form:label></td>
-							<td><form:input path="post_title" /></td>
+							<td><form:label path="p_title">제목</form:label></td>
+							<td><form:input path="p_title" /></td>
 						</tr>
 						<tr>
-							<td><form:label path="post_content">내용</form:label></td>
-							<td><form:textarea cols="50" rows="10" path="post_content" />
+							<td><form:label path="p_content">내용</form:label></td>
+							<td><form:textarea cols="50" rows="10" path="p_content" />
 							</td>
 						</tr>
 					</table>
+					<form:hidden path="p_id" value="${boardVO.p_id}"/>
 					<c:if test="${num=='0'}">
 						<input type="button" value="작성" onclick="fn(0)" />
 					</c:if>
 					<c:if test="${num!='0'}">
-						<input type="hidden" value="${boardVO.post_id }" name="id"/>
 						<input type="button" value="수정" onclick="fn(1)" />
 					</c:if>
 				</form:form>

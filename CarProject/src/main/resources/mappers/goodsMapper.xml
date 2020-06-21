@@ -21,7 +21,15 @@
     	FROM CAR c
     		inner join brand b
                 on c.brand_id = b.brand_id
-    	WHERE CAR_ID = #{car_id}
+    	WHERE c.CAR_ID = #{car_id}
     </select>
-   
+    
+    <!-- 03. 상품 컬러 -->
+    <select id="color" resultType="car" parameterType="int">
+    	SELECT c.car_id, color.color_0,color.color_1,color.color_2,color.color_3
+    	FROM CAR c
+    		inner join car_color color
+                on c.car_id = color.car_id
+    	WHERE color.CAR_ID =#{car_id}
+    </select>
 </mapper>

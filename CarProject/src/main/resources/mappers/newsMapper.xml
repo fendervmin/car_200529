@@ -20,9 +20,9 @@ SELECT * FROM NEWS WHERE NEWS_ID = #{news_Id}
 <select id="getNews" parameterType="news" resultMap="fullnewsInfo">
 SELECT * FROM NEWS
 </select>
-
-<select id="getnewsCount" parameterType="_int" resultMap="fullnewsInfo">
+<!-- 
+<select id="getnewsCount" parameterType="int" resultMap="int">
 SELECT NEWS_ID FROM NEWS WHERE NEWS_COUNT = #{news_Count} > 99
-</select>
+</select> -->
 
 </mapper>
