@@ -7,9 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -43,7 +41,6 @@ public class BoardController {
 			model.addAttribute("boardVO", service.post(a));
 		else
 			model.addAttribute("num",a);
-		
 		return "board/writeView";//writeView get타입 메소드에서 BoardVO타입의 boardVO키값을 model에 저장?알려줘야함 
 	}
 	
@@ -64,7 +61,6 @@ public class BoardController {
 		PageMaker pm = new PageMaker();
 		pm.setPage(pg);
 		pm.setTotalCount(service.listCount());
-
 		model.addAttribute("Maker",pm);
 		return "board/writeBoard";//writeBoard페이지로 이동
 	}
@@ -92,13 +88,12 @@ public class BoardController {
 	//값을 매핑해줄 model객체생성
 		//get에서 parameter값(post_id) 준걸 받아오기 위해 파라미터에 String값 post넣어줌 
 	@RequestMapping(value="writeDetail.do", method=RequestMethod.GET)//GET방식으로 writeDetail주소를 받아오면 메소드 실행
-	public String getWriteDetail(String index,AnswerVO answer,Model model) throws Exception{
+	public String getWriteDetail(String index,Model model) throws Exception{
 		logger.info("Get writeDetail"+Integer.parseInt(index));
 		int p_id =Integer.parseInt(index);
 		
 		service.count(p_id);
 		model.addAttribute("detail", service.post(p_id));//list에서 index값과 매핑되는 게시판 정보를 불러와서 detail이름으로 model에 넣어줌
-		
 		model.addAttribute("answer",new AnswerVO());
 		model.addAttribute("reply", a_service.replyList(p_id));
 		
@@ -106,22 +101,37 @@ public class BoardController {
 		
 	}
 	@RequestMapping(value="writeDetail.do", method=RequestMethod.POST)//GET방식으로 writeDetail주소를 받아오면 메소드 실행
-	public String postWriteDetail(BoardVO boardVO,@ModelAttribute AnswerVO answer, Model model) throws Exception{
+	public String postWriteDetail(BoardVO boardVO, Model model) throws Exception{
 		int post_id = boardVO.getP_id();
 		logger.info("Post writeDetail: 게시판 내용 update"+post_id+boardVO.toString());
-		
-			
-		
-		if(answer.getA_content()!=null)//answer 객체를 파라미터로 가져오지 않을 때 content는 null
-			a_service.replyInsert(answer);
-		else if(boardVO.getP_id()!= 0)
+
 			service.modify(boardVO);
 		
 		model.addAttribute("detail", service.post(post_id));
-		model.addAttribute("reply",a_service.replyList(post_id));
-		
+
+		model.addAttribute("answer", new AnswerVO());
 		return "board/writeDetail";//writeDetail페이지로 이동 
 	}
-	
-	
+	@RequestMapping(value="answerWrite", method=RequestMethod.GET)
+	public String getAnswerWrite(HttpServletRequest req,AnswerVO answer,Model model) throws Exception{
+		logger.info("answerWrite");
+		int post_id = Integer.parseInt(req.getParameter("id"));
+		model.addAttribute("answer",new AnswerVO());
+		model.addAttribute("PId",post_id);
+		model.addAttribute("reply",a_service.replyList(post_id));
+		return "board/answerWrite";
+	}
+	@RequestMapping(value="answerWrite.do", method=RequestMethod.POST)
+	public String postAnswerWrite(@ModelAttribute("answer")AnswerVO answer,Model model) throws Exception{
+		System.out.println(answer.getP_id());
+		System.out.println(answer.getA_content());
+		int post_id = answer.getP_id();
+		//int post_id = Integer.parseInt(req.getAttribute("id"));
+			a_service.replyInsert(answer);
+		logger.info("post"+answer.toString());
+		
+		model.addAttribute("reply",a_service.replyList(post_id));
+		model.addAttribute("detail", service.post(post_id));
+		return "board/writeDetail";
+	}
 }

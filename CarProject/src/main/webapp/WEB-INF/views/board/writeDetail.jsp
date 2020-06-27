@@ -68,8 +68,12 @@
 							</table>
 						</div>
 					</div>
+					<c:import url="answerWrite.jsp">
+						<c:param name="id" value="${detail.p_id }"/>
+						<c:param name="answer" value="${answer }"/>
+					</c:import>
 					<!-- 답변 전송 폼 -->
-					<div class="container my-1">
+					<%-- <div class="container my-1">
 						<div class="row">
 						<table border="1" class="table table-hover">
 							<form:form modelAttribute="answer" method="post" id="replyForm">
@@ -93,7 +97,7 @@
 							
 						</div>
 					</div>
-				</div>
+				</div> --%>
 	</section>
 
 	<footer id="footer">

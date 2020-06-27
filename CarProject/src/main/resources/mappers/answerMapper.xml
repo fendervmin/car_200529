@@ -13,7 +13,7 @@
 							P_ID,
 							A_CONTENT
 							)VALUES(
-								ANSWER_SEQUENCE,
+								ANSWER_SEQUENCE.NEXTVAL,
 								5,
 								#{p_id},
 								#{a_content}

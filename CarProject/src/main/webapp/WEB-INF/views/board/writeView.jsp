@@ -54,7 +54,7 @@
 							</td>
 						</tr>
 					</table>
-					<form:hidden path="p_id" value="${boardVO.p_id}"/>
+					<form:hidden path="p_id" value="${boardVO.p_id}" />
 					<c:if test="${num=='0'}">
 						<input type="button" value="작성" onclick="fn(0)" />
 					</c:if>
