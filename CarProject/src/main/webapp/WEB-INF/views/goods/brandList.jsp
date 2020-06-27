@@ -99,31 +99,31 @@
 									</ul>
 								</dd>
 				          </div>
-				        </div>
-				          
-				          <div class="card-header">
+				        
+				        <div class="card-header">
 				            	유럽
-				          </div>
-				          <div class="card-body">
-				            	<dd class=''>
-									<ul class='brandList imageLarge'>
-										<li class='li_img'><a href='goodsList.do?brand=14'><img src='http://autoimg.danawa.com/photo/brand/362_90.png' alt='BMW' style="display:block;"/>BMW</a></li>
-										<li class='li_img'><a href='goodsList.do?brand=15'><img src='http://autoimg.danawa.com/photo/brand/349_90.png' alt='벤츠' style="display:block;"/>벤츠</a></li>
-										<li class='li_img'><a href='goodsList.do?brand=16'><img src='http://autoimg.danawa.com/photo/brand/376_90.png' alt='폭스바겐' style="display:block;"/>폭스바겐</a></li>
-										<li class='li_img'><a href='goodsList.do?brand=17'><img src='http://autoimg.danawa.com/photo/brand/381_90.png' alt='포르쉐' style="display:block;"/>포르쉐</a></li>
-										<li class='li_img'><a href='goodsList.do?brand=18'><img src='http://autoimg.danawa.com/photo/brand/371_90.png' alt='아우디' style="display:block;"/>아우디</a></li>
-										<li class='li_img'><a href='goodsList.do?brand=19'><img src='http://autoimg.danawa.com/photo/brand/436_90.png' alt='페라리' style="display:block;"/>페라리</a></li>
-										<li class='li_img'><a href='goodsList.do?brand=20'><img src='http://autoimg.danawa.com/photo/brand/440_90.png' alt='람보르기니' style="display:block;"/>람보르기니</a></li>
-										<li class='li_img'><a href='goodsList.do?brand=21'><img src='http://autoimg.danawa.com/photo/brand/445_90.png' alt='마세라티' style="display:block;"/>마세라티</a></li>
-										<li class='li_img'><a href='goodsList.do?brand=22'><img src='http://autoimg.danawa.com/photo/brand/413_90.png' alt='푸조' style="display:block;"/>푸조</a></li>
-										<li class='li_img'><a href='goodsList.do?brand=23'><img src='http://autoimg.danawa.com/photo/brand/385_90.png' alt='롤스로이스' style="display:block;"/>롤스로이스</a></li>
-										<li class='li_img'><a href='goodsList.do?brand=24'><img src='http://autoimg.danawa.com/photo/brand/390_90.png' alt='벤틀리' style="display:block;"/>벤틀리</a></li>
-										<li class='li_img'><a href='goodsList.do?brand=25'><img src='http://autoimg.danawa.com/photo/brand/394_90.png' alt='재규어' style="display:block;"/>재규어</a></li>
-										<li class='li_img'><a href='goodsList.do?brand=26'><img src='http://autoimg.danawa.com/photo/brand/399_90.png' alt='랜드로버' style="display:block;"/>랜드로버</a></li>
-										<li class='li_img'><a href='goodsList.do?brand=27'><img src='http://autoimg.danawa.com/photo/brand/459_90.png' alt='볼보' style="display:block;"/>볼보</a></li>
-									</ul>
-								</dd>
-				          </div>
+				        </div>
+				        <div class="card-body">
+				            <dd class=''>
+								<ul class='brandList imageLarge'>
+									<li class='li_img'><a href='goodsList.do?brand=14'><img src='http://autoimg.danawa.com/photo/brand/362_90.png' alt='BMW' style="display:block;"/>BMW</a></li>
+									<li class='li_img'><a href='goodsList.do?brand=15'><img src='http://autoimg.danawa.com/photo/brand/349_90.png' alt='벤츠' style="display:block;"/>벤츠</a></li>
+									<li class='li_img'><a href='goodsList.do?brand=16'><img src='http://autoimg.danawa.com/photo/brand/376_90.png' alt='폭스바겐' style="display:block;"/>폭스바겐</a></li>
+									<li class='li_img'><a href='goodsList.do?brand=17'><img src='http://autoimg.danawa.com/photo/brand/381_90.png' alt='포르쉐' style="display:block;"/>포르쉐</a></li>
+									<li class='li_img'><a href='goodsList.do?brand=18'><img src='http://autoimg.danawa.com/photo/brand/371_90.png' alt='아우디' style="display:block;"/>아우디</a></li>
+									<li class='li_img'><a href='goodsList.do?brand=19'><img src='http://autoimg.danawa.com/photo/brand/436_90.png' alt='페라리' style="display:block;"/>페라리</a></li>
+									<li class='li_img'><a href='goodsList.do?brand=20'><img src='http://autoimg.danawa.com/photo/brand/440_90.png' alt='람보르기니' style="display:block;"/>람보르기니</a></li>
+									<li class='li_img'><a href='goodsList.do?brand=21'><img src='http://autoimg.danawa.com/photo/brand/445_90.png' alt='마세라티' style="display:block;"/>마세라티</a></li>
+									<li class='li_img'><a href='goodsList.do?brand=22'><img src='http://autoimg.danawa.com/photo/brand/413_90.png' alt='푸조' style="display:block;"/>푸조</a></li>
+									<li class='li_img'><a href='goodsList.do?brand=23'><img src='http://autoimg.danawa.com/photo/brand/385_90.png' alt='롤스로이스' style="display:block;"/>롤스로이스</a></li>
+									<li class='li_img'><a href='goodsList.do?brand=24'><img src='http://autoimg.danawa.com/photo/brand/390_90.png' alt='벤틀리' style="display:block;"/>벤틀리</a></li>
+									<li class='li_img'><a href='goodsList.do?brand=25'><img src='http://autoimg.danawa.com/photo/brand/394_90.png' alt='재규어' style="display:block;"/>재규어</a></li>
+									<li class='li_img'><a href='goodsList.do?brand=26'><img src='http://autoimg.danawa.com/photo/brand/399_90.png' alt='랜드로버' style="display:block;"/>랜드로버</a></li>
+									<li class='li_img'><a href='goodsList.do?brand=27'><img src='http://autoimg.danawa.com/photo/brand/459_90.png' alt='볼보' style="display:block;"/>볼보</a></li>
+								</ul>
+							</dd>
+				         </div>
+				         </div>
 				        <!-- /.card -->
 				      </div>
 				      <!-- /.col-lg-9 -->

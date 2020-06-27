@@ -116,7 +116,8 @@ $(window).scroll(function(event) {
       <!-- 상단 로고입니다 (로고 이미지 임시) -->
       <div class="hd_top">
          <h1 class="sd">
-            <a href="<%=request.getContextPath()%>../home.jsp"></a>
+         	<p>교수님미웡</p>
+            <a href="../"></a>
          </h1>
       </div>
    </div>
@@ -126,7 +127,7 @@ $(window).scroll(function(event) {
       <h3 class="ir">카테고리메뉴</h3>
 	      <ul id="menubar">
 	
-	         <li class="menubar_li" style="color:white;">카테고리</li> <!-- 드롭다운 -->
+	         <li class="menubar_li" style="color:white;"><a href="../goods/goodsSales.do">판매실적</li>
 	         
 	         <li class="menubar_li" style="color:white;"><a href="../goods/brandList.do">자동차백과</a></li>
 	
