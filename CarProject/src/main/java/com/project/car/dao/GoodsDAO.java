@@ -11,4 +11,6 @@ public interface GoodsDAO {
 	public GoodsVO detail(int car_id) throws Exception;
 	
 	public GoodsVO color(int car_id) throws Exception;
+
+	public List<GoodsVO> all(GoodsVO goodsVO);
 }

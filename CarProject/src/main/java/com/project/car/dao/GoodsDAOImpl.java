@@ -46,5 +46,12 @@ public class GoodsDAOImpl implements GoodsDAO {
 		GoodsVO color = sql.selectOne("goods.color",car_id);
 		return color;
 	}
+	@Override
+	public List<GoodsVO> all(GoodsVO goodsVO) {
+		// TODO Auto-generated method stub
+		GoodsVO g = new GoodsVO();
+		List<GoodsVO> all = sql.selectList("goods.all");
+		return all;
+	}
 
 }

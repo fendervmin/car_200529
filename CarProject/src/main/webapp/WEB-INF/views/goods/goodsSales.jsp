@@ -130,8 +130,9 @@ a:-webkit-any-link {
 				      <div class="col-lg-3">
 				        <h1 class="my-4">자동차백과</h1>
 				        <div class="list-group">
-				          <a href="#" class="list-group-item">차량정보</a>
-				          <a href="#" class="list-group-item">판매실적</a>
+				          <a href="../goods/brandList.do" class="list-group-item">차량정보</a>
+				          <a href="../goods/goodsSales.do" class="list-group-item">판매실적</a>
+				          <a href="../goods/goodsAll.do" class="list-group-item">전체보기</a>
 				        </div>
 				      </div>
 				      <!-- /.col-lg-3 -->

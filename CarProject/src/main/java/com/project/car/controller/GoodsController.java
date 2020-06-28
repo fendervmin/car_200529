@@ -36,6 +36,14 @@ public class GoodsController {
 		return "goods/goodsSales";
 	}
 	
+	@RequestMapping(value="goodsAll.do", method=RequestMethod.GET)
+	public String getGoodsAll(GoodsVO goodsVO,Model model) throws Exception{
+		logger.info("Get goodsAll");
+		List<GoodsVO> all = service.all(goodsVO);
+		model.addAttribute("all", all);
+		return "goods/goodsAll";
+	}
+	
 	
 	@RequestMapping(value="goodsDetail.do", method=RequestMethod.GET)
 	public String getgoodsDetail(@RequestParam("c") int car_id,Model model) throws Exception{

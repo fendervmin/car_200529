@@ -16,6 +16,47 @@
 	float:left;
 	
 }
+body, h1, h2, h3, h4, h5, h6, button, dd, dl, dt, fieldset, form, input, legend, li, ol, p, select, textarea, th, ul {
+    margin: 0;
+    padding: 0;
+}
+ul {
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+ol, ul {
+    list-style: none;
+}
+.modelList.imageType li {
+    float: left;
+    width: 170px;
+    height: 120px;
+    margin: 10px;
+    text-align: center;
+    position: relative;
+    padding-top: 5px;
+    border: 1px solid #ffffff;
+    line-height: 0;
+    font-weight: normal;
+}
+.modelList.imageType li .name {
+    display: block;
+    text-align: center;
+    line-height: 16px;
+}
+.modelList.imageType li img {
+    width: 170px;
+    height: 100px;
+}S
 </style>
 
 <meta charset="utf-8">
@@ -46,8 +87,9 @@
 				      <div class="col-lg-3">
 				        <h1 class="my-4">자동차백과</h1>
 				        <div class="list-group">
-				          <a href="#" class="list-group-item">차량정보</a>
-				          <a href="#" class="list-group-item">판매실적</a>
+				          <a href="../goods/brandList.do" class="list-group-item">차량정보</a>
+				          <a href="../goods/goodsSales.do" class="list-group-item">판매실적</a>
+				          <a href="../goods/goodsAll.do" class="list-group-item">전체보기</a>
 				        </div>
 				      </div>
 				      
@@ -93,21 +135,15 @@
 				            <dd class='noLine'>
 								<ul class='brandList imageLarge'>
 									<c:forEach items="${list}" var="list">
-									<li class="goodsImg">
-										<div class="goodsImg_box">
-											<img src="${pageContext.request.contextPath}/resources/${list.brand_Id}/${list.car_Img}.png">
-										</div>
-										<div class="goodsName">
-											<a href="goodsDetail.do?b=${list.brand_Id}&c=${list.car_ID}" style="display:block;">${list.car_Name}</a>
-										</div>
-									</li>
+									<ul class='modelList imageType clearFix'>
+						                <li code='3600' class='stock '>
+						                    <a onclick="eval('try{ _trk_clickTrace( \'EVT\', \'자동차_백과_브랜드_판매중인 신차\' ); }catch(_e){ }');" href="goodsDetail.do?b=${list.brand_Id}&c=${list.car_ID}" style="display:block;">
+						                        <img src="${pageContext.request.contextPath}/resources/${list.brand_Id}/${list.car_Img}.png">
+						                        <span class='name'>${list.car_Name}</span>
+						                    </a>
+						                </li>
+						             </ul>
 									</c:forEach>
-								<%-- <a href="goodsDetail.do">
-									<% for(int i=1; i<=5; i++) 
-										{%>
-									   		<li class='li_img'><img src="/resources/hyundai/<%=i %>.png" style="display:block;"/></li>
-									  	<% }
-									%></a> --%>
 								</ul>
 							</dd>
 				          </div>

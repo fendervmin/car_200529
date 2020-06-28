@@ -12,5 +12,7 @@ public interface GoodsService {
 	
 	public GoodsVO color(int car_id) throws Exception;
 	
+	public List<GoodsVO> all(GoodsVO goodsVO) throws Exception;
+	
 	
 }

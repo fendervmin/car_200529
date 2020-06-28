@@ -176,6 +176,7 @@
 				        <div class="list-group">
 				          <a href="#" class="list-group-item">차량정보</a>
 				          <a href="#" class="list-group-item">판매실적</a>
+				          <a href="../goods/goodsAll.do" class="list-group-item">전체보기</a>
 				        </div>
 				      </div>
 				      

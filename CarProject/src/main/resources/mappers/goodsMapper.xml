@@ -32,4 +32,11 @@
                 on c.car_id = color.car_id
     	WHERE color.CAR_ID =#{car_id}
     </select>
+    
+    <!-- 04. 상품 전체 -->
+    <select id="all" resultType="car" parameterType="int">
+    	SELECT *
+    	FROM CAR
+    </select>
+    
 </mapper>

@@ -177,10 +177,10 @@ $(window).scroll(function(event) {
     <!-- Portfolio Section -->
     <h2>Portfolio Heading</h2>
 
-    <div class="row">
+    <div class="row" style="margin-top:20px;">
       <div class="col-lg-4 col-sm-6 portfolio-item">
         <div class="card h-100">
-          <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+          <a href="#"><img class="card-img-top" src="https://i.imgur.com/R4mmuFI.jpg" alt=""></a>
           <div class="card-body">
             <h4 class="card-title">
               <a href="#">Project One</a>
@@ -191,7 +191,7 @@ $(window).scroll(function(event) {
       </div>
       <div class="col-lg-4 col-sm-6 portfolio-item">
         <div class="card h-100">
-          <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+          <a href="#"><img class="card-img-top" src="https://post-phinf.pstatic.net/MjAyMDAzMjFfOCAg/MDAxNTg0NzcwOTg4ODQz.re4kwkPrf8-Ec6xdBbKf_7FeXtBVVnjIzGh8Elpb4HUg.H36hs4u1Fl4Bq-lGeIG_1VL5Rn8Z82vfAEHOW_6zxsog.JPEG/GranduerIG_LPi_6%EC%84%B8%EB%8C%80_111.jpg?type=w1200" style="weidth:auto;height:197px" alt=""></a>
           <div class="card-body">
             <h4 class="card-title">
               <a href="#">Project Two</a>
@@ -202,7 +202,7 @@ $(window).scroll(function(event) {
       </div>
       <div class="col-lg-4 col-sm-6 portfolio-item">
         <div class="card h-100">
-          <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+          <a href="#"><img class="card-img-top" src="https://lh3.googleusercontent.com/proxy/ehA8ozHXCraOz2qHTdccRHbinvaiWnOOLoeYXlyIWhQfaxgOwVBohXLJOv49RnOMrqbjnLCkW8dxJ90qi1JdDdhuU705dUf39CIetHvemsrpV-SbZ-ZCgMxnyoO1HcjVGD2_hdoY2kbwBrFeakQijJY-s6c_weNrA8JKULp1t7wz85YJ" style="weidth:auto;height:197px" alt=""></a>
           <div class="card-body">
             <h4 class="card-title">
               <a href="#">Project Three</a>
