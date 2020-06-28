@@ -27,10 +27,14 @@ public class GoodsServiceImpl implements GoodsService {
 	public GoodsVO color(int car_id) throws Exception {
 		return dao.color(car_id);
 	}
-	
 	@Override
 	public List<GoodsVO> all(GoodsVO goodsVO) throws Exception {
 		// TODO Auto-generated method stub
 		return dao.all(goodsVO);
+	}
+	
+	@Override
+	public List<GoodsVO> search(String keyword) throws Exception{
+		return dao.search(keyword);
 	}
 }

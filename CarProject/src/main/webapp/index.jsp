@@ -7,7 +7,12 @@
 </head>
 <body>
 <c:import url="/WEB-INF/views/common/menubar.jsp"/>
+</div>
+<div>
 <c:import url="/WEB-INF/views/common/main.jsp"/>
+</div>
+<div>
 <c:import url="/WEB-INF/views/common/footer.jsp"/>
+</div>
 </body>
 </html>

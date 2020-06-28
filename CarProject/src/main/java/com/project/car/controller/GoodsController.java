@@ -50,6 +50,7 @@ public class GoodsController {
 		logger.info("Get goodsDetail");
 		System.out.println("car_id : " + car_id);
 		GoodsVO detail = service.detail(car_id);
+
 		model.addAttribute("detail", detail);
 		GoodsVO color = service.color(car_id);
 		model.addAttribute("color", color);		
@@ -67,7 +68,17 @@ public class GoodsController {
 		  System.out.println(goods_list.get(0).getBrand_Name());
 		  model.addAttribute("brand", goods_list.get(0).getBrand_Name());
 		  
+		  
 		  return "goods/goodsList";
 		  
 		 }
-}
+		 
+		 @RequestMapping(value="goodsSearch.do",method = RequestMethod.GET)
+		 public String getGoodsSearch(String keyword,Model model,GoodsVO goods) throws Exception{
+			 logger.info("get search"+keyword);
+			 List<GoodsVO> searchResult = service.search(keyword);
+			 model.addAttribute("searchList",searchResult);
+			 logger.info(searchResult.get(0)+"_)_)_");
+			 return "goods/goodsSearch";
+		 }
+		}

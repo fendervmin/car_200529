@@ -7,7 +7,6 @@
 <meta charset="UTF-8">
 <title>로그인</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> 
-<c:import url="../common/menubar.jsp"/>
 
 <script type="text/javascript">
 $(document).ready(function(){
@@ -48,6 +47,8 @@ function enterKeyCheck(){
 </script>
 </head>
 <body>
+
+<c:import url="/WEB-INF/views/common/menubar.jsp"/>
 <form class="signUp" id="signupForm" method="post">
    <h1 class="signUpTitle">로그인</h1>
    <input type="text" id="member_UserId" name="member_UserId" class="signUpInput" placeholder="ID" autofocus onkeyup="enterKeyCheck()">
@@ -60,7 +61,7 @@ function enterKeyCheck(){
 
 	<footer id="footer">
 		<div id="footer_box">
-			<%@ include file="../common/footer.jsp" %>
+			<%@ include file="/WEB-INF/views/common/footer.jsp" %>
 		</div>
 	</footer>
 </body>

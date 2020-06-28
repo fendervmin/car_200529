@@ -1,70 +1,97 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-   pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/mainView/common.css">
-<script type="text/javascript" src="${pageContext.request.contextPath }/resources/js/jquery-3.4.1.min.js"></script>
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath }/resources/css/mainView/common.css">
+<script type="text/javascript"
+	src="${pageContext.request.contextPath }/resources/js/jquery-3.4.1.min.js"></script>
 <style>
-#header .subLyr{
-   display: block;
-    max-height: 280px;
-}
-#header .debsss{
-    margin-top:5px;
-    font-weight:bold;
-    font-size:15px;
-    display: block;
-    position: relative;
-    line-height: 30px;
-    padding: 0 30px;
-}
-#header a:not([href]):not([tabindex]):hover, a:not([href]):not([tabindex]):focus {
-    color: white;
-    text-decoration: none;
-}
-#header .header{
-   transition: All 0.2s ease;
-}
-#header .temp.debs>li:hover{
-   cursor: pointer;
+#header .subLyr {
+	display: block;
+	max-height: 280px;
 }
 
-#header .menubar_li>a{display:block;position:relative;padding:0 20px;font-size:14px;line-height:43px;
-   color:#ffffff;z-index:2;cursor:pointer;text-decoration:none;}
-   
-#header dd{position:relative;float:left; margin-inline-start: 1px;}
-
-#header.menubar_li{
-   padding: 0 50px;
+#header .debsss {
+	margin-top: 5px;
+	font-weight: bold;
+	font-size: 15px;
+	display: block;
+	position: relative;
+	line-height: 30px;
+	padding: 0 30px;
 }
-#hd_gnb li a:hover:not(.active) {
-		    background-color: #111;
-		}
-		#hd_gnb .active {
-		    background-color: #4CAF50;
-		}
+
+#header a:not ([href] ):not ([tabindex] ):hover, a:not ([href] ):not ([tabindex]
+	):focus {
+	color: white;
+	text-decoration: none;
+}
+
+#header .header {
+	transition: All 0.2s ease;
+}
+
+#header .temp.debs>li:hover {
+	cursor: pointer;
+}
+
+#header .menubar_li>a {
+	display: block;
+	position: relative;
+	padding: 0 20px;
+	font-size: 14px;
+	line-height: 43px;
+	color: #ffffff;
+	z-index: 2;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+#header dd {
+	position: relative;
+	float: left;
+	margin-inline-start: 1px;
+}
+
+#header.menubar_li {
+	padding: 0 50px;
+}
+
+#hd_gnb li a:hover:not (.active ) {
+	background-color: #111;
+}
+
+#hd_gnb .active {
+	background-color: #4CAF50;
+}
 </style>
 <script>
-var lastScrollTop = 0,
-delta = 15;
-$(window).scroll(function(event) {
-   var st = $(this).scrollTop();
-   if (Math.abs(lastScrollTop - st) <= delta) return;
-   if ((st > lastScrollTop) && (lastScrollTop > 0)) {
-      $(".header").css({"top": "-110px"});
-   } else {
-      $(".header").css({"top": "0"});
-   }
-   lastScrollTop = st;
-});
+	var lastScrollTop = 0, delta = 15;
+	$(window).scroll(function(event) {
+		var st = $(this).scrollTop();
+		if (Math.abs(lastScrollTop - st) <= delta)
+			return;
+		if ((st > lastScrollTop) && (lastScrollTop > 0)) {
+			$(".header").css({
+				"top" : "-110px"
+			});
+		} else {
+			$(".header").css({
+				"top" : "0"
+			});
+		}
+		lastScrollTop = st;
+	});
 </script>
 </head>
 <body>
+
    <div id="header" class="header" style="outline: none;">
    <!-- 오른쪽 맨 위 상단에 로그인, 회원가입, 등등 버튼있는 부분입니다... -->
    	<div class="contain">
@@ -73,10 +100,10 @@ $(window).scroll(function(event) {
          
          <c:if test="${ empty sessionScope.loginUser }">
          <dd id="header_loginbtn">
-            <a href='../user/login'>로그인</a>
+            <a href='/user/loginPage.do'>로그인</a>
          </dd>
          <dd id="header_joinbtn">
-            <a href='../user/signUp'>회원가입</a>
+            <a href='/user/signUpPage.do'>회원가입</a>
          </dd>
          </c:if>
          <c:if test="${ !empty sessionScope.loginUser && loginUser.member_Type != '관리자' }">
@@ -84,10 +111,10 @@ $(window).scroll(function(event) {
             <a style="font-size:12px;"> ${ loginUser.member_Name }님 환영합니다.</a>
          </dd>
          <dd class="arw">
-            <a href='mypage.do'>마이페이지</a>
+            <a href='/user/mypagePage.do'>마이페이지</a>
          </dd>
          <dd>
-            <a href='logout.do'>로그아웃</a>
+            <a href='/user/logout.do'>로그아웃</a>
          </dd>
          </c:if>
          
@@ -97,10 +124,10 @@ $(window).scroll(function(event) {
             <a style="font-size:12px;"> ${ loginUser.member_Name }님 환영합니다.</a>
          </dd>
          <dd class="arw">
-            <a href='mypage.do'>마이페이지</a>
+            <a href='/user/mypage.do'>마이페이지</a>
          </dd>
          <dd>
-            <a href='logout.do'>로그아웃</a>
+            <a href='/user/logout.do'>로그아웃</a>
          </dd>
          <dd>
             <a href='admin.do'>관리자</a>
@@ -111,8 +138,6 @@ $(window).scroll(function(event) {
             <div class="lys" style="display: none;"></div>
          </dd>
       </dl>
-
-
       <!-- 상단 로고입니다 (로고 이미지 임시) -->
       <div class="hd_top">
          <h1 class="sd">
@@ -121,7 +146,17 @@ $(window).scroll(function(event) {
          </h1>
       </div>
    </div>
+			<div class="search">
+				<form name="search"
+					method="get" action="../goods/goodsSearch.do">
+					<!-- align : 정렬 , style : 스타일 정보 포함 (margin : 여백 설정) , method : 전달 방식 ,  action : submit 시 이동 경로 ,onsubmit : submit 클릭시 호출 조건 (true 일 때 action으로 넘어감 )-->
 
+					<td><input type="text" name="keyword"></td>
+
+					<td><input type="submit" value="search"></td>
+
+				</form>
+			</div>
    <!-- 메뉴바  -->
    <div class="hd_gnb">
       <h3 class="ir">카테고리메뉴</h3>
@@ -139,7 +174,10 @@ $(window).scroll(function(event) {
 	      </ul>
 	   </div>
 	</div>
+
    <!-- 코드 끝!! -->
+   <div style="margin-top:130px"></div>
+   <br clear="all">
    <!-- 메뉴바 슬라이드 옵션 관련 스크립트 -->
    <script>
       /* 메인 메뉴바 슬라이드 옵션 */

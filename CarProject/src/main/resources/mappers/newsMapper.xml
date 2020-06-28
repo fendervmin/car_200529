@@ -20,5 +20,7 @@ SELECT * FROM NEWS WHERE NEWS_ID = #{news_Id}
 <select id="getNews" parameterType="news" resultMap="fullnewsInfo">
 SELECT * FROM NEWS
 </select>
-
+<select id="count" resultType="int">
+	SELECT COUNT(*) FROM NEWS
+</select>
 </mapper>

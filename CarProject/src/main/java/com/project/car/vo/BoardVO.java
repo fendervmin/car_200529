@@ -29,6 +29,7 @@ public class BoardVO {
 	public void setP_content(String p_content) {
 		this.p_content = p_content;
 	}
+
 	@Override
 	public String toString() {
 		return "BoardVO [p_id=" + p_id + ", p_title=" + p_title + ", p_content=" + p_content + ", p_time=" + p_time

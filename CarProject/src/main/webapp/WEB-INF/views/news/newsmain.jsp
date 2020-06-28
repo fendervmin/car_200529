@@ -105,7 +105,22 @@
             </div>
           </div>
    		</c:forEach>
-   		
+   		<ul class="dd">
+					<c:if test="${Maker.prev}">
+						<li><a
+							href="newsmainPage.do${Maker.makeQuery(Maker.startPage - 1)}">이전</a></li>
+					</c:if>
+
+					<c:forEach begin="${Maker.startPage}" end="${Maker.endPage}"
+						var="idx">
+						<li><a href="newsmainPage.do${Maker.makeQuery(idx)}">${idx}</a></li>
+					</c:forEach>
+
+					<c:if test="${Maker.next && Maker.endPage > 0}">
+						<li><a
+							href="newsmainPage.do${Maker.makeQuery(Maker.endPage + 1)}">다음</a></li>
+					</c:if>
+			</ul>
    		<c:forEach items="${getNews }" var="getNews" begin="1" end="1">
           <div class="col-lg-4 col-md-6 mb-4">
             <div class="card h-100">
@@ -235,10 +250,10 @@
             </div>
           </div>
           </c:forEach>
-
+			
         </div>
         <!-- /.row -->
-
+		
       </div>
       <!-- /.col-lg-9 -->
 

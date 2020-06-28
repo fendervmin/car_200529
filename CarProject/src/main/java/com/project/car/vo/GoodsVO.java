@@ -19,7 +19,11 @@ public class GoodsVO {
 		private String color_2;
 		private String color_3;
 		
-
+		@Override
+		public String toString() {
+			String d ="car_id: "+car_ID+"";
+			return d;
+		}
 		public String getColor_0() {
 			return color_0;
 		}

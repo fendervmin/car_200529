@@ -1,6 +1,7 @@
 package com.project.car.controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,14 +15,21 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.project.car.services.ReserveService;
 import com.project.car.services.UserService;
 import com.project.car.vo.MemberVO;
+import com.project.car.vo.ReserveVO;
 
 @Controller
 @RequestMapping("user/*")
 public class UserController {
 	@Autowired
 	private UserService uService;
+	
+	@Autowired
+	private ReserveService rService;
+
+
 
 	// 로그인 기능을 수행하는 메소드
 	@RequestMapping(value="login.do")
@@ -95,9 +103,14 @@ public class UserController {
 	
 	// 마이페이지로 가는 메소드
 	@RequestMapping(value="mypagePage.do")
-	public ModelAndView myPagePage() {
+	public ModelAndView myPagePage(HttpSession session, HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView();
+		session = request.getSession();
+		MemberVO loginUser = (MemberVO)session.getAttribute("loginUser");
 		
+		List<ReserveVO> reserveList = rService.selectReserveList(loginUser.getMember_UserId());
+		
+		mav.addObject("reserveList", reserveList);
 		mav.setViewName("user/myPage");
 		return mav;
 	}
@@ -179,20 +192,36 @@ public class UserController {
 		return mav;
 	}
 	
-	@RequestMapping(value="searchPwd.do")
-	public ModelAndView searchPwd(ModelAndView mv, @ModelAttribute MemberVO member) {
+	@RequestMapping(value="PwdSearch.do")
+	public ModelAndView PwdSearch(HttpServletRequest request, ModelAndView mv) {
 		// member : 비밀번호 찾기 에서 입력한 회원정보  이름, 이메일, 아이디 
-		boolean result = uService.searchPwd(member);
+		String member_UserId = request.getParameter("member_UserId2");
+		String member_Name = request.getParameter("member_Name2");
+		String member_Email = request.getParameter("member_Email2");
 		
-		if(result) {
-			// 성공했을때 뷰(JSP) 화면이 들어감
-			mv.setViewName("");
-		}else {
-			// 실패했을때 뷰
-			mv.setViewName("");
-		}
+		System.out.println(member_UserId);
+		System.out.println(member_Name);
+		System.out.println(member_Email);
 		
+		uService.mailSendWithPassword(member_UserId, member_Name, member_Email, request);
+		mv.addObject("changePwd", "회원님의 이메일로 임시비밀번호를 보냈습니다.");
+		mv.setViewName("user/userSearch");
 		return mv;
+	}
+	
+	@RequestMapping(value="IdSearch.do")
+	@ResponseBody
+	public String IdSearch(HttpServletRequest request) {
+		String name = request.getParameter("member_Name");
+		String email = request.getParameter("member_Email");
+		
+		String result = uService.searchId(name, email);
+		
+		if(result != null) {
+			return result;
+		}else {
+			return "fail";
+		}
 	}
 	
 	@RequestMapping(value="removeUser.do")

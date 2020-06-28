@@ -57,8 +57,8 @@ public class BoardDAOImpl implements BoardDAO {
 
 	}
 	@Override
-	public void count(int p_id) throws Exception{
-		sqlSession.insert("mappers.boardMapper.view",p_id);
+	public int count(int p_id) throws Exception{
+		return sqlSession.insert("mappers.boardMapper.view",p_id);
 	}
 
 	

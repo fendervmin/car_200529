@@ -7,9 +7,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-	<style type="text/css">
-		.dd {list_style:none; float: left; padding:6px;}
-	</style>
+<style type="text/css">
+.dd {
+	list_style: none;
+	float: left;
+	padding: 6px;
+	
+}
+</style>
 <!-- 합쳐지고 최소화된 최신 CSS -->
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
@@ -20,14 +25,27 @@
 
 <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
 <script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js">
+	
+	</script>
 </head>
 <body>
 	<h2 style="margin-left: 45%;">자유게시판</h2>
+	
 	<div class="row-fluid">
 		<div id="header_box">
 			<c:import url="../common/menubar.jsp" />
 		</div>
+		<div class="dropdown">
+		<button id="dLabel" type="button" data-toggle="dropdown"
+			aria-haspopup="true" aria-expanded="false">
+			 <span class="caret">a</span>
+			 <span class="caret2">e</span>
+		</button>
+		<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+			...
+		</ul>
+	</div>
 		<div class="card" style="margin-top: 150px">
 			<table class="table table-hover">
 				<thead>
@@ -40,7 +58,8 @@
 					</tr>
 				</thead>
 				<c:forEach var="list" items="${list}" varStatus="vs" begin="1"
-					step="1"><!-- 순서대로 사용할변수명,list객체이름,반복상태(인덱스)변수~.. -->
+					step="1">
+					<!-- 순서대로 사용할변수명,list객체이름,반복상태(인덱스)변수~.. -->
 					<tbody>
 						<tr>
 							<th scope="col" class="text-center">${vs.index}</th>
@@ -48,7 +67,7 @@
 								href='writeDetail.do?index=${list.p_id}'>${list.p_title}</a></th>
 							<th scope="col" class="text-center">${list.p_content}</th>
 							<th scope="col" class="text-center">${list.p_view }</th>
-						<th scope="col" class="text-center">${list.p_time }</th>
+							<th scope="col" class="text-center">${list.p_time }</th>
 						</tr>
 					</tbody>
 				</c:forEach>
@@ -60,8 +79,8 @@
 							href="writeBoard.do${Maker.makeQuery(Maker.startPage - 1)}">이전</a></li>
 					</c:if>
 
-					<c:forEach begin="${Maker.startPage}"
-						end="${Maker.endPage}" var="idx">
+					<c:forEach begin="${Maker.startPage}" end="${Maker.endPage}"
+						var="idx">
 						<li><a href="writeBoard.do${Maker.makeQuery(idx)}">${idx}</a></li>
 					</c:forEach>
 
@@ -71,8 +90,9 @@
 					</c:if>
 				</ul>
 			</div>
+			
 			<a href="writeView.do?index=0">글작성</a>
-		</div>
+			</div>
 		<div id="footer_box">
 			<c:import url="../common/footer.jsp" />
 		</div>

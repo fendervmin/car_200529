@@ -23,5 +23,10 @@ public class AnswerDAOlmpl implements AnswerDAO {
 	public void replyInsert(AnswerVO answer) throws Exception{
 		sqlsession.insert("mappers.answerMapper.replyInsert", answer);
 	}
+	@Override
+	public void delete(int a_id) throws Exception {
+		// TODO Auto-generated method stub
+		sqlsession.insert("mappers.answerMapper.replyDelete",a_id);
+	}
 
 }

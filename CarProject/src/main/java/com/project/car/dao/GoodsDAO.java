@@ -13,4 +13,6 @@ public interface GoodsDAO {
 	public GoodsVO color(int car_id) throws Exception;
 
 	public List<GoodsVO> all(GoodsVO goodsVO);
+	
+	public List<GoodsVO> search(String keyword) throws Exception;
 }

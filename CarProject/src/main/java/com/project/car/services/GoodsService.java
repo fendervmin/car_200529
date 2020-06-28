@@ -14,5 +14,5 @@ public interface GoodsService {
 	
 	public List<GoodsVO> all(GoodsVO goodsVO) throws Exception;
 	
-	
+	public List<GoodsVO> search(String keyword) throws Exception;
 }

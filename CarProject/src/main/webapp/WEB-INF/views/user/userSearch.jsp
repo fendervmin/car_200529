@@ -9,6 +9,12 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> 
 <c:import url="../common/menubar.jsp"/>
 <script type="text/javascript">
+$(document).ready(function(){
+	if( ${ changePwd != null } ){
+      alert('${changePwd}');
+   }
+});
+
 function search_check(num) {
 	if (num == '1') {
 		document.getElementById("searchP").style.display = "none";
@@ -20,20 +26,18 @@ function search_check(num) {
 }
 
 //아이디 & 스토어 값 저장하기 위한 변수
-var idV = "";
+/* var idV = ""; */
 // 아이디 값 받고 출력하는 ajax
 var idSearch_click = function(){
 	$.ajax({
 		type:"POST",
-		url: "/jquery/userSearch",
+		url: "/user/IdSearch.do",
 		data : $("#searchform").serialize(),
 		success:function(data){
-			if(data == 0){
-				$('#id_value').text("회원 정보를 확인해주세요");	
+			if(data == "fail"){
+				alert("회원정보를 다시 확인해주세요");
 			} else {
-				$('#id_value').text(data);
-				// 아이디값 별도로 저장
-				idV = data;
+				alert("회원님의 아이디는 " + data + "입니다.");
 			}
 		}
 	});
@@ -43,12 +47,11 @@ var idSearch_click = function(){
 </head>
 <body>
 <div class="full">
-<form id="searchform">
+<form id="searchform" method="post">
 		<div class="container">
 			<div class="area_inputs wow fadeIn">
 				<div class="sub_title font-weight-bold text-white">
 					<h3>아이디/비밀번호 찾기</h3>
-					<p>인증된 이메일만 정보 찾기가 가능합니다 </p>
 				</div>
 				<div style="margin-bottom: 10px;"
 					class="custom-control custom-radio custom-control-inline">
@@ -81,34 +84,34 @@ var idSearch_click = function(){
 					<div class="form-group">
 						<label class="font-weight-bold text-white" for="inputId">아이디</label>
 						<div>
-							<input type="text" class="userSearchPwd" id="member_UserId" name="member_UserId" placeholder="아이디">
+							<input type="text" class="userSearchPwd" id="member_UserId2" name="member_UserId2" placeholder="아이디">
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="font-weight-bold text-white" for="inputName_2">이름</label>
 						<div>
-							<input type="text" class="userSearchPwd" id="member_Name" name="member_Name2" placeholder="이름">
+							<input type="text" class="userSearchPwd" id="member_Name2" name="member_Name2" placeholder="이름">
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="font-weight-bold text-white" for="inputEmail_2">이메일</label>
 						<div>
-							<input type="email" class="userSearchPwd" id="member_Email" name="member_Email2" placeholder="이메일">
+							<input type="email" class="userSearchPwd" id="member_Email2" name="member_Email2" placeholder="이메일">
 						</div>
 					</div>
 					<div class="form-group">
-						<button id="searchBtn2" type="button" class="btn btn-primary btn-block">확인</button>
+						<input type="submit" class="btn btn-primary btn-block" onclick="javascript: form.action= '/user/PwdSearch.do'" value="확인">
 					<a class="btn btn-danger btn-block"	href="${pageContext.request.contextPath}">취소</a>
 				</div>
 				</div>
 			</div>
 		</div>
+</form>
 	</div>
 	<footer id="footer">
 		<div id="footer_box">
 			<%@ include file="../common/footer.jsp" %>
 		</div>
 	</footer>
-</form>
 </body>
 </html>
