@@ -99,7 +99,7 @@ $(window).scroll(function(event) {
       </ol>
       <div class="carousel-inner" role="listbox">
         <!-- Slide One - Set the background image for this slide in the line below -->
-        <div class="carousel-item active" style="background-image: url('http://placehold.it/1900x1080')">
+        <div class="carousel-item active" style="background-image: url('https://www.lealeryan.com/wp-content/uploads/2015/04/Porsche_Carrera_Gray_Home-Template-2-1900x1080.jpg');">
           <div class="carousel-caption d-none d-md-block">
             <h3>First Slide</h3>
             <p>This is a description for the first slide.</p>

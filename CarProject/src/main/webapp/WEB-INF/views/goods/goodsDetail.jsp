@@ -219,6 +219,38 @@
 						            </div>
 								</div>
 				        	</div>
+					                    <img id="img" src="${pageContext.request.contextPath}/resources/${detail.brand_Id}/${detail.car_Img}.png">
+					                    <div class='modelColor'>
+					                    <div>
+					                    	<button id="btn0" onclick="toggleImg()" class='' style='background:${color.color_0}' type='button' color=C11 >
+					                            
+					                        </button>
+					                        <button id="btn1" onclick="toggleImg1()" class='' style='background:${color.color_1}' type='button' color=C11 >
+					                            
+					                        </button>
+					                        <button id="btn2" onclick="toggleImg2()" class='' style='background:${color.color_2}' type='button' color=C12>
+					                            
+					                        </button>
+					                        <button id="btn3" onclick="toggleImg3()" class='' style='background:${color.color_3}' type='button' color=C14>
+					                
+					                        </button>
+					                    </div>
+					                    <img id="img" src="${pageContext.request.contextPath}/resources/${detail.brand_Id}/${detail.car_Img}.png">
+					                    <div class='modelColor'>
+					                    <div>
+					                    	<button id="btn0" onclick="toggleImg()" class='' style='background:${color.color_0}' type='button' color=C11 >
+					                            
+					                        </button>
+					                        <button id="btn1" onclick="toggleImg1()" class='' style='background:${color.color_1}' type='button' color=C11 >
+					                            
+					                        </button>
+					                        <button id="btn2" onclick="toggleImg2()" class='' style='background:${color.color_2}' type='button' color=C12>
+					                            
+					                        </button>
+					                        <button id="btn3" onclick="toggleImg3()" class='' style='background:${color.color_3}' type='button' color=C14>
+					                
+					                        </button>
+					                    </div>
 					                    
 							</div>
 					                    
