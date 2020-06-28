@@ -46,8 +46,8 @@ values (#{member_Id},#{member_UserId},#{member_Pwd},#{member_Nicname},#{member_E
 	update MEMBER set MEMBER_KEY = 'Y' where MEMBER_USERID = #{param1} and MEMBER_KEY = #{param2} </update>
 
 <!-- 아이디 찾기 -->
-<select id="searchId" resultType="String" parameterType="java.util.Map">
-	select nvl(user_id, 0) from MEMBER
+<select id="searchId" resultType="String" parameterType="Map">
+	select MEMBER_USERID from MEMBER
 	where MEMBER_NAME = #{member_Name} and MEMBER_EMAIL = #{member_Email}
 </select>
 	
@@ -69,7 +69,7 @@ values (#{member_Id},#{member_UserId},#{member_Pwd},#{member_Nicname},#{member_E
 		
 </select>
 
-<update id="updatePassword" parameterType="java.util.Map">
+<update id="updatePassword" parameterType="Map">
 	UPDATE 
 		MEMBER
 	SET 

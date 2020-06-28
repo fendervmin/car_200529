@@ -91,58 +91,61 @@
 </script>
 </head>
 <body>
-	<div id="header" class="header" style="outline: none;">
-		<!-- 오른쪽 맨 위 상단에 로그인, 회원가입, 등등 버튼있는 부분입니다... -->
-		<div class="contain">
-			<dl class="hd_my">
-				<dt class="ir">마이메뉴</dt>
 
-				<c:if test="${ empty sessionScope.loginUser }">
-					<dd id="header_loginbtn">
-						<a href='../user/login'>로그인</a>
-					</dd>
-					<dd id="header_joinbtn">
-						<a href='../user/signUp'>회원가입</a>
-					</dd>
-				</c:if>
-				<c:if
-					test="${ !empty sessionScope.loginUser && loginUser.member_Type != '관리자' }">
-					<dd>
-						<a style="font-size: 12px;"> ${ loginUser.member_Name }님
-							환영합니다.</a>
-					</dd>
-					<dd class="arw">
-						<a href='mypage.do'>마이페이지</a>
-					</dd>
-					<dd>
-						<a href='logout.do'>로그아웃</a>
-					</dd>
-				</c:if>
-
-				<!-- 관리자 로그인시 -->
-				<c:if test="${loginUser.member_Type == '관리자' }">
-					<dd>
-						<a style="font-size: 12px;"> ${ loginUser.member_Name }님
-							환영합니다.</a>
-					</dd>
-					<dd class="arw">
-						<a href='mypage.do'>마이페이지</a>
-					</dd>
-					<dd>
-						<a href='logout.do'>로그아웃</a>
-					</dd>
-					<dd>
-						<a href='admin.do'>관리자</a>
-					</dd>
-				</c:if>
-				<dd class="arw">
-					<!-- <a href="">고객센터<em class="ir">메뉴보기</em></a> -->
-					<div class="lys" style="display: none;"></div>
-				</dd>
-			</dl>
-
-
-			<!-- 상단 로고입니다 (로고 이미지 임시) -->
+   <div id="header" class="header" style="outline: none;">
+   <!-- 오른쪽 맨 위 상단에 로그인, 회원가입, 등등 버튼있는 부분입니다... -->
+   	<div class="contain">
+      <dl class="hd_my">
+         <dt class="ir">마이메뉴</dt>
+         
+         <c:if test="${ empty sessionScope.loginUser }">
+         <dd id="header_loginbtn">
+            <a href='/user/loginPage.do'>로그인</a>
+         </dd>
+         <dd id="header_joinbtn">
+            <a href='/user/signUpPage.do'>회원가입</a>
+         </dd>
+         </c:if>
+         <c:if test="${ !empty sessionScope.loginUser && loginUser.member_Type != '관리자' }">
+         <dd>
+            <a style="font-size:12px;"> ${ loginUser.member_Name }님 환영합니다.</a>
+         </dd>
+         <dd class="arw">
+            <a href='/user/mypagePage.do'>마이페이지</a>
+         </dd>
+         <dd>
+            <a href='/user/logout.do'>로그아웃</a>
+         </dd>
+         </c:if>
+         
+         <!-- 관리자 로그인시 -->
+         <c:if test="${loginUser.member_Type == '관리자' }">
+         <dd>
+            <a style="font-size:12px;"> ${ loginUser.member_Name }님 환영합니다.</a>
+         </dd>
+         <dd class="arw">
+            <a href='/user/mypage.do'>마이페이지</a>
+         </dd>
+         <dd>
+            <a href='/user/logout.do'>로그아웃</a>
+         </dd>
+         <dd>
+            <a href='admin.do'>관리자</a>
+         </dd>
+         </c:if>
+         <dd class="arw">
+            <!-- <a href="">고객센터<em class="ir">메뉴보기</em></a> -->
+            <div class="lys" style="display: none;"></div>
+         </dd>
+      </dl>
+      <!-- 상단 로고입니다 (로고 이미지 임시) -->
+      <div class="hd_top">
+         <h1 class="sd">
+         	<p>교수님미웡</p>
+            <a href="../"></a>
+         </h1>
+      </div>
+   </div>
 			<div class="hd_top">
 				<h1 class="sd">
 					<a href="../"></a>
@@ -151,7 +154,6 @@
 			<div class="search">
 				<form name="search"
 					method="get" action="../goods/goodsSearch.do">
-
 					<!-- align : 정렬 , style : 스타일 정보 포함 (margin : 여백 설정) , method : 전달 방식 ,  action : submit 시 이동 경로 ,onsubmit : submit 클릭시 호출 조건 (true 일 때 action으로 넘어감 )-->
 
 					<td><input type="text" name="keyword"></td>
@@ -160,66 +162,63 @@
 
 				</form>
 			</div>
-		</div>
-
-		<!-- 메뉴바  -->
-		<div class="hd_gnb">
-			<h3 class="ir">카테고리메뉴</h3>
-			<ul id="menubar">
-
-				<li class="menubar_li" style="color: white;">카테고리</li>
-				<!-- 드롭다운 -->
-
-				<li class="menubar_li" style="color: white;"><a
-					href="../goods/brandList.do">자동차백과</a></li>
-
-				<li class="menubar_li" style="color: white;"><a
-					href="../board/writeBoard.do">커뮤니티</a></li>
-
-				<li class="menubar_li" style="color: white;"><a
-					href="../news/newsmainPage.do">뉴스</a></li>
-			</ul>
-		</div>
+   <!-- 메뉴바  -->
+   <div class="hd_gnb">
+      <h3 class="ir">카테고리메뉴</h3>
+	      <ul id="menubar">
+	
+	         <li class="menubar_li" style="color:white;"><a href="../goods/goodsSales.do">판매실적</li>
+	         
+	         <li class="menubar_li" style="color:white;"><a href="../goods/brandList.do">자동차백과</a></li>
+	
+	         <li class="menubar_li" style="color:white;"><a href="../board/writeBoard.do">커뮤니티</a></li>
+	
+	         <li class="menubar_li" style="color:white;"><a href="../news/newsmainPage.do">뉴스</a></li>
+	      </ul>
+	   </div>
 	</div>
-	<!-- 코드 끝!! -->
-	<!-- 메뉴바 슬라이드 옵션 관련 스크립트 -->
-	<script>
-		/* 메인 메뉴바 슬라이드 옵션 */
-		/* $('.menubar_li').hover(function() {
-		   $(this).children('.subLyr').slideDown({
-		      'display' : 'block',
-		      'height' : '280px',
-		      '-webkit-transition' : 'height 0.3s',
-		      'transition' : 'height 0.3s'
-		   });
-		}, function(){
-		   $(this).children('.subLyr').slideUp(0);
-		});
-		 */
-		$('.menubar_li').hover(function() {
-			$(this).children('.subLyr').css({
-				'display' : 'block',
-				'height' : '280px'
-			});
-		}, function() {
-			$(this).children('.subLyr').css({
-				'display' : 'none',
-				'height' : '280px'
-			});
-		});
 
-		/*맨 오른쪽 상단 메뉴바 슬라이드 옵션*/
-		$('.arw').hover(function() {
-			$(this).find('.lys').css({
-				'display' : 'block',
-				'max-height' : '260px'
-			});
-		}, function() {
-			$(this).find('.lys').css({
-				'display' : 'none',
-				'max-height' : ''
-			});
-		});
-	</script>
+   <!-- 코드 끝!! -->
+   <div style="margin-top:150px"></div>
+   <br clear="all">
+   <!-- 메뉴바 슬라이드 옵션 관련 스크립트 -->
+   <script>
+      /* 메인 메뉴바 슬라이드 옵션 */
+      /* $('.menubar_li').hover(function() {
+         $(this).children('.subLyr').slideDown({
+            'display' : 'block',
+            'height' : '280px',
+            '-webkit-transition' : 'height 0.3s',
+            'transition' : 'height 0.3s'
+         });
+      }, function(){
+         $(this).children('.subLyr').slideUp(0);
+      });
+       */
+       $('.menubar_li').hover(function() {
+            $(this).children('.subLyr').css({
+               'display' : 'block',
+               'height' : '280px'
+            });
+         }, function(){
+            $(this).children('.subLyr').css({
+               'display' : 'none',
+               'height' : '280px'
+            });
+         });
+      
+      /*맨 오른쪽 상단 메뉴바 슬라이드 옵션*/
+      $('.arw').hover(function() {
+         $(this).find('.lys').css({
+            'display' : 'block',
+            'max-height' : '260px'
+         });
+      }, function() {
+         $(this).find('.lys').css({
+            'display' : 'none',
+            'max-height' : ''
+         });
+      });
+   </script>
 </body>
 </html>

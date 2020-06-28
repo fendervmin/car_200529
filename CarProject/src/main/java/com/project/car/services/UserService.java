@@ -1,6 +1,8 @@
 package com.project.car.services;
 
 
+import javax.servlet.http.HttpServletRequest;
+
 import com.project.car.vo.MemberVO;
 
 public interface UserService {
@@ -8,11 +10,11 @@ public interface UserService {
 
 	int userJoin(MemberVO member);
 	
-	String get_searchId(String member_Name, String member_Email);
+	String searchId(String member_Name, String member_Email);
 	
-	void mailSendWithPassword(String user_name, String user_id, String user_email);
+	void mailSendWithPassword(String member_UserId, String member_Name, String member_Email, HttpServletRequest request);
 
-	boolean searchPwd(MemberVO member);
+	boolean searchPwd(MemberVO member, HttpServletRequest request);
 
 	MemberVO login(MemberVO member);
 

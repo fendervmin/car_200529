@@ -41,11 +41,6 @@
 						<label>Nickname</label> 
 						<input class="w3-input" type="text" id="member_Nicname" name="member_Nicname" value="${ loginUser.member_Nicname }"> 
 					</p>
-					<p>
-						<label>이메일 수신</label> 
-						<input type="radio" name="email" value="동의">동의
-						<input type="radio" name="email" value="비동의">비동의
-					</p>
 				</div>
 				<div id="modifyPwd2" style="display: none;">
 					<p>

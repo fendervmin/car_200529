@@ -108,6 +108,7 @@
     </div>
   </nav>
  -->
+<<<<<<< HEAD
 	<header>
 			<div id="carouselExampleIndicators" class="carousel slide my-4"
 				data-ride="carousel">
@@ -142,7 +143,6 @@
 				</a>
 			</div>
 	</header>
-
 	<!-- Page Content -->
 	<div class="container">
 

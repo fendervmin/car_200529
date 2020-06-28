@@ -6,15 +6,6 @@
 	<title>Home</title>
 </head>
 <body>
-<style>
-	 div{
-	 	float:initial;
-	 }
-</style>
-<h1>
-	Hello world!  
-</h1>
-<div>
 <c:import url="/WEB-INF/views/common/menubar.jsp"/>
 </div>
 <div>

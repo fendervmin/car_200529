@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mappers.reserveMapper">
+
+<resultMap type="reserveVO" id="resultReserve">
+	<result column="STORE_NAME" property="store_name"/>
+	<result column="RESERVE_TIME" property="reserve_time"/>
+</resultMap>
+
+
+	<insert id="insertReserve" parameterType="reserveVO">
+		INSERT INTO RESERVE
+		VALUES (SEQ_RESERVE.NEXTVAL, #{user_id}, #{brand_id}, #{store_name}, #{reserve_time})
+	</insert>
+	
+	<select id="selectReserveList" parameterType="string" resultMap="resultReserve">
+		SELECT 
+			STORE_NAME,RESERVE_TIME
+		FROM 
+			RESERVE, MEMBER
+		WHERE
+			RESERVE.USER_ID = MEMBER.MEMBER_USERID
+			AND RESERVE.USER_ID = #{member_UserId}
+			AND TO_DATE(RESERVE.RESERVE_TIME, 'YYYY-MM-DD HH24:MI') >= SYSDATE
+		ORDER BY
+			RESERVE.RESERVE_TIME
+	</select>
+</mapper>

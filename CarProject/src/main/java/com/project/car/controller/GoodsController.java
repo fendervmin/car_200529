@@ -25,9 +25,15 @@ public class GoodsController {
 	GoodsService service;
 	
 	@RequestMapping(value="brandList.do", method=RequestMethod.GET)
-	public String getBrandList(Model model) throws Exception{//값을 매핑해줄 model객체를 생성
+	public String getBrandList(Model model) throws Exception{
 		logger.info("Get brandlist");
-		return "goods/brandList";//writeBoard페이지로 이동
+		return "goods/brandList";
+	}
+	
+	@RequestMapping(value="goodsSales.do", method=RequestMethod.GET)
+	public String getGoodsSales(Model model) throws Exception{
+		logger.info("Get goodsSales");
+		return "goods/goodsSales";
 	}
 	
 	
@@ -40,7 +46,7 @@ public class GoodsController {
 		model.addAttribute("detail", detail);
 		GoodsVO color = service.color(car_id);
 		model.addAttribute("color", color);		
-		return "goods/goodsDetail";//writeBoard페이지로 이동
+		return "goods/goodsDetail";
 	}
 	
 	
