@@ -84,7 +84,7 @@ $(window).scroll(function(event) {
             <a style="font-size:12px;"> ${ loginUser.member_Name }님 환영합니다.</a>
          </dd>
          <dd class="arw">
-            <a href='/user/mypage.do'>마이페이지</a>
+            <a href='/user/mypagePage.do'>마이페이지</a>
          </dd>
          <dd>
             <a href='/user/logout.do'>로그아웃</a>
