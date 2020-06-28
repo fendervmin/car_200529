@@ -24,4 +24,11 @@ public class GoodsServiceImpl implements GoodsService {
 		return dao.detail(car_id);
 	}
 	
+	public GoodsVO color(int car_id) throws Exception {
+		return dao.color(car_id);
+	}
+	@Override
+	public List<GoodsVO> search(String keyword) throws Exception{
+		return dao.search(keyword);
+	}
 }

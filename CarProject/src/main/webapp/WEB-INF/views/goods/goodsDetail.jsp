@@ -212,22 +212,21 @@
 						                    <button title='관심모델로 저장' class='' type='button'>
 						                        <span class='screen_behind'>관심모델로 저장</span>
 						                    </button>
-						                    <button title='매장예약' class='' type='button'>
+						                    <button title='매장예약' class='' type='button' onclick="location.href='../reserve/reservemainPage.do?b=${list.brand_Id}'">
 						                        <span class='screen_behind'>매장 예약하러 가기</span>
 						                    </button>
 						                </div>
 						            </div>
 								</div>
 				        	</div>
-				        </div>
-				        <!-- /.card -->
-				     </div>
-				      <!-- /.col-lg-9 -->
-				  </div>
-			   </div>
-			</div>
+					                    
+							</div>
+					                    
+		</div>
+		</div>
+		</div>
+		</div>
 		</section>
-		
 		<footer id="footer">
 			<div id="footer_box">
 				<%@ include file="../common/footer.jsp" %>

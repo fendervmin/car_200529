@@ -19,11 +19,9 @@ public class NewsServiceImpl implements NewsService{
 	public List<NewsVO> getnews (NewsVO news) {
 		return newsDAO.getnews(news);
 	}
-	
 	@Override
-	public List<NewsVO> getnewsCount (NewsVO news) {
-		return newsDAO.getnewsCount(news);
+	public int newsCount(){
+		return newsDAO.newsCount();
 	}
-	
 
 }

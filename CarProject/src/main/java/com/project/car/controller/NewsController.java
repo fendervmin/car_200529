@@ -11,6 +11,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.project.car.services.NewsService;
 import com.project.car.vo.NewsVO;
+import com.project.car.vo.PageMaker;
+import com.project.car.vo.Pagination;
 
 @Controller
 @RequestMapping("news/*")
@@ -21,27 +23,21 @@ public class NewsController {
 
 	// 뉴스메인 페이지로 가는 메소드
 	@RequestMapping(value = "newsmainPage.do")
-	public ModelAndView newsmainPage(Model model, NewsVO news) {
+	public ModelAndView newsmainPage(Model model, NewsVO news,Pagination pg) {
 		ModelAndView mav = new ModelAndView();
 		
 		List<NewsVO> getNews = NewsService.getnews(news);
 		model.addAttribute("getNews", getNews);
 		
 		mav.setViewName("news/newsmain");
+		
+		PageMaker pm = new PageMaker();
+		pm.setPage(pg);
+		pm.setTotalCount(NewsService.newsCount());
+		
+		model.addAttribute("Maker",pm);
 		return mav;
 	}
 	
-
-	// 주요뉴스 페이지로 가는 메소드
-	@RequestMapping(value = "hotnewsPage.do")
-	public ModelAndView hotnewsPage(Model model, NewsVO news) {
-		ModelAndView mav = new ModelAndView();
-
-		List<NewsVO> getnewsCount = NewsService.getnewsCount(news);
-		model.addAttribute("getnewsCount", getnewsCount);
-		
-		mav.setViewName("news/hotnews");
-		return mav;
-	}
 
 }

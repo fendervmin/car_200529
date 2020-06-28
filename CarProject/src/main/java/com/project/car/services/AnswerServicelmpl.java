@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.project.car.dao.AnswerDAO;
 import com.project.car.vo.AnswerVO;
+import com.project.car.vo.GoodsVO;
 
 @Service
 public class AnswerServicelmpl implements AnswerService{
@@ -22,5 +23,10 @@ public class AnswerServicelmpl implements AnswerService{
 	@Override
 	public void replyInsert(AnswerVO answer) throws Exception{
 		dao.replyInsert(answer);
+	}
+	@Override
+	public void delete(int a_id) throws Exception {
+		// TODO Auto-generated method stub
+		dao.delete(a_id);
 	}
 }

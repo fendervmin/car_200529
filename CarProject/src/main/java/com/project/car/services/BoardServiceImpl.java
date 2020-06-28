@@ -42,8 +42,8 @@ public class BoardServiceImpl implements BoardService {
 		 return dao.listCount();
 	}
 	@Override
-	public void count(int p_id) throws Exception{
-		dao.count(p_id);
+	public int count(int p_id) throws Exception{
+		return dao.count(p_id);
 	}
 	
 	

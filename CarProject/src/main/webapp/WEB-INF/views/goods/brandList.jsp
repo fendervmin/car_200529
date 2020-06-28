@@ -32,6 +32,7 @@
 				<%@ include file="../common/menubar.jsp" %>
 			</div>
 		</header>
+		<
 		
 		<section id="container" style="margin-top:150px">
 			<div id="container_box">

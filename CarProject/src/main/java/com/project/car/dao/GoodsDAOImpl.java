@@ -1,5 +1,6 @@
 package com.project.car.dao;
 
+import java.util.HashMap;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -28,6 +29,13 @@ public class GoodsDAOImpl implements GoodsDAO {
 	}
 	
 	@Override
+	public List<GoodsVO> search(String keyword) throws Exception{
+		List<GoodsVO> result = sql.selectList("goods.search",keyword);
+		System.out.println("??"+keyword);
+		return result;
+	}
+	
+	@Override
 	public GoodsVO detail(int car_id) throws Exception {
 		// TODO Auto-generated method stub
 		GoodsVO g = new GoodsVO();
@@ -37,8 +45,14 @@ public class GoodsDAOImpl implements GoodsDAO {
 		return detail;
 	}
 	
-	
-	
-	
+	@Override
+	public GoodsVO color(int car_id) throws Exception {
+		// TODO Auto-generated method stub
+		GoodsVO g = new GoodsVO();
+		g.setCar_ID(car_id);
+		System.out.println(car_id);
+		GoodsVO color = sql.selectOne("goods.color",car_id);
+		return color;
+	}
 
 }

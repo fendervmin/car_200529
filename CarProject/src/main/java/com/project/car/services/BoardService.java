@@ -20,5 +20,5 @@ public interface BoardService {
 	
 	public int listCount() throws Exception;
 	
-	public void count(int p_id) throws Exception;
+	public int count(int p_id) throws Exception;
 }

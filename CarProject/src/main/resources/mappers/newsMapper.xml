@@ -13,16 +13,14 @@
 	<result column="NEWS_DATE" property="news_Date"/>
 </resultMap>
 
-<select id="getOneNews" parameterType="int" resultMap="fullnewsInfo">
+<select id="getOneNews" parameterType="_int" resultMap="fullnewsInfo">
 SELECT * FROM NEWS WHERE NEWS_ID = #{news_Id}
 </select>
 
 <select id="getNews" parameterType="news" resultMap="fullnewsInfo">
 SELECT * FROM NEWS
 </select>
-<!-- 
-<select id="getnewsCount" parameterType="int" resultMap="int">
-SELECT NEWS_ID FROM NEWS WHERE NEWS_COUNT = #{news_Count} > 99
-</select> -->
-
+<select id="count" resultType="int">
+	SELECT COUNT(*) FROM NEWS
+</select>
 </mapper>

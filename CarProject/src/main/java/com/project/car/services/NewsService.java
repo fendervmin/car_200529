@@ -7,6 +7,6 @@ import com.project.car.vo.NewsVO;
 public interface NewsService {
 	
 	List<NewsVO> getnews(NewsVO news);
+	public int newsCount();
 	
-	List<NewsVO> getnewsCount (NewsVO news);;
 }

@@ -36,12 +36,13 @@ public class GoodsController {
 		logger.info("Get goodsDetail");
 		System.out.println("car_id : " + car_id);
 		GoodsVO detail = service.detail(car_id);
-		model.addAttribute("detail", detail);	
-		GoodsVO color = service.color(car_id);
-		model.addAttribute("color", color);	
 
-		return "goods/goodsDetail";//writeBoard	페이지로 이동
+		model.addAttribute("detail", detail);
+		GoodsVO color = service.color(car_id);
+		model.addAttribute("color", color);		
+		return "goods/goodsDetail";//writeBoard페이지로 이동
 	}
+	
 	
 	// 카테고리별 상품 리스트
 		 @RequestMapping(value = "goodsList.do", method = RequestMethod.GET)
@@ -57,4 +58,13 @@ public class GoodsController {
 		  return "goods/goodsList";
 		  
 		 }
-}
+		 
+		 @RequestMapping(value="goodsSearch.do",method = RequestMethod.GET)
+		 public String getGoodsSearch(String keyword,Model model,GoodsVO goods) throws Exception{
+			 logger.info("get search"+keyword);
+			 List<GoodsVO> searchResult = service.search(keyword);
+			 model.addAttribute("searchList",searchResult);
+			 logger.info(searchResult.get(0)+"_)_)_");
+			 return "goods/goodsSearch";
+		 }
+		}

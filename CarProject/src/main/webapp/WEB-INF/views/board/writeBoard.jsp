@@ -12,6 +12,7 @@
 	list_style: none;
 	float: left;
 	padding: 6px;
+	
 }
 </style>
 <!-- 합쳐지고 최소화된 최신 CSS -->
@@ -25,7 +26,8 @@
 <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js">
-	$('.dropdown-toggle').dropdown()</script>
+	
+	</script>
 </head>
 <body>
 	<h2 style="margin-left: 45%;">자유게시판</h2>
@@ -88,8 +90,9 @@
 					</c:if>
 				</ul>
 			</div>
+			
 			<a href="writeView.do?index=0">글작성</a>
-		</div>
+			</div>
 		<div id="footer_box">
 			<c:import url="../common/footer.jsp" />
 		</div>

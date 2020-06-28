@@ -5,10 +5,19 @@ public class AnswerVO {
 	private int member_id;
 	private int p_id;
 	private String a_content;
+	private String detect;
 	
+	public String getDetect() {
+		return detect;
+	}
+
+	public void setDetect(String detect) {
+		this.detect = detect;
+	}
+
 	@Override
 	public String toString() {
-		return "AnswerVO [a_id=" + a_id + ", member_id=" + member_id + ", p_id=" + p_id + ", a_content=" + a_content
+		return "AnswerVO [a_id=" + a_id + ", member_id=" + member_id + ", p_id=" + p_id + ", a_content=" + a_content+",detect="+detect
 				+ "]";
 	}
 

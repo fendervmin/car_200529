@@ -28,6 +28,11 @@
 		}
 	}
 </script>
+<style>
+	div{
+		float:initial;
+	}
+</style>
 
 <meta charset="UTF-8">
 </head>
@@ -38,7 +43,6 @@
 				<c:import url="../common/menubar.jsp" />
 			</div>
 		</header>
-		<c:import url="../common/menubar.jsp" />
 		<section id="container">
 			<div id="container">
 				<form:form modelAttribute="boardVO" method="post" id="writeForm">

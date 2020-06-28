@@ -16,12 +16,25 @@
     
     <!-- 02. 상품 디테일 -->
     <select id="detail" resultType="car" parameterType="int">
-    	SELECT c.car_id, c.car_name, c.car_price, c.car_type, c.car_fuel, c.fuel_type, c.car_img,
-    			b.brand_name, c.brand_id
-    	FROM CAR c
-    		inner join brand b
+       SELECT c.car_id, c.car_name, c.car_price, c.car_type, c.car_fuel, c.fuel_type, c.car_img,
+             b.brand_name, c.brand_id
+       FROM CAR c
+          inner join brand b
                 on c.brand_id = b.brand_id
-    	WHERE CAR_ID = #{car_id}
+       WHERE c.CAR_ID = #{car_id}
+    </select>
+    
+    <!-- 03. 상품 컬러 -->
+    <select id="color" resultType="car" parameterType="int">
+       SELECT c.car_id, color.color_0,color.color_1,color.color_2,color.color_3
+       FROM CAR c
+          inner join car_color color
+                on c.car_id = color.car_id
+       WHERE color.CAR_ID =#{car_id}
+    </select>
+    <select id="search" resultType="car" parameterType="String">
+	SELECT CAR_ID,CAR_TYPE,CAR_FUEL,CAR_NAME,CAR_PRICE,CAR_IMG,BRAND_ID
+	FROM CAR WHERE CAR_NAME LIKE '%'||#{keyword}||'%'
     </select>
    
 </mapper>

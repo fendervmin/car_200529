@@ -18,9 +18,8 @@ public class newsDAO {
 	public List<NewsVO> getnews(NewsVO news) {
 		return sqlSession.selectList("mappers.newsMapper.getNews", news);
 	}
-	
-	public List<NewsVO> getnewsCount(NewsVO news) {
-		return sqlSession.selectList("mappers.newsMapper.getnewsCount", news);
+	public int newsCount(){
+		return sqlSession.selectOne("mappers.newsMapper.count");
 	}
 
 }

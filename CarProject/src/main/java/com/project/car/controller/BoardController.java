@@ -2,6 +2,7 @@ package com.project.car.controller;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,6 +17,7 @@ import com.project.car.services.AnswerService;
 import com.project.car.services.BoardService;
 import com.project.car.vo.AnswerVO;
 import com.project.car.vo.BoardVO;
+import com.project.car.vo.MemberVO;
 import com.project.car.vo.PageMaker;
 import com.project.car.vo.Pagination;
 
@@ -47,15 +49,19 @@ public class BoardController {
 	
 
 	@RequestMapping(value="writeBoard.do", method=RequestMethod.GET)//게시판 삭제 기능 및 기본 리스트 띄우기
-	public String getWriteBoard(@RequestParam(required = false)String index,Model model,Pagination pg) throws Exception{//값을 매핑해줄 model객체를 생성
+	public String getWriteBoard(@RequestParam(required = false)String index,Model model,Pagination pg,HttpSession session) throws Exception{//값을 매핑해줄 model객체를 생성
 		logger.info("Get writeBoard??"+index);
-
+		
+		MemberVO loginUser =(MemberVO)session.getAttribute("loginUser");
+		
 		if(index!=null){
 			int num = Integer.parseInt(index);
 			service.delete(num);
 		}
 		model.addAttribute("list",service.list(pg));//게시판 내용을 저장하고 있는 list객체를 불러와서 "list"이름으로 model에 넣어줌
-		
+		if(loginUser ==null){
+			model.addAttribute("loginUser", loginUser);
+		}
 		System.out.println(pg.toString());
 		
 		PageMaker pm = new PageMaker();
@@ -112,14 +118,18 @@ public class BoardController {
 		model.addAttribute("answer", new AnswerVO());
 		return "board/writeDetail";//writeDetail페이지로 이동 
 	}
-	@RequestMapping(value="answerWrite", method=RequestMethod.GET)
+	@RequestMapping(value="answerWrite.do", method=RequestMethod.GET)
 	public String getAnswerWrite(HttpServletRequest req,AnswerVO answer,Model model) throws Exception{
 		logger.info("answerWrite");
+		int a_id =Integer.parseInt(req.getParameter("a_id"));
+		logger.info("answerWrite"+a_id);
+		
+		a_service.delete(a_id);
 		int post_id = Integer.parseInt(req.getParameter("id"));
 		model.addAttribute("answer",new AnswerVO());
 		model.addAttribute("PId",post_id);
 		model.addAttribute("reply",a_service.replyList(post_id));
-		return "board/answerWrite";
+		return "board/writeDetail";
 	}
 	@RequestMapping(value="answerWrite.do", method=RequestMethod.POST)
 	public String postAnswerWrite(@ModelAttribute("answer")AnswerVO answer,Model model) throws Exception{
@@ -127,11 +137,13 @@ public class BoardController {
 		System.out.println(answer.getA_content());
 		int post_id = answer.getP_id();
 		//int post_id = Integer.parseInt(req.getAttribute("id"));
-			a_service.replyInsert(answer);
-		logger.info("post"+answer.toString());
-		
+
+		a_service.replyInsert(answer);
+
 		model.addAttribute("reply",a_service.replyList(post_id));
 		model.addAttribute("detail", service.post(post_id));
 		return "board/writeDetail";
 	}
+	
+	
 }
