@@ -117,6 +117,8 @@ public class UserDAO {
 	public void removeUser(String loginId) {
 		sqlSession.update("mappers.userMapper.removeUser", loginId);
 	}
+	
+
 
 
 }

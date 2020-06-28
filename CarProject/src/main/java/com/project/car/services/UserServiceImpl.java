@@ -4,6 +4,7 @@ import javax.mail.MessagingException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMessage.RecipientType;
+import javax.servlet.http.HttpServletRequest;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,13 +53,12 @@ public class UserServiceImpl implements UserService {
 	
 	// 회원검증이 끝난후 비밀번호 초기화 후에 메일을 보내는 메소드
 	@Override
-	public void mailSendWithPassword(String member_Name, String member_UserId, String member_Email) {
+	public void mailSendWithPassword(String member_Name, String member_UserId, String member_Email, HttpServletRequest request) {
 		// 비밀번호는 6자리로 보내고 데이터베이스 비밀번호를 바꿔준다
 				String key = mailsender.getKey(false, 6);
-				
 				userDAO.updatePassword(member_UserId, key);
 				
-						
+				
 				MimeMessage mail = mailSender.createMimeMessage();
 				String htmlStr = "<h2>안녕하세요 '"+ member_Name +"' 님</h2><br><br>" 
 						+ "<p>비밀번호 찾기를 신청해주셔서 임시 비밀번호를 발급해드렸습니다.</p>"
@@ -78,7 +78,7 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public boolean searchPwd(MemberVO member) {
+	public boolean searchPwd(MemberVO member, HttpServletRequest request) {
 		// 기능구현
 		// name, email, 아이디로 비교 
 		boolean result = false;
@@ -86,7 +86,7 @@ public class UserServiceImpl implements UserService {
 		
 		if(check) {
 			// 입력한 회원정보가 일치
-			mailSendWithPassword(member.getMember_Name(), member.getMember_UserId(), member.getMember_Email());
+			mailSendWithPassword(member.getMember_Name(), member.getMember_UserId(), member.getMember_Email(),request);
 			result = true;
 		}
 		

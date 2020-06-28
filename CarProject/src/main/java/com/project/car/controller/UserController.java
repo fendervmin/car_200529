@@ -193,16 +193,20 @@ public class UserController {
 	}
 	
 	@RequestMapping(value="PwdSearch.do")
-	@ResponseBody
-	public String PwdSearch(HttpServletRequest request) {
+	public ModelAndView PwdSearch(HttpServletRequest request, ModelAndView mv) {
 		// member : 비밀번호 찾기 에서 입력한 회원정보  이름, 이메일, 아이디 
-		String id = request.getParameter("member_UserId");
-		String name = request.getParameter("member_Name");
-		String email = request.getParameter("member_Email");
+		String member_UserId = request.getParameter("member_UserId2");
+		String member_Name = request.getParameter("member_Name2");
+		String member_Email = request.getParameter("member_Email2");
 		
-		uService.mailSendWithPassword(id, name, email);
+		System.out.println(member_UserId);
+		System.out.println(member_Name);
+		System.out.println(member_Email);
 		
-		return "user/PwdSearch";
+		uService.mailSendWithPassword(member_UserId, member_Name, member_Email, request);
+		mv.addObject("changePwd", "회원님의 이메일로 임시비밀번호를 보냈습니다.");
+		mv.setViewName("user/userSearch");
+		return mv;
 	}
 	
 	@RequestMapping(value="IdSearch.do")
