@@ -1,6 +1,7 @@
 package com.project.car.controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,14 +15,19 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.project.car.services.ReserveService;
 import com.project.car.services.UserService;
 import com.project.car.vo.MemberVO;
+import com.project.car.vo.ReserveVO;
 
 @Controller
 @RequestMapping("user/*")
 public class UserController {
 	@Autowired
 	private UserService uService;
+	
+	@Autowired
+	private ReserveService rService;
 
 	// 로그인 기능을 수행하는 메소드
 	@RequestMapping(value="login.do")
@@ -95,9 +101,14 @@ public class UserController {
 	
 	// 마이페이지로 가는 메소드
 	@RequestMapping(value="mypagePage.do")
-	public ModelAndView myPagePage() {
+	public ModelAndView myPagePage(HttpSession session, HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView();
+		session = request.getSession();
+		MemberVO loginUser = (MemberVO)session.getAttribute("loginUser");
 		
+		List<ReserveVO> reserveList = rService.selectReserveList(loginUser.getMember_UserId());
+		
+		mav.addObject("reserveList", reserveList);
 		mav.setViewName("user/myPage");
 		return mav;
 	}

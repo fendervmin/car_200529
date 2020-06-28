@@ -10,13 +10,14 @@
   	<typeAlias alias="news" type="com.project.car.vo.NewsVO"/>
   	<typeAlias alias="pagination" type="com.project.car.vo.Pagination"/>
   	<typeAlias alias="answer" type="com.project.car.vo.AnswerVO"/>
+  	<typeAlias alias="reserveVO" type="com.project.car.vo.ReserveVO"/>
   </typeAliases>
   
   <mappers>
   	<mapper resource="mappers/userMapper.xml"/>
   	<mapper resource="mappers/goodsMapper.xml"/>
   	<mapper resource="mappers/boardMapper.xml"/>
- 
+ 	<mapper resource="mappers/reserveMapper.xml"/>
   	<mapper resource="mappers/newsMapper.xml"/>
   	<mapper resource="mappers/answerMapper.xml"/>
   	

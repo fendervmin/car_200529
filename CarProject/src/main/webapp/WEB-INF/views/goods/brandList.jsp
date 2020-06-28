@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,14 +27,16 @@
   
 </head>
 <body>
-	<div id="root">
-		<header id="header">
+	<c:import url="/WEB-INF/views/common/menubar.jsp"/>
+<!-- 	<div id="root"> -->
+		<%-- <header id="header">
 			<div id="header_box">
 				<%@ include file="../common/menubar.jsp" %>
 			</div>
-		</header>
+		</header> --%>
 		
-		<section id="container" style="margin-top:150px">
+		<!-- <section id="container" style="margin-top:150px"> -->
+		<section id="container">
 			<div id="container_box">
 				<div class="container">
 				    <div class="row">
@@ -137,6 +140,6 @@
 				<%@ include file="../common/footer.jsp" %>
 			</div>
 		</footer>
-	</div>
+	<!-- </div> -->
 </body>
 </html>

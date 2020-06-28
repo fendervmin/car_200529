@@ -73,10 +73,10 @@ $(window).scroll(function(event) {
          
          <c:if test="${ empty sessionScope.loginUser }">
          <dd id="header_loginbtn">
-            <a href='../user/login'>로그인</a>
+            <a href='/user/loginPage.do'>로그인</a>
          </dd>
          <dd id="header_joinbtn">
-            <a href='../user/signUp'>회원가입</a>
+            <a href='/user/signUpPage.do'>회원가입</a>
          </dd>
          </c:if>
          <c:if test="${ !empty sessionScope.loginUser && loginUser.member_Type != '관리자' }">
@@ -137,6 +137,8 @@ $(window).scroll(function(event) {
 	   </div>
 	</div>
    <!-- 코드 끝!! -->
+   <div style="margin-top:150px"></div>
+   <br clear="all">
    <!-- 메뉴바 슬라이드 옵션 관련 스크립트 -->
    <script>
       /* 메인 메뉴바 슬라이드 옵션 */
