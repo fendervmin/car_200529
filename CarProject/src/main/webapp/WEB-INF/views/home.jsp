@@ -15,6 +15,7 @@
 	
 	<section id="container" >
 		<div id="container_box">
+		<c:import url="/WEB-INF/views/common/main.jsp"/>
 		</div>
 	</section>
 	

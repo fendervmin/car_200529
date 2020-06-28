@@ -45,12 +45,13 @@ public class UserDAO {
 	
 	
 	// 에러주의 사유:몰라묻지마..ㅜ그냥 틀린거같애
-	public String searchId(@Param("member_Name")String member_Name, @Param("member_Eamil")String member_Email) {
-		HashMap<String, Object> map = new HashMap<String, Object>();
+	public String searchId(String member_Name,String member_Email) {
+		HashMap<String, String> map = new HashMap<String, String>();
 		map.put("member_Name", member_Name);
 		map.put("member_Email", member_Email);
 		return sqlSession.selectOne("mappers.userMapper.searchId", map);
 	}
+	
 	
 	public boolean checkUser(MemberVO member) {
 		MemberVO resultUser = sqlSession.selectOne("mappers.userMapper.checkUser", member);
@@ -64,7 +65,7 @@ public class UserDAO {
 	}
 
 	public void updatePassword(String member_UserId, String key) {
-		HashMap<String,Object> map = new HashMap<String, Object>();
+		HashMap<String,String> map = new HashMap<String, String>();
 		map.put("member_UserId", member_UserId);
 		map.put("key", key);
 		sqlSession.update("mappers.userMapper.updatePassword", map);

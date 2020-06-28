@@ -29,6 +29,8 @@ public class UserController {
 	@Autowired
 	private ReserveService rService;
 
+
+
 	// 로그인 기능을 수행하는 메소드
 	@RequestMapping(value="login.do")
 	public ModelAndView login(@ModelAttribute MemberVO member, HttpSession session) {
@@ -190,20 +192,32 @@ public class UserController {
 		return mav;
 	}
 	
-	@RequestMapping(value="searchPwd.do")
-	public ModelAndView searchPwd(ModelAndView mv, @ModelAttribute MemberVO member) {
+	@RequestMapping(value="PwdSearch.do")
+	@ResponseBody
+	public String PwdSearch(HttpServletRequest request) {
 		// member : 비밀번호 찾기 에서 입력한 회원정보  이름, 이메일, 아이디 
-		boolean result = uService.searchPwd(member);
+		String id = request.getParameter("member_UserId");
+		String name = request.getParameter("member_Name");
+		String email = request.getParameter("member_Email");
 		
-		if(result) {
-			// 성공했을때 뷰(JSP) 화면이 들어감
-			mv.setViewName("");
+		uService.mailSendWithPassword(id, name, email);
+		
+		return "user/PwdSearch";
+	}
+	
+	@RequestMapping(value="IdSearch.do")
+	@ResponseBody
+	public String IdSearch(HttpServletRequest request) {
+		String name = request.getParameter("member_Name");
+		String email = request.getParameter("member_Email");
+		
+		String result = uService.searchId(name, email);
+		
+		if(result != null) {
+			return result;
 		}else {
-			// 실패했을때 뷰
-			mv.setViewName("");
+			return "fail";
 		}
-		
-		return mv;
 	}
 	
 	@RequestMapping(value="removeUser.do")

@@ -8,7 +8,7 @@ public interface UserService {
 
 	int userJoin(MemberVO member);
 	
-	String get_searchId(String member_Name, String member_Email);
+	String searchId(String member_Name, String member_Email);
 	
 	void mailSendWithPassword(String user_name, String user_id, String user_email);
 

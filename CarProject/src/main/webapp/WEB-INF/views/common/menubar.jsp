@@ -84,10 +84,10 @@ $(window).scroll(function(event) {
             <a style="font-size:12px;"> ${ loginUser.member_Name }님 환영합니다.</a>
          </dd>
          <dd class="arw">
-            <a href='mypage.do'>마이페이지</a>
+            <a href='/user/mypage.do'>마이페이지</a>
          </dd>
          <dd>
-            <a href='logout.do'>로그아웃</a>
+            <a href='/user/logout.do'>로그아웃</a>
          </dd>
          </c:if>
          
@@ -97,10 +97,10 @@ $(window).scroll(function(event) {
             <a style="font-size:12px;"> ${ loginUser.member_Name }님 환영합니다.</a>
          </dd>
          <dd class="arw">
-            <a href='mypage.do'>마이페이지</a>
+            <a href='/user/mypage.do'>마이페이지</a>
          </dd>
          <dd>
-            <a href='logout.do'>로그아웃</a>
+            <a href='/user/logout.do'>로그아웃</a>
          </dd>
          <dd>
             <a href='admin.do'>관리자</a>

@@ -25,18 +25,25 @@ var idV = "";
 var idSearch_click = function(){
 	$.ajax({
 		type:"POST",
-		url: "/jquery/userSearch",
+		url: "/user/IdSearch.do",
 		data : $("#searchform").serialize(),
 		success:function(data){
-			if(data == 0){
-				$('#id_value').text("회원 정보를 확인해주세요");	
+			if(data == "fail"){
+				alert("회원정보를 다시 확인해주세요");
 			} else {
-				$('#id_value').text(data);
-				// 아이디값 별도로 저장
-				idV = data;
+				alert("회원님의 아이디는 " + data + "입니다.");
 			}
 		}
 	});
+}
+
+var pwdSearch_click = function() {
+	$.ajax({
+		type:"POST",
+		url: "/user/PwdSearch.do",
+		data : $("#searchform").serialize(),
+		sucess:function()
+	})
 }
 
 </script>
@@ -97,18 +104,18 @@ var idSearch_click = function(){
 						</div>
 					</div>
 					<div class="form-group">
-						<button id="searchBtn2" type="button" class="btn btn-primary btn-block">확인</button>
+						<button id="searchBtn2" type="button" onclik="user/PwdSearch.do" class="btn btn-primary btn-block">확인</button>
 					<a class="btn btn-danger btn-block"	href="${pageContext.request.contextPath}">취소</a>
 				</div>
 				</div>
 			</div>
 		</div>
+</form>
 	</div>
 	<footer id="footer">
 		<div id="footer_box">
 			<%@ include file="../common/footer.jsp" %>
 		</div>
 	</footer>
-</form>
 </body>
 </html>
