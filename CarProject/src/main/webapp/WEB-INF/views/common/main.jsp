@@ -219,7 +219,7 @@
 		      </div>
 		      <div class="col-lg-4 col-sm-6 portfolio-item">
 		        <div class="card h-100">
-		          <a href="#"><img class="card-img-top" src="https://lh3.googleusercontent.com/proxy/ehA8ozHXCraOz2qHTdccRHbinvaiWnOOLoeYXlyIWhQfaxgOwVBohXLJOv49RnOMrqbjnLCkW8dxJ90qi1JdDdhuU705dUf39CIetHvemsrpV-SbZ-ZCgMxnyoO1HcjVGD2_hdoY2kbwBrFeakQijJY-s6c_weNrA8JKULp1t7wz85YJ" style="weidth:auto;height:197px" alt=""></a>
+		          <a href="#"><img class="card-img-top" src="https://www.motorgraph.com/news/photo/202003/25438_80334_1116.jpg" style="weidth:auto;height:197px" alt=""></a>
 		          <div class="card-body">
 		            <h4 class="card-title">
 		              <a href="https://www.genesis.com/kr/ko/genesis.html">Genesis</a>

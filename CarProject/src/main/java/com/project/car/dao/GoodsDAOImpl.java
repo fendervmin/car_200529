@@ -55,9 +55,10 @@ public class GoodsDAOImpl implements GoodsDAO {
 	}
 
 	@Override
-	public List<GoodsVO> search(String keyword) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	   public List<GoodsVO> search(String keyword) throws Exception{
+	      List<GoodsVO> result = sql.selectList("goods.search",keyword);
+	      System.out.println("??"+keyword);
+	      return result;
+	   }
 
 }

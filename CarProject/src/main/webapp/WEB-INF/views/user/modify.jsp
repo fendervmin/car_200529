@@ -57,7 +57,7 @@
 						<input type="button" id="userUpdateBtn" value="정보수정" onclick="existmodify();" class="modifyButton">
 						<input type="button" id="pwdUpdateBtn" value="정보수정" onclick="updatePassword();" class="modifyButton" style="display: none;">
 						<input type="button" value="취소" onclick="history.back(-1);">
-						<input type="button" value="회원탈퇴" value="location.href='/user/out'" class="outButton">
+						<!-- <input type="button" value="회원탈퇴" value="location.href='/user/out'" class="outButton"> -->
 					</p>
 			</form>
 		</div>

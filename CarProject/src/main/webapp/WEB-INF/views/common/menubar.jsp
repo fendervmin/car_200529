@@ -124,7 +124,7 @@
             <a style="font-size:12px;"> ${ loginUser.member_Name }님 환영합니다.</a>
          </dd>
          <dd class="arw">
-            <a href='/user/mypage.do'>마이페이지</a>
+            <a href='/user/mypagePage.do'>마이페이지</a>
          </dd>
          <dd>
             <a href='/user/logout.do'>로그아웃</a>
@@ -141,8 +141,8 @@
       <!-- 상단 로고입니다 (로고 이미지 임시) -->
       <div class="hd_top">
          <h1 class="sd">
-         	<p>교수님미웡</p>
-            <a href="../"></a>
+         	<!-- <p>차</p> -->
+            <a href="../">차</a>
          </h1>
       </div>
    </div>
@@ -176,7 +176,7 @@
 	</div>
 
    <!-- 코드 끝!! -->
-   <div style="margin-top:130px"></div>
+   <div style="margin-top:170px"></div>
    <br clear="all">
    <!-- 메뉴바 슬라이드 옵션 관련 스크립트 -->
    <script>
