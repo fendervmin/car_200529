@@ -4,35 +4,40 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
 <title>회원가입</title>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> 
-</head>
-<body style="background-color:#f0f5f3">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script></head>
+<body>
 <c:import url="../common/menubar.jsp"/>
-<form id="registerform">
+
+<div class="container" >
+	<form id="registerform">
         <div class="fieldlabel"><label for="member_UserId">*아이디</label></div>
-        <div class="formfield"><input type="text" id="member_UserId" name="member_UserId" maxlength="20" value=""><input type="button" onclick="existId()" value="ID중복확인"><div class="error_box" id="idMsg" style="display: none;"></div></div>
+        <div class="formfield"><input type="text" id="member_UserId" name="member_UserId" maxlength="20" value="" class="form-control"><input type="button" onclick="existId()" value="ID중복확인" class="btn btn-primary"><div class="error_box" id="idMsg" style="display: none;"></div></div>
         
         <div class="fieldlabel"><label for="member_Name">*이름</label></div>
-        <div class="formfield"><input type="text" id="member_Name" name="member_Name" maxlength="20" autocomplete="off">
+        <div class="formfield"><input type="text" id="member_Name" name="member_Name" maxlength="20" autocomplete="off" class="form-control">
 </div>
 
         <div class="fieldlabel"><label for="member_Pwd">*패스워드</label></div>
-        <div class="formfield"><input type="password" id="member_Pwd" name="member_Pwd" maxlength="20" autocomplete="off">
+        <div class="formfield"><input type="password" id="member_Pwd" name="member_Pwd" maxlength="20" autocomplete="off" class="form-control">
 </div>
 
         <div class="fieldlabel"><label for="passwordCheck">패스워드확인</label></div>
-        <div class="formfield"><input type="password" id="passwordCheck" name="passwordCheck" maxlength="20" autocomplete="off">
+        <div class="formfield"><input type="password" id="passwordCheck" name="passwordCheck" maxlength="20" autocomplete="off" class="form-control">
 </div>
        
         <div class="fieldlabel"><label for="member_Nicname">*닉네임</label></div>
-        <div class="formfield"><input type="text" id="member_Nicname" name="member_Nicname" maxlength="20" value=""></div>
+        <div class="formfield"><input type="text" id="member_Nicname" name="member_Nicname" maxlength="20" value="" class="form-control"></div>
 
         <div class="fieldlabel"><label for="member_Email">*이메일</label></div>
-        <div class="formfield"><input type="text" id="member_Email" name="member_Email" size="20" maxlength="20" 
+        <div class="formfield"><input type="text" id="member_Email" name="member_Email" size="20" maxlength="20" class="form-control"
              value="" autocomplete="off"><span>@</span>
-            <input id="domain" list="domains" name="domain" placeholder="도메인입력/선택">
+            <input id="domain" list="domains" name="domain" placeholder="도메인입력/선택" class="form-control" >
             <datalist id="domains">
                 <option value="naver.com">
                 <option value="daum.net">
@@ -42,9 +47,12 @@
         </div>
        
         <div class="btnfield">
-            <input type="button" onclick="signUpValidation()" value="회원가입">
+            <input type="button" onclick="signUpValidation()" value="회원가입" class="btn btn-primary" >
         </div>
     </form>
+</div>
+    
+    
     <footer id="footer">
 		<div id="footer_box">
 			<%@ include file="../common/footer.jsp" %>
