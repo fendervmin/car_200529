@@ -38,5 +38,8 @@
     	SELECT *
     	FROM CAR
     </select>
-    
+    <select id="search" resultType="car" parameterType="String">
+   SELECT CAR_ID,CAR_TYPE,CAR_FUEL,CAR_NAME,CAR_PRICE,CAR_IMG,BRAND_ID
+   FROM CAR WHERE CAR_NAME LIKE '%'||#{keyword}||'%'
+    </select>
 </mapper>
