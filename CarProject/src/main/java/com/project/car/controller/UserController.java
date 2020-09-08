@@ -2,6 +2,7 @@ package com.project.car.controller;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.logging.Logger;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -9,14 +10,17 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.project.car.services.GoodsService;
 import com.project.car.services.ReserveService;
 import com.project.car.services.UserService;
+import com.project.car.vo.GoodsVO;
 import com.project.car.vo.MemberVO;
 import com.project.car.vo.ReserveVO;
 
@@ -29,7 +33,8 @@ public class UserController {
 	@Autowired
 	private ReserveService rService;
 
-
+	@Autowired
+	private GoodsService goodservice;
 
 	// 로그인 기능을 수행하는 메소드
 	@RequestMapping(value="login.do")
@@ -123,6 +128,24 @@ public class UserController {
 		return null;
 		
 	}
+	
+	// 즐겨찾기로 이동하는 메소드
+	@RequestMapping(value="likeItPage.do")
+	public String likeItPage() {
+		return "user/likeIt";
+	}
+	
+	// 즐겨찾기 기능 수행 메소드
+	@RequestMapping(value="likeIt.do")
+	public String likeIt(Model model, GoodsVO goodsVO) throws Exception {
+		
+		List<GoodsVO> all = goodservice.all(goodsVO);
+		model.addAttribute("all", all);
+		
+		return"user/likeItsuccess";
+	}
+	
+	
 	
 	@RequestMapping(value="updateUserPage.do")
 	public ModelAndView updateUserPage(ModelAndView mv) {
