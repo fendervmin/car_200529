@@ -3,8 +3,8 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.project</groupId>
-	<artifactId>car</artifactId>
+	<groupId>MiniProjectJava</groupId>
+	<artifactId>MiniProjectJava</artifactId>
 	<name>CarProject</name>
 	<packaging>war</packaging>
 	<version>1.0.0-BUILD-SNAPSHOT</version>
@@ -202,6 +202,7 @@
 		</dependency>
 		<!-- 이메일 인증 2018.11.20 KW -->
 		
+		 
 	</dependencies>
 	<build>
 		<plugins>

@@ -92,7 +92,7 @@
 					<a href="#layer2" class="btn-example">예약 내역</a>
 				</li>
 			</ul>
-			<h3>나의 게시글 보기</h3>
+			<!-- <h3>나의 게시글 보기</h3> -->
 			<h3>개인정보</h3>
 			<ul>
 				<li class="myPage_li"><a href="/user/updateUserPage.do">회원정보수정</a></li>

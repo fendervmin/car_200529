@@ -4,10 +4,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
 <title>로그인</title>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> 
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 
+ 
 <script type="text/javascript">
 $(document).ready(function(){
    if(${ loginFail != null }){
@@ -42,26 +47,41 @@ function enterKeyCheck(){
      }
 }
 
-
-
 </script>
 </head>
 <body>
 
 <c:import url="/WEB-INF/views/common/menubar.jsp"/>
-<form class="signUp" id="signupForm" method="post">
-   <h1 class="signUpTitle">로그인</h1>
-   <input type="text" id="member_UserId" name="member_UserId" class="signUpInput" placeholder="ID" autofocus onkeyup="enterKeyCheck()">
-   <input type="password" id="member_Pwd" name="member_Pwd" class="signUpInput" placeholder="Password" onkeyup="enterKeyCheck()">
-   <input type="button" value="로그인" onclick="loginValidation()" class="loginButton">
-   <input type="button" value="회원가입" onclick="location.href='/user/signUpPage.do'" class="signUpButton">
-   <input type="button" value="아이디/비밀번호찾기" onclick="location.href='/user/userSearchPage.do'" class="userSearchButton">
-   
-</form>
 
-	<footer id="footer">
+	<div class="container">
+		<form class="signUp" id="signupForm" method="post">
+			<div class="form-group">
+				<label for="member_UserId">아이디:</label> <input type="text"
+					id="member_UserId" name="member_UserId" class="form-control"
+					placeholder="ID" autofocus onkeyup="enterKeyCheck()">
+			</div>
+			<div class="form-group">
+				<label for="member_Pwd">비밀번호:</label> <input type="password"
+					id="member_Pwd" name="member_Pwd" class="form-control"
+					placeholder="Password" onkeyup="enterKeyCheck()">
+			</div>
+			<div class="form-group form-check">
+				<label class="form-check-label"> 
+				<input class="form-check-input" type="checkbox" name="remember"> 이 정보를 저장하겠습니다.
+				</label>
+			</div>
+			<input type="button" value="로그인" onclick="loginValidation()" class="btn btn-primary"> 
+			<input type="button" value="회원가입" onclick="location.href='/user/signUpPage.do'" class="btn btn-primary">
+			<input type="button" value="아이디/비밀번호찾기" onclick="location.href='/user/userSearchPage.do'" class="btn btn-primary">
+		</form>
+	</div>
+	
+<c:import url="/WEB-INF/views/common/footer.jsp"/>
+
+
+	<%-- <footer id="footer">
 		<div id="footer_box">
 			<%@ include file="/WEB-INF/views/common/footer.jsp" %>
 		</div>
-	</footer>
+	</footer> --%>
 </body>

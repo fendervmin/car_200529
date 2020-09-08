@@ -97,8 +97,10 @@ ol, ul {
 				      <div class="col-lg-9">
 				        <div class="card mt-4">
 	          				<div class="card-img" style="display:inline-block;">
-	          					<img class="card-img-top img-fluid" src="http://autoimg.danawa.com/history/brand/303/logo.gif"alt="" style="width:300px;height:200px;" >
-	          				</div>
+                         <c:forEach items="${list}" var="list" begin="0" end="0">
+                            <img class="card-img-top img-fluid" src="${pageContext.request.contextPath}/resources/brand/${list.brand_Img}.jpg" style="width:300px;height:200px;" >
+                         </c:forEach>
+                         </div>
 					        <div class="card-body" style="display:inline-block;">
 					            <h3 class="card-title">
 					            <c:forEach items="${list}" var="list" begin="0" end="0">

@@ -4,9 +4,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>아이디/비밀번호찾기</title>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> 
+<title>아이디/비밀번호 찾기</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 <c:import url="../common/menubar.jsp"/>
 <script type="text/javascript">
 $(document).ready(function(){
@@ -46,7 +50,7 @@ var idSearch_click = function(){
 </script>
 </head>
 <body>
-<div class="full">
+<div class="container">
 <form id="searchform" method="post">
 		<div class="container">
 			<div class="area_inputs wow fadeIn">
@@ -55,24 +59,24 @@ var idSearch_click = function(){
 				</div>
 				<div style="margin-bottom: 10px;"
 					class="custom-control custom-radio custom-control-inline">
-					<input type="radio" class="custom-control-input" id="search_1" name="search_total" onclick="search_check(1)" checked="checked">
-					<label class="custom-control-label font-weight-bold text-white"	for="search_1">아이디 찾기</label>
+					<input type="radio" id="search_1" name="search_total" onclick="search_check(1)" checked="checked">
+					<label for="search_1">아이디 찾기</label>
 				</div>
 				<div class="custom-control custom-radio custom-control-inline">
-					<input type="radio" class="custom-control-input" id="search_2" name="search_total" onclick="search_check(2)"> 
-					<label class="custom-control-label font-weight-bold text-white" for="search_2">비밀번호 찾기</label>
+					<input type="radio" id="search_2" name="search_total" onclick="search_check(2)"> 
+					<label for="search_2">비밀번호 찾기</label>
 				</div>
 				<div id="searchI">
 					<div class="form-group">
-						<label class="font-weight-bold text-white" for="inputName_1">이름</label>
+						<label for="inputName_1">이름</label>
 						<div>
-							<input type="text" class="userSearchId" id="member_Name" name="member_Name"  placeholder="이름">
+							<input type="text" class="form-control" id="member_Name" name="member_Name"  placeholder="이름">
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="font-weight-bold text-white" for="inputEmail_1">이메일</label>
+						<label for="inputEmail_1">이메일</label>
 						<div>
-							<input type="text" class="userSearchId" id="member_Email" name="member_Email" placeholder="이메일">
+							<input type="text" class="form-control" id="member_Email" name="member_Email" placeholder="이메일">
 						</div>
 					</div>
 					<div class="form-group">
@@ -82,21 +86,21 @@ var idSearch_click = function(){
 				</div>
 				<div id="searchP" style="display: none;">
 					<div class="form-group">
-						<label class="font-weight-bold text-white" for="inputId">아이디</label>
+						<label for="inputId">아이디</label>
 						<div>
-							<input type="text" class="userSearchPwd" id="member_UserId2" name="member_UserId2" placeholder="아이디">
+							<input type="text" class="form-control" id="member_UserId2" name="member_UserId2" placeholder="아이디">
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="font-weight-bold text-white" for="inputName_2">이름</label>
+						<label for="inputName_2">이름</label>
 						<div>
-							<input type="text" class="userSearchPwd" id="member_Name2" name="member_Name2" placeholder="이름">
+							<input type="text" class="form-control" id="member_Name2" name="member_Name2" placeholder="이름">
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="font-weight-bold text-white" for="inputEmail_2">이메일</label>
+						<label for="inputEmail_2">이메일</label>
 						<div>
-							<input type="email" class="userSearchPwd" id="member_Email2" name="member_Email2" placeholder="이메일">
+							<input type="email" class="form-control" id="member_Email2" name="member_Email2" placeholder="이메일">
 						</div>
 					</div>
 					<div class="form-group">
