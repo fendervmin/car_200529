@@ -31,6 +31,5 @@ public interface UserService {
 	void updatePwd(MemberVO member);
 
 	void removeUser(String loginId);
-	
 
 }

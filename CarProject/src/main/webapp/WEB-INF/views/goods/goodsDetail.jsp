@@ -251,9 +251,6 @@
 	                                      <button title='매장예약' class='' type='button' onclick="location.href='../reserve/reservemainPage.do?b=${detail.brand_Id}'">
 						                        <span class='screen_behind'>매장 예약하러 가기</span>
 						                    </button>
-						                  <button title='즐겨찾기' type='button' onclick="location.href='/user/likeIt.do'">
-						                  		<span class='screen_behind'>즐겨찾기</span>
-						                  </button>
                                   		</div>
 					            </div>
 							
