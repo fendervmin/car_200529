@@ -11,6 +11,7 @@
   	<typeAlias alias="pagination" type="com.project.car.vo.Pagination"/>
   	<typeAlias alias="answer" type="com.project.car.vo.AnswerVO"/>
   	<typeAlias alias="reserveVO" type="com.project.car.vo.ReserveVO"/>
+  	<typeAlias alias="wishlist" type="com.project.car.vo.wishlistVO"/>
   </typeAliases>
   
   <mappers>
@@ -21,6 +22,7 @@
   	<mapper resource="mappers/newsMapper.xml"/>
   	<mapper resource="mappers/answerMapper.xml"/>
   	<mapper resource="mappers/reserveMapper.xml"/>
+  	<mapper resource="mappers/wishlistMapper.xml"/>
   	
   </mappers>
 </configuration>

@@ -87,12 +87,13 @@
 	<aside>
 		<div id="aside">
 			<h3>마이페이지</h3>
-			<ul id="aside">
+			<ul id="aside"><li class="myPage_li">
+					<a href="/user/likeItPage.do" class="btn-example">즐겨찾기</a>
+				</li>
 				<li class="myPage_li">
 					<a href="#layer2" class="btn-example">예약 내역</a>
 				</li>
 			</ul>
-			<!-- <h3>나의 게시글 보기</h3> -->
 			<h3>개인정보</h3>
 			<ul>
 				<li class="myPage_li"><a href="/user/updateUserPage.do">회원정보수정</a></li>
