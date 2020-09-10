@@ -4,14 +4,31 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mappers.wishlistMapper">
 
+<resultMap type="wishlist" id="checkWish">
+	<result column="MEMBER_ID" property="member_id"/>
+	<result column="CAR_ID" property="car_id"/>
+</resultMap>
+
 <insert id="inputwish" parameterType="wishlist">
 INSERT INTO WISHLIST(
 	MEMBER_ID,
 	CAR_ID)
 VALUES (
-	#{MEMBER_ID},
-	#{CAR_ID}
+	#{member_Id},
+	#{car_Id} 
 	)
 </insert>
+
+<select id="selectCheckwish" parameterType="wishlist" resultMap="checkWish">
+SELECT 
+	MEMBER_ID,
+	CAR_ID
+FROM
+	WISHLIST W JOIN CAR C JOIN MEMBER M
+		ON W.CAR_ID = C.CAR_ID AND W.MEMBER_ID ON M.MEMBER_ID
+WHERE
+	MEMBER_ID = #{member_Id} 
+	CAR_ID = #{car_Id}
+</select>
 
 </mapper>

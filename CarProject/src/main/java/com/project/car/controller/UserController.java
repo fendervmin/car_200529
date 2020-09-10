@@ -2,7 +2,6 @@ package com.project.car.controller;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.logging.Logger;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,24 +16,28 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.project.car.services.GoodsService;
 import com.project.car.services.ReserveService;
 import com.project.car.services.UserService;
+import com.project.car.services.WishlistService;
 import com.project.car.vo.GoodsVO;
 import com.project.car.vo.MemberVO;
 import com.project.car.vo.ReserveVO;
+import com.project.car.vo.wishlistVO;
 
 @Controller
 @RequestMapping("user/*")
 public class UserController {
+	
+	/*private static final Logger logger = (Logger) LoggerFactory.getLogger(UserController.class);*/
+	
 	@Autowired
 	private UserService uService;
 	
 	@Autowired
 	private ReserveService rService;
-
+	
 	@Autowired
-	private GoodsService goodservice;
+	private WishlistService wishlistservice;
 
 	// 로그인 기능을 수행하는 메소드
 	@RequestMapping(value="login.do")
@@ -125,7 +128,7 @@ public class UserController {
 	public ModelAndView myPage(@ModelAttribute MemberVO member) {
 		ModelAndView mav = new ModelAndView();
 		
-		return null;
+		return mav;
 		
 	}
 	
@@ -137,12 +140,27 @@ public class UserController {
 	
 	// 즐겨찾기 기능 수행 메소드
 	@RequestMapping(value="likeIt.do")
-	public String likeIt(Model model, GoodsVO goodsVO) throws Exception {
+	public ModelAndView likeIt(@ModelAttribute wishlistVO wishlist, HttpSession session, HttpServletRequest request, 
+							   @RequestParam("c") int car_Id, Model model, GoodsVO goodsvo) throws Exception {
+		ModelAndView mav = new ModelAndView();
 		
-		List<GoodsVO> all = goodservice.all(goodsVO);
-		model.addAttribute("all", all);
+		session = request.getSession();
+		MemberVO loginUser = (MemberVO)session.getAttribute("loginUser");
 		
-		return"user/likeItsuccess";
+		model.addAttribute("car_Id", car_Id);
+		model.addAttribute("member_Id", loginUser.getMember_Id());
+		
+		if(wishlistservice.checkwish(wishlist) == false) {
+			wishlistservice.inputwish(wishlist);
+			mav.setViewName("user/likeItsuccess");
+			
+		} else {
+			mav.setViewName("user/likeitfail");
+		}
+		
+		/*logger.info("car_Id");
+		logger.info("member_Id");*/
+		return mav;
 	}
 	
 	

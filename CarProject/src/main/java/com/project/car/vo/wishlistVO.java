@@ -17,6 +17,11 @@ public class wishlistVO {
 	public void setMember_id(int member_id) {
 		this.member_id = member_id;
 	}
-	
+	public wishlistVO(int car_id, int member_id) {
+		super();
+		this.car_id = car_id;
+		this.member_id = member_id;
+	}
+	public wishlistVO() {}
 
 }
