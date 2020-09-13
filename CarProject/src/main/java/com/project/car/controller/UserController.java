@@ -134,7 +134,13 @@ public class UserController {
 	
 	// 즐겨찾기로 이동하는 메소드
 	@RequestMapping(value="likeItPage.do")
-	public String likeItPage() {
+	public String likeItPage(Model model, wishlistVO wishlist, HttpSession session, HttpServletRequest request) throws Exception {
+		session = request.getSession();
+		MemberVO loginUser = (MemberVO)session.getAttribute("loginUser");
+		List<GoodsVO> resultList = wishlistservice.selectAllwish(loginUser.getMember_Id());
+		
+		model.addAttribute("resultList", resultList);
+		
 		return "user/likeIt";
 	}
 	
@@ -147,8 +153,11 @@ public class UserController {
 		session = request.getSession();
 		MemberVO loginUser = (MemberVO)session.getAttribute("loginUser");
 		
-		model.addAttribute("car_Id", car_Id);
-		model.addAttribute("member_Id", loginUser.getMember_Id());
+		wishlist.setMember_id(loginUser.getMember_Id());
+		wishlist.setCar_id(car_Id);
+		
+		System.out.println("멤버id : " + wishlist.getMember_id());
+		System.out.println("카id : " + wishlist.getCar_id());
 		
 		if(wishlistservice.checkwish(wishlist) == false) {
 			wishlistservice.inputwish(wishlist);
@@ -158,11 +167,8 @@ public class UserController {
 			mav.setViewName("user/likeitfail");
 		}
 		
-		/*logger.info("car_Id");
-		logger.info("member_Id");*/
 		return mav;
 	}
-	
 	
 	
 	@RequestMapping(value="updateUserPage.do")

@@ -9,26 +9,42 @@
 	<result column="CAR_ID" property="car_id"/>
 </resultMap>
 
+<resultMap type="car" id="Allwish">
+	<result column="CAR_IMG" property="car_Img"/>
+	<result column="CAR_NAME" property="car_Name"/>
+</resultMap>
+
 <insert id="inputwish" parameterType="wishlist">
 INSERT INTO WISHLIST(
 	MEMBER_ID,
 	CAR_ID)
 VALUES (
-	#{member_Id},
-	#{car_Id} 
+	#{member_id},
+	#{car_id} 
 	)
 </insert>
 
 <select id="selectCheckwish" parameterType="wishlist" resultMap="checkWish">
 SELECT 
-	MEMBER_ID,
-	CAR_ID
+	W.MEMBER_ID,
+	W.CAR_ID
 FROM
-	WISHLIST W JOIN CAR C JOIN MEMBER M
-		ON W.CAR_ID = C.CAR_ID AND W.MEMBER_ID ON M.MEMBER_ID
+	WISHLIST W INNER JOIN CAR C ON W.CAR_ID = C.CAR_ID
+	INNER JOIN MEMBER M ON M.MEMBER_ID = W.MEMBER_ID
 WHERE
-	MEMBER_ID = #{member_Id} 
-	CAR_ID = #{car_Id}
+	W.MEMBER_ID = #{member_id} AND
+	W.CAR_ID = #{car_id} 
+</select>
+
+<select id="selectAllwish" parameterType="int" resultMap="Allwish">
+SELECT
+    C.CAR_IMG, C.CAR_NAME
+FROM 
+    WISHLIST W INNER JOIN CAR C
+ON 
+    W.CAR_ID = C.CAR_ID
+WHERE
+    W.MEMBER_ID = #{member_id}
 </select>
 
 </mapper>
