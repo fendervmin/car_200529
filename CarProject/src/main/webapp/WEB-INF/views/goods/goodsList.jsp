@@ -73,12 +73,7 @@ ol, ul {
   
 </head>
 <body>
-	<div id="root">
-		<header id="header">
-			<div id="header_box">
-				<%@ include file="../common/menubar.jsp" %>
-			</div>
-		</header>
+	<c:import url="/WEB-INF/views/common/menubar.jsp"/>
 		
 		<section id="container" style="margin-top:150px">
 			<div id="container_box">
@@ -88,7 +83,6 @@ ol, ul {
 				        <h1 class="my-4">자동차백과</h1>
 				        <div class="list-group">
 				          <a href="../goods/brandList.do" class="list-group-item">차량정보</a>
-				          <a href="../goods/goodsSales.do" class="list-group-item">판매실적</a>
 				          <a href="../goods/goodsAll.do" class="list-group-item">전체보기</a>
 				        </div>
 				      </div>
@@ -117,10 +111,6 @@ ol, ul {
 					            		</c:forEach>
 								    </p>
 								</details>
-					            
-					            <!-- <a href=# onclick=this.nextSibling.style.display=(this.nextSibling.style.display=="none")?"block":"none";>
-									펼치기
-									</a><div style="display:none;">롸롸롸</div></p> -->
 					            <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
 					            4.0 stars
 					        </div>

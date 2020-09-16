@@ -4,6 +4,13 @@
 <!DOCTYPE html>
 <html>
 <head>
+<style>
+.container{
+margin-bottom:70px;
+margin-top:80px;
+}
+
+</style>
 <title>로그인</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -54,16 +61,18 @@ function enterKeyCheck(){
 <c:import url="/WEB-INF/views/common/menubar.jsp"/>
 
 	<div class="container">
-		<form class="signUp" id="signupForm" method="post">
+		<form class="signUp" id="signupForm" method="post" style="margin-left:380px;">
 			<div class="form-group">
-				<label for="member_UserId">아이디:</label> <input type="text"
+				<label for="member_UserId">아이디:</label>
+				<input type="text"
 					id="member_UserId" name="member_UserId" class="form-control"
-					placeholder="ID" autofocus onkeyup="enterKeyCheck()">
+					placeholder="ID" autofocus onkeyup="enterKeyCheck()" style="width:300px;">
 			</div>
 			<div class="form-group">
-				<label for="member_Pwd">비밀번호:</label> <input type="password"
+				<label for="member_Pwd">비밀번호:</label>
+				<input type="password"
 					id="member_Pwd" name="member_Pwd" class="form-control"
-					placeholder="Password" onkeyup="enterKeyCheck()">
+					placeholder="Password" onkeyup="enterKeyCheck()" style="width:300px;">
 			</div>
 			<div class="form-group form-check">
 				<label class="form-check-label"> 
@@ -76,12 +85,6 @@ function enterKeyCheck(){
 		</form>
 	</div>
 	
-<c:import url="/WEB-INF/views/common/footer.jsp"/>
+	<c:import url="/WEB-INF/views/common/footer.jsp"/>
 
-
-	<%-- <footer id="footer">
-		<div id="footer_box">
-			<%@ include file="/WEB-INF/views/common/footer.jsp" %>
-		</div>
-	</footer> --%>
 </body>
