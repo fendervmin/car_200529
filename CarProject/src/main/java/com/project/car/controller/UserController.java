@@ -170,6 +170,21 @@ public class UserController {
 		return mav;
 	}
 	
+	// 즐겨찾기 삭제 메소드
+	@RequestMapping(value="delwish.do")
+	public String delwish(@ModelAttribute wishlistVO wishlist, HttpSession session, HttpServletRequest request,
+						  @RequestParam("c") int car_Id) throws Exception {
+		session = request.getSession();
+		MemberVO loginUser = (MemberVO)session.getAttribute("loginUser");
+		
+		wishlist.setMember_id(loginUser.getMember_Id());
+		wishlist.setCar_id(car_Id);
+		
+		wishlistservice.delwish(wishlist);
+		
+		return "redirect:/user/likeItPage.do";
+	}
+	
 	
 	@RequestMapping(value="updateUserPage.do")
 	public ModelAndView updateUserPage(ModelAndView mv) {

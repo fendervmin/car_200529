@@ -221,7 +221,7 @@
             <h4 class="card-title">${resultList.car_Name } </h4>
           </div>
           <div class="card-footer">
-            <a href="#" class="btn btn-primary">즐겨찾기 해제</a>
+            <a class="btn btn-primary" href="/user/delwish.do?c=${resultList.car_ID }">즐겨찾기 해제</a>
           </div>
         </div>
       </div>

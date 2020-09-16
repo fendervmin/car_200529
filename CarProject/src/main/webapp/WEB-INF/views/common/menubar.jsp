@@ -70,6 +70,11 @@
 #hd_gnb .active {
 	background-color: #4CAF50;
 }
+.search
+{
+	text-align:right;
+	padding-right:20px;
+}
 </style>
 <script>
 	var lastScrollTop = 0, delta = 15;
@@ -94,16 +99,16 @@
 
    <div id="header" class="header" style="outline: none;">
    <!-- 오른쪽 맨 위 상단에 로그인, 회원가입, 등등 버튼있는 부분입니다... -->
-   	<div class="contain">
+   	<div class="contain" style="margin-top:10px;">
       <dl class="hd_my">
          <dt class="ir">마이메뉴</dt>
          
          <c:if test="${ empty sessionScope.loginUser }">
          <dd id="header_loginbtn">
-            <a href='/user/loginPage.do'>로그인</a>
+            <a href='/user/loginPage.do' style="font-size:15px;">로그인</a>
          </dd>
          <dd id="header_joinbtn">
-            <a href='/user/signUpPage.do'>회원가입</a>
+            <a href='/user/signUpPage.do' style="font-size:15px;">회원가입</a>
          </dd>
          </c:if>
          <c:if test="${ !empty sessionScope.loginUser && loginUser.member_Type != '관리자' }">
@@ -138,20 +143,19 @@
             <div class="lys" style="display: none;"></div>
          </dd>
       </dl>
-      <!-- 상단 로고입니다 (로고 이미지 임시) -->
-      <div class="hd_top">
+   </div>
+   
+   <!-- 상단 로고입니다 (로고 이미지 임시) -->
+      <div class="hd_top" style="margin-top:30px;">
          <h1 class="sd">
          	<!-- <p>차</p> -->
             <a href="../">차</a>
          </h1>
       </div>
-   </div>
-			<div class="search">
+			<div class="search" style="margin-bottom:15px;">
 				<form name="search"
 					method="get" action="../goods/goodsSearch.do">
-					<!-- align : 정렬 , style : 스타일 정보 포함 (margin : 여백 설정) , method : 전달 방식 ,  action : submit 시 이동 경로 ,onsubmit : submit 클릭시 호출 조건 (true 일 때 action으로 넘어감 )-->
-
-					<td><input type="text" name="keyword"></td>
+					<td><input type="text" style="width:150px; heigth:50px;" name="keyword"></td>
 
 					<td><input type="submit" value="search"></td>
 

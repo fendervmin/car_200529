@@ -16,4 +16,6 @@ public interface WishlistServiceImpl {
 	
 	public List<GoodsVO> selectAllwish(int member_Id);
 	
+	public void delwish(wishlistVO wishlist);
+	
 }

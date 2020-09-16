@@ -33,4 +33,8 @@ public class WishlistDAO {
 	public List<GoodsVO> selectAllwish (int member_Id) {
 		return sqlSession.selectList("mappers.wishlistMapper.selectAllwish", member_Id);
 	}
+	
+	public void delwish (wishlistVO wishlist) {
+		sqlSession.delete("mappers.wishlistMapper.delwish", wishlist);
+	}
 }

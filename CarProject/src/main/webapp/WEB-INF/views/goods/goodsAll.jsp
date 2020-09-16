@@ -176,11 +176,9 @@
 			</div>
 		</header>
 		
-		<section id="container" style="margin-top:150px">
+		<section id="container" style="margin-top:40px">
 			<div id="container_box">
 				<div class="container">
-				
-				
 				
 				<div class="row">
 				      <div class="col-lg-3">
@@ -205,7 +203,7 @@
 								            </div>
 								            <div class='info'>
 								                <div class='title'>
-								            			${all.car_Name}
+								                	<a href="goodsDetail.do?b=${all.brand_Id}&c=${all.car_ID}">${all.car_Name}</a>
 								                </div>
 								                <div class='price new_rent'>
 								                        <div class='price_title'><span class='num'>${all.car_Price}</span>만 원</div>

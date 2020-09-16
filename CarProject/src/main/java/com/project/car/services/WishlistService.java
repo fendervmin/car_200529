@@ -37,4 +37,9 @@ public class WishlistService implements WishlistServiceImpl {
 	public List<GoodsVO> selectAllwish(int member_Id) {
 		return wishlistDAO.selectAllwish(member_Id);
 	}
+	
+	@Override
+	public void delwish (wishlistVO wishlist) {
+		wishlistDAO.delwish(wishlist);
+	}
 }

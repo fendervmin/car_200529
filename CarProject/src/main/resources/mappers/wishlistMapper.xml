@@ -38,7 +38,7 @@ WHERE
 
 <select id="selectAllwish" parameterType="int" resultMap="Allwish">
 SELECT
-    C.CAR_IMG, C.CAR_NAME
+    C.CAR_IMG, C.CAR_NAME, C.CAR_ID
 FROM 
     WISHLIST W INNER JOIN CAR C
 ON 
@@ -46,5 +46,12 @@ ON
 WHERE
     W.MEMBER_ID = #{member_id}
 </select>
+
+<delete id="delwish" parameterType="wishlist">
+DELETE
+FROM WISHLIST
+WHERE CAR_ID = ( SELECT W.CAR_ID FROM WISHLIST W INNER JOIN CAR C ON W.CAR_ID = C.CAR_ID WHERE w.car_id=#{car_id}) AND
+      MEMBER_ID = (SELECT DISTINCT W.MEMBER_ID FROM WISHLIST W INNER JOIN MEMBER M ON W.MEMBER_ID = M.MEMBER_ID WHERE w.member_id=#{member_id})
+</delete>
 
 </mapper>

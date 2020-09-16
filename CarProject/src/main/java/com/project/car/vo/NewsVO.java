@@ -2,6 +2,8 @@ package com.project.car.vo;
 
 import java.util.Date;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class NewsVO {
 
 	private int news_Id;
@@ -10,6 +12,7 @@ public class NewsVO {
 	private String news_Url;
 	private String news_Img;
 	private Date news_Date;
+	private MultipartFile news_Upload;
 	
 	public NewsVO() {}
 	
@@ -62,6 +65,13 @@ public class NewsVO {
 		this.news_Date = news_Date;
 	}
 
-	
+	public MultipartFile getNews_Upload() {
+		return news_Upload;
+	}
+
+	public void setNews_Upload(MultipartFile news_Upload) {
+		this.news_Upload = news_Upload;
+	}
+
 	
 }

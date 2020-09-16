@@ -4,6 +4,13 @@
 <!DOCTYPE html>
 <html>
 <head>
+<style>
+.container{
+margin-bottom:50px;
+margin-top:80px;
+}
+
+</style>
 <title>회원가입</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,29 +22,29 @@
 <c:import url="../common/menubar.jsp"/>
 
 <div class="container" >
-	<form id="registerform">
+	<form id="registerform" style="margin-left:380px;">
         <div class="fieldlabel"><label for="member_UserId">*아이디</label></div>
-        <div class="formfield"><input type="text" id="member_UserId" name="member_UserId" maxlength="20" value="" class="form-control"><input type="button" onclick="existId()" value="ID중복확인" class="btn btn-primary"><div class="error_box" id="idMsg" style="display: none;"></div></div>
+        <div class="formfield"><input type="text" id="member_UserId" name="member_UserId" maxlength="20" value="" class="form-control" style="width:400px;"><input type="button" style="margin-top:10px;margin-bottom:10px;" onclick="existId()" value="ID중복확인" class="btn btn-primary"><div class="error_box" id="idMsg" style="display: none;"></div></div>
         
         <div class="fieldlabel"><label for="member_Name">*이름</label></div>
-        <div class="formfield"><input type="text" id="member_Name" name="member_Name" maxlength="20" autocomplete="off" class="form-control">
+        <div class="formfield"><input type="text" style="width:400px;" id="member_Name" name="member_Name" maxlength="20" autocomplete="off" class="form-control">
 </div>
 
         <div class="fieldlabel"><label for="member_Pwd">*패스워드</label></div>
-        <div class="formfield"><input type="password" id="member_Pwd" name="member_Pwd" maxlength="20" autocomplete="off" class="form-control">
+        <div class="formfield"><input type="password" style="width:400px;" id="member_Pwd" name="member_Pwd" maxlength="20" autocomplete="off" class="form-control">
 </div>
 
         <div class="fieldlabel"><label for="passwordCheck">패스워드확인</label></div>
-        <div class="formfield"><input type="password" id="passwordCheck" name="passwordCheck" maxlength="20" autocomplete="off" class="form-control">
+        <div class="formfield"><input type="password" style="width:400px;" id="passwordCheck" name="passwordCheck" maxlength="20" autocomplete="off" class="form-control">
 </div>
        
         <div class="fieldlabel"><label for="member_Nicname">*닉네임</label></div>
-        <div class="formfield"><input type="text" id="member_Nicname" name="member_Nicname" maxlength="20" value="" class="form-control"></div>
+        <div class="formfield"><input type="text" style="width:400px;" id="member_Nicname" name="member_Nicname" maxlength="20" value="" class="form-control"></div>
 
         <div class="fieldlabel"><label for="member_Email">*이메일</label></div>
-        <div class="formfield"><input type="text" id="member_Email" name="member_Email" size="20" maxlength="20" class="form-control"
-             value="" autocomplete="off"><span>@</span>
-            <input id="domain" list="domains" name="domain" placeholder="도메인입력/선택" class="form-control" >
+        <div class="formfield"><input type="text" style="width:400px;" id="member_Email" name="member_Email" size="20" maxlength="20" class="form-control"
+             value="" autocomplete="off"><p>@</p>
+            <input id="domain" style="width:400px;" list="domains" name="domain" placeholder="도메인입력/선택" class="form-control" >
             <datalist id="domains">
                 <option value="naver.com">
                 <option value="daum.net">
@@ -47,7 +54,7 @@
         </div>
        
         <div class="btnfield">
-            <input type="button" onclick="signUpValidation()" value="회원가입" class="btn btn-primary" >
+            <input type="button" style="margin-top:10px;margin-bottom:10px;" onclick="signUpValidation()" value="회원가입" class="btn btn-primary" >
         </div>
     </form>
 </div>

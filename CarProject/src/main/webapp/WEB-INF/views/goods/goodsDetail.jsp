@@ -167,7 +167,7 @@
 			</div>
 		</header>
 		
-		<section id="container" style="margin-top:150px">
+		<section id="container" style="margin-top:40px">
 			<div id="container_box">
 				<div class="container">
 				    <div class="row">
@@ -175,7 +175,6 @@
 				        <h1 class="my-4">자동차백과</h1>
 				        <div class="list-group">
 				          <a href="#" class="list-group-item">차량정보</a>
-				          <a href="#" class="list-group-item">판매실적</a>
 				          <a href="../goods/goodsAll.do" class="list-group-item">전체보기</a>
 				        </div>
 				      </div>
