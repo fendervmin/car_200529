@@ -12,6 +12,7 @@ public class NewsVO {
 	private String news_Url;
 	private String news_Img;
 	private Date news_Date;
+	
 	private MultipartFile news_Upload;
 	private String news_file;
 	

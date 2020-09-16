@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
@@ -60,7 +61,7 @@ public class NewsController {
 	}
 	
 	@RequestMapping(value="insNews.do")
-	public String insNews(@Valid NewsVO news, BindingResult result) throws Exception {
+	public String insNews(@Valid @ModelAttribute NewsVO news, BindingResult result) throws Exception {
 		if(result.hasErrors()) {
 			System.out.println("업로드 오류");
 		}
