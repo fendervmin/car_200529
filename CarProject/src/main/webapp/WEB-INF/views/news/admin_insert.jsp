@@ -47,7 +47,7 @@
                placeholder="IMAGE" onkeyup="enterKeyCheck()" accept="image/*" style="width:300px;">
          </div>
          
-         <input type="button" value="추가" onclick="location.href='/news/insNews.do'" class="btn btn-primary"> 
+         <input type="submit" value="추가" class="btn btn-primary"> 
          <input type="button" value="취소" onclick="location.href='history.go(-1)'" class="btn btn-primary">
       </form>
 	</div>

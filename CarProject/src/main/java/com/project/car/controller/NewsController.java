@@ -2,11 +2,12 @@ package com.project.car.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
@@ -15,7 +16,6 @@ import com.project.car.services.NewsService;
 import com.project.car.vo.NewsVO;
 import com.project.car.vo.PageMaker;
 import com.project.car.vo.Pagination;
-import javax.validation.Valid;
 
 @Controller
 @RequestMapping("news/*")
@@ -60,9 +60,9 @@ public class NewsController {
 	}
 	
 	@RequestMapping(value="insNews.do")
-	public String insNews(@Valid NewsVO news, BindingResult result) {
+	public String insNews(@Valid NewsVO news, BindingResult result) throws Exception {
 		if(result.hasErrors()) {
-			return "news/newsmain";
+			System.out.println("업로드 오류");
 		}
 		
 		NewsService.insNews(news);
