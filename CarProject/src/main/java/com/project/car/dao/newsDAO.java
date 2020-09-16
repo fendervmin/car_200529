@@ -25,5 +25,9 @@ public class newsDAO {
 	public void delNews(int news_Id) {
 		sqlSession.delete("mappers.newsMapper.delNews", news_Id);
 	}
+	
+	public void insNews(NewsVO news) {
+		sqlSession.insert("mappers.newsMapper.insNews");
+	}
 
 }

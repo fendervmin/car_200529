@@ -21,7 +21,7 @@
 
 	<div class="container">
 		<form class="insertNews" id="insertNewsForm" method="post" style="margin-left:380px; margin-top:50px;"
-				enctype="multipart/form-data">
+				enctype="multipart/form-data" action='/news/insNews.do' method='post'>
          <div class="form-group">
             <label for="news_Title">뉴스 제목 : </label>
             <input type="text"
@@ -41,13 +41,13 @@
                placeholder="URL" onkeyup="enterKeyCheck()" style="width:300px;">
          </div>
          <div class="form-group">
-            <label for="news_Url">첨부 이미지 : </label>
+            <label for="news_Upload">첨부 이미지 : </label>
             <input type="file"
                id="news_Upload" name="news_Upload" class="form-control"
                placeholder="IMAGE" onkeyup="enterKeyCheck()" accept="image/*" style="width:300px;">
          </div>
          
-         <input type="button" value="추가" onclick="#" class="btn btn-primary"> 
+         <input type="button" value="추가" onclick="location.href='/news/insNews.do'" class="btn btn-primary"> 
          <input type="button" value="취소" onclick="location.href='history.go(-1)'" class="btn btn-primary">
       </form>
 	</div>
