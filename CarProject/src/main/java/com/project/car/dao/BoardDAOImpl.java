@@ -26,12 +26,13 @@ public class BoardDAOImpl implements BoardDAO {
 		//boardVO에서 게시판의 정보를 받아와 보드매퍼에 인서트문에 넣어줌
 		sqlSession.insert("mappers.boardMapper.insert",boardVO);
 		System.out.println(boardVO.toString()+"?FWERGF");
+		
 		}
 	
 	@Override
 	public List<BoardVO> list(Pagination pg) throws Exception{
-		//mapper에서 작성한 select문을 sqlSession에 있는 list로 받아와서 list객체에 담아줌
 		List<BoardVO> list = sqlSession.selectList("mappers.boardMapper.listPage",pg);//mappersql경로중요
+		//pg 로딩 성공적
 		return list;//list 객체를  return
 	}
 	@Override

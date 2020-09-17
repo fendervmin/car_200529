@@ -1,4 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ page language="java" pageEncoding="UTF-8"
 	contentType="text/html; charset=UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -7,10 +8,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
-.dd {
-	list_style: none;
-	float: left;
-	padding: 6px;
+.paging {
+	margin-left: 50%;
+} 
+.writeButton{
+	float: right;
 	
 }
 </style>
@@ -23,29 +25,30 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 
 <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js">
-	
-	</script>
+<script type="text/javascript">
+	function fn() {
+		alert("로그인 해야 이용 할 수 있는 기능입니다.");
+	}
+</script>
 </head>
 <body>
-	<h2 style="margin-left: 45%;">자유게시판</h2>
+	
 	
 	<div class="row-fluid">
 		<div id="header_box">
 			<c:import url="../common/menubar.jsp" />
 		</div>
-		<div class="dropdown">
-		<button id="dLabel" type="button" data-toggle="dropdown"
-			aria-haspopup="true" aria-expanded="false">
-			 <span class="caret">a</span>
-			 <span class="caret2">e</span>
-		</button>
-		<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-			...
-		</ul>
-	</div>
-		<div class="card" style="margin-top: 150px">
+	
+		<!-- <div class="dropdown">
+			<button id="dLabel" type="button" data-toggle="dropdown"
+				aria-haspopup="true" aria-expanded="false">
+				<span class="caret">a</span> <span class="caret2">e</span>
+			</button>
+			<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+				...
+			</ul>
+		</div> -->
+		<div class="card" >
 			<table class="table table-hover">
 				<thead>
 					<tr>
@@ -72,26 +75,35 @@
 				</c:forEach>
 			</table>
 			<div>
-				<ul class="dd">
+				<ul class="paging">
 					<c:if test="${Maker.prev}">
-						<li><a
+						<li style="list_style: none; float: left; padding: 6px;"><a
 							href="writeBoard.do${Maker.makeQuery(Maker.startPage - 1)}">이전</a></li>
 					</c:if>
 
 					<c:forEach begin="${Maker.startPage}" end="${Maker.endPage}"
 						var="idx">
-						<li><a href="writeBoard.do${Maker.makeQuery(idx)}">${idx}</a></li>
+						<li style="list_style: none; float: left; padding: 6px;"><a href="writeBoard.do${Maker.makeQuery(idx)}">${idx}</a></li>
 					</c:forEach>
 
 					<c:if test="${Maker.next && Maker.endPage > 0}">
-						<li><a
+						<li style="list_style: none; float: left; padding: 6px;"><a
 							href="writeBoard.do${Maker.makeQuery(Maker.endPage + 1)}">다음</a></li>
 					</c:if>
 				</ul>
 			</div>
-			
-			<a href="writeView.do?index=0">글작성</a>
-			</div>
+			<div class="writeButton">
+				<c:if test="${loginUser != null }">
+					<form action="writeView.do" method="GET">
+						<input type="submit" value="글작성" /> <input type="hidden"
+							value="0" name="index" />
+					</form>
+				</c:if>
+				<c:if test="${loginUser == null }">
+					<input type="button" value="글작성" onclick="fn()" />
+				</c:if>
+			</div> 
+		</div>
 		<div id="footer_box">
 			<c:import url="../common/footer.jsp" />
 		</div>

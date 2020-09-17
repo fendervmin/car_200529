@@ -35,14 +35,19 @@ public class BoardController {
 	
 	
 	@RequestMapping(value="writeView.do",method=RequestMethod.GET)
-	public String getWriteView(BoardVO boardVO,Model model,HttpServletRequest req) throws Exception {
+	public String getWriteView(BoardVO boardVO,Model model,HttpServletRequest req,HttpSession session) throws Exception {
 		String index = req.getParameter("index");
 		int a= Integer.parseInt(index);
 		
-		if(a>0)	
+		MemberVO loginUser =(MemberVO)session.getAttribute("loginUser");
+		
+		
+		if(a>0)	{
 			model.addAttribute("boardVO", service.post(a));
-		else
+			model.addAttribute("nickName",loginUser);
+		}else{
 			model.addAttribute("num",a);
+		}
 		return "board/writeView";//writeView get타입 메소드에서 BoardVO타입의 boardVO키값을 model에 저장?알려줘야함 
 	}
 	
@@ -51,17 +56,22 @@ public class BoardController {
 	@RequestMapping(value="writeBoard.do", method=RequestMethod.GET)//게시판 삭제 기능 및 기본 리스트 띄우기
 	public String getWriteBoard(@RequestParam(required = false)String index,Model model,Pagination pg,HttpSession session) throws Exception{//값을 매핑해줄 model객체를 생성
 		logger.info("Get writeBoard??"+index);
-		
+		logger.info("현재 페이지 = "+pg.getRowStart());
 		MemberVO loginUser =(MemberVO)session.getAttribute("loginUser");
 		
-		if(index!=null){
+		if(loginUser != null){//비로그인시 오류 페이지 뜨는 거 방지용 
+			logger.info("id = "+loginUser.getMember_Id());
+			model.addAttribute("loginUser", loginUser);
+		}
+		
+		
+		if(index!=null){//가져온 인덱스(현재 페이지 상태)가 null이면 메인 페이지 값(삭제해야할 게시글 번호)을 가지고 있으면 삭제
 			int num = Integer.parseInt(index);
 			service.delete(num);
 		}
+		
 		model.addAttribute("list",service.list(pg));//게시판 내용을 저장하고 있는 list객체를 불러와서 "list"이름으로 model에 넣어줌
-		if(loginUser ==null){
-			model.addAttribute("loginUser", loginUser);
-		}
+		
 		System.out.println(pg.toString());
 		
 		PageMaker pm = new PageMaker();
@@ -78,14 +88,16 @@ public class BoardController {
 			if(boardVO!=null)
 				service.write(boardVO);
 			
+			
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
 			PageMaker pm = new PageMaker();
 			pm.setPage(pg);
 			pm.setTotalCount(service.listCount());
 			System.out.println(pm.toString()+"pm냠");
 			model.addAttribute("Maker",pm);
-		}catch(Exception e){
-			e.printStackTrace();
-		}finally{
+			
 			model.addAttribute("list",service.list(pg));
 			return "board/writeBoard";
 		}
@@ -119,12 +131,20 @@ public class BoardController {
 		return "board/writeDetail";//writeDetail페이지로 이동 
 	}
 	@RequestMapping(value="answerWrite.do", method=RequestMethod.GET)
-	public String getAnswerWrite(HttpServletRequest req,AnswerVO answer,Model model) throws Exception{
+	public String getAnswerWrite(HttpServletRequest req,AnswerVO answer,Model model,HttpSession session) throws Exception{
 		logger.info("answerWrite");
 		int a_id =Integer.parseInt(req.getParameter("a_id"));
 		logger.info("answerWrite"+a_id);
 		
+		MemberVO loginUser =(MemberVO)session.getAttribute("loginUser");
+		
+		if(loginUser != null){//비로그인시 오류 페이지 뜨는 거 방지용 
+			logger.info("id = "+loginUser.getMember_Id());
+			model.addAttribute("loginUser", loginUser);
+		}
+		
 		a_service.delete(a_id);
+		
 		int post_id = Integer.parseInt(req.getParameter("id"));
 		model.addAttribute("answer",new AnswerVO());
 		model.addAttribute("PId",post_id);
@@ -137,6 +157,8 @@ public class BoardController {
 		System.out.println(answer.getA_content());
 		int post_id = answer.getP_id();
 		//int post_id = Integer.parseInt(req.getAttribute("id"));
+
+		
 
 		a_service.replyInsert(answer);
 

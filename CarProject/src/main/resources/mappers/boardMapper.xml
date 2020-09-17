@@ -14,7 +14,7 @@
 		MP_POST_SEQ.NEXTVAL
 		,#{p_title}
 		,#{p_content}
-		,10
+		,#{member_id}
 		)
 	</insert>
 
@@ -34,14 +34,14 @@
 	<delete id="delete" parameterType="int">
 		DELETE FROM POST WHERE P_ID=#{p_id}
 	</delete>
-	<select id="listPage" resultType="board" parameterType="pagination">
+	<select id="listPage"  resultType="board" parameterType="pagination">
 		SELECT
 			P_ID,
 			P_TITLE,
 			P_CONTENT,
 			MEMBER_ID,
 			P_TIME,
-			P_VIEW
+			P_VIEW		
 		FROM (
 				SELECT P_ID,
 				P_TITLE,
@@ -54,6 +54,7 @@
 				) MP
 		WHERE RNUM BETWEEN #{rowStart} AND #{rowEnd}
 		ORDER BY P_ID DESC
+		<!-- 쿼리문 문제 없음 -->
 	</select>
 	<select id="listCount" resultType="int">
 	<![CDATA[

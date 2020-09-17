@@ -23,7 +23,9 @@ public class BoardServiceImpl implements BoardService {
 	}
 	@Override
 	public List<BoardVO> list(Pagination pg) throws Exception{
+		//pg 로딩 성공적
 		return dao.list(pg);
+		
 	}
 	@Override
 	public void modify(BoardVO boardVO) throws Exception{
