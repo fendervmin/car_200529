@@ -18,25 +18,74 @@
 <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <title>Insert title here</title>
 <script>
-	function recomm(){
-		var userId = $("#memberUserId").val();
+
+
+	var recommand=$("#recommand").val();
 	
-		$.ajax({
+	
+	if(recommand=="Y")
+		var flag=1;
+	else
+		var flag=0;
+	
+	function recomm(){
+		var postId=$("#postId").val();
+		var userId = $("#memberUserId").val();
+		
+		
+			if(flag==0){
+				$('img').attr("src","${pageContext.request.contextPath}/resources/img/heart2.png");
+				flag=1;
+				$.ajax({
+					url:"recommCheck.do",
+					method:"POST",
+					data:{postId:postId,userId:userId,flag:flag}
+				})
+				
+			}else if(flag==1){
+				$('img').attr("src","${pageContext.request.contextPath}/resources/img/heart.png");
+				flag=0;
+				$.ajax({
+					url:"recommCheck.do",
+					method:"POST",
+					data:{postId:postId,userId:userId,flag:flag}
+				})
+			}
+		
+			/* if(userId ==null){
+				$("recommButton").attr('disabled', true);
+			}else{
+				if(recommand==null||recommand=="Y"){
+					$("img").attr("src","${pageContext.request.contextPath}/resources/img/heart2.png");
+				}else{
+
+					$("img").attr("src","${pageContext.request.contextPath}/resources/img/heart.png");
+				}
+			} */
+			/* 	$.ajax({
 			
-			url:"/recommCheck.do",
-			method:"POST"
-			data: userId,
-			success: function(data){
-				if(data =!null){
-					$("recommButton").css();
+			url:"recommCheck.do",
+			method:"POST",
+			data: {userId:userId,postId:postId},
+			success: function(){
+				if(userId ==null){
+					$("recommButton").attr('disabled', true);
+				}else{
+					if(recommand=="Y"){
+						$("img").attr("src","${pageContext.request.contextPath}/resources/img/heart2.png");
+					}else{
+
+						$("img").attr("src","${pageContext.request.contextPath}/resources/img/heart.png");
+					}
 				}
 			}
 			
 		})
-	}
+ */	}
 </script>
 </head>
 <body>
@@ -73,9 +122,9 @@
 										<th>작성자</th>
 										<td>${detail.member_id }</td>
 										<th>추천수</th>
-										<td><!-- <input type="button" onclick="recomm()" id="recommButton"/> --></td>
-										<button type="button"><img src="${pageContext.request.contextPath}/resources/img/heart.png"/></button>
-									</tr>
+										<td> <%-- <input type="button" onclick="recomm()" id="recommButton" src="${pageContext.request.contextPath}/resources/img/heart.png"/> </td>--%>
+										<button type="button" onclick="recomm()" id="recommButton"><img src="${pageContext.request.contextPath}/resources/img/heart.png"  style="width:30px; height:30px;"/></button>
+									 </tr>
 								</thead>
 								<tbody>
 									<tr>
@@ -86,7 +135,9 @@
 							</table>
 						</div>
 					</div>
-					<input type="hidden" id="memberUserId" value="${loginUser.member_id }"/>
+					<input type="hidden" id="memberUserId" value="${loginUser.member_Id }"/>
+					<input type="hidden" id="postId" value="${detail.p_id}"/>
+					<input type="hidden" id="recommand" value="${recommand.recomm}"/>
 					<c:import url="../board/answerWrite.jsp">
 						<c:param name="id" value="${detail.p_id }"/>
 						<c:param name="answer" value="${answer }"/>

@@ -8,7 +8,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -22,6 +21,7 @@ import com.project.car.vo.BoardVO;
 import com.project.car.vo.MemberVO;
 import com.project.car.vo.PageMaker;
 import com.project.car.vo.Pagination;
+import com.project.car.vo.RecommVO;
 
 @Controller
 @RequestMapping("board/*")
@@ -111,14 +111,22 @@ public class BoardController {
 	public String getWriteDetail(String index,Model model,HttpSession session) throws Exception{
 		logger.info("Get writeDetail"+Integer.parseInt(index));
 		int p_id =Integer.parseInt(index);
-		
-		MemberVO loginUser = (MemberVO)session.getAttribute("loginUser");
-		
 		service.count(p_id);
+		MemberVO loginUser = (MemberVO)session.getAttribute("loginUser");
+		if(loginUser != null){//비로그인시 오류 페이지 뜨는 거 방지용 
+			logger.info("id = "+loginUser.getMember_Id());
+			model.addAttribute("loginUser", loginUser);
+			RecommVO recomm = new RecommVO();
+			recomm.setPost_id(p_id);
+			recomm.setMember_id(loginUser.getMember_Id());
+			model.addAttribute("recommand",service.recommCheck(recomm));
+		}
+		
+		
+		
 		model.addAttribute("detail", service.post(p_id));//list에서 index값과 매핑되는 게시판 정보를 불러와서 detail이름으로 model에 넣어줌
 		model.addAttribute("answer",new AnswerVO());
 		model.addAttribute("reply", a_service.replyList(p_id));
-		model.addAttribute("loginUser",loginUser);
 		return "board/writeDetail";//writeDetail페이지로 이동
 		
 	}
@@ -174,9 +182,37 @@ public class BoardController {
 	
 	@RequestMapping(value="recommCheck.do" ,method=RequestMethod.POST)
 	@ResponseBody
-	public void getRecommCheck() throws Exception{//숫자 하나 받아서 if로 비교 해서
-		System.out.println("나 실행 돼");
+	public void getRecommCheck(@RequestParam("postId")String p_id,@RequestParam("userId")String m_id,@RequestParam("flag")String flag) throws Exception{//숫자 하나 받아서 if로 비교 해서
+		System.out.println("나 실행 돼 p_id :" +p_id+"m_id"+m_id+flag);
+		
+		RecommVO recomm = new RecommVO();
+		recomm.setMember_id(Integer.parseInt(m_id));
+		recomm.setPost_id(Integer.parseInt(p_id));
+		if(flag=="100")
+			recomm.setRecomm("N");
+		else if(flag=="101")
+			recomm.setRecomm("Y");
+		
+		if(service.recommCheck(recomm)==null)
+			service.recommand(recomm);
+		else
+			service.recommUdate(recomm);
+		
+		
 	}
+	@RequestMapping(value="recommCount.do" ,method=RequestMethod.POST)
+	@ResponseBody
+	public void getRecommCount(@RequestParam("postId")String p_id,@RequestParam("userId")String m_id) throws Exception{//숫자 하나 받아서 if로 비교 해서
+		System.out.println("나두  실행 돼 p_id :" +p_id+" m_id:"+m_id);
+		int post_id = Integer.parseInt(p_id);
+		int member_id = Integer.parseInt(m_id);
+		RecommVO recomm = new RecommVO();
+		recomm.setMember_id(member_id);
+		recomm.setPost_id(post_id);
+		service.rcount(recomm);
+		
+	}
+
 	
 	
 }

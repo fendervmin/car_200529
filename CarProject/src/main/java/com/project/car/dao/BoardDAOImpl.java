@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 
 import com.project.car.vo.BoardVO;
 import com.project.car.vo.Pagination;
+import com.project.car.vo.RecommVO;
 
 
 
@@ -61,6 +62,22 @@ public class BoardDAOImpl implements BoardDAO {
 	public int count(int p_id) throws Exception{
 		return sqlSession.insert("mappers.boardMapper.view",p_id);
 	}
-
+	@Override
+	public void recommand(RecommVO recomm) throws Exception{
+		sqlSession.insert("mappers.boardMapper.recommInsert",recomm);
+	}
+	@Override
+	public int rcount(RecommVO recomm) throws Exception{
+		return sqlSession.insert("mappers.boardMapper.rcount",recomm);
+	}
+	@Override
+	public RecommVO recommCheck(RecommVO recomm) throws Exception{
+		RecommVO rec = sqlSession.selectOne("mappers.boardMapper.recommCheck",recomm);
+		return rec;
+	}
+	@Override
+	public void recommUdate(RecommVO recomm) throws Exception{
+		sqlSession.update("mappers.boardMapper.recommCheck",recomm);
+	}
 	
 }

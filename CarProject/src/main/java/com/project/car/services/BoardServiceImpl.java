@@ -4,12 +4,14 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import org.apache.taglibs.standard.lang.jstl.test.beans.PublicBean1;
 import org.springframework.stereotype.Service;
 
 import com.project.car.dao.BoardDAO;
 import com.project.car.vo.AnswerVO;
 import com.project.car.vo.BoardVO;
 import com.project.car.vo.Pagination;
+import com.project.car.vo.RecommVO;
 
 @Service
 public class BoardServiceImpl implements BoardService {
@@ -46,6 +48,22 @@ public class BoardServiceImpl implements BoardService {
 	@Override
 	public int count(int p_id) throws Exception{
 		return dao.count(p_id);
+	}
+	@Override
+	public void recommand(RecommVO recomm) throws Exception{
+		dao.recommand(recomm);
+	}
+	@Override
+	public RecommVO recommCheck(RecommVO recomm) throws Exception{
+		return dao.recommCheck(recomm);
+	}
+	@Override
+	public int rcount(RecommVO recomm) throws Exception{
+		return dao.rcount(recomm);
+	}
+	@Override
+	public void recommUdate(RecommVO recomm) throws Exception{
+		dao.recommUdate(recomm);
 	}
 	
 	

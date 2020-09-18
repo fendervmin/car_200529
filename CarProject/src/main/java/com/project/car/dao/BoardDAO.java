@@ -3,9 +3,9 @@ package com.project.car.dao;
 
 import java.util.List;
 
-import com.project.car.vo.AnswerVO;
 import com.project.car.vo.BoardVO;
 import com.project.car.vo.Pagination;
+import com.project.car.vo.RecommVO;
 
 public interface BoardDAO {
 	
@@ -16,6 +16,9 @@ public interface BoardDAO {
 	public BoardVO post(int p_id) throws Exception;
 	public void delete(int p_id) throws Exception;
 	public int count(int p_id) throws Exception;
-	
+	public void recommand(RecommVO recomm) throws Exception;
+	public int rcount(RecommVO recomm) throws Exception;
+	public RecommVO recommCheck(RecommVO recomm) throws Exception;
+	public void recommUdate(RecommVO recomm) throws Exception;
 	
 }
