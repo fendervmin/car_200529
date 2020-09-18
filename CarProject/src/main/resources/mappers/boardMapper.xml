@@ -66,5 +66,11 @@
 	<select id="view" parameterType="board">
 		UPDATE POST SET P_VIEW = P_VIEW + 1 WHERE P_ID =#{p_id}
 	</select>
+	<insert id="recommInsert" parameterType="recomm" >
+		INSERT INTO RECOMM(
+		POST_ID,MEMBER_ID,RECOMM)
+		VALUES(#{post_id},#{member_id},#{recomm})
+	</insert>
+	
 
 </mapper>

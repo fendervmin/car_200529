@@ -21,7 +21,22 @@
 
 <title>Insert title here</title>
 <script>
+	function recomm(){
+		var userId = $("#memberUserId").val();
 	
+		$.ajax({
+			
+			url:"/recommCheck.do",
+			method:"POST"
+			data: userId,
+			success: function(data){
+				if(data =!null){
+					$("recommButton").css();
+				}
+			}
+			
+		})
+	}
 </script>
 </head>
 <body>
@@ -57,6 +72,9 @@
 									<tr>
 										<th>작성자</th>
 										<td>${detail.member_id }</td>
+										<th>추천수</th>
+										<td><!-- <input type="button" onclick="recomm()" id="recommButton"/> --></td>
+										<button type="button"><img src="${pageContext.request.contextPath}/resources/img/heart.png"/></button>
 									</tr>
 								</thead>
 								<tbody>
@@ -68,6 +86,7 @@
 							</table>
 						</div>
 					</div>
+					<input type="hidden" id="memberUserId" value="${loginUser.member_id }"/>
 					<c:import url="../board/answerWrite.jsp">
 						<c:param name="id" value="${detail.p_id }"/>
 						<c:param name="answer" value="${answer }"/>

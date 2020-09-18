@@ -167,7 +167,7 @@
 			</div>
 		</header>
 		
-		<section id="container" style="margin-top:150px">
+		<section id="container" style="margin-top:40px">
 			<div id="container_box">
 				<div class="container">
 				    <div class="row">
@@ -175,7 +175,6 @@
 				        <h1 class="my-4">자동차백과</h1>
 				        <div class="list-group">
 				          <a href="#" class="list-group-item">차량정보</a>
-				          <a href="#" class="list-group-item">판매실적</a>
 				          <a href="../goods/goodsAll.do" class="list-group-item">전체보기</a>
 				        </div>
 				      </div>
@@ -251,6 +250,9 @@
 	                                      <button title='매장예약' class='' type='button' onclick="location.href='../reserve/reservemainPage.do?b=${detail.brand_Id}'">
 						                        <span class='screen_behind'>매장 예약하러 가기</span>
 						                    </button>
+						                  <button title='즐겨찾기' type='button' onclick="location.href='/user/likeIt.do?c=${detail.car_ID} '">
+						                  		<span class='screen_behind'>즐겨찾기</span>
+						                  </button>
                                   		</div>
 					            </div>
 							

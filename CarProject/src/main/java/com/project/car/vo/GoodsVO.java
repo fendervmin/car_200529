@@ -116,5 +116,7 @@ public class GoodsVO {
 			this.car_Img = car_Img;
 		}
 		
+		
+		
         
 }

@@ -2,9 +2,13 @@ package com.project.car.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
@@ -37,6 +41,34 @@ public class NewsController {
 		
 		model.addAttribute("Maker",pm);
 		return mav;
+	}
+	
+	// 관리자 - 뉴스 삭제 메소드
+	@RequestMapping(value = "delNews.do")
+	public String delNews(NewsVO news, @RequestParam("n") int news_Id) throws Exception {
+		
+		System.out.println("삐리링");
+		news.setNews_Id(news_Id);
+		NewsService.delNews(news_Id);
+		
+		return "news/admin_delete";
+	}
+	
+	@RequestMapping(value="insertnewsPage.do")
+	public String insertnewsPage() {
+		
+		return "news/admin_insert";
+	}
+	
+	@RequestMapping(value="insNews.do")
+	public String insNews(@Valid @ModelAttribute NewsVO news, BindingResult result) throws Exception {
+		if(result.hasErrors()) {
+			System.out.println("업로드 오류");
+		}
+		
+		NewsService.insNews(news);
+		
+		return "news/admin_insert_success";
 	}
 	
 

@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -17,19 +18,26 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.project.car.services.ReserveService;
 import com.project.car.services.UserService;
+import com.project.car.services.WishlistService;
+import com.project.car.vo.GoodsVO;
 import com.project.car.vo.MemberVO;
 import com.project.car.vo.ReserveVO;
+import com.project.car.vo.wishlistVO;
 
 @Controller
 @RequestMapping("user/*")
 public class UserController {
+	
+	/*private static final Logger logger = (Logger) LoggerFactory.getLogger(UserController.class);*/
+	
 	@Autowired
 	private UserService uService;
 	
 	@Autowired
 	private ReserveService rService;
-
-
+	
+	@Autowired
+	private WishlistService wishlistservice;
 
 	// 로그인 기능을 수행하는 메소드
 	@RequestMapping(value="login.do")
@@ -120,9 +128,63 @@ public class UserController {
 	public ModelAndView myPage(@ModelAttribute MemberVO member) {
 		ModelAndView mav = new ModelAndView();
 		
-		return null;
+		return mav;
 		
 	}
+	
+	// 즐겨찾기로 이동하는 메소드
+	@RequestMapping(value="likeItPage.do")
+	public String likeItPage(Model model, wishlistVO wishlist, HttpSession session, HttpServletRequest request) throws Exception {
+		session = request.getSession();
+		MemberVO loginUser = (MemberVO)session.getAttribute("loginUser");
+		List<GoodsVO> resultList = wishlistservice.selectAllwish(loginUser.getMember_Id());
+		
+		model.addAttribute("resultList", resultList);
+		
+		return "user/likeIt";
+	}
+	
+	// 즐겨찾기 기능 수행 메소드
+	@RequestMapping(value="likeIt.do")
+	public ModelAndView likeIt(@ModelAttribute wishlistVO wishlist, HttpSession session, HttpServletRequest request, 
+							   @RequestParam("c") int car_Id, Model model, GoodsVO goodsvo) throws Exception {
+		ModelAndView mav = new ModelAndView();
+		
+		session = request.getSession();
+		MemberVO loginUser = (MemberVO)session.getAttribute("loginUser");
+		
+		wishlist.setMember_id(loginUser.getMember_Id());
+		wishlist.setCar_id(car_Id);
+		
+		System.out.println("멤버id : " + wishlist.getMember_id());
+		System.out.println("카id : " + wishlist.getCar_id());
+		
+		if(wishlistservice.checkwish(wishlist) == false) {
+			wishlistservice.inputwish(wishlist);
+			mav.setViewName("user/likeItsuccess");
+			
+		} else {
+			mav.setViewName("user/likeitfail");
+		}
+		
+		return mav;
+	}
+	
+	// 즐겨찾기 삭제 메소드
+	@RequestMapping(value="delwish.do")
+	public String delwish(@ModelAttribute wishlistVO wishlist, HttpSession session, HttpServletRequest request,
+						  @RequestParam("c") int car_Id) throws Exception {
+		session = request.getSession();
+		MemberVO loginUser = (MemberVO)session.getAttribute("loginUser");
+		
+		wishlist.setMember_id(loginUser.getMember_Id());
+		wishlist.setCar_id(car_Id);
+		
+		wishlistservice.delwish(wishlist);
+		
+		return "redirect:/user/likeItPage.do";
+	}
+	
 	
 	@RequestMapping(value="updateUserPage.do")
 	public ModelAndView updateUserPage(ModelAndView mv) {

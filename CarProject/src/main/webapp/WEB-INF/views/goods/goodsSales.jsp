@@ -121,7 +121,7 @@ a:-webkit-any-link {
 			</div>
 		</header>
 		
-		<section id="container" style="margin-top:150px">
+		<section id="container" style="margin-top:40px">
 			<div id="container_box">
 				<div class="container">
 				
