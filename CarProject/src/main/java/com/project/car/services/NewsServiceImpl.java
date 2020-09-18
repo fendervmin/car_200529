@@ -3,8 +3,9 @@ package com.project.car.services;
 import java.io.File;
 import java.util.List;
 
+import javax.annotation.Resource;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -14,7 +15,10 @@ import com.project.car.vo.NewsVO;
 @Component
 public class NewsServiceImpl implements NewsService{
 	
-	@Value("${path.upload}")
+	/*@Value("${path.upload}")
+	private String path_upload;*/
+	
+	@Resource(name="path_upload")
 	private String path_upload;
 
 	@Autowired
@@ -38,15 +42,15 @@ public class NewsServiceImpl implements NewsService{
 
 	@Override
 	public String saveUploadFile(MultipartFile news_Upload) {
-		String file_name = System.currentTimeMillis() + "_" + news_Upload.getOriginalFilename();
+		String upload = System.currentTimeMillis() + "_" + news_Upload.getOriginalFilename();
 		
 		try {
-			news_Upload.transferTo(new File(path_upload + "/" + file_name));
+			news_Upload.transferTo(new File(path_upload + "/" + upload));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
-		return file_name;
+		return upload;
 	}
 
 	@Override

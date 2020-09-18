@@ -113,9 +113,9 @@
 						</c:if>
 						<div class="col-lg-4 col-md-6 mb-4">
 							<div class="card h-100">
-								<a href=" <c:url value="${getNews.news_Url }"/> "><img
-									src='${ contextPath }/resources/img/${getNews.news_Img }.jpg'
-									style="width: 250px; height: 140px;"></a>
+								<a href=" <c:url value="${getNews.news_Url }"/> ">
+								<%-- <img src='${ contextPath }/resources/img/${getNews.news_Img }.jpg' style="width: 250px; height: 140px;"> --%>
+								<img src='${pageContext.request.contextPath }upload/${NewsVO.news_file}'/></a>
 								<div class="card-body">
 									<h4 class="card-title">
 										<a href=" <c:url value="${getNews.news_Url }"/> "><c:out

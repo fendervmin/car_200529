@@ -54,6 +54,8 @@ public class NewsController {
 		return "news/admin_delete";
 	}
 	
+	// 관리자 - 뉴스 추가 메소드
+	
 	@RequestMapping(value="insertnewsPage.do")
 	public String insertnewsPage() {
 		
