@@ -23,4 +23,14 @@ SELECT * FROM NEWS
 <select id="count" resultType="int">
 	SELECT COUNT(*) FROM NEWS
 </select>
+
+<delete id="delNews" parameterType="int">
+DELETE NEWS WHERE news_Id= #{news_Id}
+</delete>
+
+<insert id="insNews" parameterType="news">
+INSERT INTO NEWS(NEWS_ID, NEWS_TITLE, NEWS_CONTENT, NEWS_URL, NEWS_IMG, NEWS_DATE, NEWS_FILE)
+VALUES (NEWS_SEQ.NEXTVAL, #{news_Title}, #{news_Content}, #{news_Url}, NULL, SYSDATE, #{news_file, jdbcType=VARCHAR}
+</insert>
+
 </mapper>

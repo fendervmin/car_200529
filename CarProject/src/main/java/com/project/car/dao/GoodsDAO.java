@@ -3,6 +3,7 @@ package com.project.car.dao;
 import java.util.List;
 
 import com.project.car.vo.GoodsVO;
+import com.project.car.vo.MemberVO;
 
 public interface GoodsDAO {
 	
@@ -15,4 +16,6 @@ public interface GoodsDAO {
 	public List<GoodsVO> all(GoodsVO goodsVO);
 	
 	public List<GoodsVO> search(String keyword) throws Exception;
+	
+	public void goodsAdd(GoodsVO goodsVO) throws Exception;
 }

@@ -1,6 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<%@ page language="java" pageEncoding="UTF-8"
+
+<%-- <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+ --%><%@ page language="java" pageEncoding="UTF-8"
 	contentType="text/html; charset=UTF-8"%>
 <html>
 <head>
@@ -49,22 +50,22 @@
 					<!-- 커맨드 객체 생성 -->
 					<table border="1" class="table table-hover">
 						<tr>
-							<td><form:label path="p_title">제목</form:label></td>
-							<td><form:input path="p_title" /></td>
+							<td><label path="p_title">제목</label></td>
+							<td><input type="text" path="p_title" /></td>
 						</tr>
 						<tr>
-							<td><form:label path="member_id">
-								<form:hidden path="member_id" value="${loginUser.member_Id}"/>
-															작성자</form:label></td>
+							<td><label path="member_id"></label>
+								<input type="hidden" path="member_id" value="${loginUser.member_Id}"/>
+															작성자</td>
 							<td>${loginUser.member_Nicname }</td>
 						</tr>
 						<tr>
-							<td><form:label path="p_content">내용</form:label></td>
-							<td><form:textarea cols="50" rows="10" path="p_content" />
+							<td><label path="p_content">내용</label></td>
+							<td><input type="textarea" cols="50" rows="10" path="p_content" />
 							</td>
 						</tr>
 					</table>
-					<form:hidden path="p_id" value="${boardVO.p_id}" />
+					<input type="hidden" path="p_id" value="${ boardVO.p_id}" />
 					<c:if test="${num=='0'}">
 						<input type="button" value="작성" onclick="fn(0)" />
 					</c:if>

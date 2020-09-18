@@ -14,7 +14,7 @@
 <style>
 #header .subLyr {
 	display: block;
-	s
+	max-height: 280px;
 }
 
 #header .debsss {
@@ -72,8 +72,8 @@
 }
 .search
 {
-       text-align: right;
-       padding-right: 20px;
+	text-align:right;
+	padding-right:20px;
 }
 </style>
 <script>
@@ -113,29 +113,29 @@
          </c:if>
          <c:if test="${ !empty sessionScope.loginUser && loginUser.member_Type != '관리자' }">
          <dd>
-            <a style="font-size:12px;"> ${ loginUser.member_Name }님 환영합니다.</a>
+            <a style="font-size:12px;" style="font-size:15px"> ${ loginUser.member_Name }님 환영합니다.</a>
          </dd>
          <dd class="arw">
-            <a href='/user/mypagePage.do'>마이페이지</a>
+            <a href='/user/mypagePage.do' style="font-size:15px">마이페이지</a>
          </dd>
          <dd>
-            <a href='/user/logout.do'>로그아웃</a>
+            <a href='/user/logout.do' style="font-size:15px">로그아웃</a>
          </dd>
          </c:if>
          
          <!-- 관리자 로그인시 -->
          <c:if test="${loginUser.member_Type == '관리자' }">
          <dd>
-            <a style="font-size:12px;"> ${ loginUser.member_Name }님 환영합니다.</a>
+            <a style="font-size:12px;" style="font-size:15px"> ${ loginUser.member_Name }님 환영합니다.</a>
          </dd>
          <dd class="arw">
-            <a href='/user/mypagePage.do'>마이페이지</a>
+            <a href='/user/mypagePage.do' style="font-size:15px">마이페이지</a>
          </dd>
          <dd>
-            <a href='/user/logout.do'>로그아웃</a>
+            <a href='/user/logout.do' style="font-size:15px">로그아웃</a>
          </dd>
          <dd>
-            <a href='admin.do'>관리자</a>
+            <a href='admin.do' style="font-size:15px">관리자</a>
          </dd>
          </c:if>
          <dd class="arw">

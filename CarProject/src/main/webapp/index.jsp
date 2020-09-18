@@ -6,6 +6,7 @@
 	<title>Home</title>
 </head>
 <body>
+<div>
 <c:import url="/WEB-INF/views/common/menubar.jsp"/>
 </div>
 <div>

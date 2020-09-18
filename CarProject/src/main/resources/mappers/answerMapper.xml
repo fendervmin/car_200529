@@ -14,7 +14,7 @@
 							A_CONTENT
 							)VALUES(
 								ANSWER_SEQUENCE.NEXTVAL,
-								5,
+								#{member_id},
 								#{p_id},
 								#{a_content}
 							)

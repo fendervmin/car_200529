@@ -121,7 +121,7 @@ a:-webkit-any-link {
 			</div>
 		</header>
 		
-		<section id="container" style="margin-top:150px">
+		<section id="container" style="margin-top:40px">
 			<div id="container_box">
 				<div class="container">
 				
@@ -162,7 +162,7 @@ a:-webkit-any-link {
 				                    <tr style="margin-top:15px;">
 				                        <td class='rank'>2</td>
 				                        <td class='title'>
-				                            <a href='/newcar/?Work=record&amp;Brand=307&Month=2020-05-00'>
+				                            <a href="goodsList.do?b=2">
 				                            <img src='http://autoimg.danawa.com/photo/brand/307_40.png' alt='기아'>기아
 				                            </a>
 				                        </td>
@@ -172,7 +172,7 @@ a:-webkit-any-link {
 				                    <tr style="margin-top:15px;">
 				                        <td class='rank'>3</td>
 				                        <td class='title'>
-				                            <a href='/newcar/?Work=record&amp;Brand=304&Month=2020-05-00'>
+				                            <a href="goodsList.do?b=3">
 				                            <img src='http://autoimg.danawa.com/photo/brand/304_40.png' alt='제네시스'>제네시스
 				                            </a>
 				                        </td>

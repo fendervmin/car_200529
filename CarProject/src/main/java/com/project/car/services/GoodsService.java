@@ -3,6 +3,7 @@ package com.project.car.services;
 import java.util.List;
 
 import com.project.car.vo.GoodsVO;
+import com.project.car.vo.MemberVO;
 
 public interface GoodsService {
 	
@@ -15,4 +16,6 @@ public interface GoodsService {
 	public List<GoodsVO> all(GoodsVO goodsVO) throws Exception;
 	
 	public List<GoodsVO> search(String keyword) throws Exception;
+	
+	public void goodsAdd(GoodsVO goodsVO) throws Exception;
 }

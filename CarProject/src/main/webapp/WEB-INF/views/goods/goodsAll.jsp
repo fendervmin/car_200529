@@ -179,6 +179,8 @@
 		<section id="container" style="margin-top:40px">
 			<div id="container_box">
 				<div class="container">
+
+				
 				<div class="row">
 				      <div class="col-lg-3">
 				        <h1 class="my-4">자동차백과</h1>

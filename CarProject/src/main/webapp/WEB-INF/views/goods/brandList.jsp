@@ -36,7 +36,7 @@
 		</header> --%>
 		<!-- <section id="container" style="margin-top:150px"> -->
 		<section id="container">
-			<div id="container_box">
+			<div id="container_box" style="margin-top:40px;">
 				<div class="container">
 				    <div class="row">
 				      <div class="col-lg-3">
@@ -57,6 +57,7 @@
 				            4.0 stars
 				          </div>
 				        </div>
+				        
 				        <!-- /.card -->
 				        <div class="card card-outline-secondary my-4">
 				          <div class="card-header">

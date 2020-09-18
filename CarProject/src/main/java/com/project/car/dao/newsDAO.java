@@ -21,5 +21,13 @@ public class newsDAO {
 	public int newsCount(){
 		return sqlSession.selectOne("mappers.newsMapper.count");
 	}
+	
+	public void delNews(int news_Id) {
+		sqlSession.delete("mappers.newsMapper.delNews", news_Id);
+	}
+	
+	public void insNews(NewsVO news) {
+		sqlSession.insert("mappers.newsMapper.insNews");
+	}
 
 }

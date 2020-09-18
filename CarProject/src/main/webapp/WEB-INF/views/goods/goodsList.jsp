@@ -75,7 +75,7 @@ ol, ul {
 <body>
 	<c:import url="/WEB-INF/views/common/menubar.jsp"/>
 		
-		<section id="container" style="margin-top:150px">
+		<section id="container" style="margin-top:40px">
 			<div id="container_box">
 				<div class="container">
 				    <div class="row">
@@ -121,7 +121,16 @@ ol, ul {
 				          <div class="card-header">
 				          <c:forEach items="${list}" var="list" begin="0" end="0">
 				            	${list.brand_Name}
-				            </c:forEach>	
+				            </c:forEach>
+				            
+					        <c:if test="${loginUser.member_Type == '관리자' }">
+					        <div class="add" style="margin-top:20px;">
+					        	<input type="button" value="자동차추가" onclick="location.href='goodsAdd.do'" class="btn btn-primary">
+					        	<input type="button" value="자동차삭제" onclick="#" class="btn btn-primary">
+					        
+					        </div>
+					        </c:if>
+					        
 				          </div>
 				          <div class="card-body">
 				            <dd class='noLine'>

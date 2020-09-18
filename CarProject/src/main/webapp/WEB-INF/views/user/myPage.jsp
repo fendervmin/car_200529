@@ -89,6 +89,7 @@
 			<h3>마이페이지</h3>
 			<ul id="aside">
 				<li class="myPage_li">
+					<a href="/user/likeItPage.do" class="btn-example">마이페이지</a>
 					<a href="#layer2" class="btn-example">예약 내역</a>
 				</li>
 			</ul>
