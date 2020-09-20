@@ -15,7 +15,7 @@ public interface NewsService {
 	
 	public void delNews(int news_Id);
 	
-	public String saveUploadFile(MultipartFile news_Upload);
+	/*public String saveUploadFile(MultipartFile news_Upload);*/
 	
 	public void insNews(NewsVO newsvo);
 }

@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+5<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
@@ -82,7 +82,7 @@ function enterKeyCheck(){
          <div class="form-group">
             <label for="news_Upload">첨부 이미지 : </label>
             <input type="file"
-               id="news_Upload" name="news_Upload" class="form-control"
+               id="news_Upload" name="file" class="form-control"
                placeholder="IMAGE" onkeyup="enterKeyCheck()" accept="image/*" style="width:300px;">
          </div>
          

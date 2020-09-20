@@ -115,7 +115,7 @@
 							<div class="card h-100">
 								<a href=" <c:url value="${getNews.news_Url }"/> ">
 								<%-- <img src='${ contextPath }/resources/img/${getNews.news_Img }.jpg' style="width: 250px; height: 140px;"> --%>
-								<img src='${pageContext.request.contextPath }upload/${NewsVO.news_file}'/></a>
+								<img src='<%= request.getSession().getServletContext().getRealPath("/") %>${getNews.news_Thumb}'/></a>
 								<div class="card-body">
 									<h4 class="card-title">
 										<a href=" <c:url value="${getNews.news_Url }"/> "><c:out

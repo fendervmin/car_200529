@@ -40,7 +40,7 @@ public class NewsServiceImpl implements NewsService{
 		newsDAO.delNews(news_Id);
 	}
 
-	@Override
+	/*@Override
 	public String saveUploadFile(MultipartFile news_Upload) {
 		String upload = System.currentTimeMillis() + "_" + news_Upload.getOriginalFilename();
 		
@@ -51,17 +51,17 @@ public class NewsServiceImpl implements NewsService{
 		}
 		
 		return upload;
-	}
+	}*/
 
 	@Override
 	public void insNews(NewsVO newsvo) {
 		
-		MultipartFile news_Upload = newsvo.getNews_Upload();
+		/*MultipartFile news_Upload = newsvo.getNews_Upload();
 		
 		if(news_Upload.getSize() > 0) {
 			String file_name = saveUploadFile(news_Upload);
 			newsvo.setNews_file(file_name);
-		}
+		}*/
 		
 		newsDAO.insNews(newsvo);
 		
