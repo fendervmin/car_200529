@@ -66,5 +66,19 @@
 	<select id="view" parameterType="board">
 		UPDATE POST SET P_VIEW = P_VIEW + 1 WHERE P_ID =#{p_id}
 	</select>
+	<insert id="recommInsert" parameterType="recomm" >
+		INSERT INTO RECOMM(
+		POST_ID,MEMBER_ID,RECOMM)
+		VALUES(#{post_id},#{member_id},#{recomm})
+	</insert>
+	<select id="rcount" resultType="int" parameterType="recomm">
+		SELECT COUNT(RECOMM) AS RCOUNT FROM RECOMM WHERE POST_ID = #{post_id} AND MEMBER_ID=#{member_id} AND RECOMM='Y'
+	</select>
+	<select id="recommCheck" parameterType="recomm" resultType="recomm"><!-- string으로 설정햇을 때 스트링객체안에 getter가 없어서 쓸 수없오 map으로 묶어써야함 -->
+	SELECT RECOMM FROM RECOMM WHERE POST_ID = #{post_id} AND MEMBER_ID=#{member_id}
+	</select>
+	<select id="recommUpdate" parameterType="recomm" >
+		UPDATE RECOMM SET RECOMM = #{recomm} WHERE POST_ID=#{post_id} AND MEMBER_ID=#{member_id}
+	</select>
 
 </mapper>

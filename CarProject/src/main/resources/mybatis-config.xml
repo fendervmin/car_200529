@@ -2,7 +2,13 @@
 <!DOCTYPE configuration
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
+  
 <configuration>
+  
+  <settings>
+  	<setting name="jdbcTypeForNull" value="NULL"/>
+  </settings>
+
   <typeAliases>
   	<typeAlias alias="member" type="com.project.car.vo.MemberVO"/>
   	<typeAlias alias="car" type="com.project.car.vo.GoodsVO"/>
@@ -12,6 +18,7 @@
   	<typeAlias alias="answer" type="com.project.car.vo.AnswerVO"/>
   	<typeAlias alias="reserveVO" type="com.project.car.vo.ReserveVO"/>
   	<typeAlias alias="wishlist" type="com.project.car.vo.wishlistVO"/>
+  	<typeAlias alias="recomm" type="com.project.car.vo.RecommVO"/>
   </typeAliases>
   
   <mappers>
@@ -24,6 +31,6 @@
   	<mapper resource="mappers/reserveMapper.xml"/>
   	
   	<mapper resource="mappers/wishlistMapper.xml"/>
-  	
   </mappers>
+  
 </configuration>

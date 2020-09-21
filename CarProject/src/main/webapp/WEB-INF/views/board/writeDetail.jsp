@@ -1,5 +1,5 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%><%-- 
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%> --%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ page language="java" pageEncoding="UTF-8"
 	contentType="text/html; charset=UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -18,10 +18,74 @@
 <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <title>Insert title here</title>
 <script>
+
+
+	var recommand=$("#recommand").val();
 	
+	
+	if(recommand=="Y")
+		var flag=1;
+	else
+		var flag=0;
+	
+	function recomm(){
+		var postId=$("#postId").val();
+		var userId = $("#memberUserId").val();
+		
+		
+			if(flag==0){
+				$('img').attr("src","${pageContext.request.contextPath}/resources/img/heart2.png");
+				flag=1;
+				$.ajax({
+					url:"recommCheck.do",
+					method:"POST",
+					data:{postId:postId,userId:userId,flag:flag}
+				})
+				
+			}else if(flag==1){
+				$('img').attr("src","${pageContext.request.contextPath}/resources/img/heart.png");
+				flag=0;
+				$.ajax({
+					url:"recommCheck.do",
+					method:"POST",
+					data:{postId:postId,userId:userId,flag:flag}
+				})
+			}
+		
+			/* if(userId ==null){
+				$("recommButton").attr('disabled', true);
+			}else{
+				if(recommand==null||recommand=="Y"){
+					$("img").attr("src","${pageContext.request.contextPath}/resources/img/heart2.png");
+				}else{
+
+					$("img").attr("src","${pageContext.request.contextPath}/resources/img/heart.png");
+				}
+			} */
+			/* 	$.ajax({
+			
+			url:"recommCheck.do",
+			method:"POST",
+			data: {userId:userId,postId:postId},
+			success: function(){
+				if(userId ==null){
+					$("recommButton").attr('disabled', true);
+				}else{
+					if(recommand=="Y"){
+						$("img").attr("src","${pageContext.request.contextPath}/resources/img/heart2.png");
+					}else{
+
+						$("img").attr("src","${pageContext.request.contextPath}/resources/img/heart.png");
+					}
+				}
+			}
+			
+		})
+ */	}
 </script>
 </head>
 <body>
@@ -57,7 +121,10 @@
 									<tr>
 										<th>작성자</th>
 										<td>${detail.member_id }</td>
-									</tr>
+										<th>추천수</th>
+										<td> <%-- <input type="button" onclick="recomm()" id="recommButton" src="${pageContext.request.contextPath}/resources/img/heart.png"/> </td>--%>
+										<button type="button" onclick="recomm()" id="recommButton"><img src="${pageContext.request.contextPath}/resources/img/heart.png"  style="width:30px; height:30px;"/></button>
+									 </tr>
 								</thead>
 								<tbody>
 									<tr>
@@ -68,9 +135,12 @@
 							</table>
 						</div>
 					</div>
+					<input type="hidden" id="memberUserId" value="${loginUser.member_Id }"/>
+					<input type="hidden" id="postId" value="${detail.p_id}"/>
+					<input type="hidden" id="recommand" value="${recommand.recomm}"/>
 					<c:import url="../board/answerWrite.jsp">
-						<c:param name="id" value="${detail.p_id }" />
-						<c:param name="answer" value="${answer }" />
+						<c:param name="id" value="${detail.p_id }"/>
+						<c:param name="answer" value="${answer }"/>
 					</c:import>
 					<!-- 답변 전송 폼 -->
 					<%-- <div class="container my-1">

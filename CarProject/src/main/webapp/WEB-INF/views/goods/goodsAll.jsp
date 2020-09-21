@@ -179,7 +179,6 @@
 		<section id="container" style="margin-top:40px">
 			<div id="container_box">
 				<div class="container">
-
 				
 				<div class="row">
 				      <div class="col-lg-3">
@@ -200,12 +199,11 @@
 						          			<div class='photo'>
 						          				<p class="number">${all.car_ID}</p>
 							                    <img id="img" src="${pageContext.request.contextPath}/resources/all/${all.car_Img}.png">
-
+							                   
 								            </div>
 								            <div class='info'>
 								                <div class='title'>
 								                	<a href="goodsDetail.do?b=${all.brand_Id}&c=${all.car_ID}">${all.car_Name}</a>
-								            			
 								                </div>
 								                <div class='price new_rent'>
 								                        <div class='price_title'><span class='num'>${all.car_Price}</span>만 원</div>
@@ -215,6 +213,7 @@
 								                        <span>복합연비 <span class='num'>${all.car_Fuel}㎞/ℓ</span></span><br><span>${all.car_Type}</span><br><span>${all.fuel_Type}</span>
 								                    </div>
 								            </div>
+								            
 						   			</div>
 						   			
 						   			</ul>
