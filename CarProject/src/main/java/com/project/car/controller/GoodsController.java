@@ -1,19 +1,24 @@
 package com.project.car.controller;
 
+import java.io.IOException;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.project.car.services.GoodsService;
 import com.project.car.vo.GoodsVO;
+import com.project.car.vo.MemberVO;
 
 @Controller
 @RequestMapping("goods/*")
@@ -28,6 +33,12 @@ public class GoodsController {
 	public String getBrandList(Model model) throws Exception{
 		logger.info("Get brandlist");
 		return "goods/brandList";
+	}
+	
+	@RequestMapping(value="goodsAdd.do", method=RequestMethod.GET)
+	public String getGoodsAdd(Model model) throws Exception{
+		logger.info("Get goodsAdd");
+		return "goods/goodsAdd";
 	}
 	
 	@RequestMapping(value="goodsSales.do", method=RequestMethod.GET)
@@ -81,4 +92,13 @@ public class GoodsController {
 			 logger.info(searchResult.get(0)+"_)_)_");
 			 return "goods/goodsSearch";
 		 }
-		}
+		 
+		// 상품등록을 수행하는 메소드
+			@RequestMapping(value="goodsAdd.do",method = RequestMethod.POST)
+			public ModelAndView goodsAdd(@ModelAttribute GoodsVO goodsVO) throws Exception {
+				ModelAndView mav = new ModelAndView();
+				service.goodsAdd(goodsVO);
+				mav.setViewName("home");
+				return mav;
+			}
+}

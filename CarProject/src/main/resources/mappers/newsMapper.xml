@@ -11,6 +11,7 @@
 	<result column="NEWS_URL" property="news_Url"/>
 	<result column="NEWS_IMG" property="news_Img"/>
 	<result column="NEWS_DATE" property="news_Date"/>
+	<result column="NEWS_THUMB" property="news_Thumb"/>
 </resultMap>
 
 <select id="getOneNews" parameterType="_int" resultMap="fullnewsInfo">
@@ -28,9 +29,9 @@ SELECT * FROM NEWS
 DELETE NEWS WHERE news_Id= #{news_Id}
 </delete>
 
-<insert id="insNews" parameterType="news">
-INSERT INTO NEWS(NEWS_ID, NEWS_TITLE, NEWS_CONTENT, NEWS_URL, NEWS_IMG, NEWS_DATE, NEWS_FILE)
-VALUES (NEWS_SEQ.NEXTVAL, #{news_Title}, #{news_Content}, #{news_Url}, NULL, SYSDATE, #{news_file, jdbcType=VARCHAR})
+<insert id="insNews" parameterType="news" >
+INSERT INTO NEWS(NEWS_ID, NEWS_TITLE, NEWS_CONTENT, NEWS_URL, NEWS_IMG, NEWS_DATE, NEWS_THUMB)
+VALUES (NEWS_SEQ.NEXTVAL, #{news_Title}, #{news_Content}, #{news_Url}, #{news_Img}, SYSDATE, #{news_Thumb})
 </insert>
 
 </mapper>

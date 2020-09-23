@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.project.car.dao.GoodsDAO;
 import com.project.car.vo.GoodsVO;
+import com.project.car.vo.MemberVO;
 @Service
 public class GoodsServiceImpl implements GoodsService {
 	
@@ -37,4 +38,10 @@ public class GoodsServiceImpl implements GoodsService {
 	public List<GoodsVO> search(String keyword) throws Exception{
 		return dao.search(keyword);
 	}
+	
+	@Override
+	public void goodsAdd(GoodsVO goodsVO) throws Exception{
+		dao.goodsAdd(goodsVO);
+	}
+
 }

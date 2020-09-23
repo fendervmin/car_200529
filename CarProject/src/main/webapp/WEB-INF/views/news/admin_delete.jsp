@@ -3,5 +3,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <script>
 	alert('해당 뉴스를 삭제하였습니다')
-	history.go(-1);
+	location.href="redirect:/news/newsmain"
 </script>

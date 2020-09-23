@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import com.project.car.vo.GoodsVO;
+import com.project.car.vo.MemberVO;
 
 @Repository
 public class GoodsDAOImpl implements GoodsDAO {
@@ -60,5 +61,10 @@ public class GoodsDAOImpl implements GoodsDAO {
 	      System.out.println("??"+keyword);
 	      return result;
 	   }
+	
+	@Override
+	   public void goodsAdd(GoodsVO goodsVO) throws Exception{
+		sql.insert("goods.add",goodsVO);
+	}
 
 }

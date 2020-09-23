@@ -99,43 +99,43 @@
 
    <div id="header" class="header" style="outline: none;">
    <!-- 오른쪽 맨 위 상단에 로그인, 회원가입, 등등 버튼있는 부분입니다... -->
-   	<div class="contain" style="margin-top:10px;">
+   	<div class="contain"  style="margin-top:10px;">
       <dl class="hd_my">
          <dt class="ir">마이메뉴</dt>
          
          <c:if test="${ empty sessionScope.loginUser }">
          <dd id="header_loginbtn">
-            <a href='/user/loginPage.do' style="font-size:15px;">로그인</a>
+            <a href='/user/loginPage.do' style="font-size:15px">로그인</a>
          </dd>
          <dd id="header_joinbtn">
-            <a href='/user/signUpPage.do' style="font-size:15px;">회원가입</a>
+            <a href='/user/signUpPage.do' style="font-size:15px">회원가입</a>
          </dd>
          </c:if>
          <c:if test="${ !empty sessionScope.loginUser && loginUser.member_Type != '관리자' }">
          <dd>
-            <a style="font-size:12px;"> ${ loginUser.member_Name }님 환영합니다.</a>
+            <a style="font-size:12px;" style="font-size:15px"> ${ loginUser.member_Name }님 환영합니다.</a>
          </dd>
          <dd class="arw">
-            <a href='/user/mypagePage.do'>마이페이지</a>
+            <a href='/user/mypagePage.do' style="font-size:15px">마이페이지</a>
          </dd>
          <dd>
-            <a href='/user/logout.do'>로그아웃</a>
+            <a href='/user/logout.do' style="font-size:15px">로그아웃</a>
          </dd>
          </c:if>
          
          <!-- 관리자 로그인시 -->
          <c:if test="${loginUser.member_Type == '관리자' }">
          <dd>
-            <a style="font-size:12px;"> ${ loginUser.member_Name }님 환영합니다.</a>
+            <a style="font-size:12px;" style="font-size:15px"> ${ loginUser.member_Name }님 환영합니다.</a>
          </dd>
          <dd class="arw">
-            <a href='/user/mypagePage.do'>마이페이지</a>
+            <a href='/user/mypagePage.do' style="font-size:15px">마이페이지</a>
          </dd>
          <dd>
-            <a href='/user/logout.do'>로그아웃</a>
+            <a href='/user/logout.do' style="font-size:15px">로그아웃</a>
          </dd>
          <dd>
-            <a href='admin.do'>관리자</a>
+            <a href='admin.do' style="font-size:15px">관리자</a>
          </dd>
          </c:if>
          <dd class="arw">
@@ -148,19 +148,16 @@
    <!-- 상단 로고입니다 (로고 이미지 임시) -->
       <div class="hd_top" style="margin-top:30px;">
          <h1 class="sd">
-         	<!-- <p>차</p> -->
             <a href="../">차</a>
          </h1>
       </div>
-			<div class="search" style="margin-bottom:15px;">
-				<form name="search"
-					method="get" action="../goods/goodsSearch.do">
+      
+	<div class="search" style="margin-bottom:15px;">
+				<form name="search" method="get" action="../goods/goodsSearch.do">
 					<td><input type="text" style="width:150px; heigth:50px;" name="keyword"></td>
-
 					<td><input type="submit" value="search"></td>
-
 				</form>
-			</div>
+	</div>
    <!-- 메뉴바  -->
    <div class="hd_gnb">
       <h3 class="ir">카테고리메뉴</h3>
@@ -173,8 +170,6 @@
 	         <li class="menubar_li" style="color:white;"><a href="../board/writeBoard.do">커뮤니티</a></li>
 	
 	         <li class="menubar_li" style="color:white;"><a href="../news/newsmainPage.do">뉴스</a></li>
-	         
-	         <li class="menubar_li" style="color:white;"><a href="../goods/goodsAll.do">전체보기</a></li>
 	      </ul>
 	   </div>
 	</div>

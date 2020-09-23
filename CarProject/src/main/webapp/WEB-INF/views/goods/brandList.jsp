@@ -57,6 +57,7 @@
 				            4.0 stars
 				          </div>
 				        </div>
+				        
 				        <!-- /.card -->
 				        <div class="card card-outline-secondary my-4">
 				          <div class="card-header">

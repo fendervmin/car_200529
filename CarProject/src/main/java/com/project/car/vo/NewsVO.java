@@ -12,13 +12,14 @@ public class NewsVO {
 	private String news_Url;
 	private String news_Img;
 	private Date news_Date;
+	private String news_Thumb;
 	
 	private MultipartFile news_Upload;
-	private String news_file;
+	/*private String news_file;*/
 	
 	public NewsVO() {}
 	
-	public NewsVO(int news_Id, String news_Title, String news_Content, String news_Url, String news_Img, Date news_Date) {
+	public NewsVO(int news_Id, String news_Title, String news_Content, String news_Url, String news_Img, Date news_Date, String news_Thumb) {
 		super();
 		this.news_Id = news_Id;
 		this.news_Title = news_Title;
@@ -26,6 +27,7 @@ public class NewsVO {
 		this.news_Url = news_Url;
 		this.news_Img = news_Img;
 		this.news_Date = news_Date;
+		this.news_Thumb = news_Thumb;
 	}
 
 	public String getNews_Img() {
@@ -75,12 +77,20 @@ public class NewsVO {
 		this.news_Upload = news_Upload;
 	}
 
-	public String getNews_file() {
+	/*public String getNews_file() {
 		return news_file;
 	}
 
 	public void setNews_file(String news_file) {
 		this.news_file = news_file;
+	}*/
+
+	public String getNews_Thumb() {
+		return news_Thumb;
+	}
+
+	public void setNews_Thumb(String news_Thumb) {
+		this.news_Thumb = news_Thumb;
 	}
 
 	

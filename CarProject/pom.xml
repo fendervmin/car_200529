@@ -202,6 +202,13 @@
 		</dependency>
 		<!-- 이메일 인증 2018.11.20 KW -->
 		<!-- @validate사용 디펜던시 -->
+		<!-- https://mvnrepository.com/artifact/net.coobird/thumbnailator -->
+<dependency>
+    <groupId>net.coobird</groupId>
+    <artifactId>thumbnailator</artifactId>
+    <version>0.4.12</version>
+</dependency>
+		
 		 <dependency>
             <groupId>commons-fileupload</groupId>
             <artifactId>commons-fileupload</artifactId>

@@ -73,12 +73,7 @@ ol, ul {
   
 </head>
 <body>
-	<div id="root">
-		<header id="header">
-			<div id="header_box">
-				<%@ include file="../common/menubar.jsp" %>
-			</div>
-		</header>
+	<c:import url="/WEB-INF/views/common/menubar.jsp"/>
 		
 		<section id="container" style="margin-top:40px">
 			<div id="container_box">
@@ -116,10 +111,6 @@ ol, ul {
 					            		</c:forEach>
 								    </p>
 								</details>
-					            
-					            <!-- <a href=# onclick=this.nextSibling.style.display=(this.nextSibling.style.display=="none")?"block":"none";>
-									펼치기
-									</a><div style="display:none;">롸롸롸</div></p> -->
 					            <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
 					            4.0 stars
 					        </div>
@@ -130,7 +121,16 @@ ol, ul {
 				          <div class="card-header">
 				          <c:forEach items="${list}" var="list" begin="0" end="0">
 				            	${list.brand_Name}
-				            </c:forEach>	
+				            </c:forEach>
+				            
+					        <c:if test="${loginUser.member_Type == '관리자' }">
+					        <div class="add" style="margin-top:20px;">
+					        	<input type="button" value="자동차추가" onclick="location.href='goodsAdd.do'" class="btn btn-primary">
+					        	<input type="button" value="자동차삭제" onclick="#" class="btn btn-primary">
+					        
+					        </div>
+					        </c:if>
+					        
 				          </div>
 				          <div class="card-body">
 				            <dd class='noLine'>

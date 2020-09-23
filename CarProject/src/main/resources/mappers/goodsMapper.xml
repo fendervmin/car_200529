@@ -44,5 +44,26 @@
    SELECT CAR_ID,CAR_TYPE,CAR_FUEL,CAR_NAME,CAR_PRICE,CAR_IMG,BRAND_ID
    FROM CAR WHERE CAR_NAME LIKE '%'||#{keyword}||'%'
     </select>
+    
+    <insert id="add">
+	insert into CAR
+		(car_id,
+		car_name,
+		car_type,
+		fuel_type,
+		car_fuel,
+		car_price,
+		car_img,
+		brand_Id)
+	values
+		(CAR_SEQ2.NEXTVAL,
+		#{car_Name},
+		#{car_Type},
+		#{fuel_Type},
+		#{car_Fuel},
+		#{car_Price},
+		#{car_Img},
+		#{brand_Id})
+	</insert>
 
 </mapper>

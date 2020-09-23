@@ -27,7 +27,7 @@ public class newsDAO {
 	}
 	
 	public void insNews(NewsVO news) {
-		sqlSession.insert("mappers.newsMapper.insNews");
+		sqlSession.insert("mappers.newsMapper.insNews", news);
 	}
 
 }

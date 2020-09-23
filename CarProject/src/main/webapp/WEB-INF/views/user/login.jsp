@@ -84,12 +84,6 @@ function enterKeyCheck(){
       </form>
 	</div>
 	
-<c:import url="/WEB-INF/views/common/footer.jsp"/>
+	<c:import url="/WEB-INF/views/common/footer.jsp"/>
 
-
-	<%-- <footer id="footer">
-		<div id="footer_box">
-			<%@ include file="/WEB-INF/views/common/footer.jsp" %>
-		</div>
-	</footer> --%>
 </body>

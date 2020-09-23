@@ -160,12 +160,7 @@
   
 </head>
 <body>
-	<div id="root">
-		<header id="header">
-			<div id="header_box">
-				<%@ include file="../common/menubar.jsp" %>
-			</div>
-		</header>
+	<c:import url="/WEB-INF/views/common/menubar.jsp"/>
 		
 		<section id="container" style="margin-top:40px">
 			<div id="container_box">
