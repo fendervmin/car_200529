@@ -72,12 +72,13 @@ public class BoardDAOImpl implements BoardDAO {
 	}
 	@Override
 	public RecommVO recommCheck(RecommVO recomm) throws Exception{
+		
 		RecommVO rec = sqlSession.selectOne("mappers.boardMapper.recommCheck",recomm);
 		return rec;
 	}
 	@Override
 	public void recommUdate(RecommVO recomm) throws Exception{
-		sqlSession.update("mappers.boardMapper.recommCheck",recomm);
+		sqlSession.update("mappers.boardMapper.recommUpdate",recomm);
 	}
 	
 }

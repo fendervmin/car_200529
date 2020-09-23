@@ -116,10 +116,13 @@ public class BoardController {
 		if(loginUser != null){//비로그인시 오류 페이지 뜨는 거 방지용 
 			logger.info("id = "+loginUser.getMember_Id());
 			model.addAttribute("loginUser", loginUser);
+			
 			RecommVO recomm = new RecommVO();
 			recomm.setPost_id(p_id);
 			recomm.setMember_id(loginUser.getMember_Id());
+			
 			model.addAttribute("recommand",service.recommCheck(recomm));
+			
 		}
 		
 		
@@ -183,23 +186,26 @@ public class BoardController {
 	@RequestMapping(value="recommCheck.do" ,method=RequestMethod.POST)
 	@ResponseBody
 	public void getRecommCheck(@RequestParam("postId")String p_id,@RequestParam("userId")String m_id,@RequestParam("flag")String flag) throws Exception{//숫자 하나 받아서 if로 비교 해서
-		System.out.println("나 실행 돼 p_id :" +p_id+"m_id"+m_id+flag);
-		
+		System.out.println("나 실행 돼 p_id :" +p_id+"m_id :"+m_id+"flag :"+flag);
+		int check = Integer.parseInt(flag);
 		RecommVO recomm = new RecommVO();
 		recomm.setMember_id(Integer.parseInt(m_id));
 		recomm.setPost_id(Integer.parseInt(p_id));
-		if(flag=="100")
-			recomm.setRecomm("N");
-		else if(flag=="101")
+		if(check==1){
 			recomm.setRecomm("Y");
-		
-		if(service.recommCheck(recomm)==null)
+			System.out.println("추천 했냐? : "+recomm.getRecomm());
+		}else if(check==0){
+			recomm.setRecomm("N");
+			System.out.println("추천 했냐? : "+recomm.getRecomm());
+		}
+		if(service.recommCheck(recomm)==null){
 			service.recommand(recomm);
-		else
+		}else{
 			service.recommUdate(recomm);
+			System.out.println("업데이트 성공");
+		}
 		
-		
-	}
+	}/*
 	@RequestMapping(value="recommCount.do" ,method=RequestMethod.POST)
 	@ResponseBody
 	public void getRecommCount(@RequestParam("postId")String p_id,@RequestParam("userId")String m_id) throws Exception{//숫자 하나 받아서 if로 비교 해서
@@ -211,7 +217,7 @@ public class BoardController {
 		recomm.setPost_id(post_id);
 		service.rcount(recomm);
 		
-	}
+	}*/
 
 	
 	

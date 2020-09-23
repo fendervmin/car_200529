@@ -2,11 +2,10 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ page language="java" pageEncoding="UTF-8"
 	contentType="text/html; charset=UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link href="css/styles.css" rel="stylesheet" />
+
+<title>Home</title>
 <!-- 합쳐지고 최소화된 최신 CSS -->
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
@@ -18,76 +17,91 @@
 <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+	
+	
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-<title>Insert title here</title>
+<title>Insert title here</title> 
 <script>
+	var check = $("#recommand.recomm").val();
 
-
-	var recommand=$("#recommand").val();
-	
-	
-	if(recommand=="Y")
-		var flag=1;
+	if (check == "Y  ")
+		var flag = 1;
 	else
-		var flag=0;
-	
-	function recomm(){
-		var postId=$("#postId").val();
+		var flag = 0;
+
+	function recomm() {
+
+		var recommand = $("#recommand").val();
+
+		var postId = $("#postId").val();
 		var userId = $("#memberUserId").val();
-		
-		
-			if(flag==0){
-				$('img').attr("src","${pageContext.request.contextPath}/resources/img/heart2.png");
-				flag=1;
-				$.ajax({
-					url:"recommCheck.do",
-					method:"POST",
-					data:{postId:postId,userId:userId,flag:flag}
-				})
-				
-			}else if(flag==1){
-				$('img').attr("src","${pageContext.request.contextPath}/resources/img/heart.png");
-				flag=0;
-				$.ajax({
-					url:"recommCheck.do",
-					method:"POST",
-					data:{postId:postId,userId:userId,flag:flag}
-				})
+
+		if (flag == 0) {
+			$('img')
+					.attr("src",
+							"${pageContext.request.contextPath}/resources/img/heart2.png");
+			flag = 1;
+			$.ajax({
+				url : "recommCheck.do",
+				method : "POST",
+				data : {
+					postId : postId,
+					userId : userId,
+					flag : flag
+				}
+			})
+
+		} else if (flag == 1) {
+			$('img')
+					.attr("src",
+							"${pageContext.request.contextPath}/resources/img/heart.png");
+			flag = 0;
+			$.ajax({
+				url : "recommCheck.do",
+				method : "POST",
+				data : {
+					postId : postId,
+					userId : userId,
+					flag : flag
+				}
+			})
+		}
+
+		/* if(userId ==null){
+			$("recommButton").attr('disabled', true);
+		}else{
+			if(recommand==null||recommand=="Y"){
+				$("img").attr("src","${pageContext.request.contextPath}/resources/img/heart2.png");
+			}else{
+
+				$("img").attr("src","${pageContext.request.contextPath}/resources/img/heart.png");
 			}
+		} */
+		/* 	$.ajax({
 		
-			/* if(userId ==null){
+		url:"recommCheck.do",
+		method:"POST",
+		data: {userId:userId,postId:postId},
+		success: function(){
+			if(userId ==null){
 				$("recommButton").attr('disabled', true);
 			}else{
-				if(recommand==null||recommand=="Y"){
+				if(recommand=="Y"){
 					$("img").attr("src","${pageContext.request.contextPath}/resources/img/heart2.png");
 				}else{
 
 					$("img").attr("src","${pageContext.request.contextPath}/resources/img/heart.png");
 				}
-			} */
-			/* 	$.ajax({
-			
-			url:"recommCheck.do",
-			method:"POST",
-			data: {userId:userId,postId:postId},
-			success: function(){
-				if(userId ==null){
-					$("recommButton").attr('disabled', true);
-				}else{
-					if(recommand=="Y"){
-						$("img").attr("src","${pageContext.request.contextPath}/resources/img/heart2.png");
-					}else{
-
-						$("img").attr("src","${pageContext.request.contextPath}/resources/img/heart.png");
-					}
-				}
 			}
-			
+		}
+		
 		})
- */	}
+		 */}
 </script>
-</head>
+ <meta charset="UTF-8">
+ </head>
+
 <body>
 	<header id="header">
 	<div id="header_box">
@@ -117,14 +131,16 @@
 										<td>${detail.p_title }</td>
 										<th>조회수</th>
 										<td>${detail.p_view }</td>
+										<th>추천여부</th>
+										<td>${recommand.recomm}</td>
 									</tr>
 									<tr>
 										<th>작성자</th>
 										<td>${detail.member_id }</td>
 										<th>추천수</th>
-										<td> <%-- <input type="button" onclick="recomm()" id="recommButton" src="${pageContext.request.contextPath}/resources/img/heart.png"/> </td>--%>
-										<button type="button" onclick="recomm()" id="recommButton"><img src="${pageContext.request.contextPath}/resources/img/heart.png"  style="width:30px; height:30px;"/></button>
-									 </tr>
+										<td>
+											</td>
+									</tr>
 								</thead>
 								<tbody>
 									<tr>
@@ -134,13 +150,35 @@
 								</tbody>
 							</table>
 						</div>
+						<%-- <input type="button" onclick="recomm()" id="recommButton" src="${pageContext.request.contextPath}/resources/img/heart.png"/> </td>--%>
+										<div>
+											<c:choose>
+											<c:when test="${reco=='Y  '}" >
+												<button type="button" onclick="recomm()" id="recommButton">
+													<img
+												 		src="${pageContext.request.contextPath}/resources/img/heart2.png"
+														style="width: 30px; height: 30px;" />
+												</button> 
+											</c:when> 
+											
+ 											<c:when test="${recommand.recomm=='N  '||recommand.recomm==null }" >
+												<button type="button" onclick="recomm()" id="recommButton">
+													<img
+														src="${pageContext.request.contextPath}/resources/img/heart.png"
+														style="width: 30px; height: 30px;" />
+												</button>
+												<h2>ㅅㅂ</h2>
+											</c:when> 
+											</c:choose>
+							</div>
 					</div>
-					<input type="hidden" id="memberUserId" value="${loginUser.member_Id }"/>
-					<input type="hidden" id="postId" value="${detail.p_id}"/>
-					<input type="hidden" id="recommand" value="${recommand.recomm}"/>
+					<input type="hidden" id="memberUserId"
+						value="${loginUser.member_Id }" /> <input type="hidden"
+						id="postId" value="${detail.p_id}" /> <input type="hidden"
+						id="recommand" value="${recommand.recomm}" />
 					<c:import url="../board/answerWrite.jsp">
-						<c:param name="id" value="${detail.p_id }"/>
-						<c:param name="answer" value="${answer }"/>
+						<c:param name="id" value="${detail.p_id }" />
+						<c:param name="answer" value="${answer }" />
 					</c:import>
 					<!-- 답변 전송 폼 -->
 					<%-- <div class="container my-1">
