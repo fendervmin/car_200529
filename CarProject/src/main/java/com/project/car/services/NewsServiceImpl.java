@@ -66,7 +66,5 @@ public class NewsServiceImpl implements NewsService{
 		newsDAO.insNews(newsvo);
 		
 	}
-	
-	
-
 }
+	
