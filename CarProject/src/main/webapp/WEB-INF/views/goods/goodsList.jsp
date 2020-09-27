@@ -126,8 +126,7 @@ ol, ul {
 					        <c:if test="${loginUser.member_Type == '관리자' }">
 					        <div class="add" style="margin-top:20px;">
 					        	<input type="button" value="자동차추가" onclick="location.href='goodsAdd.do'" class="btn btn-primary">
-					        	<input type="button" value="자동차삭제" onclick="#" class="btn btn-primary">
-					        
+					        					        
 					        </div>
 					        </c:if>
 					        

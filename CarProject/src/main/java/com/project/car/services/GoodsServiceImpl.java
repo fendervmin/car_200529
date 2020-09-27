@@ -43,5 +43,10 @@ public class GoodsServiceImpl implements GoodsService {
 	public void goodsAdd(GoodsVO goodsVO) throws Exception{
 		dao.goodsAdd(goodsVO);
 	}
+	
+	@Override
+	public void goodsDelete(GoodsVO goodsVO) throws Exception{
+		dao.goodsDelete(goodsVO);
+	}
 
 }

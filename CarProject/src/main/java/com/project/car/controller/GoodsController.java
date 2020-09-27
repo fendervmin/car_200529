@@ -4,7 +4,9 @@ import java.io.IOException;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,6 +21,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.project.car.services.GoodsService;
 import com.project.car.vo.GoodsVO;
 import com.project.car.vo.MemberVO;
+import com.project.car.vo.wishlistVO;
 
 @Controller
 @RequestMapping("goods/*")
@@ -93,12 +96,23 @@ public class GoodsController {
 			 return "goods/goodsSearch";
 		 }
 		 
-		// 상품등록을 수행하는 메소드
-			@RequestMapping(value="goodsAdd.do",method = RequestMethod.POST)
-			public ModelAndView goodsAdd(@ModelAttribute GoodsVO goodsVO) throws Exception {
-				ModelAndView mav = new ModelAndView();
-				service.goodsAdd(goodsVO);
-				mav.setViewName("home");
-				return mav;
-			}
+		// 상품등록
+		@RequestMapping(value="goodsAdd.do",method = RequestMethod.POST)
+		public ModelAndView goodsAdd(@ModelAttribute GoodsVO goodsVO) throws Exception {
+			ModelAndView mav = new ModelAndView();
+			service.goodsAdd(goodsVO);
+			mav.setViewName("home");
+			return mav;
+		}
+			
+		// 상품 삭제
+		@RequestMapping(value = "delete.do",method = RequestMethod.POST)
+		public String goodsDelete(@ModelAttribute GoodsVO goodsVO,@RequestParam("car_id") int car_id,Model model) throws Exception {
+		 logger.info("post goods delete");
+		 
+		 goodsVO.setCar_ID(car_id);
+		 service.goodsDelete(goodsVO);
+		 model.addAttribute("car_id", car_id);
+		 return "goods/goodsList";
+		}
 }
