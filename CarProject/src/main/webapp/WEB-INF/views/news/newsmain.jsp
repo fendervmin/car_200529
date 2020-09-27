@@ -38,12 +38,43 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
+<script type="text/javascript">
+
+var express = require('express');
+var app = express();
+var client_id = 'imJ805B2A2GZnNNlli75';
+var client_secret = 'c_DLlOUWLb';
+app.get('/search/news', function (req, res) {
+   var api_url = 'https://openapi.naver.com/v1/search/news?query=' + encodeURI(req.query.query); // json 결과
+//   var api_url = 'https://openapi.naver.com/v1/search/blog.xml?query=' + encodeURI(req.query.query); // xml 결과
+   var request = require('request');
+   var options = {
+       url: api_url,
+       headers: {'X-Naver-Client-Id':client_id, 'X-Naver-Client-Secret': client_secret}
+    };
+   request.get(options, function (error, response, body) {
+     if (!error && response.statusCode == 200) {
+       res.writeHead(200, {'Content-Type': 'text/json;charset=utf-8'});
+       res.end(body);
+     } else {
+       res.status(response.statusCode).end();
+       console.log('error = ' + response.statusCode);
+     }
+   });
+ });
+ app.listen(6780, function () {
+   console.log('http://127.0.0.1:6780/search/news?query=검색어 app listening on port 6780!');
+ });
+ 
+</script>
+
 </head>
 <style>
 
 .paging {
 	margin-left: 50%;
 } 
+
 </style>
 
 
@@ -54,7 +85,7 @@
 
 		<div class="row">
 
-			<div class="col-lg-3">
+			<div class="col-lg-3" style="margin-top : 50px;">
 
 				<h5 class="my-4">뉴스 메인 > 모든 뉴스</h5>
 				<div class="list-group">
@@ -62,9 +93,18 @@
 				</div>
 				<c:if test="${loginUser.member_Type == '관리자' }">
 				<div>
-					<button class="btn btn-primary" onclick="location.href='/news/insertnewsPage.do'">추가하기</button>
+					<button class="btn btn-primary" onclick="location.href='/news/insertnewsPage.do'" style="margin-top:10px; margin-bottom: 10px;">뉴스 추가하기</button>
 				</div>
 				</c:if>
+				<div>
+					<label>뉴스 검색하기</label>
+					<nav>
+  				<form class="form-inline" >
+   					 <input class="form-control mr-sm-2" type="text" placeholder="Search" id="keyword" name="keyword">
+   					 <button class="btn btn-primary" type="submit" onclick="searchNews()">Search</button>
+ 			    </form> 
+					</nav>
+				</div>
 
 			</div>
 			<!-- /.col-lg-3 -->
@@ -115,7 +155,9 @@
 							<div class="card h-100">
 								<a href=" <c:url value="${getNews.news_Url }"/> ">
 								<%-- <img src='${ contextPath }/resources/img/${getNews.news_Img }.jpg' style="width: 250px; height: 140px;"> --%>
-								<img src='<%= request.getSession().getServletContext().getRealPath("/") %>${getNews.news_Thumb}'/></a>
+								<img src='/path_upload/${getNews.news_Thumb}'/>
+								<%-- <img src="${pageContext.request.contextPath }/${getNews.news_Thumb}" /> --%>
+								</a>
 								<div class="card-body">
 									<h4 class="card-title">
 										<a href=" <c:url value="${getNews.news_Url }"/> "><c:out

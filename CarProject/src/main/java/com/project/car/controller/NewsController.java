@@ -71,7 +71,7 @@ public class NewsController {
 	
 	@RequestMapping(value="insNews.do")
 	public String insNews(@Valid @ModelAttribute NewsVO news, BindingResult result,
-						  MultipartFile file) throws Exception {
+						  MultipartFile file, Model model) throws Exception {
 		
 		String imgUploadPath = path_upload + File.separator + "upload";
 		String ymdPath = UploadFileUtils.calcPath(imgUploadPath);
@@ -90,6 +90,8 @@ public class NewsController {
 		
 		return "news/admin_insert_success";
 	}
+	
+	
 	
 
 }
