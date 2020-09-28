@@ -45,8 +45,8 @@ public class GoodsServiceImpl implements GoodsService {
 	}
 	
 	@Override
-	public void goodsDelete(GoodsVO goodsVO) throws Exception{
-		dao.goodsDelete(goodsVO);
+	public void goodsDelete(int car_id) throws Exception{
+		dao.goodsDelete(car_id);
 	}
 
 }

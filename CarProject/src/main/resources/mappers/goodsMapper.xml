@@ -74,5 +74,20 @@
 	     car
 	 where car_id = #{car_id}
 	</delete>
+	
+	<!-- 08. 상품 수정 -->
+	<update id="goodsModify">
+	 update car
+	     set
+	         car_name = #{car_name},
+	         car_type = #{car_type},
+	         fuel_type = #{fuel_type},
+	         car_fuel = #{car_fuel},
+	         car_price = #{car_price},
+	         car_img = #{car_img},
+	         brand_id = #{brand_id}
+	     where car_id = #{car_id}
+	</update>
+	
 
 </mapper>

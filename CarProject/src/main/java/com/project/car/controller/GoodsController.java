@@ -106,13 +106,36 @@ public class GoodsController {
 		}
 			
 		// 상품 삭제
-		@RequestMapping(value = "delete.do",method = RequestMethod.POST)
-		public String goodsDelete(@ModelAttribute GoodsVO goodsVO,@RequestParam("car_id") int car_id,Model model) throws Exception {
+		@RequestMapping(value = "delete.do")
+		public String goodsDelete(@ModelAttribute GoodsVO goodsVO,@RequestParam("c") int car_id,Model model) throws Exception {
 		 logger.info("post goods delete");
 		 
+		 GoodsVO detail = service.detail(car_id);
+		 model.addAttribute("detail", detail);
 		 goodsVO.setCar_ID(car_id);
-		 service.goodsDelete(goodsVO);
+		 service.goodsDelete(car_id);
 		 model.addAttribute("car_id", car_id);
-		 return "goods/goodsList";
+		 return "goods/brandList";
 		}
+		
+		@RequestMapping(value="goodsModify.do", method=RequestMethod.GET)
+		public String getgoodsModify(@RequestParam("c") int car_id,Model model) throws Exception{
+			logger.info("Get goodsModify");
+			System.out.println("car_id : " + car_id);
+			GoodsVO detail = service.detail(car_id);
+
+			model.addAttribute("detail", detail);
+			GoodsVO color = service.color(car_id);
+			model.addAttribute("color", color);		
+			return "goods/brandList";
+		}
+		
+		/*// 상품 수정
+		@RequestMapping(value="modify.do")
+		public String goodsModify(@RequestParam("c") int car_id, Model model) throws Exception {
+			GoodsVO goodsVO = service.detail(car_id);
+			model.addAttribute("detail", goodsVO);
+
+			return "goods/brandList";
+		}*/
 }

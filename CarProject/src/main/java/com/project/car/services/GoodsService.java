@@ -19,5 +19,5 @@ public interface GoodsService {
 	
 	public void goodsAdd(GoodsVO goodsVO) throws Exception;
 	
-	public void goodsDelete(GoodsVO goodsVO) throws Exception;
+	public void goodsDelete(int car_id) throws Exception;
 }

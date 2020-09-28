@@ -228,7 +228,8 @@
 					                	</div>
 					            	</div>
 					            <div class='info'>
-					            
+					            	<form class="delete" id="delete" name="c">
+					            	<input type="hidden" name="c" value="${detail.car_ID}" />
 					                <div class='title'>
 					                
 					            			${detail.car_Name}
@@ -240,40 +241,49 @@
 					                <div class='spec'>
 					                        <span>복합연비 <span class='num'>${detail.car_Fuel}㎞/ℓ</span></span><br><span>${detail.car_Type}</span><br><span>${detail.fuel_Type}</span>
 					                </div>
+					                
 					                <div class='save'>
-	                                      <button title='매장예약' class='' type='button' onclick="location.href='../reserve/reservemainPage.do?b=${detail.brand_Id}'">
+	                                      <button title='매장예약' class="btn btn-primary" type='button' onclick="location.href='../reserve/reservemainPage.do?b=${detail.brand_Id}'">
 						                        <span class='screen_behind'>매장 예약하러 가기</span>
 						                    </button>
-						                  <button title='즐겨찾기' type='button' onclick="location.href='/user/likeIt.do?c=${detail.car_ID} '">
+						                  <button title='즐겨찾기' class="btn btn-primary" type='button' onclick="location.href='/user/likeIt.do?c=${detail.car_ID} '">
 						                  		<span class='screen_behind'>즐겨찾기</span>
 						                  </button>
                                   	</div>
                                   	
                                   	<c:if test="${loginUser.member_Type == '관리자' }">
-                                  
-                                  		<form class="delete" id="delete" name="car_id">
                                   			
 	                                  		<div style="margin-top:10px;">
-							                  	<button title='삭제' type='button' id="delete_Btn">
+	                                  			<a class="btn btn-primary" href="/goods/goodsModify.do">수정</a>
+							                  	<button class="btn btn-primary" title='삭제' type="submit" id="delete_Btn">
 							                  		삭제
 							                  	</button>
-							                  	
+							                  	<%-- <a class="btn btn-primary" href="/goods/delete.do?c=${detail.car_ID }">수정</a>
+							                  	<a class="btn btn-primary" onclick="alert('정말 삭제하시겠습니까?')" href="/goods/delete.do?c=${detail.car_ID }">삭제</a>
+							                  	 --%>
 							                  <script type="text/javascript">
+							                  
+								                  /* $("#modify_Btn").click(function(){
+								                	   formObj.attr("action", "/goods/goodsModify.do");
+								                	   formObj.attr("method", "post")
+								                	   formObj.submit();
+								                	  }); */
+								                  
 								                  $("#delete_Btn").click(function(){
 								                	  
 								                	  var con = confirm("정말로 삭제하시겠습니까?");
 								                	  
 								                	  if(con) {
 								                		  $('#delete').attr("action", "/goods/delete.do");
-								                		  $('#delete').attr("method", "post");  
+								                		  $('#delete').attr("method", "post");
 								                		  $('#delete').submit();
 								                		  }
 								                	 });
 							                  </script>
 							                  
 	                                  		</div>
-	                                  	</form>
                                   	</c:if>
+                                  	</form>
                                  </div>
 					            </div>
 							
