@@ -2,7 +2,7 @@ package com.project.car.services;
 
 import java.util.List;
 
-
+import com.project.car.model.News;
 import com.project.car.vo.NewsVO;
 
 public interface NewsService {
@@ -16,5 +16,7 @@ public interface NewsService {
 	/*public String saveUploadFile(MultipartFile news_Upload);*/
 	
 	public void insNews(NewsVO newsvo);
+	
+	public List<News> searchNews(String keyword, int display, int start);
 	
 }
