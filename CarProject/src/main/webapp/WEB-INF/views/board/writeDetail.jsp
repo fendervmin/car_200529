@@ -17,11 +17,12 @@
 <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-	
-	
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-<title>Insert title here</title> 
+
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<title>Insert title here</title>
 <script>
 	var check = $("#recommand.recomm").val();
 
@@ -99,89 +100,109 @@
 		})
 		 */}
 </script>
- <meta charset="UTF-8">
- </head>
+<style>
+th {
+	display: inline-block;
+}
+
+td {
+	text-align: left;
+}
+</style>
+<meta charset="UTF-8">
+</head>
 
 <body>
 	<header id="header">
-	<div id="header_box">
-		<c:import url="../common/menubar.jsp" />
-	</div>
+		<div id="header_box">
+			<c:import url="../common/menubar.jsp" />
+		</div>
 	</header>
 
-	<section id="container" style="margin-top:150px">
-	<div id="container_box">
-		<h2>자유게시판</h2>
-		<div class="container my-8">
-			<div class="container my-3">
-				<div class="row">
+	<section id="container" style="margin-top: 150px">
+		<div id="container_box">
+			<h2>자유게시판</h2>
+			<div class="container my-8">
+				<div class="container my-3">
+					<div class="row">
 
-					<div class="col-md-4">
-						<a href='writeView.do?index=${detail.p_id }'>수정하기</a> <a
-							href='writeBoard.do?index=${detail.p_id}'>삭제하기</a> <a
-							href='writeBoard.do'>목록으로</a>
+						<div class="col-md-4">
+							<c:if
+								test="${loginUser.member_Id eq detail.member_id || loginUser.member_UserId eq 'MAIN'}">
+								<a href='writeView.do?index=${detail.p_id }'>수정하기</a>
+								<a href='writeBoard.do?index=${detail.p_id}'>삭제하기</a>
+							</c:if>
+							<a href='writeBoard.do'>목록으로</a>
 
-					</div>
-					<div class="container my-1" style="">
-						<div class="row" style="border: solid lightgray 1px;">
-							<table class="table" style="height: 300px;">
-								<thead class="table-active">
-									<tr>
-										<th>제목</th>
-										<td>${detail.p_title }</td>
-										<th>조회수</th>
-										<td>${detail.p_view }</td>
-										<th>추천여부</th>
-										<td>${recommand.recomm}</td>
-									</tr>
-									<tr>
-										<th>작성자</th>
-										<td>${detail.member_id }</td>
-										<th>추천수</th>
-										<td>
-											</td>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td><pre>${detail.p_content}</pre></td>
-										<!--pre태그는 엔터 쉬프트 같은 키들을 쉽게 사용가능  -->
-									</tr>
-								</tbody>
-							</table>
 						</div>
-						<%-- <input type="button" onclick="recomm()" id="recommButton" src="${pageContext.request.contextPath}/resources/img/heart.png"/> </td>--%>
-										<div>
-											<c:choose>
-											<c:when test="${reco=='Y  '}" >
-												<button type="button" onclick="recomm()" id="recommButton">
-													<img
-												 		src="${pageContext.request.contextPath}/resources/img/heart2.png"
-														style="width: 30px; height: 30px;" />
-												</button> 
-											</c:when> 
+						<div class="container my-1" style="">
+							<div class="row" style="border: solid lightgray 1px;">
+								<table class="table" style="height: 300px;">
+									<thead class="table-active">
+										<colgroup>
+											<col width="10%">
+											<col width="60%">
+											<col width="10%">
+											<col width="20%">
+										</colgroup>
+										<tr>
+											<th>제목</th>
+											<td colsapn="3">${detail.p_title }</td>
+											<td></td>
+											<td></td>
+										</tr>
+										<tr>
+											<th>작성자</th>
+											<td>${detail.member_id }</td>
+											<th>조회수</th>
+											<td>${detail.p_view }</td>
+												</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td colspan="3" ><pre style="width:1050px;height:300px;">${detail.p_content}</pre></td>
+											<!--pre태그는 엔터 쉬프트 같은 키들을 쉽게 사용가능  -->
+											<td></td>
+											<td></td>
+											<td></td>
 											
- 											<c:when test="${recommand.recomm=='N  '||recommand.recomm==null }" >
-												<button type="button" onclick="recomm()" id="recommButton">
-													<img
-														src="${pageContext.request.contextPath}/resources/img/heart.png"
-														style="width: 30px; height: 30px;" />
-												</button>
-												<h2>ㅅㅂ</h2>
-											</c:when> 
-											</c:choose>
+										</tr>
+									</tbody>
+								</table>
+								
 							</div>
-					</div>
-					<input type="hidden" id="memberUserId"
-						value="${loginUser.member_Id }" /> <input type="hidden"
-						id="postId" value="${detail.p_id}" /> <input type="hidden"
-						id="recommand" value="${recommand.recomm}" />
-					<c:import url="../board/answerWrite.jsp">
-						<c:param name="id" value="${detail.p_id }" />
-						<c:param name="answer" value="${answer }" />
-					</c:import>
-					<!-- 답변 전송 폼 -->
-					<%-- <div class="container my-1">
+							<div style="float:right;">
+												<c:choose>
+													<c:when test="${reco=='Y  '}">
+														<button type="button" onclick="recomm()" id="recommButton">
+															<img
+																src="${pageContext.request.contextPath}/resources/img/heart2.png"
+																style="width: 30px; height: 30px;" />
+														</button>
+													</c:when>
+
+													<c:when
+														test="${recommand.recomm=='N  '||recommand.recomm==null }">
+														<button type="button" onclick="recomm()" id="recommButton">
+															<img
+																src="${pageContext.request.contextPath}/resources/img/heart.png"
+																style="width: 30px; height: 30px;" />
+														</button>
+													</c:when>
+												</c:choose>
+											</div>
+							<%-- <input type="button" onclick="recomm()" id="recommButton" src="${pageContext.request.contextPath}/resources/img/heart.png"/> </td>--%>
+						</div>
+						<input type="hidden" id="memberUserId"
+							value="${loginUser.member_Id }" /> <input type="hidden"
+							id="postId" value="${detail.p_id}" /> <input type="hidden"
+							id="recommand" value="${recommand.recomm}" />
+						<c:import url="../board/answerWrite.jsp">
+							<c:param name="id" value="${detail.p_id }" />
+							<c:param name="answer" value="${answer }" />
+						</c:import>
+						<!-- 답변 전송 폼 -->
+						<%-- <div class="container my-1">
 						<div class="row">
 						<table border="1" class="table table-hover">
 							<form:form modelAttribute="answer" method="post" id="replyForm">
@@ -209,9 +230,9 @@
 	</section>
 
 	<footer id="footer">
-	<div id="footer_box">
-		<c:import url="../common/footer.jsp" />
-	</div>
+		<div id="footer_box">
+			<c:import url="../common/footer.jsp" />
+		</div>
 	</footer>
 
 </body>

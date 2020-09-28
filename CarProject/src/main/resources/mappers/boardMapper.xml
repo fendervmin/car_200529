@@ -80,5 +80,8 @@
 	<select id="recommUpdate" parameterType="recomm" >
 		UPDATE RECOMM SET RECOMM = #{recomm} WHERE POST_ID=#{post_id} AND MEMBER_ID=#{member_id}
 	</select>
+	<select id="levelTest" parameterType="int" resultType="board">
+		SELECT COUNT
+	</select>
 
 </mapper>

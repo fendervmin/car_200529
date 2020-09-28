@@ -14,7 +14,16 @@ public class MemberVO {
 	private Date member_In;
 	private Date member_Out;
 	private String domain;
+	private String level;
 	
+	public String getLevel() {
+		return level;
+	}
+
+	public void setLevel(String level) {
+		this.level = level;
+	}
+
 	public MemberVO() {}
 	
 	public MemberVO(String member_UserId, String member_Pwd) {

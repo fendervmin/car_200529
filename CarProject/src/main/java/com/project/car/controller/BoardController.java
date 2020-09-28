@@ -59,13 +59,18 @@ public class BoardController {
 	public String getWriteBoard(@RequestParam(required = false)String index,Model model,Pagination pg,HttpSession session) throws Exception{//값을 매핑해줄 model객체를 생성
 		logger.info("Get writeBoard??"+index);
 		logger.info("현재 페이지 = "+pg.getRowStart());
+
 		MemberVO loginUser =(MemberVO)session.getAttribute("loginUser");
 		
 		if(loginUser != null){//비로그인시 오류 페이지 뜨는 거 방지용 
 			logger.info("id = "+loginUser.getMember_Id());
+			/*if(loginUser.getLevel()=="1"){
+				
+			}*/
 			model.addAttribute("loginUser", loginUser);
+			
+			
 		}
-		
 		
 		if(index!=null){//가져온 인덱스(현재 페이지 상태)가 null이면 메인 페이지 값(삭제해야할 게시글 번호)을 가지고 있으면 삭제
 			int num = Integer.parseInt(index);
@@ -89,8 +94,6 @@ public class BoardController {
 		try{
 			if(boardVO!=null)
 				service.write(boardVO);
-			
-			
 		}catch(Exception e){
 			e.printStackTrace();
 		}finally{
@@ -99,7 +102,7 @@ public class BoardController {
 			pm.setTotalCount(service.listCount());
 			System.out.println(pm.toString()+"pm냠");
 			model.addAttribute("Maker",pm);
-			
+	
 			model.addAttribute("list",service.list(pg));
 			return "board/writeBoard";
 		}
@@ -112,6 +115,7 @@ public class BoardController {
 		logger.info("Get writeDetail"+Integer.parseInt(index));
 		int p_id =Integer.parseInt(index);
 		service.count(p_id);
+		
 		MemberVO loginUser = (MemberVO)session.getAttribute("loginUser");
 		if(loginUser != null){//비로그인시 오류 페이지 뜨는 거 방지용 
 			logger.info("id = "+loginUser.getMember_Id());
@@ -128,7 +132,7 @@ public class BoardController {
 		
 		
 		model.addAttribute("detail", service.post(p_id));//list에서 index값과 매핑되는 게시판 정보를 불러와서 detail이름으로 model에 넣어줌
-		model.addAttribute("answer",new AnswerVO());
+		model.addAttribute("answer", new AnswerVO());
 		model.addAttribute("reply", a_service.replyList(p_id));
 		return "board/writeDetail";//writeDetail페이지로 이동
 		
@@ -162,11 +166,13 @@ public class BoardController {
 		a_service.delete(a_id);
 		
 		int post_id = Integer.parseInt(req.getParameter("id"));
+		model.addAttribute("detail", service.post(post_id));
 		model.addAttribute("answer",new AnswerVO());
 		model.addAttribute("PId",post_id);
 		model.addAttribute("reply",a_service.replyList(post_id));
 		return "board/writeDetail";
 	}
+	
 	@RequestMapping(value="answerWrite.do", method=RequestMethod.POST)
 	public String postAnswerWrite(@ModelAttribute("answer")AnswerVO answer,Model model) throws Exception{
 		System.out.println(answer.getP_id());

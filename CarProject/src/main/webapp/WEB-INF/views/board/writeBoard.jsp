@@ -1,5 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page language="java" pageEncoding="UTF-8"
 	contentType="text/html; charset=UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -48,8 +49,9 @@
 				...
 			</ul>
 		</div> -->
+
 		<div class="card" >
-			<table class="table table-hover">
+			<table class="table table-hover"  >
 				<thead>
 					<tr>
 						<th scope="col" class="text-center">게시글번호</th>
@@ -64,12 +66,17 @@
 					<!-- 순서대로 사용할변수명,list객체이름,반복상태(인덱스)변수~.. -->
 					<tbody>
 						<tr>
-							<th scope="col" class="text-center">${vs.index}</th>
-							<th scope="col" class="text-center"><a
-								href='writeDetail.do?index=${list.p_id}'>${list.p_title}</a></th>
-							<th scope="col" class="text-center">${list.p_content}</th>
-							<th scope="col" class="text-center">${list.p_view }</th>
-							<th scope="col" class="text-center">${list.p_time }</th>
+							<td scope="col" class="text-center">${vs.index}</td>
+							<td scope="col" class="text-center"><a
+								href='writeDetail.do?index=${list.p_id}'>${list.p_title}</a></td>
+							<td scope="col" class="text-center">${list.p_content}</td>
+							<td scope="col" class="text-center">${list.p_view }</td>
+							<td scope="col" class="text-center">${list.p_time }</td>
+							<td>
+							<c:if test="${loginUser.member_UserId eq 'MAIN'}">
+								<a href="writeBoard.do?index=${list.p_id }">삭제</a>
+							</c:if>
+							</td>
 						</tr>
 					</tbody>
 				</c:forEach>
@@ -87,8 +94,8 @@
 					</c:forEach>
 
 					<c:if test="${Maker.next && Maker.endPage > 0}">
-						<li style="list_style: none; float: left; padding: 6px;"><a
-							href="writeBoard.do${Maker.makeQuery(Maker.endPage + 1)}">다음</a></li>
+						<li style="list_style: none; float: left; padding: 6px;">
+						<a href="writeBoard.do${Maker.makeQuery(Maker.endPage + 1)}">다음</a></li>
 					</c:if>
 				</ul>
 			</div>
