@@ -1,6 +1,5 @@
 package com.project.car.services;
 
-import java.awt.print.Book;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
@@ -87,7 +86,7 @@ public class NewsServiceImpl implements NewsService{
 			try {
 	            URL url;
 	            url = new URL("https://openapi.naver.com/v1/search/"
-	                    + "news?query="
+	                    + "news.xml?query="
 	                    + URLEncoder.encode(keyword, "UTF-8")
 	                    + (display !=0 ? "&display=" +display :"")
 	                    + (start !=0 ? "&start=" +start :""));
@@ -100,11 +99,7 @@ public class NewsServiceImpl implements NewsService{
 	            XmlPullParser parser = factory.newPullParser();
 	            parser.setInput(
 	                    new InputStreamReader(urlConn.getInputStream()));
-	            //Test에서 했던 방식은 DOM방식이기때문에? 
-	            //그래서 이렇게 해도 된다?!??!??!? 
-	            
-	            
-	            
+	           
 	            int eventType = parser.getEventType();
 	            News news = null;
 	            while (eventType != XmlPullParser.END_DOCUMENT) {
@@ -155,8 +150,9 @@ public class NewsServiceImpl implements NewsService{
 	                eventType = parser.next();
 	            }
 	            
-	            
-	            
+	            for(News newsObject : list) {
+	            	System.out.println(newsObject);
+	            }
 	            
 	        } catch (MalformedURLException e) {
 	            // TODO Auto-generated catch block

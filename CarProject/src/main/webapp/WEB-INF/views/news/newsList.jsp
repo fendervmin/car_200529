@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,7 +23,7 @@
   <p>찾고자 하는 뉴스의 키워드를 검색해보세요 :</p>  
   <form action="newsList.do">
   <input class="form-control" id="keyword" name="keyword" type="text" placeholder="Search"/>
-  <button type="submit" class="form-control" onclick="location.href='/news/newsList.do'">검색하기</button>
+  <button type="submit" class="form-control" onclick="location.href='/news/newsList.do'" style="margin-top:10px">검색하기</button>
   </form>
   <br>
   <table class="table table-bordered">
@@ -30,23 +31,32 @@
       <tr>
         <th>뉴스 제목</th>
         <th>뉴스 내용</th>
-        <th>뉴스 링크</th>
-        <th>뉴스 오리지널 링크</th>
         <th>뉴스 작성날짜</th>
       </tr>
     </thead>
     
-    <c:forEach items="${newsList }" var="news">
     <tbody id="myTable">
+    <c:forEach items="${newsList }" var="news">
       <tr>
-        <td>"${news.title }"</td>
-        <td>"${news.description }"</td>
-        <td>"${news.link }"</td>
-        <td>"${news.originallink }"</td>
-        <td>"${news.pubDate }"</td>
+        <%-- <td>"${news.title }"</td> --%>
+        <td>
+        <a href=" <c:url value="${news.link }"/> "><c:out
+												value="${news.title }" /></a>
+        </td>
+        <td>
+        <c:choose>
+				<c:when test="${fn:length(news.description) gt 81}">
+					<c:out value="${fn:substring(news.description,0,80)}" />...
+              	</c:when>
+				<c:otherwise>
+					<c:out value="${news.description}" />
+				</c:otherwise>
+		</c:choose>
+		</td>
+        <td>"${news.pubDate}"</td>
       </tr>
-    </tbody>
     </c:forEach>
+    </tbody>
   </table>
   
 </div>

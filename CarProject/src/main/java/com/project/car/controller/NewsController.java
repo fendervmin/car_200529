@@ -94,12 +94,12 @@ public class NewsController {
 	//키워드가 있을때도 있고 없을때도있음 
     //있을때는 가져가고 없을때는 안가져가고 
     @RequestMapping("newsList.do")
-    public ModelAndView bookList(@RequestParam(required=false)String keyword){
+    public ModelAndView newsList(@RequestParam(required=false)String keyword){
         ModelAndView mav = new ModelAndView();
         
         if(keyword !=null)
         {
-            mav.addObject("news/newsList",NewsService.searchNews(keyword,10,1));
+            mav.addObject("newsList",NewsService.searchNews(keyword,10,1));
         }
         mav.setViewName("news/newsList");
         return mav;
