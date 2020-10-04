@@ -79,6 +79,17 @@ public class NewsServiceImpl implements NewsService{
 		newsDAO.insNews(newsvo);
 		
 	}
+	
+	@Override
+	public List<NewsVO> getOneNews(int news_Id) {
+		return newsDAO.getOneNews(news_Id);
+	}
+	
+	@Override
+	public void updateNews(int news_Id) {
+		
+		newsDAO.updateNews(news_Id);
+	}
 
 	@Override
 	public List<News> searchNews(String keyword, int display, int start) {

@@ -151,9 +151,7 @@
 								</div>
 								<c:if test="${loginUser.member_Type == '관리자' }">
 								<div class="card-footer">
-								  <a class="btn btn-primary" href="#">수정</a>
-								  <%-- <input type="button" value="삭제" class="btn btn-primary" onclick="location.href='/news/delNews.do?n=${getNews.news_Id}'"/> --%>
-								  <%-- <a class="btn btn-primary" type="button" href="/news/delNews.do?n=${getNews.news_Id }">삭제</a> --%>
+								  <button class="btn btn-primary" onclick="location.href='/news/updateNewsPage.do?n=${getNews.news_Id}'">수정</button>
 								  <button class="btn btn-primary" onclick="location.href='/news/delNews.do?n=${getNews.news_Id}'">삭제</button>
 								</div>
 								</c:if>
