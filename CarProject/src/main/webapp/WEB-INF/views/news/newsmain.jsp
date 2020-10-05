@@ -67,13 +67,12 @@
 				</div>
 				</c:if>
 				<div>
-					<label>뉴스 검색하기</label>
 					<nav>
-					<button class="btn btn-primary" onclick="location.href='/news/newsList.do'">뉴스 검색하기</button>
+					<button class="btn btn-primary" style="margin-top:10px;" onclick="location.href='/news/newsList.do'">뉴스 검색하기</button>
   				<!-- <form class="form-inline" >
    					 <input class="form-control mr-sm-2" type="text" placeholder="Search" id="keyword" name="keyword">
    					 <button class="btn btn-primary" type="submit" onclick="searchNews()">Search</button>
- 			    </form>  -->
+ 			    </form> -->
  			    
 					</nav>
 				</div>
@@ -127,7 +126,7 @@
 							<div class="card h-100">
 								<a href=" <c:url value="${getNews.news_Url }"/> ">
 								<%-- <img src='${ contextPath }/resources/img/${getNews.news_Img }.jpg' style="width: 250px; height: 140px;"> --%>
-								<img src='/path_upload/${getNews.news_Thumb}'/>
+								<img src='/path_upload/${getNews.news_Thumb}'/ style="width:254px">
 								<%-- <img src="${pageContext.request.contextPath }/${getNews.news_Thumb}" /> --%>
 								</a>
 								<div class="card-body">
@@ -152,9 +151,7 @@
 								</div>
 								<c:if test="${loginUser.member_Type == '관리자' }">
 								<div class="card-footer">
-								  <a class="btn btn-primary" href="#">수정</a>
-								  <%-- <input type="button" value="삭제" class="btn btn-primary" onclick="location.href='/news/delNews.do?n=${getNews.news_Id}'"/> --%>
-								  <%-- <a class="btn btn-primary" type="button" href="/news/delNews.do?n=${getNews.news_Id }">삭제</a> --%>
+								  <button class="btn btn-primary" onclick="location.href='/news/updateNewsPage.do?n=${getNews.news_Id}'">수정</button>
 								  <button class="btn btn-primary" onclick="location.href='/news/delNews.do?n=${getNews.news_Id}'">삭제</button>
 								</div>
 								</c:if>

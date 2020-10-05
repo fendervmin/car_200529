@@ -91,19 +91,58 @@ public class NewsController {
 		return "news/admin_insert_success";
 	}
 	
+	@RequestMapping(value="updateNewsPage.do")
+	public String updateNewsPage(@RequestParam("n") int news_Id, Model model, NewsVO news) {
+		
+		List<NewsVO> getOne = NewsService.getOneNews(news_Id);
+		
+		model.addAttribute("getOne", getOne);
+		
+		return "news/admin_update";
+	}
+	
+	@RequestMapping(value="updateNews.do")
+	public String updateNews(@RequestParam("n") int news_Id, Model model, NewsVO news
+						    ,MultipartFile file) throws Exception{
+	
+			
+		List<NewsVO> getNews = NewsService.getnews(news);
+		model.addAttribute("getNews", getNews);
+		
+		String imgUploadPath = path_upload + File.separator + "upload";
+		String ymdPath = UploadFileUtils.calcPath(imgUploadPath);
+		String fileName = null;
+
+		if(file != null) {
+		 fileName =  UploadFileUtils.fileUpload(imgUploadPath, file.getOriginalFilename(), file.getBytes(), ymdPath); 
+		} else {
+		 fileName = path_upload + File.separator + "upload" + File.separator + "none.png";
+		}
+
+		news.setNews_Img(File.separator + "upload" + ymdPath + File.separator + fileName);
+		news.setNews_Thumb(File.separator + "upload" + ymdPath + File.separator + "s_" + fileName);
+		
+		NewsService.updateNews(news_Id);
+		
+		return "redirect:/news/newsmain";
+		
+		
+	}
+	
 	//키워드가 있을때도 있고 없을때도있음 
     //있을때는 가져가고 없을때는 안가져가고 
     @RequestMapping("newsList.do")
-    public ModelAndView bookList(@RequestParam(required=false)String keyword){
+    public ModelAndView newsList(@RequestParam(required=false)String keyword){
         ModelAndView mav = new ModelAndView();
         
         if(keyword !=null)
         {
-            mav.addObject("news/newsList",NewsService.searchNews(keyword,10,1));
+            mav.addObject("newsList",NewsService.searchNews(keyword,10,1));
         }
         mav.setViewName("news/newsList");
         return mav;
     }
+    
 	
 	
 	

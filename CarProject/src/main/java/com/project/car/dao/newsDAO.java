@@ -29,5 +29,13 @@ public class newsDAO {
 	public void insNews(NewsVO news) {
 		sqlSession.insert("mappers.newsMapper.insNews", news);
 	}
+	
+	public void updateNews(int news_Id) {
+		sqlSession.update("mappers.newsMapper.updateNews", news_Id);
+	}
+	
+	public List<NewsVO> getOneNews(int news_Id) {
+		return sqlSession.selectOne("mappers.newsMapper.getOneNews", news_Id);
+	}
 
 }

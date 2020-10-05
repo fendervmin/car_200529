@@ -34,4 +34,10 @@ INSERT INTO NEWS(NEWS_ID, NEWS_TITLE, NEWS_CONTENT, NEWS_URL, NEWS_IMG, NEWS_DAT
 VALUES (NEWS_SEQ.NEXTVAL, #{news_Title}, #{news_Content}, #{news_Url}, #{news_Img}, SYSDATE, #{news_Thumb})
 </insert>
 
+<update id="updateNews" parameterType="int">
+UPDATE NEWS SET news_Title=#{news_Title}, news_Content=#{news_Content}, news_Url=#{news_Url}, news_Img=#{news_Img}
+WHERE news_Id=#{news_Id}
+
+</update>
+
 </mapper>
