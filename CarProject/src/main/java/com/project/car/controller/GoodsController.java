@@ -32,7 +32,7 @@ public class GoodsController {
 	@Inject
 	GoodsService service;
 	
-	@RequestMapping(value="brandList.do", method=RequestMethod.GET)
+	@RequestMapping(value="brandList.do", method={RequestMethod.GET,RequestMethod.POST})
 	public String getBrandList(Model model) throws Exception{
 		logger.info("Get brandlist");
 		return "goods/brandList";
@@ -118,24 +118,21 @@ public class GoodsController {
 		 return "goods/brandList";
 		}
 		
-		@RequestMapping(value="goodsModify.do", method=RequestMethod.GET)
-		public String getgoodsModify(@RequestParam("c") int car_id,Model model) throws Exception{
-			logger.info("Get goodsModify");
-			System.out.println("car_id : " + car_id);
+		
+		@RequestMapping(value="goodsModify.do")
+		public void getgoodsModify(@RequestParam("c") int car_id,Model model) throws Exception{
 			GoodsVO detail = service.detail(car_id);
 
 			model.addAttribute("detail", detail);
-			GoodsVO color = service.color(car_id);
-			model.addAttribute("color", color);		
-			return "goods/brandList";
 		}
 		
-		/*// 상품 수정
+		// 상품수정
 		@RequestMapping(value="modify.do")
-		public String goodsModify(@RequestParam("c") int car_id, Model model) throws Exception {
-			GoodsVO goodsVO = service.detail(car_id);
-			model.addAttribute("detail", goodsVO);
-
-			return "goods/brandList";
-		}*/
+			public String goodsModify(@ModelAttribute GoodsVO goodsVO) throws Exception {
+				logger.info("post goods modify");
+				
+				service.goodsModify(goodsVO);
+				
+				return "goods/brandList";
+		}
 }

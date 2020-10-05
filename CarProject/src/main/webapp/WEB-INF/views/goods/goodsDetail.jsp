@@ -227,6 +227,8 @@
 											</script>
 					                	</div>
 					            	</div>
+					            	
+					            	
 					            <div class='info'>
 					            	<form class="delete" id="delete" name="c">
 					            	<input type="hidden" name="c" value="${detail.car_ID}" />
@@ -251,16 +253,16 @@
 						                  </button>
                                   	</div>
                                   	
+                                  	
+                                  	
                                   	<c:if test="${loginUser.member_Type == '관리자' }">
                                   			
 	                                  		<div style="margin-top:10px;">
-	                                  			<a class="btn btn-primary" href="/goods/goodsModify.do">수정</a>
+	                                  			<a class="btn btn-primary" href="goodsModify.do?c=${detail.car_ID}">수정</a>
+	                                  			
 							                  	<button class="btn btn-primary" title='삭제' type="submit" id="delete_Btn">
 							                  		삭제
 							                  	</button>
-							                  	<%-- <a class="btn btn-primary" href="/goods/delete.do?c=${detail.car_ID }">수정</a>
-							                  	<a class="btn btn-primary" onclick="alert('정말 삭제하시겠습니까?')" href="/goods/delete.do?c=${detail.car_ID }">삭제</a>
-							                  	 --%>
 							                  <script type="text/javascript">
 							                  
 								                  /* $("#modify_Btn").click(function(){
@@ -285,12 +287,22 @@
                                   	</c:if>
                                   	</form>
                                  </div>
+                                 
+                                 <div class="comment" style="margin-top:50px;">
+								        <form name="commentInsertForm">
+								            <div class="input-group" style="margin-top:50px;">
+								               <%-- <input type="hidden" name="bno" value="${detail.bno}"/> --%>
+								               <input type="text" class="form-control" id="content" name="content" placeholder="내용을 입력하세요.">
+								               <span class="input-group-btn">
+								                    <button class="btn btn-primary" style="margin-left:5px;" type="button" name="commentInsertBtn">등록</button>
+								               </span>
+								              </div>
+								        </form>
+								    </div>
 					            </div>
-							
 							</div>
 				        </div>
-				       
-				  </div>
+				  </div>				  
 			   </div>
 			</div>
 			</div>

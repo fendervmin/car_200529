@@ -20,50 +20,16 @@ margin-top:80px;
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 
-<script type="text/javascript">
-
-function goodsAdd(){
-	
-	var car_Name = $("#car_Name").val();
-	var car_Type = $("#car_Type").val();
-	var fuel_Type = $("#fuel_Type").val();
-	var car_Fuel = $("#car_Fuel").val();
-	var car_Price = $("#car_Price").val();
-	var car_Img = $("#car_Img").val();
-	var brand_Id = $("#brand_Id").val();
-	
-	if(!car_Name){
-		alert("차 이름 입력은 필수입니다.");
-		$("#car_Name").focus();
-	}else if(!car_Type) {
-		alert("차 타입 입력은 필수입니다.");
-		$("#car_Type").focus();
-	}else if(!fuel_Type){
-		alert("연료 타입 입력은 필수입니다.");
-		$("#fuel_Type").focus();
-	}else if(!car_Fuel){
-		alert("차 연비 입력은 필수입니다.");
-		$("#car_Fuel").focus();
-	}else if(!car_Price){
-		alert("차 가격 입력은 필수입니다.");
-		$("#car_Price").focus();
-	}else {
-		alert("상품등록이 완료되었습니다.");
-		$('#goodsAdd').attr('action', '/goods/goodsAdd.do').submit();
-	}
-	
-}
-</script>
 </head>
 <body>
 	<c:import url="/WEB-INF/views/common/menubar.jsp"/>
 	
 	<div class="container" >
-	<form class="goodsAdd" id="goodsAdd" method="post" style="margin-left:380px;">
+	<form class="goodsModify" id="goodsModify" method="post" style="margin-left:380px;">
 	
 		<input type="hidden" name="b" value="${detail.brand_Id }" />
 		<input type="hidden" name="c" value="${detail.car_ID }" />
-		
+		<input type="hidden" name="car_ID" value="${detail.car_ID }" />
         <div class="fieldlabel"><label for="car_Name">차 이름</label></div>
         <div class="formfield"><input type="text" id="car_Name" name="car_Name" maxlength="20" value="${detail.car_Name }" class="form-control" style="width:400px;"></div>
         
@@ -86,16 +52,45 @@ function goodsAdd(){
         <div class="formfield"><input type="text" style="width:400px;" id="brand_Id" name="brand_Id" value="${detail.brand_Id }" maxlength="20" class="form-control"></div>
 
        
-        <div class="btnfield">
-			 <button type="submit" id="update_Btn" class="btn btn-primary">완료</button>
-			 <button type="submit" id="back_Btn" class="btn btn-warning">취소</button>
-			 
-			 <script>
-				 $("#back_Btn").click(function(){
-				  //history.back();
-				  location.href = "/goods/goodsDetail?b="+${detail.brand_Id}+"&c=" + ${detail.car_ID};
-				 });   
-			</script>
+        <div class="btnfield" style="margin-top:10px;">
+			 <input type="button" id="update_Btn" onclick="goodsModify()" class="btn btn-primary" value="수정" />
+			 <button type="button" id="back_Btn" onclick="history.back(-1)" class="btn btn-warning">취소</button>
+        
+        	 <script type="text/javascript">
+
+				function goodsModify(){
+					
+					var car_Name = $("#car_Name").val();
+					var car_Type = $("#car_Type").val();
+					var fuel_Type = $("#fuel_Type").val();
+					var car_Fuel = $("#car_Fuel").val();
+					var car_Price = $("#car_Price").val();
+					var car_Img = $("#car_Img").val();
+					var brand_Id = $("#brand_Id").val();
+					
+					if(!car_Name){
+						alert("차 이름 입력은 필수입니다.");
+						$("#car_Name").focus();
+					}else if(!car_Type) {
+						alert("차 타입 입력은 필수입니다.");
+						$("#car_Type").focus();
+					}else if(!fuel_Type){
+						alert("연료 타입 입력은 필수입니다.");
+						$("#fuel_Type").focus();
+					}else if(!car_Fuel){
+						alert("차 연비 입력은 필수입니다.");
+						$("#car_Fuel").focus();
+					}else if(!car_Price){
+						alert("차 가격 입력은 필수입니다.");
+						$("#car_Price").focus();
+					}else {
+						alert("상품수정이 완료되었습니다.");
+						/* location.href="/goods/brandList.do"; */
+						$('#goodsModify').attr('action', '/goods/modify.do').submit();
+					}
+					
+				}
+				</script>
         </div>
     </form>
 	</div>

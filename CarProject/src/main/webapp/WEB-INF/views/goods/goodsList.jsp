@@ -137,7 +137,7 @@ ol, ul {
 									<c:forEach items="${list}" var="list">
 									<ul class='modelList imageType clearFix'>
 						                <li code='3600' class='stock '>
-						                    <a onclick="eval('try{ _trk_clickTrace( \'EVT\', \'자동차_백과_브랜드_판매중인 신차\' ); }catch(_e){ }');" href="goodsDetail.do?b=${list.brand_Id}&c=${list.car_ID}" style="display:block;">
+						                    <a onclick="" href="goodsDetail.do?b=${list.brand_Id}&c=${list.car_ID}" style="display:block;">
 						                        <img src="${pageContext.request.contextPath}/resources/${list.brand_Id}/${list.car_Img}.png">
 						                        <span class='name'>${list.car_Name}</span>
 						                    </a>

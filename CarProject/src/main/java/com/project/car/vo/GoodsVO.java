@@ -18,12 +18,24 @@ public class GoodsVO {
 		private String color_1;
 		private String color_2;
 		private String color_3;
+
+		
+		
 		
 		@Override
 		public String toString() {
-			String d ="car_id: "+car_ID+"";
-			return d;
+			return "GoodsVO [car_ID=" + car_ID + ", car_Type=" + car_Type + ", fuel_Type=" + fuel_Type + ", car_Fuel="
+					+ car_Fuel + ", car_Name=" + car_Name + ", car_Price=" + car_Price + ", car_Img=" + car_Img
+					+ ", brand_Id=" + brand_Id + ", brand_Name=" + brand_Name + ", brand_Img=" + brand_Img
+					+ ", brand_Explain=" + brand_Explain + ", color_0=" + color_0 + ", color_1=" + color_1
+					+ ", color_2=" + color_2 + ", color_3=" + color_3 + "]";
 		}
+		//		
+//		@Override
+//		public String toString() {
+//			String d ="car_id: "+car_ID+"";
+//			return d;
+//		}
 		public String getColor_0() {
 			return color_0;
 		}
