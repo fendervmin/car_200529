@@ -298,5 +298,14 @@ public class UserController {
 		mv.setViewName("redirect:/");
 		return mv;
 	}
+	
+	@RequestMapping(value="admin.do")
+	public String admin(Model model) {
+		
+		List<MemberVO> getAllUser = uService.getAllUser();
+		model.addAttribute("getAllUser", getAllUser);
+		
+		return "admin/adminMain";
+	}
 }
 	

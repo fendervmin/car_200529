@@ -18,6 +18,10 @@
 </head>
 <body>
 
+
+
+<c:import url="/WEB-INF/views/common/menubar.jsp"/>
+
 <div class="container mt-3">
   <h2>뉴스 검색</h2>
   <p>찾고자 하는 뉴스의 키워드를 검색해보세요 :</p>  
@@ -71,6 +75,8 @@ $(document).ready(function(){
   });
 });
 </script>
+
+<c:import url="/WEB-INF/views/common/footer.jsp"/>
 
 </body>
 </html>

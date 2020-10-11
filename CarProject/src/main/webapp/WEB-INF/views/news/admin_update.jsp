@@ -12,7 +12,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 <title>뉴스 수정하기</title>
 
-<script>
+<script >
 function enterKeyCheck(){
 	   
 	 if(event.keyCode == 13)
@@ -38,11 +38,11 @@ function updateValidation() {
 		return false;
 	} else if (!news_Url) {
 		alert("URL을 입력하세요");
-		$("#news_Url");
+		$("#news_Url").focus();
 		return false;
 	} else if (!news_Upload) {
 		alert("파일을 넣으세요")
-		$("#news_Upload");
+		$("#news_Upload").focus();
 	} else {
 		$('#updateNewsForm').attr('action', '/news/updateNews.do').submit();
 		alert('뉴스가 수정되었습니다.');
@@ -59,24 +59,24 @@ function updateValidation() {
 
 	<div class="container">
 		<form class="updateNews" id="updateNewsForm" method="post" style="margin-left:380px; margin-top:50px;"
-				enctype="multipart/form-data" method='post'>
+				enctype="multipart/form-data" >
          <div class="form-group">
             <label for="news_Title">뉴스 제목 : </label>
             <input type="text"
                id="news_Title" name="news_Title" class="form-control"
-               value="${getOne.news_Title }" autofocus onkeyup="enterKeyCheck()" style="width:300px;">
+               value="${getOne.news_Title}" autofocus onkeyup="enterKeyCheck()" style="width:300px;">
          </div>
          <div class="form-group">
             <label for="news_Content">뉴스 내용 : </label>
             <input type="text"
                id="news_Content" name="news_Content" class="form-control"
-               value="${getOne.news_Content }" onkeyup="enterKeyCheck()" style="width:300px;">
+               value="${getOne.news_Content}" onkeyup="enterKeyCheck()" style="width:300px;">
          </div>
          <div class="form-group">
             <label for="news_Url">뉴스 URL : </label>
             <input type="text"
                id="news_Url" name="news_Url" class="form-control"
-               value="${getOne.news_Url }" onkeyup="enterKeyCheck()" style="width:300px;">
+               value="${getOne.news_Url}" onkeyup="enterKeyCheck()" style="width:300px;">
          </div>
          <div class="form-group">
             <label for="news_Upload">첨부 이미지 : </label>
@@ -85,7 +85,7 @@ function updateValidation() {
                placeholder="IMAGE" onkeyup="enterKeyCheck()" accept="image/*" style="width:300px;">
          </div>
          
-         <input type="button" value="수정" onclick="updateValidation()?n=${getNews.news_Id}" class="btn btn-primary"> 
+         <input type="button" value="수정" onclick="updateValidation()" class="btn btn-primary"> 
          <input type="button" value="취소" onclick="location.href='history.go(-1)'" class="btn btn-primary">
       </form>
 	</div>

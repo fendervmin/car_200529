@@ -81,14 +81,14 @@ public class NewsServiceImpl implements NewsService{
 	}
 	
 	@Override
-	public List<NewsVO> getOneNews(int news_Id) {
+	public NewsVO getOneNews(int news_Id) {
 		return newsDAO.getOneNews(news_Id);
 	}
 	
 	@Override
-	public void updateNews(int news_Id) {
+	public void updateNews(NewsVO newsvo) {
 		
-		newsDAO.updateNews(news_Id);
+		newsDAO.updateNews(newsvo);
 	}
 
 	@Override

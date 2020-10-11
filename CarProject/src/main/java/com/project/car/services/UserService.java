@@ -1,6 +1,8 @@
 package com.project.car.services;
 
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import com.project.car.vo.MemberVO;
@@ -31,5 +33,7 @@ public interface UserService {
 	void updatePwd(MemberVO member);
 
 	void removeUser(String loginId);
+	
+	List<MemberVO> getAllUser();
 
 }
