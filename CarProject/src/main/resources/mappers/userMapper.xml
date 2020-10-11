@@ -34,6 +34,10 @@ where member_Nicname= #{member_Nicname};
 </if>
 </select>
 
+<select id="getAllUser" resultType="member">
+SELECT * FROM MEMBER
+</select>
+
 <insert id="userJoin">
 insert into MEMBER (member_Id,member_UserId,member_Pwd,member_Nicname,member_Email,member_In,member_Out)
 values (#{member_Id},#{member_UserId},#{member_Pwd},#{member_Nicname},#{member_Email},#{member_In},#{member_Out})

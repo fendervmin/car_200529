@@ -1,5 +1,7 @@
 package com.project.car.services;
 
+import java.util.List;
+
 import javax.mail.MessagingException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
@@ -130,5 +132,10 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public void removeUser(String loginId) {
 		userDAO.removeUser(loginId);
+	}
+	
+	@Override
+	public List<MemberVO> getAllUser() {
+		return userDAO.getAllUser();
 	}
 }

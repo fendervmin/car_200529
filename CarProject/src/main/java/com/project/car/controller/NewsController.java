@@ -92,23 +92,21 @@ public class NewsController {
 	}
 	
 	@RequestMapping(value="updateNewsPage.do")
-	public String updateNewsPage(@RequestParam("n") int news_Id, Model model, NewsVO news) {
+	public String updateNewsPage(@RequestParam("n") int news_Id, Model model, NewsVO news) throws Exception{
 		
-		List<NewsVO> getOne = NewsService.getOneNews(news_Id);
-		
+		NewsVO getOne = NewsService.getOneNews(news_Id);
 		model.addAttribute("getOne", getOne);
+		
+		System.out.println(news_Id);
+		System.out.println(getOne);
 		
 		return "news/admin_update";
 	}
 	
 	@RequestMapping(value="updateNews.do")
-	public String updateNews(@RequestParam("n") int news_Id, Model model, NewsVO news
+	public String updateNews(@ModelAttribute NewsVO newsvo, Model model, NewsVO news
 						    ,MultipartFile file) throws Exception{
 	
-			
-		List<NewsVO> getNews = NewsService.getnews(news);
-		model.addAttribute("getNews", getNews);
-		
 		String imgUploadPath = path_upload + File.separator + "upload";
 		String ymdPath = UploadFileUtils.calcPath(imgUploadPath);
 		String fileName = null;
@@ -122,7 +120,7 @@ public class NewsController {
 		news.setNews_Img(File.separator + "upload" + ymdPath + File.separator + fileName);
 		news.setNews_Thumb(File.separator + "upload" + ymdPath + File.separator + "s_" + fileName);
 		
-		NewsService.updateNews(news_Id);
+		NewsService.updateNews(newsvo);
 		
 		return "redirect:/news/newsmain";
 		
