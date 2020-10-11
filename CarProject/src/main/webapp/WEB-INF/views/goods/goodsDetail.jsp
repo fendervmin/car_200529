@@ -257,7 +257,7 @@
                                   	
                                   	<c:if test="${loginUser.member_Type == '관리자' }">
                                   			
-	                                  		<div style="margin-top:10px;">
+	                                  		<div style="margin-top:10px; margin-bottom:30px;">
 	                                  			<a class="btn btn-primary" href="goodsModify.do?c=${detail.car_ID}">수정</a>
 	                                  			
 							                  	<button class="btn btn-primary" title='삭제' type="submit" id="delete_Btn">
