@@ -35,5 +35,9 @@ public interface UserService {
 	void removeUser(String loginId);
 	
 	List<MemberVO> getAllUser();
+	
+	List<MemberVO> currentMember();
+	
+	List<MemberVO> notcurrentMember();
 
 }

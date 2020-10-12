@@ -138,4 +138,14 @@ public class UserServiceImpl implements UserService {
 	public List<MemberVO> getAllUser() {
 		return userDAO.getAllUser();
 	}
+	
+	@Override
+	public List<MemberVO> currentMember() {
+		return userDAO.currentMember();
+	}
+	
+	@Override
+	public List<MemberVO> notcurrentMember() {
+		return userDAO.notcurrentMember();
+	}
 }

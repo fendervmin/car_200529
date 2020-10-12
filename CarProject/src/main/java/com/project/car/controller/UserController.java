@@ -303,7 +303,12 @@ public class UserController {
 	public String admin(Model model) {
 		
 		List<MemberVO> getAllUser = uService.getAllUser();
+		List<MemberVO> currentMember = uService.currentMember();
+		List<MemberVO> notcurrentMember = uService.notcurrentMember();
+		
 		model.addAttribute("getAllUser", getAllUser);
+		model.addAttribute("currentMember", currentMember);
+		model.addAttribute("notcurrentMember", notcurrentMember);
 		
 		return "admin/adminMain";
 	}

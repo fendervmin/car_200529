@@ -181,4 +181,17 @@ values (#{member_Id},#{member_UserId},#{member_Pwd},#{member_Nicname},#{member_E
 	WHERE
 		MEMBER_USERID = #{loginId}
 </update>
+
+<select id="currentMember" resultType="member">
+select * from member where member_id IN 
+(select member_id from member where member_out IS null )
+</select>
+
+<select id="notcurrentMember" resultType="member">
+select * from member where member_id IN 
+(select member_id from member where member_out IS NOT null )
+</select>
+
+
+
 </mapper>
