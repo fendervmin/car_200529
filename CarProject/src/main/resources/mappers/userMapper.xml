@@ -45,6 +45,9 @@ values (#{member_Id},#{member_UserId},#{member_Pwd},#{member_Nicname},#{member_E
 <update id="alter_userKey" parameterType="Map">
 	update MEMBER set MEMBER_KEY = 'Y' where MEMBER_USERID = #{param1} and MEMBER_KEY = #{param2} </update>
 
+<select id="boardUser" parameterType="int" resultType="member">
+	SELECT*FROM MEMBER WHERE MEMBER_ID = #{member_Id}
+</select>
 <!-- 아이디 찾기 -->
 <select id="searchId" resultType="String" parameterType="Map">
 	select MEMBER_USERID from MEMBER
@@ -88,7 +91,8 @@ values (#{member_Id},#{member_UserId},#{member_Pwd},#{member_Nicname},#{member_E
 		MEMBER_PWD,
 		MEMBER_EMAIL,
 		MEMBER_IN,
-		MEMBER_OUT
+		MEMBER_OUT,
+		MEMBER_LEVEL
 	FROM
 		MEMBER
 	WHERE
@@ -176,5 +180,8 @@ values (#{member_Id},#{member_UserId},#{member_Pwd},#{member_Nicname},#{member_E
 		MEMBER_OUT = SYSDATE
 	WHERE
 		MEMBER_USERID = #{loginId}
+</update>
+<update id="updateLevel" parameterType="member">
+	UPDATE MEMBER SET MEMBER_LEVEL=#{member_level} WHERE MEMBER_ID=#{member_Id}
 </update>
 </mapper>

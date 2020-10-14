@@ -10,6 +10,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import com.project.car.vo.BoardVO;
+import com.project.car.vo.MemberVO;
 import com.project.car.vo.Pagination;
 import com.project.car.vo.RecommVO;
 
@@ -54,13 +55,20 @@ public class BoardDAOImpl implements BoardDAO {
 	}
 	@Override
 	public void delete(int p_id) throws Exception{
-		sqlSession.insert("mappers.answerMapper.simulDelete", p_id);
-		sqlSession.insert("mappers.boardMapper.delete",p_id);
+		System.out.println("delete문 실행");
 
+		sqlSession.delete("mappers.boardMapper.delete",p_id);
+		
+		}
+	@Override
+	public void recommDelete(int p_id) throws Exception {
+		sqlSession.delete("mappers.boardMapper.recommDelete",p_id);
+
+		sqlSession.delete("mappers.answerMapper.simulDelete", p_id);
 	}
 	@Override
 	public int count(int p_id) throws Exception{
-		return sqlSession.insert("mappers.boardMapper.view",p_id);
+		return sqlSession.update("mappers.boardMapper.view",p_id);
 	}
 	@Override
 	public void recommand(RecommVO recomm) throws Exception{
@@ -80,5 +88,21 @@ public class BoardDAOImpl implements BoardDAO {
 	public void recommUdate(RecommVO recomm) throws Exception{
 		sqlSession.update("mappers.boardMapper.recommUpdate",recomm);
 	}
+	@Override
+	public void bestMember(int m_id) throws Exception{
+		RecommVO recomm = new RecommVO();
+		recomm.setMember_id(m_id);
+		int rcount = sqlSession.selectOne("mappers.boardMapper.rcount", recomm);
+		int pcount =sqlSession.selectOne("mappers.boardMapper.countMember", m_id);
+		int acount =sqlSession.selectOne("mappers.answerMapper.countMember2", m_id);
+		System.out.println(rcount +" "+pcount+" "+acount);
+		if(rcount >=5 && pcount >5 && acount>5){
+			MemberVO mem = new MemberVO();
+			mem.setMember_Id(m_id);
+			mem.setMember_level("2");
+			sqlSession.update("mappers.userMapper.updateLevel",mem);
+			System.out.println("레벨 업");
+		}
+		}
 	
 }

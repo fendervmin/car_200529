@@ -1,11 +1,10 @@
 package com.project.car.dao;
 
 import java.util.HashMap;
+import java.util.List;
 
-import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.project.car.vo.MemberVO;
@@ -26,7 +25,13 @@ public class UserDAO {
 		return sqlSession.selectOne("mappers.userMapper.getUserOne",map);
 	}
 	
-	
+	public MemberVO getBoardUser(int member_Id){
+		 return sqlSession.selectOne("mappers.userMapper.boardUser", member_Id);
+	}
+	public List<MemberVO> getBoardUserList(int member_Id){
+		List<MemberVO> boardMember = sqlSession.selectList("mappers.userMapper.boardUser", member_Id);
+		return boardMember;
+	}
 
 	// 이 구조 쓸거야 민지야알겠지? 울지말고..
 	public int userJoin(MemberVO member) {

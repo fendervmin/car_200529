@@ -44,6 +44,7 @@
 .paging {
 	margin-left: 50%;
 } 
+
 </style>
 
 
@@ -54,7 +55,7 @@
 
 		<div class="row">
 
-			<div class="col-lg-3">
+			<div class="col-lg-3" style="margin-top : 50px;">
 
 				<h5 class="my-4">뉴스 메인 > 모든 뉴스</h5>
 				<div class="list-group">
@@ -62,9 +63,20 @@
 				</div>
 				<c:if test="${loginUser.member_Type == '관리자' }">
 				<div>
-					<button class="btn btn-primary" onclick="location.href='/news/insertnewsPage.do'">추가하기</button>
+					<button class="btn btn-primary" onclick="location.href='/news/insertnewsPage.do'" style="margin-top:10px; margin-bottom: 10px;">뉴스 추가하기</button>
 				</div>
 				</c:if>
+				<div>
+					<label>뉴스 검색하기</label>
+					<nav>
+					<button class="btn btn-primary" onclick="location.href='/news/newsList.do'">뉴스 검색하기</button>
+  				<!-- <form class="form-inline" >
+   					 <input class="form-control mr-sm-2" type="text" placeholder="Search" id="keyword" name="keyword">
+   					 <button class="btn btn-primary" type="submit" onclick="searchNews()">Search</button>
+ 			    </form>  -->
+ 			    
+					</nav>
+				</div>
 
 			</div>
 			<!-- /.col-lg-3 -->
@@ -115,7 +127,9 @@
 							<div class="card h-100">
 								<a href=" <c:url value="${getNews.news_Url }"/> ">
 								<%-- <img src='${ contextPath }/resources/img/${getNews.news_Img }.jpg' style="width: 250px; height: 140px;"> --%>
-								<img src='<%= request.getSession().getServletContext().getRealPath("/") %>${getNews.news_Thumb}'/></a>
+								<img src='/path_upload/${getNews.news_Thumb}'/>
+								<%-- <img src="${pageContext.request.contextPath }/${getNews.news_Thumb}" /> --%>
+								</a>
 								<div class="card-body">
 									<h4 class="card-title">
 										<a href=" <c:url value="${getNews.news_Url }"/> "><c:out

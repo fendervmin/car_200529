@@ -29,4 +29,12 @@ public class AnswerServicelmpl implements AnswerService{
 		// TODO Auto-generated method stub
 		dao.delete(a_id);
 	}
+	@Override
+	public AnswerVO aSelect(int a_id) throws Exception{
+		return dao.aSelect(a_id);
+	}
+	@Override
+	public void allDelete(int p_id) throws Exception{
+		dao.allDelete(p_id);
+	}
 }

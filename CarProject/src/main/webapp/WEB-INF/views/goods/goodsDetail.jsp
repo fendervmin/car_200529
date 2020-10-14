@@ -193,62 +193,98 @@
 					                <div class='photo'>
 					                    <img id="img" src="${pageContext.request.contextPath}/resources/${detail.brand_Id}/${detail.car_Img}.png">
 					                    <div class='modelColor'>
-					                    <div>
-					                    	<button id="btn0" onclick="toggleImg()" class='' style='background:${color.color_0}' type='button' color=C11 >
-					                            
-					                        </button>
-					                        <button id="btn1" onclick="toggleImg1()" class='' style='background:${color.color_1}' type='button' color=C11 >
-					                            
-					                        </button>
-					                        <button id="btn2" onclick="toggleImg2()" class='' style='background:${color.color_2}' type='button' color=C12>
-					                            
-					                        </button>
-					                        <button id="btn3" onclick="toggleImg3()" class='' style='background:${color.color_3}' type='button' color=C14>
-					                
-					                        </button>
-					                    </div>
+						                    <div>
+						                    	<button id="btn0" onclick="toggleImg()" class='' style='background:${color.color_0}' type='button' color=C11 >
+						                            
+						                        </button>
+						                        <button id="btn1" onclick="toggleImg1()" class='' style='background:${color.color_1}' type='button' color=C11 >
+						                            
+						                        </button>
+						                        <button id="btn2" onclick="toggleImg2()" class='' style='background:${color.color_2}' type='button' color=C12>
+						                            
+						                        </button>
+						                        <button id="btn3" onclick="toggleImg3()" class='' style='background:${color.color_3}' type='button' color=C14>
+						                
+						                        </button>
+						                    </div>
 					                    
-					                    <script>
-											
-						                    function toggleImg() {
-									      		document.getElementById("img").src="${pageContext.request.contextPath}/resources/${detail.brand_Id}/${detail.car_Img}.png";
-						                    
-						                    }
-										    function toggleImg1() {
-										      	document.getElementById("img").src="${pageContext.request.contextPath}/resources/${detail.brand_Id}/${detail.car_ID}/${color.color_1}.png";
-										    }
-										    function toggleImg2() {
-									      		document.getElementById("img").src="${pageContext.request.contextPath}/resources/${detail.brand_Id}/${detail.car_ID}/${color.color_2}.png";
-									    	}
-										    function toggleImg3() {
-									      		document.getElementById("img").src="${pageContext.request.contextPath}/resources/${detail.brand_Id}/${detail.car_ID}/${color.color_3}.png";
-									    	}
-									        
-										</script>
-					                </div>
-					            </div>
+						                    <script>
+												
+							                    function toggleImg() {
+										      		document.getElementById("img").src="${pageContext.request.contextPath}/resources/${detail.brand_Id}/${detail.car_Img}.png";
+							                    
+							                    }
+											    function toggleImg1() {
+											      	document.getElementById("img").src="${pageContext.request.contextPath}/resources/${detail.brand_Id}/${detail.car_ID}/${color.color_1}.png";
+											    }
+											    function toggleImg2() {
+										      		document.getElementById("img").src="${pageContext.request.contextPath}/resources/${detail.brand_Id}/${detail.car_ID}/${color.color_2}.png";
+										    	}
+											    function toggleImg3() {
+										      		document.getElementById("img").src="${pageContext.request.contextPath}/resources/${detail.brand_Id}/${detail.car_ID}/${color.color_3}.png";
+										    	}
+										        
+											</script>
+					                	</div>
+					            	</div>
 					            <div class='info'>
+					            	<form class="delete" id="delete" name="c">
+					            	<input type="hidden" name="c" value="${detail.car_ID}" />
 					                <div class='title'>
+					                
 					            			${detail.car_Name}
 					                </div>
 					                <div class='price new_rent'>
 					                        <div class='price_title'><span class='num'>${detail.car_Price}</span>만 원</div>
 					                        
 					                </div>
-					                    <div class='spec'>
+					                <div class='spec'>
 					                        <span>복합연비 <span class='num'>${detail.car_Fuel}㎞/ℓ</span></span><br><span>${detail.car_Type}</span><br><span>${detail.fuel_Type}</span>
-					                    </div>
-					                    <div class='save'>
-	                                      <!-- <button title='관심모델로 저장' class='' type='button'>
-	                                          <span class='screen_behind'>관심모델로 저장</span>
-	                                      </button> -->
-	                                      <button title='매장예약' class='' type='button' onclick="location.href='../reserve/reservemainPage.do?b=${detail.brand_Id}'">
+					                </div>
+					                
+					                <div class='save'>
+	                                      <button title='매장예약' class="btn btn-primary" type='button' onclick="location.href='../reserve/reservemainPage.do?b=${detail.brand_Id}'">
 						                        <span class='screen_behind'>매장 예약하러 가기</span>
 						                    </button>
-						                  <button title='즐겨찾기' type='button' onclick="location.href='/user/likeIt.do?c=${detail.car_ID} '">
+						                  <button title='즐겨찾기' class="btn btn-primary" type='button' onclick="location.href='/user/likeIt.do?c=${detail.car_ID} '">
 						                  		<span class='screen_behind'>즐겨찾기</span>
 						                  </button>
-                                  		</div>
+                                  	</div>
+                                  	
+                                  	<c:if test="${loginUser.member_Type == '관리자' }">
+                                  			
+	                                  		<div style="margin-top:10px;">
+	                                  			<a class="btn btn-primary" href="/goods/goodsModify.do">수정</a>
+							                  	<button class="btn btn-primary" title='삭제' type="submit" id="delete_Btn">
+							                  		삭제
+							                  	</button>
+							                  	<%-- <a class="btn btn-primary" href="/goods/delete.do?c=${detail.car_ID }">수정</a>
+							                  	<a class="btn btn-primary" onclick="alert('정말 삭제하시겠습니까?')" href="/goods/delete.do?c=${detail.car_ID }">삭제</a>
+							                  	 --%>
+							                  <script type="text/javascript">
+							                  
+								                  /* $("#modify_Btn").click(function(){
+								                	   formObj.attr("action", "/goods/goodsModify.do");
+								                	   formObj.attr("method", "post")
+								                	   formObj.submit();
+								                	  }); */
+								                  
+								                  $("#delete_Btn").click(function(){
+								                	  
+								                	  var con = confirm("정말로 삭제하시겠습니까?");
+								                	  
+								                	  if(con) {
+								                		  $('#delete').attr("action", "/goods/delete.do");
+								                		  $('#delete').attr("method", "post");
+								                		  $('#delete').submit();
+								                		  }
+								                	 });
+							                  </script>
+							                  
+	                                  		</div>
+                                  	</c:if>
+                                  	</form>
+                                 </div>
 					            </div>
 							
 							</div>

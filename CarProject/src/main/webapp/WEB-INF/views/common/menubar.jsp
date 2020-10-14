@@ -93,6 +93,8 @@
 		}
 		lastScrollTop = st;
 	});
+	
+
 </script>
 </head>
 <body>
@@ -163,7 +165,7 @@
       <h3 class="ir">카테고리메뉴</h3>
 	      <ul id="menubar">
 	
-	         <li class="menubar_li" style="color:white;"><a href="../goods/goodsSales.do">판매실적</li>
+	         <li class="menubar_li" style="color:white;"><a href="../goods/goodsSales.do">판매실적</a></li>
 	         
 	         <li class="menubar_li" style="color:white;"><a href="../goods/brandList.do">자동차백과</a></li>
 	

@@ -40,11 +40,13 @@
     	ORDER BY car_id ASC
     </select>
     
+    <!-- 05. 상품 서치 -->
     <select id="search" resultType="car" parameterType="String">
    SELECT CAR_ID,CAR_TYPE,CAR_FUEL,CAR_NAME,CAR_PRICE,CAR_IMG,BRAND_ID
    FROM CAR WHERE CAR_NAME LIKE '%'||#{keyword}||'%'
     </select>
     
+    <!-- 06. 상품 추가 -->
     <insert id="add">
 	insert into CAR
 		(car_id,
@@ -65,5 +67,27 @@
 		#{car_Img},
 		#{brand_Id})
 	</insert>
+	
+	<!-- 07. 상품 삭제 -->
+	<delete id="delete">
+	 delete from
+	     car
+	 where car_id = #{car_id}
+	</delete>
+	
+	<!-- 08. 상품 수정 -->
+	<update id="goodsModify">
+	 update car
+	     set
+	         car_name = #{car_name},
+	         car_type = #{car_type},
+	         fuel_type = #{fuel_type},
+	         car_fuel = #{car_fuel},
+	         car_price = #{car_price},
+	         car_img = #{car_img},
+	         brand_id = #{brand_id}
+	     where car_id = #{car_id}
+	</update>
+	
 
 </mapper>

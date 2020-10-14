@@ -147,13 +147,13 @@ td {
 										</colgroup>
 										<tr>
 											<th>제목</th>
-											<td colsapn="3">${detail.p_title }</td>
+											<td colspan="3">${detail.p_title }</td>
 											<td></td>
 											<td></td>
 										</tr>
 										<tr>
 											<th>작성자</th>
-											<td>${detail.member_id }</td>
+											<td>${user_Board.member_Nicname}</td>
 											<th>조회수</th>
 											<td>${detail.p_view }</td>
 												</tr>
@@ -223,10 +223,11 @@ td {
 										</c:forEach>
 									</c:if>
 								</table>
-							
+							 --%>	
 						</div>
 					</div>
-				</div> --%>
+				</div>
+			</div>
 	</section>
 
 	<footer id="footer">

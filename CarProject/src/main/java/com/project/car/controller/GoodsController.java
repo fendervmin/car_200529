@@ -4,7 +4,9 @@ import java.io.IOException;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,6 +21,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.project.car.services.GoodsService;
 import com.project.car.vo.GoodsVO;
 import com.project.car.vo.MemberVO;
+import com.project.car.vo.wishlistVO;
 
 @Controller
 @RequestMapping("goods/*")
@@ -93,12 +96,46 @@ public class GoodsController {
 			 return "goods/goodsSearch";
 		 }
 		 
-		// 상품등록을 수행하는 메소드
-			@RequestMapping(value="goodsAdd.do",method = RequestMethod.POST)
-			public ModelAndView goodsAdd(@ModelAttribute GoodsVO goodsVO) throws Exception {
-				ModelAndView mav = new ModelAndView();
-				service.goodsAdd(goodsVO);
-				mav.setViewName("home");
-				return mav;
-			}
+		// 상품등록
+		@RequestMapping(value="goodsAdd.do",method = RequestMethod.POST)
+		public ModelAndView goodsAdd(@ModelAttribute GoodsVO goodsVO) throws Exception {
+			ModelAndView mav = new ModelAndView();
+			service.goodsAdd(goodsVO);
+			mav.setViewName("home");
+			return mav;
+		}
+			
+		// 상품 삭제
+		@RequestMapping(value = "delete.do")
+		public String goodsDelete(@ModelAttribute GoodsVO goodsVO,@RequestParam("c") int car_id,Model model) throws Exception {
+		 logger.info("post goods delete");
+		 
+		 GoodsVO detail = service.detail(car_id);
+		 model.addAttribute("detail", detail);
+		 goodsVO.setCar_ID(car_id);
+		 service.goodsDelete(car_id);
+		 model.addAttribute("car_id", car_id);
+		 return "goods/brandList";
+		}
+		
+		@RequestMapping(value="goodsModify.do", method=RequestMethod.GET)
+		public String getgoodsModify(@RequestParam("c") int car_id,Model model) throws Exception{
+			logger.info("Get goodsModify");
+			System.out.println("car_id : " + car_id);
+			GoodsVO detail = service.detail(car_id);
+
+			model.addAttribute("detail", detail);
+			GoodsVO color = service.color(car_id);
+			model.addAttribute("color", color);		
+			return "goods/brandList";
+		}
+		
+		/*// 상품 수정
+		@RequestMapping(value="modify.do")
+		public String goodsModify(@RequestParam("c") int car_id, Model model) throws Exception {
+			GoodsVO goodsVO = service.detail(car_id);
+			model.addAttribute("detail", goodsVO);
+
+			return "goods/brandList";
+		}*/
 }

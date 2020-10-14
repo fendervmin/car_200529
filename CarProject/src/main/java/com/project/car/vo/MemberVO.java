@@ -14,14 +14,15 @@ public class MemberVO {
 	private Date member_In;
 	private Date member_Out;
 	private String domain;
-	private String level;
+	private String member_level;
 	
-	public String getLevel() {
-		return level;
+	
+	public String getMember_level() {
+		return member_level;
 	}
 
-	public void setLevel(String level) {
-		this.level = level;
+	public void setMember_level(String member_level) {
+		this.member_level = member_level;
 	}
 
 	public MemberVO() {}

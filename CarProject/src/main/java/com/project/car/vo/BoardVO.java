@@ -8,6 +8,9 @@ public class BoardVO {
 	private String p_time;
 	private int member_id;
 	private int p_view;
+	private String p_check;
+	private String boardImg;
+	private String boardThumbImg;
 	public int getP_view() {
 		return p_view;
 	}
@@ -47,8 +50,24 @@ public class BoardVO {
 	public void setMember_id(int member_id) {
 		this.member_id = member_id;
 	}
-	
-	
+	public String getP_check() {
+		return p_check;
+	}
+	public void setP_check(String p_check) {
+		this.p_check = p_check;
+	}
+	public String getBoardImg() {
+		return boardImg;
+	}
+	public void setBoardImg(String boardImg) {
+		this.boardImg = boardImg;
+	}
+	public String getBoardThumbImg() {
+		return boardThumbImg;
+	}
+	public void setBoardThumbImg(String boardThumbImg) {
+		this.boardThumbImg = boardThumbImg;
+	}
 
 	
 

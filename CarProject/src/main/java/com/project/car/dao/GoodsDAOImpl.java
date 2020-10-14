@@ -66,5 +66,10 @@ public class GoodsDAOImpl implements GoodsDAO {
 	   public void goodsAdd(GoodsVO goodsVO) throws Exception{
 		sql.insert("goods.add",goodsVO);
 	}
+	
+	@Override
+	public void goodsDelete(int car_id) throws Exception{
+		sql.delete("goods.delete",car_id);
+	}
 
 }

@@ -60,34 +60,45 @@ function goodsAdd(){
 	
 	<div class="container" >
 	<form class="goodsAdd" id="goodsAdd" method="post" style="margin-left:380px;">
+	
+		<input type="hidden" name="b" value="${detail.brand_Id }" />
+		<input type="hidden" name="c" value="${detail.car_ID }" />
+		
         <div class="fieldlabel"><label for="car_Name">차 이름</label></div>
-        <div class="formfield"><input type="text" id="car_Name" name="car_Name" maxlength="20" value="" class="form-control" style="width:400px;"></div>
+        <div class="formfield"><input type="text" id="car_Name" name="car_Name" maxlength="20" value="${detail.car_Name }" class="form-control" style="width:400px;"></div>
         
         <div class="fieldlabel"><label for="car_Type">차 타입</label></div>
-        <div class="formfield"><input type="text" style="width:400px;" id="car_Type" name="car_Type" class="form-control"></div>
+        <div class="formfield"><input type="text" style="width:400px;" id="car_Type" name="car_Type" value="${detail.car_Type }" class="form-control"></div>
 
         <div class="fieldlabel"><label for="fuel_Type">연료 타입</label></div>
-        <div class="formfield"><input type="text" style="width:400px;" id="fuel_Type" name="fuel_Type" maxlength="20" autocomplete="off" class="form-control"></div>
+        <div class="formfield"><input type="text" style="width:400px;" id="fuel_Type" name="fuel_Type" value="${detail.fuel_Type }" maxlength="20" autocomplete="off" class="form-control"></div>
 		
 		<div class="fieldlabel"><label for="car_Img">차 이미지</label></div>
-        <div class="formfield"><input type="text" style="width:400px;" id="car_Img" name="car_Img" maxlength="20" autocomplete="off" class="form-control"></div>
+        <div class="formfield"><input type="text" style="width:400px;" id="car_Img" name="car_Img" value="${detail.car_Img }" maxlength="20" autocomplete="off" class="form-control"></div>
 		
         <div class="fieldlabel"><label for="car_Fuel">연비</label></div>
-        <div class="formfield"><input type="text" style="width:400px;" id="car_Fuel" name="car_Fuel" maxlength="20" autocomplete="off" class="form-control"></div>
+        <div class="formfield"><input type="text" style="width:400px;" id="car_Fuel" name="car_Fuel" value="${detail.car_Fuel }" maxlength="20" autocomplete="off" class="form-control"></div>
        
         <div class="fieldlabel"><label for="car_Price">가격</label></div>
-        <div class="formfield"><input type="text" style="width:400px;" id="car_Price" name="car_Price" maxlength="20" value="" class="form-control"></div>
+        <div class="formfield"><input type="text" style="width:400px;" id="car_Price" name="car_Price" value="${detail.car_Price }" maxlength="20" class="form-control"></div>
 
         <div class="fieldlabel"><label for="brand_Id">브랜드</label></div>
-        <div class="formfield"><input type="text" style="width:400px;" id="brand_Id" name="brand_Id" maxlength="20" value="" class="form-control"></div>
+        <div class="formfield"><input type="text" style="width:400px;" id="brand_Id" name="brand_Id" value="${detail.brand_Id }" maxlength="20" class="form-control"></div>
 
        
         <div class="btnfield">
-            <input type="button" style="margin-top:10px;margin-bottom:10px;" onclick="goodsAdd()" value="추가" class="btn btn-primary" >
-        	<input type="button" style="margin-top:10px;margin-bottom:10px;" onclick="history.back(-1)" value="취소" class="btn btn-primary" >
+			 <button type="submit" id="update_Btn" class="btn btn-primary">완료</button>
+			 <button type="submit" id="back_Btn" class="btn btn-warning">취소</button>
+			 
+			 <script>
+				 $("#back_Btn").click(function(){
+				  //history.back();
+				  location.href = "/goods/goodsDetail?b="+${detail.brand_Id}+"&c=" + ${detail.car_ID};
+				 });   
+			</script>
         </div>
     </form>
-</div>
+	</div>
     
     
     <footer id="footer">
