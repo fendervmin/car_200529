@@ -19,4 +19,8 @@ public interface NewsService {
 	
 	public List<News> searchNews(String keyword, int display, int start);
 	
+	public void updateNews(NewsVO newsvo);
+	
+	public NewsVO getOneNews(int news_Id);
+	
 }

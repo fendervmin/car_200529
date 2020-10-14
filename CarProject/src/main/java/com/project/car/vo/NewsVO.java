@@ -93,5 +93,11 @@ public class NewsVO {
 		this.news_Thumb = news_Thumb;
 	}
 
+	@Override
+	public String toString() {
+		return "NewsVO [news_Id=" + news_Id + ", news_Title=" + news_Title + ", news_Content=" + news_Content
+				+ ", news_Url=" + news_Url + ", news_Img=" + news_Img + ", news_Date=" + news_Date + ", news_Thumb="
+				+ news_Thumb + ", news_Upload=" + news_Upload + "]";
+	}
 	
 }

@@ -137,7 +137,7 @@
             <a href='/user/logout.do' style="font-size:15px">로그아웃</a>
          </dd>
          <dd>
-            <a href='admin.do' style="font-size:15px">관리자</a>
+            <a href='/user/admin.do' style="font-size:15px">관리자</a>
          </dd>
          </c:if>
          <dd class="arw">
@@ -150,7 +150,7 @@
    <!-- 상단 로고입니다 (로고 이미지 임시) -->
       <div class="hd_top" style="margin-top:30px;">
          <h1 class="sd">
-            <a href="../">차</a>
+            <img src="/resources/logo.jpg" style="width:300px; heigth:200px;">
          </h1>
       </div>
       

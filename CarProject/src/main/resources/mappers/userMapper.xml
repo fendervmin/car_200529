@@ -34,6 +34,10 @@ where member_Nicname= #{member_Nicname};
 </if>
 </select>
 
+<select id="getAllUser" resultType="member">
+SELECT * FROM MEMBER
+</select>
+
 <insert id="userJoin">
 insert into MEMBER (member_Id,member_UserId,member_Pwd,member_Nicname,member_Email,member_In,member_Out)
 values (#{member_Id},#{member_UserId},#{member_Pwd},#{member_Nicname},#{member_Email},#{member_In},#{member_Out})
@@ -181,7 +185,23 @@ values (#{member_Id},#{member_UserId},#{member_Pwd},#{member_Nicname},#{member_E
 	WHERE
 		MEMBER_USERID = #{loginId}
 </update>
+<<<<<<< HEAD
 <update id="updateLevel" parameterType="member">
 	UPDATE MEMBER SET MEMBER_LEVEL=#{member_level} WHERE MEMBER_ID=#{member_Id}
 </update>
+=======
+
+<select id="currentMember" resultType="member">
+select * from member where member_id IN 
+(select member_id from member where member_out IS null )
+</select>
+
+<select id="notcurrentMember" resultType="member">
+select * from member where member_id IN 
+(select member_id from member where member_out IS NOT null )
+</select>
+
+
+
+>>>>>>> branch 'master' of https://github.com/fendervmin/car_200529.git
 </mapper>

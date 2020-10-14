@@ -20,4 +20,6 @@ public interface GoodsDAO {
 	public void goodsAdd(GoodsVO goodsVO) throws Exception;
 	
 	public void goodsDelete(int car_id) throws Exception;
+	
+	public void goodsModify(GoodsVO goodsVO) throws Exception;
 }

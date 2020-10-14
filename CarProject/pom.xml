@@ -233,7 +233,6 @@
             <artifactId>xmlpull-xpp3</artifactId>
             <version>3.0.0.20130526</version>
         </dependency>
-        
 	</dependencies>
 	
 	<build>

@@ -123,7 +123,19 @@ public class UserDAO {
 		sqlSession.update("mappers.userMapper.removeUser", loginId);
 	}
 	
-
+	public List<MemberVO> getAllUser() {
+		return sqlSession.selectList("mappers.userMapper.getAllUser");
+	}
+	
+	public List<MemberVO> currentMember() {
+		return sqlSession.selectList("mappers.userMapper.currentMember");
+	}
+	
+	public List<MemberVO> notcurrentMember() {
+		return sqlSession.selectList("mappers.userMapper.notcurrentMember");
+	}
+	
+	
 
 
 }
