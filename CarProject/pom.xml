@@ -30,11 +30,11 @@
 	</repositories>
 	<dependencies>
 		<dependency>
-		    <groupId>net.sf.json-lib</groupId>
-		    <artifactId>json-lib</artifactId>
-		    <version>2.4</version>
-		   
-		    <classifier>jdk15</classifier>
+			<groupId>net.sf.json-lib</groupId>
+			<artifactId>json-lib</artifactId>
+			<version>2.4</version>
+
+			<classifier>jdk15</classifier>
 		</dependency>
 		<!-- Spring -->
 		<dependency>
@@ -187,7 +187,7 @@
 			<artifactId>jackson-databind</artifactId>
 			<version>2.9.4</version>
 		</dependency>
-		
+
 		<!-- https://mvnrepository.com/artifact/javax.mail/mail -->
 		<dependency>
 			<groupId>javax.mail</groupId>
@@ -203,38 +203,38 @@
 		<!-- 이메일 인증 2018.11.20 KW -->
 		<!-- @validate사용 디펜던시 -->
 		<!-- https://mvnrepository.com/artifact/net.coobird/thumbnailator -->
-<dependency>
-    <groupId>net.coobird</groupId>
-    <artifactId>thumbnailator</artifactId>
-    <version>0.4.12</version>
-</dependency>
-		
-		 <dependency>
-            <groupId>commons-fileupload</groupId>
-            <artifactId>commons-fileupload</artifactId>
-            <version>1.2.1</version>
-      </dependency>
+		<dependency>
+			<groupId>net.coobird</groupId>
+			<artifactId>thumbnailator</artifactId>
+			<version>0.4.12</version>
+		</dependency>
 
-      <dependency>
-            <groupId>commons-io</groupId>
-               <artifactId>commons-io</artifactId>
-              <version>1.4</version>
-      </dependency>
-      
-      <!-- https://mvnrepository.com/artifact/javax.validation/validation-api -->
-      <dependency>
-          <groupId>javax.validation</groupId>
-          <artifactId>validation-api</artifactId>
-          <version>2.0.1.Final</version>
-      </dependency>
-      
-      <dependency>
-            <groupId>net.sf.sociaal</groupId>
-            <artifactId>xmlpull-xpp3</artifactId>
-            <version>3.0.0.20130526</version>
-        </dependency>
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>1.2.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>1.4</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/javax.validation/validation-api -->
+		<dependency>
+			<groupId>javax.validation</groupId>
+			<artifactId>validation-api</artifactId>
+			<version>2.0.1.Final</version>
+		</dependency>
+
+		<dependency>
+			<groupId>net.sf.sociaal</groupId>
+			<artifactId>xmlpull-xpp3</artifactId>
+			<version>3.0.0.20130526</version>
+		</dependency>
 	</dependencies>
-	
+
 	<build>
 		<plugins>
 			<plugin>
