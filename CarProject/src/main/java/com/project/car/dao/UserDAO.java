@@ -25,7 +25,13 @@ public class UserDAO {
 		return sqlSession.selectOne("mappers.userMapper.getUserOne",map);
 	}
 	
-	
+	public MemberVO getBoardUser(int member_Id){
+		 return sqlSession.selectOne("mappers.userMapper.boardUser", member_Id);
+	}
+	public List<MemberVO> getBoardUserList(int member_Id){
+		List<MemberVO> boardMember = sqlSession.selectList("mappers.userMapper.boardUser", member_Id);
+		return boardMember;
+	}
 
 	// 이 구조 쓸거야 민지야알겠지? 울지말고..
 	public int userJoin(MemberVO member) {
@@ -120,6 +126,16 @@ public class UserDAO {
 	public List<MemberVO> getAllUser() {
 		return sqlSession.selectList("mappers.userMapper.getAllUser");
 	}
+	
+	public List<MemberVO> currentMember() {
+		return sqlSession.selectList("mappers.userMapper.currentMember");
+	}
+	
+	public List<MemberVO> notcurrentMember() {
+		return sqlSession.selectList("mappers.userMapper.notcurrentMember");
+	}
+	
+	
 
 
 }

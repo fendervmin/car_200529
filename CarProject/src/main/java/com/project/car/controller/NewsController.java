@@ -121,8 +121,9 @@ public class NewsController {
 		news.setNews_Thumb(File.separator + "upload" + ymdPath + File.separator + "s_" + fileName);
 		
 		NewsService.updateNews(newsvo);
+		System.out.println(newsvo);
 		
-		return "redirect:/news/newsmain";
+		return "news/newsmain";
 		
 		
 	}

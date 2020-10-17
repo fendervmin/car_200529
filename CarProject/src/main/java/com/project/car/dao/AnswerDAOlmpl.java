@@ -26,7 +26,15 @@ public class AnswerDAOlmpl implements AnswerDAO {
 	@Override
 	public void delete(int a_id) throws Exception {
 		// TODO Auto-generated method stub
-		sqlsession.insert("mappers.answerMapper.replyDelete",a_id);
+		sqlsession.delete("mappers.answerMapper.replyDelete",a_id);
+	}
+	@Override
+	public AnswerVO aSelect(int a_id) throws Exception{
+		return sqlsession.selectOne("mappers.answerMapper.userAnswer",a_id);
 	}
 
+	@Override
+	public void allDelete(int p_id) throws Exception {
+		sqlsession.delete("mappers.answerMapper.simulDelete",p_id);
+	}
 }

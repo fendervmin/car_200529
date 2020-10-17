@@ -1,11 +1,9 @@
 package com.project.car.controller;
 
-import java.io.IOException;
 import java.util.List;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -19,9 +17,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.project.car.services.GoodsService;
+import com.project.car.services.ReplyService;
+import com.project.car.vo.AnswerVO;
 import com.project.car.vo.GoodsVO;
 import com.project.car.vo.MemberVO;
-import com.project.car.vo.wishlistVO;
+import com.project.car.vo.ReplyVO;
 
 @Controller
 @RequestMapping("goods/*")
@@ -31,6 +31,9 @@ public class GoodsController {
 	
 	@Inject
 	GoodsService service;
+	
+	@Inject
+	ReplyService rp_service;
 	
 	@RequestMapping(value="brandList.do", method={RequestMethod.GET,RequestMethod.POST})
 	public String getBrandList(Model model) throws Exception{
@@ -67,7 +70,11 @@ public class GoodsController {
 
 		model.addAttribute("detail", detail);
 		GoodsVO color = service.color(car_id);
-		model.addAttribute("color", color);		
+		model.addAttribute("color", color);
+		
+		List<ReplyVO> replyList = rp_service.readReply(car_id);
+		model.addAttribute("replyList", replyList);
+		System.out.println("testLine===========================");
 		return "goods/goodsDetail";
 	}
 	

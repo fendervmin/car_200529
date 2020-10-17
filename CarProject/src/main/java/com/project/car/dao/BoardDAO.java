@@ -20,5 +20,7 @@ public interface BoardDAO {
 	public int rcount(RecommVO recomm) throws Exception;
 	public RecommVO recommCheck(RecommVO recomm) throws Exception;
 	public void recommUdate(RecommVO recomm) throws Exception;
+	public void recommDelete(int p_id) throws Exception;
+	public void bestMember(int m_id) throws Exception;
 	
 }

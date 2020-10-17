@@ -25,8 +25,36 @@
 </div>
 </div>
 <div style="margin-top : 50px;">
-  <h2>회원 리스트  </h2>            
-  <table class="table table-hover">
+         
+  
+  <div class="dropdown">
+    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+      	회원정렬
+    </button>
+    <div class="dropdown-menu">
+      <a class="dropdown-item" id="dropdown" onclick="dropdown(1)" value="1">현재 회원</a>
+      <a class="dropdown-item" id="dropdown" onclick="dropdown(2)" value="2">탈퇴한 회원</a>
+    </div>
+    
+    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+      	아이디
+    </button>
+    <div class="dropdown-menu">
+      <a class="dropdown-item" onclick="#">아이디</a>
+      <a class="dropdown-item" onclick="#">닉네임</a>
+      <a class="dropdown-item" onclick="#">이메일</a>
+      <a class="dropdown-item" onclick="#">가입일</a>
+      <a class="dropdown-item" onclick="#">탈퇴일</a>
+    </div>
+  </div>
+  
+  <div>
+  <input class="form-control" id="keyword" name="keyword" type="text" placeholder="Search" style="margin-top:10px"/>
+  <button type="submit" class="form-control" onclick="location.href=#" style="margin-top:10px">검색하기</button>
+  </div>
+  
+         
+  <table class="table table-hover" style="margin-top : 30px;">
     <thead>
       <tr>
         <th>회원 아이디</th>
@@ -37,8 +65,9 @@
       </tr>
     </thead>
     <tbody>
+    
     <c:forEach items="${getAllUser }" var="getAllUser" varStatus="idx">
-      <tr>
+      <tr class="basic">
         <td>${getAllUser.member_UserId }</td>
         <td>${getAllUser.member_Nicname }</td>
         <td>${getAllUser.member_Email }</td>
@@ -46,6 +75,28 @@
         <td>${getAllUser.member_Out }</td>
       </tr>
     </c:forEach>
+    
+    <c:forEach items="${currentMember }" var="currentMember" varStatus="idx">
+      <tr class="current" >
+        <td>${currentMember.member_UserId }</td>
+        <td>${currentMember.member_Nicname }</td>
+        <td>${currentMember.member_Email }</td>
+        <td>${currentMember.member_In }</td>
+        <td>${currentMember.member_Out }</td>
+      </tr>
+    </c:forEach>
+    
+    <c:forEach items="${notcurrentMember }" var="notcurrentMember" varStatus="idx">
+      <tr class="notcurrent">
+        <td>${notcurrentMember.member_UserId }</td>
+        <td>${notcurrentMember.member_Nicname }</td>
+        <td>${notcurrentMember.member_Email }</td>
+        <td>${notcurrentMember.member_In }</td>
+        <td>${notcurrentMember.member_Out }</td>
+      </tr>
+    </c:forEach>
+    
+   
     </tbody>
   </table>
   </div>
@@ -53,6 +104,27 @@
 
 </div>
 
+<script type="text/javascript">
+
+$(document).ready(function(){
+	$('.current').hide();
+	$('.notcurrent').hide();
+});
+
+
+function dropdown(num) {
+	if (num==1) {
+		$('.basic').hide();
+		$('.current').show();
+		$('.notcurrent').hide();
+	} else if (num==2){
+		$('.basic').hide();
+		$('.current').hide();
+		$('.notcurrent').show();
+	}
+}
+
+</script>
 <c:import url="/WEB-INF/views/common/footer.jsp"/>		
 </body>
 </html>

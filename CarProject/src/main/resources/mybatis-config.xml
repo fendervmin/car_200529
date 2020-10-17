@@ -19,6 +19,7 @@
   	<typeAlias alias="reserveVO" type="com.project.car.vo.ReserveVO"/>
   	<typeAlias alias="wishlist" type="com.project.car.vo.wishlistVO"/>
   	<typeAlias alias="recomm" type="com.project.car.vo.RecommVO"/>
+  	<typeAlias alias="reply" type="com.project.car.vo.ReplyVO"/>
   </typeAliases>
   
   <mappers>
@@ -28,6 +29,7 @@
  
   	<mapper resource="mappers/newsMapper.xml"/>
   	<mapper resource="mappers/answerMapper.xml"/>
+  	<mapper resource="mappers/replyMapper.xml"/>
   	<mapper resource="mappers/reserveMapper.xml"/>
   	
   	<mapper resource="mappers/wishlistMapper.xml"/>

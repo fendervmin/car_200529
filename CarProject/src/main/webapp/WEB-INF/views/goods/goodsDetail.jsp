@@ -180,7 +180,6 @@
 <script type="text/javascript"
 	src="${pageContext.request.contextPath }/resources/js/jquery-3.4.1.min.js"></script>
 <!-- Custom styles for this template -->
-<link href="css/shop-item.css" rel="stylesheet">
 
 </head>
 <body>
@@ -272,8 +271,7 @@
 											</div>
 											<div class='spec'>
 												<span>복합연비 <span class='num'>${detail.car_Fuel}㎞/ℓ</span></span><br>
-												<span>${detail.car_Type}</span><br>
-												<span>${detail.fuel_Type}</span>
+												<span>${detail.car_Type}</span><br> <span>${detail.fuel_Type}</span>
 											</div>
 
 											<div class='save'>
@@ -329,14 +327,16 @@
 											</c:if>
 										</form>
 									</div>
-									<div>
-										<c:import url="../goods/goodsAnswer.jsp">
-						
-										</c:import>
-									</div>
 								</div>
 							</div>
 						</div>
+						<input type="hidden" id="memberUserId"
+							value="${loginUser.member_Id }" />
+						<c:import url="../goods/goodsAnswer.jsp">
+							<c:param name="car_id" value="${detail.car_ID }"/>
+							<%-- <c:param name="reply" value="${reply}" /> --%>
+						</c:import>
+						
 					</div>
 				</div>
 			</div>

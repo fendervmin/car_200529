@@ -133,9 +133,31 @@ public class UserServiceImpl implements UserService {
 	public void removeUser(String loginId) {
 		userDAO.removeUser(loginId);
 	}
+
+	@Override
+	public MemberVO getBoardUser(int member_Id){
+		return userDAO.getBoardUser(member_Id);
+	}
+	
+	@Override
+	public List<MemberVO> getUserBoardList(int member_Id){
+		List<MemberVO> boardList = userDAO.getBoardUserList(member_Id);
+		return boardList;
+	}
+
 	
 	@Override
 	public List<MemberVO> getAllUser() {
 		return userDAO.getAllUser();
+	}
+	
+	@Override
+	public List<MemberVO> currentMember() {
+		return userDAO.currentMember();
+	}
+	
+	@Override
+	public List<MemberVO> notcurrentMember() {
+		return userDAO.notcurrentMember();
 	}
 }

@@ -65,6 +65,12 @@ public class BoardServiceImpl implements BoardService {
 	public void recommUdate(RecommVO recomm) throws Exception{
 		dao.recommUdate(recomm);
 	}
-	
-	
+	@Override
+	public void recommDelete(int p_id) throws Exception{
+		dao.recommDelete(p_id);
+	}
+	@Override
+	public void bestMember(int m_id) throws Exception{
+		dao.bestMember(m_id);
+	}
 }

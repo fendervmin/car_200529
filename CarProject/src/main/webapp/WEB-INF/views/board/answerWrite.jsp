@@ -28,8 +28,7 @@
 						<tr>
 							<td>${a.member_id }</td>
 							<td>${a.a_content}</td>
-							
-								<td><a href="answerWrite.do?a_id=${a.a_id }&&id=${a.p_id}">삭제</a></td>
+							<td><a href="answerWrite.do?a_id=${a.a_id }&&id=${a.p_id}">삭제</a></td>
 								
 						</tr>
 					</c:forEach>
