@@ -7,6 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.project.car.model.Search;
 import com.project.car.vo.MemberVO;
 
 @Repository("userDAO")
@@ -135,6 +136,13 @@ public class UserDAO {
 		return sqlSession.selectList("mappers.userMapper.notcurrentMember");
 	}
 	
+	public List<MemberVO> getUserSearch(Search search) {
+		return sqlSession.selectList("mappers.userMapper.getUserSearch", search);
+	}
+	
+	public int getUserSearchCnt(Search search) {
+		return sqlSession.selectOne("mappers.userMapper.getUserSearchCnt",search);
+	}
 	
 
 
