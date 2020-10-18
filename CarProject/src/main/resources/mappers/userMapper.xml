@@ -185,11 +185,11 @@ values (#{member_Id},#{member_UserId},#{member_Pwd},#{member_Nicname},#{member_E
 	WHERE
 		MEMBER_USERID = #{loginId}
 </update>
-<<<<<<< HEAD
+
 <update id="updateLevel" parameterType="member">
 	UPDATE MEMBER SET MEMBER_LEVEL=#{member_level} WHERE MEMBER_ID=#{member_Id}
 </update>
-=======
+
 
 <select id="currentMember" resultType="member">
 select * from member where member_id IN 
@@ -201,7 +201,4 @@ select * from member where member_id IN
 (select member_id from member where member_out IS NOT null )
 </select>
 
-
-
->>>>>>> branch 'master' of https://github.com/fendervmin/car_200529.git
 </mapper>
