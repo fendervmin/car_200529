@@ -15,8 +15,8 @@
 				<form:form modelAttribute="answer" method="post" id="replyForm"
 					action="answerWrite.do">
 					<tr>
-						<td colspan="2"><form:input path="a_content"
-								style="width:1000px;height:30px" /></td>
+						<td colspan="2">
+						<form:input type="text" path="a_content" style="width:1000px;height:30px" /></td>
 						<td><input type="submit" value="답글달기" /></td>
 					</tr>
 					<tr><form:hidden path="p_id" value="${detail.p_id}" /></tr>

@@ -294,11 +294,6 @@
 													<button class="btn btn-primary" title='삭제' type="submit"
 														id="delete_Btn">삭제</button>
 													<script type="text/javascript">
-														/* $("#modify_Btn").click(function(){
-														   formObj.attr("action", "/goods/goodsModify.do");
-														   formObj.attr("method", "post")
-														   formObj.submit();
-														  }); */
 
 														$("#delete_Btn")
 																.click(
@@ -331,10 +326,11 @@
 							</div>
 						</div>
 						<input type="hidden" id="memberUserId"
-							value="${loginUser.member_Id }" />
+							value="${loginUser.member_Id }" /> <input type="hidden"
+							id="car_id" value="${detail.car_ID}" />
 						<c:import url="../goods/goodsAnswer.jsp">
 							<c:param name="car_id" value="${detail.car_ID }"/>
-							<%-- <c:param name="reply" value="${reply}" /> --%>
+							<c:param name="replyVO" value="${replyVO}" />
 						</c:import>
 						
 					</div>

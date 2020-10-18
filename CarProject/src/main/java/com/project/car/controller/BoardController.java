@@ -206,9 +206,8 @@ public class BoardController {
 		a_service.delete(a_id);
 		
 		int post_id = Integer.parseInt(req.getParameter("id"));
-		model.addAttribute("detail", service.post(post_id));/*
-		model.addAttribute("userNow",u_service.getBoardUserList(a_service.replyList(post_id)));
-		*/model.addAttribute("answer",new AnswerVO());
+		model.addAttribute("detail", service.post(post_id));
+		model.addAttribute("answer",new AnswerVO());
 		model.addAttribute("PId",post_id);
 		model.addAttribute("reply",a_service.replyList(post_id));
 		return "board/writeDetail";
@@ -219,10 +218,6 @@ public class BoardController {
 		System.out.println(answer.getP_id());
 		System.out.println(answer.getA_content());
 		int post_id = answer.getP_id();
-		//int post_id = Integer.parseInt(req.getAttribute("id"));
-		
-		
-
 		a_service.replyInsert(answer);
 
 		model.addAttribute("reply",a_service.replyList(post_id));

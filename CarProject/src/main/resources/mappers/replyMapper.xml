@@ -7,16 +7,19 @@
  <!-- 댓글 조회 -->
  <select id="readReply" resultType="reply" parameterType="int">
   select
-  	reply_id, member_id, reply_content
+  	reply.reply_id, member.member_Nicname, reply.reply_content
   from reply
+  join member
+  on reply.member_id=member.member_id
   	where car_id = #{car_id}
+  	 order by reply_id
  </select>
  
  <!-- 댓글 작성 -->
 <insert id="writeReply">
  insert into
-  reply(car_id, member_id, reply_id, reply_content)
-    values(#{car_id}, #{member_id}, Reply_seq.nextval, #{reply_content})
+  reply(reply_id, car_id, member_id,  reply_content)
+    values( Reply_seq.nextval, #{car_ID}, #{member_id}, #{reply_content})
 </insert>
 
 </mapper>

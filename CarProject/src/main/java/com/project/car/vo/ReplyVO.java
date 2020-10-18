@@ -8,13 +8,15 @@ public class ReplyVO {
 	    private int reply_id;
 	    private int member_id;
 	    private String reply_content;
+	    private String member_Nicname;
 	    
 	    
 	    
-		@Override
-		public String toString() {
-			return "ReplyVO [reply_id=" + reply_id + ", member_id=" + member_id
-					+ ", reply_content=" + reply_content + "]";
+		public String getMember_Nicname() {
+			return member_Nicname;
+		}
+		public void setMember_Nicname(String member_Nicname) {
+			this.member_Nicname = member_Nicname;
 		}
 		public int getCar_ID() {
 			return car_ID;

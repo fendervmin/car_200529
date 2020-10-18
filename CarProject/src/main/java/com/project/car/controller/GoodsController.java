@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.project.car.services.GoodsService;
 import com.project.car.services.ReplyService;
@@ -63,7 +64,7 @@ public class GoodsController {
 	
 	
 	@RequestMapping(value="goodsDetail.do", method=RequestMethod.GET)
-	public String getgoodsDetail(@RequestParam("c") int car_id,Model model) throws Exception{
+	public String getgoodsDetail(@RequestParam("c") int car_id,Model model,ReplyVO replyVO) throws Exception{
 		logger.info("Get goodsDetail");
 		System.out.println("car_id : " + car_id);
 		GoodsVO detail = service.detail(car_id);
@@ -141,5 +142,34 @@ public class GoodsController {
 				service.goodsModify(goodsVO);
 				
 				return "goods/brandList";
+		}
+		
+		@RequestMapping(value="goodsAnswer.do", method=RequestMethod.GET)
+		public String getGoodsAnswer(HttpServletRequest req,ReplyVO replyVO,Model model,HttpSession session ) throws Exception{
+
+			MemberVO loginUser =(MemberVO)session.getAttribute("loginUser");
+			
+			if(loginUser != null){//비로그인시 오류 페이지 뜨는 거 방지용 
+				logger.info("id = "+loginUser.getMember_Id());
+				model.addAttribute("loginUser", loginUser);
+			}
+			
+			int car_id = Integer.parseInt(req.getParameter("car_id"));
+			model.addAttribute("detail", service.detail(car_id));
+			model.addAttribute("replyVO",new ReplyVO());
+			model.addAttribute("car_id",car_id);
+			model.addAttribute("replyList",rp_service.readReply(car_id));
+			return "goods/goodsDetail";
+		}
+		
+		@RequestMapping(value="goodsAnswer.do", method=RequestMethod.POST)
+		public String postAnswerWrite(ReplyVO replyVO,Model model) throws Exception{
+
+			int car_id = replyVO.getCar_ID();
+			rp_service.writeReply(replyVO);
+
+			model.addAttribute("replyList",rp_service.readReply(car_id));
+			model.addAttribute("detail", service.detail(car_id));
+			return "goods/goodsDetail";
 		}
 }

@@ -7,32 +7,50 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath }/resources/js/jquery-3.4.1.min.js"></script>
+
 </head>
 <body>
 	<div class="card card-outline-secondary my-4">
-
 		<div class="card-header">
-			<form:form modelAttribute="reply" id="reply" action="goodsAnswer.do">
-				<div class="comment">
-					<div class="input-group">
-						<input type="text" class="form-control" id="content"
-							name="content" placeholder="내용을 입력하세요."> <span
-							class="input-group-btn">
-							<input type="submit" class="btn btn-primary" style="margin-left: 5px;" value="등록" />
-						</span>
-					</div>
+			<div class="comment">
+				<div class="input-group">
+					<form:form modelAttribute="replyVO" method="post"
+						action="goodsAnswer.do">
+						<script type="text/javascript">
+							
+						function insert(){
+									if (${loginUser eq null}) {
+										alert('로그인 후 이용해주세요');
+										return false;
+									}
+									
+							    }
+							
+						</script>
+						<form:input path="reply_content" style="width:715px;height:40px" />
+						<form:button class="btn btn-primary"   onclick="return insert();" >등록</form:button>
+						<form:hidden path="car_ID" value="${detail.car_ID}" />
+						<form:hidden path="member_id" value="${loginUser.member_Id }" />
+					</form:form>
 				</div>
-			</form:form>
+			</div>
+
 		</div>
 		<div class="card-body">
 			<dd class='noLine'>
 				<ul class='brandList imageLarge'>
-					<c:forEach items="${replyList}" var="replyList">
-						<tr>
-							<td>멤버 번호 : ${replyList.member_id}</td>
-							<td>${replyList.reply_content}</td>
-						</tr>
-					</c:forEach>
+					<c:if test="${!empty replyList }">
+						<c:forEach items="${replyList}" var="replyList">
+							<tr>
+								<td>${replyList.reply_id }</td>
+								<td>　　　　　${replyList.member_Nicname}</td>
+								<td>　　　　　　　${replyList.reply_content}</td>
+							</tr>
+							<br />
+						</c:forEach>
+					</c:if>
 				</ul>
 			</dd>
 		</div>
