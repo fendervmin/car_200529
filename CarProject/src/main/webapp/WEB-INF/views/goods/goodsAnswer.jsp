@@ -45,8 +45,8 @@
 						<c:forEach items="${replyList}" var="replyList">
 							<tr>
 								<td>${replyList.reply_id }</td>
-								<td>　　　　　${replyList.member_Nicname}</td>
-								<td>　　　　　　　${replyList.reply_content}</td>
+								<td>${replyList.member_Nicname}</td>
+								<td>${replyList.reply_content}</td>
 							</tr>
 							<br />
 						</c:forEach>

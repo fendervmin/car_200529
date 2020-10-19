@@ -6,19 +6,22 @@ public class AnswerVO {
 	private int p_id;
 	private String a_content;
 	private String detect;
+	private String member_Nicname;
 	
+	public String getMember_Nicname() {
+		return member_Nicname;
+	}
+
+	public void setMember_Nicname(String member_Nicname) {
+		this.member_Nicname = member_Nicname;
+	}
+
 	public String getDetect() {
 		return detect;
 	}
 
 	public void setDetect(String detect) {
 		this.detect = detect;
-	}
-
-	@Override
-	public String toString() {
-		return "AnswerVO [a_id=" + a_id + ", member_id=" + member_id + ", p_id=" + p_id + ", a_content=" + a_content+",detect="+detect
-				+ "]";
 	}
 
 	public int getA_id() {
