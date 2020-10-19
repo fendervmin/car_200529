@@ -35,23 +35,8 @@
       <a class="dropdown-item" id="dropdown" onclick="dropdown(1)" value="1">현재 회원</a>
       <a class="dropdown-item" id="dropdown" onclick="dropdown(2)" value="2">탈퇴한 회원</a>
     </div>
-    
-    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-      	아이디
-    </button>
-    <div class="dropdown-menu">
-      <a class="dropdown-item" onclick="#">아이디</a>
-      <a class="dropdown-item" onclick="#">닉네임</a>
-      <a class="dropdown-item" onclick="#">이메일</a>
-      <a class="dropdown-item" onclick="#">가입일</a>
-      <a class="dropdown-item" onclick="#">탈퇴일</a>
-    </div>
   </div>
-  
-  <div>
-  <input class="form-control" id="keyword" name="keyword" type="text" placeholder="Search" style="margin-top:10px"/>
-  <button type="submit" class="form-control" onclick="location.href=#" style="margin-top:10px">검색하기</button>
-  </div>
+
   
          
   <table class="table table-hover" style="margin-top : 30px;">
@@ -96,9 +81,37 @@
       </tr>
     </c:forEach>
     
+    <c:forEach items="${getUserSearch }" var="getUserSearch" varStatus="idx">
+      <tr class="getUserSearch">
+        <td>${getUserSearch.member_UserId }</td>
+        <td>${getUserSearch.member_Nicname }</td>
+        <td>${getUserSearch.member_Email }</td>
+        <td>${getUserSearch.member_In }</td>
+        <td>${getUserSearch.member_Out }</td>
+      </tr>
+    </c:forEach>
+    
    
     </tbody>
   </table>
+  
+  
+  
+  <div class="form-group row justify-content-center">
+			<div class="w100" style="padding-right:10px">
+				<select class="form-control form-control-sm" name="searchType" id="searchType">
+					<option value="member_UserId">아이디</option>
+					<option value="member_Nicname">닉네임</option>
+					<option value="member_Email">이메일</option>
+				</select>
+			</div>
+			<div class="w300" style="padding-right:10px">
+				<input type="text" class="form-control form-control-sm" name="keyword" id="keyword">
+			</div>
+			<div>
+				<button class="btn btn-sm btn-primary" name="btnSearch" id="btnSearch">검색</button>
+			</div>
+		</div>
   </div>
 </div>
 
@@ -123,6 +136,15 @@ function dropdown(num) {
 		$('.notcurrent').show();
 	}
 }
+
+$(document).on('click', '#btnSearch', function(e){
+	e.preventDefault();
+	var url = "/user/getUserSearch.do";
+	url = url + "?searchType=" + $('#searchType').val();
+	url = url + "&keyword=" + $('#keyword').val();
+	location.href = url;
+	console.log(url);
+});	
 
 </script>
 <c:import url="/WEB-INF/views/common/footer.jsp"/>		

@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.project.car.model.Search;
 import com.project.car.services.ReserveService;
 import com.project.car.services.UserService;
 import com.project.car.services.WishlistService;
@@ -309,6 +310,21 @@ public class UserController {
 		model.addAttribute("getAllUser", getAllUser);
 		model.addAttribute("currentMember", currentMember);
 		model.addAttribute("notcurrentMember", notcurrentMember);
+		
+		return "admin/adminMain";
+	}
+	
+	@RequestMapping(value="getUserSearch.do") 
+	public String getUserSearch(Model model
+							   ,@RequestParam(required=false, defaultValue="member_UserId") String searchType
+							   ,@RequestParam(required=false) String keyword) throws Exception {
+		Search search = new Search();
+		search.setSearchType(searchType);
+		search.setKeyword(keyword);
+		
+		model.addAttribute("getUserSearch",uService.getUserSearch(search));
+		
+		System.out.println(uService.getUserSearch(search));
 		
 		return "admin/adminMain";
 	}

@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import com.project.car.model.Search;
 import com.project.car.vo.MemberVO;
 
 public interface UserService {
@@ -44,4 +45,8 @@ public interface UserService {
 	List<MemberVO> currentMember();
 	
 	List<MemberVO> notcurrentMember();
+	
+	List<MemberVO> getUserSearch(Search search);
+	
+	int getUserSearchCnt(Search search);
 }

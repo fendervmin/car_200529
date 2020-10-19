@@ -332,7 +332,6 @@
 							<c:param name="car_id" value="${detail.car_ID }"/>
 							<c:param name="replyVO" value="${replyVO}" />
 						</c:import>
-						
 					</div>
 				</div>
 			</div>
