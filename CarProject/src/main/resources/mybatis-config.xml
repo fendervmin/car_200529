@@ -20,6 +20,7 @@
   	<typeAlias alias="wishlist" type="com.project.car.vo.wishlistVO"/>
   	<typeAlias alias="recomm" type="com.project.car.vo.RecommVO"/>
   	<typeAlias alias="reply" type="com.project.car.vo.ReplyVO"/>
+  	<typeAlias alias="keyword" type="com.project.car.vo.NewsKeywordVO"/>
   </typeAliases>
   
   <mappers>

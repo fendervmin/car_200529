@@ -18,9 +18,22 @@
 </head>
 <body>
 
-
-
 <c:import url="/WEB-INF/views/common/menubar.jsp"/>
+
+<div class="panel panel-default" style="float:left; margin-top:50px; margin-left:10px;">
+  <div class="panel-heading">
+    <h3 class="panel-title">인기 검색어</h3>
+  </div>
+    <ul class="list-group">
+      <c:forEach items="${keywordlist }" var="keywordlist" end="10">
+        <li class="list-group-item"><a href="#">${keywordlist.keyword }</a></li>
+       </c:forEach>
+    </ul>
+</div>     
+
+<div style="clear: both;"></div>
+
+
 
 <div class="container mt-3">
   <h2>뉴스 검색</h2>
@@ -29,7 +42,10 @@
   <input class="form-control" id="keyword" name="keyword" type="text" placeholder="Search"/>
   <button type="submit" class="form-control" onclick="location.href='/news/newsList.do'" style="margin-top:10px">검색하기</button>
   </form>
+  
   <br>
+  
+  
   <table class="table table-bordered">
     <thead>
       <tr>
@@ -62,6 +78,8 @@
     </c:forEach>
     </tbody>
   </table>
+  
+  
   
 </div>
 
