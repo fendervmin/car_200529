@@ -28,7 +28,7 @@
 }
 
 #header a:not ([href] ):not ([tabindex] ):hover, a:not ([href] ):not ([tabindex]
-	 ):focus {
+	):focus {
 	color: white;
 	text-decoration: none;
 }
