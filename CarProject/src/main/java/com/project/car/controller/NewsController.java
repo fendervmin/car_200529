@@ -135,7 +135,7 @@ public class NewsController {
     public ModelAndView newsList(@RequestParam(required=false)String keyword, Model model){
         ModelAndView mav = new ModelAndView();
         
-        if(keyword !=null && keyword.equals(""))
+        if(keyword !=null)
         {
             mav.addObject("newsList",NewsService.searchNews(keyword,10,1));
             NewsService.insKeyword(keyword);
