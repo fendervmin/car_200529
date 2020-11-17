@@ -113,6 +113,15 @@
 				</c:otherwise>
 		</c:choose>
 		</td>
+		<br>
+		<td>
+		<c:out value="${news.pubDate }"/>
+		
+		<a href=" <c:url value="${news.link }"/> "> 언론사 링크 바로가기</a>
+		</td>
+		<br>
+		<td>
+		</td>
 		<br><br><br>
         <%-- <td>"${news.pubDate}"</td> --%>
       </tr>
@@ -126,8 +135,8 @@
   <div class="panel-heading">
     <h3 class="panel-title">인기 검색어</h3>
   </div>
-    <ul class="list-group">
-      <c:forEach items="${keywordlist }" var="keywordlist" end="10">
+    <ul class="list-group list-group-flush" style="margin-bottom:10px;">
+      <c:forEach items="${keywordlist }" var="keywordlist" end="10" >
         <li class="list-group-item"><a href="#">${keywordlist.keyword }</a></li>
        </c:forEach>
     </ul>

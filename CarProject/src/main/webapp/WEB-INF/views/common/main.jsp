@@ -1,6 +1,6 @@
-
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
 
 <head>
 <meta charset="utf-8">
@@ -143,7 +143,7 @@
 			</div>
 	</header>
 	<!-- Page Content -->
-	<div class="container">
+	<div class="container"><!-- min-width:1230px;max-width:1920px; -->
 
 		<h1 class="my-4">Welcome to Modern Business</h1>
 
@@ -192,12 +192,12 @@
 		<!-- /.row -->
 
 		<!-- Portfolio Section -->
-		<h2>Portfolio Heading</h2>
+		<h2>Portfolio</h2>
 		
 		    <div class="row" style="margin-top:30px;">
 		      <div class="col-lg-4 col-sm-6 portfolio-item">
 		        <div class="card h-100">
-		          <a href="#"><img class="card-img-top" src="https://i.imgur.com/R4mmuFI.jpg" alt=""></a>
+		          <a href="https://seoul.ferraridealers.com/ko_kr/"><img class="card-img-top" src="https://i.imgur.com/R4mmuFI.jpg" alt=""></a>
 		          <div class="card-body">
 		            <h4 class="card-title">
 		              <a href="http://seoul.ferraridealers.com.auatn.motortrak.com/ko_kr/">Ferrari</a>
@@ -211,7 +211,7 @@
 		          <a href="https://www.hyundai.com/kr/ko/e/"><img class="card-img-top" src="https://post-phinf.pstatic.net/MjAyMDAzMjFfOCAg/MDAxNTg0NzcwOTg4ODQz.re4kwkPrf8-Ec6xdBbKf_7FeXtBVVnjIzGh8Elpb4HUg.H36hs4u1Fl4Bq-lGeIG_1VL5Rn8Z82vfAEHOW_6zxsog.JPEG/GranduerIG_LPi_6%EC%84%B8%EB%8C%80_111.jpg?type=w1200" style="weidth:auto;height:197px" alt=""></a>
 		          <div class="card-body">
 		            <h4 class="card-title">
-		              <a href="#">HYUNDAI</a>
+		              <a href="https://www.hyundai.com/kr/ko/e/">HYUNDAI</a>
 		            </h4>
 		            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
 		          </div>
@@ -219,7 +219,7 @@
 		      </div>
 		      <div class="col-lg-4 col-sm-6 portfolio-item">
 		        <div class="card h-100">
-		          <a href="#"><img class="card-img-top" src="https://www.motorgraph.com/news/photo/202003/25438_80334_1116.jpg" style="weidth:auto;height:197px" alt=""></a>
+		          <a href="https://www.genesis.com/kr/ko/genesis.html"><img class="card-img-top" src="https://www.motorgraph.com/news/photo/202003/25438_80334_1116.jpg" style="weidth:auto;height:197px" alt=""></a>
 		          <div class="card-body">
 		            <h4 class="card-title">
 		              <a href="https://www.genesis.com/kr/ko/genesis.html">Genesis</a>

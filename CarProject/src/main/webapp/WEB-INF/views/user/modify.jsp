@@ -4,43 +4,66 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+<style>
+.container{
+margin-bottom:70px;
+margin-top:80px;
+}
+</style>
 <title>회원정보수정</title>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> 
-<c:import url="/WEB-INF/views/common/menubar.jsp"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
 <body>
-<div class="w3-content w3-container w3-margin-top">
-		<div class="w3-container w3-card-4">
+<c:import url="/WEB-INF/views/common/menubar.jsp"/>
+
+<div class="container">
+<div class="w3-content w3-container w3-margin-top" style="margin-left:380px;">
+		<div class="w3-container w3-card-4" >
+		
 			<div class="w3-center w3-large w3-margin-top">
-				<h3>My Page</h3>
+				<h3>회원정보 수정</h3>
 			</div>
-			<div style="margin-bottom: 10px;"
+				<div style="margin-bottom: 10px;"
 					class="custom-control custom-radio custom-control-inline">
 					<input type="radio"  class="custom-control-input" id="modify" name="modifyContent" onclick="modify_check(1)" checked="checked" value="1">
-					<label class="custom-control-label font-weight-bold text-white"	for="modify">회원정보 변경</label>
+					<label class="custom-control-label font-weight-bold text"	for="modify">회원정보 변경</label>
 				</div>
 				<div class="custom-control custom-radio custom-control-inline">
 					<input type="radio" class="custom-control-input" id="modifyPwd" name="modifyContent" onclick="modify_check(2)" value="2"> 
-					<label class="custom-control-label font-weight-bold text-white" for="modifyPwd">비밀번호 변경</label>
+					<label class="custom-control-label font-weight-bold text" for="modifyPwd">비밀번호 변경</label>
 				</div>
 				<!-- <form id="myForm" action="../member/update_mypage.do" method="post"> -->
-				<form id="myForm" method="post">
+				
+				<form id="myForm" method="post" >
 				<div id="modify2">
+					<div class="form-group">
 					<p>
 						<label>ID : </label> 
-						<label id="member_UserId">${loginUser.member_UserId }</label>
+						<label id="member_UserId" style="width:300px;">${loginUser.member_UserId } </label>
 					</p>
+					</div>
+					<div class="form-group">
 					<p>
 						<label>Name</label> 
-						<input class="w3-input" type="text" id="member_Name" name="member_Name" value="${ loginUser.member_Name 	}">
+						<input class="w3-input" type="text" id="member_Name" name="member_Name" value="${ loginUser.member_Name 	}" class="form-control" style="width:300px;" >
 					</p>
+					</div>
+					<div class="form-group">
 					<p>
 						<label>Email</label> 
-						<input class="w3-input" type="text" id="member_Email" name="member_Email" value="${ loginUser.member_Email }" >
+						<input class="w3-input" type="text" id="member_Email" name="member_Email" value="${ loginUser.member_Email }" class="form-control" style="width:300px;">
+					</div>
+					<div class="form-group">
 					<p>
 						<label>Nickname</label> 
-						<input class="w3-input" type="text" id="member_Nicname" name="member_Nicname" value="${ loginUser.member_Nicname }"> 
+						<input class="w3-input" type="text" id="member_Nicname" name="member_Nicname" value="${ loginUser.member_Nicname }" class="form-control" style="width:300px;"> 
 					</p>
+					</div>
 				</div>
 				<div id="modifyPwd2" style="display: none;">
 					<p>
@@ -60,12 +83,15 @@
 						<!-- <input type="button" value="회원탈퇴" value="location.href='/user/out'" class="outButton"> -->
 					</p>
 			</form>
+			</div>
 		</div>
-	</div>
+		</div>
+		
 	<footer id="footer">
 		<div id="footer_box">
 			<%@ include file="../common/footer.jsp" %>
 		</div>
+	
 	</footer>
 <script type="text/javascript">
 

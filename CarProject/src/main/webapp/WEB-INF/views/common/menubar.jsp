@@ -135,7 +135,7 @@ background-color
 							환영합니다.</a>
 					</dd>
 					<dd class="arw">
-						<a href='/user/mypagePage.do' style="font-size: 15px">마이페이지</a>
+						<a href='/user/likeItPage.do' style="font-size: 15px">마이페이지</a>
 					</dd>
 					<dd>
 						<a href='/user/logout.do' style="font-size: 15px">로그아웃</a>

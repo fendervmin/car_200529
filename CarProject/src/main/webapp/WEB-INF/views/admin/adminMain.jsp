@@ -21,7 +21,7 @@
 <div class="col-lg-3" style="margin-top : 50px;">
 
 <div class="list-group">
-  <a href="/user/admin.do" class="list-group-item active">회원 리스트</a>
+  <a href="/user/admin.do" class="btn btn-outline-light text-dark">회원 리스트</a>
 </div>
 </div>
 <div style="margin-top : 50px;">
@@ -109,7 +109,7 @@
 				<input type="text" class="form-control form-control-sm" name="keyword" id="keyword">
 			</div>
 			<div>
-				<button class="btn btn-sm btn-primary" name="btnSearch" id="btnSearch">검색</button>
+				<button class="btn btn-outline-light text-dark" name="btnSearch" id="btnSearch">검색</button>
 			</div>
 		</div>
   </div>

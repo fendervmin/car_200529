@@ -62,12 +62,12 @@
 				</div>
 				<c:if test="${loginUser.member_Type == '관리자' }">
 				<div>
-					<button class="btn btn-primary" onclick="location.href='/news/insertnewsPage.do'" style="margin-top:10px; margin-bottom: 10px;">뉴스 추가하기</button>
+					<button class="btn btn-outline-light text-dark" onclick="location.href='/news/insertnewsPage.do'" style="margin-top:10px; margin-bottom: 10px;">뉴스 추가하기</button>
 				</div>
 				</c:if>
 				<div>
 					<nav>
-					<button class="btn btn-primary" style="margin-top:10px;" onclick="location.href='/news/newsList.do'">뉴스 검색하기</button>
+					<button class="btn btn-outline-light text-dark" style="margin-top:10px;" onclick="location.href='/news/newsList.do'">뉴스 검색하기</button>
   				<!-- <form class="form-inline" >
    					 <input class="form-control mr-sm-2" type="text" placeholder="Search" id="keyword" name="keyword">
    					 <button class="btn btn-primary" type="submit" onclick="searchNews()">Search</button>
@@ -150,8 +150,8 @@
 								</div>
 								<c:if test="${loginUser.member_Type == '관리자' }">
 								<div class="card-footer">
-								  <button class="btn btn-primary" onclick="location.href='/news/updateNewsPage.do?n=${getNews.news_Id}'">수정</button>
-								  <button class="btn btn-primary" onclick="location.href='/news/delNews.do?n=${getNews.news_Id}'">삭제</button>
+								  <button class="btn btn-outline-light text-dark" onclick="location.href='/news/updateNewsPage.do?n=${getNews.news_Id}'">수정</button>
+								  <button class="btn btn-outline-light text-dark" onclick="location.href='/news/delNews.do?n=${getNews.news_Id}'">삭제</button>
 								</div>
 								</c:if>
 							</div>
