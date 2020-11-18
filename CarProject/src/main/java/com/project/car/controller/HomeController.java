@@ -11,6 +11,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.project.car.services.BoardService;
+
 /**
  * Handles requests for the application home page.
  */
@@ -18,12 +20,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class HomeController {
    
    private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
-   
+   BoardService b_service ;
    /**
     * Simply selects the home view to render by returning its name.
+ * @throws Exception 
     */
+   
+   
    @RequestMapping(value = "/", method = RequestMethod.GET)
-   public String home(Locale locale, Model model) {
+   public String home(Locale locale, Model model) throws Exception {
       logger.info("Welcome home! The client locale is {}.", locale);
       
       Date date = new Date();
@@ -32,6 +37,8 @@ public class HomeController {
       String formattedDate = dateFormat.format(date);
       
       model.addAttribute("serverTime", formattedDate );
+      model.addAttribute("car", b_service.mainBoard());
+      System.out.println("게시판 값은? "+b_service.mainBoard().getP_content());
       
       return "home";
    }

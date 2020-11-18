@@ -39,7 +39,7 @@
 		var userId = $("#memberUserId").val();
 
 		if (flag == 0) {
-			$('img')
+			$("#heartImg")
 					.attr("src",
 							"${pageContext.request.contextPath}/resources/img/heart2.png");
 			flag = 1;
@@ -54,7 +54,7 @@
 			})
 
 		} else if (flag == 1) {
-			$('img')
+			$("#heartImg")
 					.attr("src",
 							"${pageContext.request.contextPath}/resources/img/heart.png");
 			flag = 0;
@@ -173,10 +173,11 @@ td {
 							</div>
 							<div style="float:right;">
 												<c:choose>
-													<c:when test="${reco=='Y  '}">
+													<c:when test="${recommand.recomm=='Y  '}">
 														<button type="button" onclick="recomm()" id="recommButton">
 															<img
 																src="${pageContext.request.contextPath}/resources/img/heart2.png"
+																id="heartImg"
 																style="width: 30px; height: 30px;" />
 														</button>
 													</c:when>
@@ -186,6 +187,7 @@ td {
 														<button type="button" onclick="recomm()" id="recommButton">
 															<img
 																src="${pageContext.request.contextPath}/resources/img/heart.png"
+																id="heartImg"
 																style="width: 30px; height: 30px;" />
 														</button>
 													</c:when>

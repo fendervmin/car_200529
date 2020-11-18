@@ -73,4 +73,15 @@ public class BoardServiceImpl implements BoardService {
 	public void bestMember(int m_id) throws Exception{
 		dao.bestMember(m_id);
 	}
+	public BoardVO mainBoard() throws Exception{
+		return dao.mainBoard();
+	}
+
+	public int countMemPost(int m_id) throws Exception{
+		return dao.countMemPost(m_id);
+	}
+
+	public List<BoardVO> secretBoard(Pagination pg) throws Exception{
+		return dao.secretBoard(pg);
+	}
 }

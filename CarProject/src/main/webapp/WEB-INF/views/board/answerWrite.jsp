@@ -17,7 +17,7 @@
 					<tr>
 						<td colspan="2"><form:input path="a_content"
 								style="width:1000px;height:30px" /></td>
-						<td><input type="submit" value="답글달기" /></td>
+						<td><input type="submit" value="답글달기" class="btn btn-primary"/></td>
 					</tr>
 					<tr><form:hidden path="p_id" value="${detail.p_id}" /></tr>
 					<form:hidden path="member_id" value="${loginUser.member_Id }"/>

@@ -143,7 +143,7 @@ public class UserServiceImpl implements UserService {
 		List<MemberVO> boardList = userDAO.getBoardUserList(member_Id);
 		return boardList;
 
-	
+	}
 	@Override
 	public List<MemberVO> getAllUser() {
 		return userDAO.getAllUser();

@@ -75,7 +75,7 @@ div {
 							</td>
 						</tr>
 					</table>
-					<div class="inputArea">
+					<%-- <div class="inputArea">
 						<label for="boardImg">이미지</label>
 						<input type="file" id="p_img" name="file"/>
 						<div class="select_img"><img src=""/></div>
@@ -91,7 +91,7 @@ div {
 							  });
 						</script>
 						<%=request.getRealPath("/") %>
-					</div>
+					</div> --%>
 					<form:hidden path="p_id" value="${boardVO.p_id}" />
 					<c:if test="${num=='0'}">
 						<input type="button" value="작성" onclick="fn(0)" />

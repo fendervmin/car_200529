@@ -96,13 +96,25 @@ public class BoardDAOImpl implements BoardDAO {
 		int pcount =sqlSession.selectOne("mappers.boardMapper.countMember", m_id);
 		int acount =sqlSession.selectOne("mappers.answerMapper.countMember2", m_id);
 		System.out.println(rcount +" "+pcount+" "+acount);
-		if(rcount >=5 && pcount >5 && acount>5){
-			MemberVO mem = new MemberVO();
-			mem.setMember_Id(m_id);
-			mem.setMember_level("2");
-			sqlSession.update("mappers.userMapper.updateLevel",mem);
-			System.out.println("레벨 업");
+			if(rcount >=5 && pcount >5 &&
+					acount>5){
+				MemberVO mem = new MemberVO();
+				mem.setMember_Id(m_id);
+				mem.setMember_level("2");
+				sqlSession.update("mappers.userMapper.updateLevel",mem);
+				System.out.println("레벨 업");
+			}
 		}
-		}
+
+	public BoardVO mainBoard() throws Exception{
+		return sqlSession.selectOne("mappers.boardMapper.mainBoard");
+	}
+
+	public int countMemPost(int m_id) throws Exception{
+		return sqlSession.selectOne("mappers.boardMapper.countMember",m_id);
+	}
+	public List<BoardVO> secretBoard(Pagination pg) throws Exception{	 
+		return sqlSession.selectList("mappers.boardMapper.secretBoard",pg);
+	}
 	
 }

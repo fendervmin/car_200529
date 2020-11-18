@@ -94,6 +94,7 @@ ul li:hover > ul{display:block;}
 		}
 
 	}
+	
 </script>
 </head>
 <body>
@@ -117,11 +118,21 @@ ul li:hover > ul{display:block;}
 			<input type="hidden" value="${loginUser.member_level }"
 				id="member_level" />
 			<div class="list-group">
+				<ul class="list-group-item" style="padding:3px; background-color:rgb(214,214,214);">
+				<div style="border:2px dashed gray;">
+					<li style="text-align:left;">${loginUser.member_Name } 님</li>
+					<li style="font-size:12px; text-align:left;"><strong>since</strong> ${loginUser.member_In }</li>
+					<li style="font-size:12px; text-align:left;"><img alt="새싹" src="${pageContext.request.contextPath}/resources/img/plant1.jpg" style="width:30px;height:30px;"> 새싹단계 </li>
+					<li style="font-size:12px; text-align:left;">회원님의 총 게시글 수  <strong>${countPost }</strong> </li>
+					<li></li>
+				</div>
+				</ul>
 				<ul class="list-group-item">
+				
 					<li><a>전체게시판</a>
 						<ul>
 							<li><a href="writeBoard.do" style="font-size:13px; text-align:right;">자유게시판</a></li>
-							<li><a style="font-size:13px; text-align:right;">비밀게시판</a></li>
+							<li><a href="writeReview.do"style="font-size:13px; text-align:right;">비밀게시판</a></li>
 							<li><a style="font-size:13px; text-align:right;">상담 리뷰판</a></li>
 						
 						</ul>
@@ -161,23 +172,22 @@ ul li:hover > ul{display:block;}
 						</tbody>
 					</c:forEach>
 				</table>
-				<h2>${loginUser.member_level}입니다.</h2>
 				<div>
 					<ul class="paging">
 						<c:if test="${Maker.prev}">
 							<li style="list_style: none; float: left; padding: 6px;"><a
-								href="writeBoard.do${Maker.makeQuery(Maker.startPage - 1)}">이전</a></li>
+								href="writeReview.do${Maker.makeQuery(Maker.startPage - 1)}">이전</a></li>
 						</c:if>
 
 						<c:forEach begin="${Maker.startPage}" end="${Maker.endPage}"
 							var="idx">
 							<li style="list_style: none; float: left; padding: 6px;"><a
-								href="writeBoard.do${Maker.makeQuery(idx)}">${idx}</a></li>
+								href="writeReview.do${Maker.makeQuery(idx)}">${idx}</a></li>
 						</c:forEach>
 
 						<c:if test="${Maker.next && Maker.endPage > 0}">
 							<li style="list_style: none; float: left; padding: 6px;"><a
-								href="writeBoard.do${Maker.makeQuery(Maker.endPage + 1)}">다음</a></li>
+								href="writeReview.do${Maker.makeQuery(Maker.endPage + 1)}">다음</a></li>
 						</c:if>
 					</ul>
 				</div>

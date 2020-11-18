@@ -150,7 +150,7 @@
    <!-- 상단 로고입니다 (로고 이미지 임시) -->
       <div class="hd_top" style="margin-top:30px;">
          <h1 class="sd">
-            <img src="/resources/logo.jpg" style="width:300px; heigth:200px;">
+            <a><img src="/resources/logo.jpg" style="width:300px; heigth:500px;"></a>
          </h1>
       </div>
       

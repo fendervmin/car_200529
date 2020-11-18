@@ -22,5 +22,8 @@ public interface BoardDAO {
 	public void recommUdate(RecommVO recomm) throws Exception;
 	public void recommDelete(int p_id) throws Exception;
 	public void bestMember(int m_id) throws Exception;
+	public BoardVO mainBoard() throws Exception;
+	public int countMemPost(int m_id) throws Exception;
+	public List<BoardVO> secretBoard(Pagination pg) throws Exception;
 	
 }
