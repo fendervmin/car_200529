@@ -1,4 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ page language="java" pageEncoding="UTF-8"
 	contentType="text/html; charset=UTF-8"%>
@@ -139,61 +140,59 @@ td {
 							<div class="row" style="border: solid lightgray 1px;">
 								<table class="table" style="height: 300px;">
 									<thead class="table-active">
-										<colgroup>
-											<col width="10%">
-											<col width="60%">
-											<col width="10%">
-											<col width="20%">
-										</colgroup>
-										<tr>
-											<th>제목</th>
-											<td colspan="3">${detail.p_title }</td>
-											<td></td>
-											<td></td>
-										</tr>
-										<tr>
-											<th>작성자</th>
-											<td>${user_Board.member_Nicname}</td>
-											<th>조회수</th>
-											<td>${detail.p_view }</td>
-												</tr>
+									<colgroup>
+										<col width="10%">
+										<col width="60%">
+										<col width="10%">
+										<col width="20%">
+									</colgroup>
+									<tr>
+										<th>제목</th>
+										<td colspan="3">${detail.p_title }</td>
+										<td></td>
+										<td></td>
+									</tr>
+									<tr>
+										<th>작성자</th>
+										<td>${user_Board.member_Nicname}</td>
+										<th>조회수</th>
+										<td>${detail.p_view }</td>
+									</tr>
 									</thead>
 									<tbody>
 										<tr>
-											<td colspan="3" ><pre style="width:1050px;height:300px;">${detail.p_content}</pre></td>
+											<td colspan="3"><pre
+													style="width: 1050px; height: 300px;">${detail.p_content}</pre></td>
 											<!--pre태그는 엔터 쉬프트 같은 키들을 쉽게 사용가능  -->
 											<td></td>
 											<td></td>
 											<td></td>
-											
+
 										</tr>
 									</tbody>
 								</table>
-								
-							</div>
-							<div style="float:right;">
-												<c:choose>
-													<c:when test="${recommand.recomm=='Y  '}">
-														<button type="button" onclick="recomm()" id="recommButton">
-															<img
-																src="${pageContext.request.contextPath}/resources/img/heart2.png"
-																id="heartImg"
-																style="width: 30px; height: 30px;" />
-														</button>
-													</c:when>
+								<<<<<<< HEAD
 
-													<c:when
-														test="${recommand.recomm=='N  '||recommand.recomm==null }">
-														<button type="button" onclick="recomm()" id="recommButton">
-															<img
-																src="${pageContext.request.contextPath}/resources/img/heart.png"
-																id="heartImg"
-																style="width: 30px; height: 30px;" />
-														</button>
-													</c:when>
-												</c:choose>
-											</div>
-							<%-- <input type="button" onclick="recomm()" id="recommButton" src="${pageContext.request.contextPath}/resources/img/heart.png"/> </td>--%>
+							</div>
+							<div style="float: right;">
+								<c:choose>
+									<c:when test="${recommand.recomm=='Y  '}">
+										<button type="button" onclick="recomm()" id="recommButton">
+											<img
+												src="${pageContext.request.contextPath}/resources/img/heart2.png"
+												id="heartImg" style="width: 30px; height: 30px;" />
+										</button>
+									</c:when>
+									<c:when
+										test="${recommand.recomm=='N  '||recommand.recomm==null }">
+										<button type="button" onclick="recomm()" id="recommButton">
+											<img
+												src="${pageContext.request.contextPath}/resources/img/heart.png"
+												style="width: 30px; height: 30px;" />
+										</button>
+									</c:when>
+								</c:choose>
+							</div>
 						</div>
 						<input type="hidden" id="memberUserId"
 							value="${loginUser.member_Id }" /> <input type="hidden"
@@ -203,33 +202,10 @@ td {
 							<c:param name="id" value="${detail.p_id }" />
 							<c:param name="answer" value="${answer }" />
 						</c:import>
-						<!-- 답변 전송 폼 -->
-						<%-- <div class="container my-1">
-						<div class="row">
-						<table border="1" class="table table-hover">
-							<form:form modelAttribute="answer" method="post" id="replyForm">
-									<tr>
-										<td><form:input path="a_content" /></td>
-										<td><form:input path="member_id" /></td>
-										<td><input type="button" value="답글달기"/></td>
-									</tr>
-							</form:form>
-									<!-- 답변리스트 폼 -->
-									<c:if test="${!empty reply }">
-										<c:forEach var="a" items="${reply }">
-											<tr>
-												<td>${a.member_id }</td>
-												<td>${a.a_content}</td>
-												<td></td>
-											</tr>
-										</c:forEach>
-									</c:if>
-								</table>
-							 --%>	
-						</div>
 					</div>
 				</div>
 			</div>
+		</div>
 	</section>
 
 	<footer id="footer">

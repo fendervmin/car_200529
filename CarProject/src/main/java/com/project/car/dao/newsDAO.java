@@ -6,7 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.project.car.vo.MemberVO;
+import com.project.car.vo.NewsKeywordVO;
 import com.project.car.vo.NewsVO;
 
 @Repository("newsDAO")
@@ -36,6 +36,14 @@ public class newsDAO {
 	
 	public NewsVO getOneNews(int news_Id) {
 		return sqlSession.selectOne("mappers.newsMapper.getOneNews", news_Id);
+	}
+	
+	public void insKeyword(String keyword) {
+		sqlSession.insert("mappers.newsMapper.insKeyword", keyword);
+	}
+	
+	public List<NewsKeywordVO> selKeyword() {
+		return sqlSession.selectList("mappers.newsMapper.selKeyword");
 	}
 
 }

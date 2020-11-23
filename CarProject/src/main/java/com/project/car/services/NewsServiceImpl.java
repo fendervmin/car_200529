@@ -20,6 +20,7 @@ import org.xmlpull.v1.XmlPullParserFactory;
 
 import com.project.car.dao.newsDAO;
 import com.project.car.model.News;
+import com.project.car.vo.NewsKeywordVO;
 import com.project.car.vo.NewsVO;
 
 @Component
@@ -180,6 +181,16 @@ public class NewsServiceImpl implements NewsService{
 	        }
 	        return list;
 		}
+	
+	@Override
+	public void insKeyword(String keyword) {
+		newsDAO.insKeyword(keyword);
+	}
+	
+	@Override
+	public List<NewsKeywordVO> selKeyword() {
+		return newsDAO.selKeyword();
+	}
 	}
 
 	

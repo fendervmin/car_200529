@@ -14,6 +14,12 @@
 	<result column="NEWS_THUMB" property="news_Thumb"/>
 </resultMap>
 
+<resultMap type="keyword" id="fullnewsKeywordInfo">
+	<id column="KEY_ID" property="key_id"/>
+	<result column="KEYWORD" property="keyword"/>
+	<result column="KEY_DATE" property="key_date"/>
+</resultMap>
+
 <select id="getOneNews" parameterType="_int" resultMap="fullnewsInfo">
 SELECT * FROM NEWS WHERE NEWS_ID = #{news_Id}
 </select>
@@ -39,5 +45,19 @@ UPDATE NEWS SET news_Title=#{news_Title}, news_Content=#{news_Content}, news_Url
 WHERE news_Id=#{news_Id}
 
 </update>
+
+<insert id="insKeyword" parameterType="string">
+INSERT INTO NEWS_KEYWORD(KEY_ID, KEYWORD, KEY_DATE)
+VALUES (KEYWORD_SEQ.NEXTVAL, #{keyword}, SYSDATE)
+</insert>
+
+<select id="selKeyword" resultMap="fullnewsKeywordInfo">
+SELECT COUNT(*) , KEYWORD 
+FROM NEWS_KEYWORD
+WHERE KEY_ID IN (SELECT KEY_ID FROM NEWS_KEYWORD WHERE KEY_DATE >= TRUNC(ADD_MONTHS(SYSDATE,-1)))
+GROUP BY KEYWORD
+ORDER BY COUNT(*) DESC
+
+</select>
 
 </mapper>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="reply">
+
+ <!-- 댓글 조회 -->
+ <select id="readReply" resultType="reply" parameterType="int">
+  select
+  	reply.reply_id, member.member_Nicname, reply.reply_content
+  from reply
+  join member
+  on reply.member_id=member.member_id
+  	where car_id = #{car_id}
+  	 order by reply_id
+ </select>
+ 
+ <!-- 댓글 작성 -->
+<insert id="writeReply">
+ insert into
+  reply(reply_id, car_id, member_id,  reply_content)
+    values( Reply_seq.nextval, #{car_ID}, #{member_id}, #{reply_content})
+</insert>
+
+</mapper>

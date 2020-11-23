@@ -14,6 +14,7 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
 import com.project.car.dao.UserDAO;
+import com.project.car.model.Search;
 import com.project.car.vo.MemberVO;@Service("uService")
 
 public class UserServiceImpl implements UserService {
@@ -138,12 +139,14 @@ public class UserServiceImpl implements UserService {
 	public MemberVO getBoardUser(int member_Id){
 		return userDAO.getBoardUser(member_Id);
 	}
+	
 	@Override
 	public List<MemberVO> getUserBoardList(int member_Id){
 		List<MemberVO> boardList = userDAO.getBoardUserList(member_Id);
 		return boardList;
-
 	}
+
+	
 	@Override
 	public List<MemberVO> getAllUser() {
 		return userDAO.getAllUser();
@@ -157,5 +160,15 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public List<MemberVO> notcurrentMember() {
 		return userDAO.notcurrentMember();
+	}
+	
+	@Override
+	public List<MemberVO> getUserSearch(Search search) {
+		return userDAO.getUserSearch(search);
+	}
+	
+	@Override
+	public int getUserSearchCnt(Search search) {
+		return userDAO.getUserSearchCnt(search);
 	}
 }

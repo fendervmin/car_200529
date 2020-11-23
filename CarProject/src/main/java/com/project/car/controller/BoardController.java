@@ -41,9 +41,9 @@ public class BoardController {
 	@Inject
 	AnswerService a_service;
 
-	@Inject
+/*	@Inject
 	UserService u_service;
-
+*/
 	@Resource(name = "uploadPath")
 	private String uploadPath;
 
@@ -199,9 +199,9 @@ public class BoardController {
 			model.addAttribute("recommand", service.recommCheck(recomm));
 
 		}
-
+/*
 		model.addAttribute("user_Board", u_service.getBoardUser(service.post(p_id).getMember_id()));
-		model.addAttribute("detail", service.post(p_id));// list에서 index값과 매핑되는
+*/		model.addAttribute("detail", service.post(p_id));// list에서 index값과 매핑되는
 															// 게시판 정보를 불러와서
 															// detail이름으로 model에
 															// 넣어줌
@@ -324,11 +324,11 @@ public class BoardController {
 			PageMaker pm = new PageMaker();
 			pm.setPage(pg);
 			pm.setTotalCount(service.listCount());
+
 			model.addAttribute("Maker", pm);
 
 		return "board/writeReview";
 		}
-
 	/*
 	@RequestMapping(value="recommCount.do" ,method=RequestMethod.POST)
 	@ResponseBody

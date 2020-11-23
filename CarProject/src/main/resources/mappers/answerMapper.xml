@@ -4,7 +4,12 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mappers.answerMapper">
 	<select id="replyList" resultType="answer" parameterType="int">
-		SELECT A_ID, P_ID, MEMBER_ID, A_CONTENT FROM ANSWER WHERE P_ID = #{p_id}
+		SELECT ANSWER.A_ID, ANSWER.P_ID, MEMBER.MEMBER_NICNAME, ANSWER.A_CONTENT
+		FROM ANSWER
+		JOIN MEMBER
+		ON ANSWER.MEMBER_ID=MEMBER.MEMBER_ID
+		WHERE P_ID = #{p_id}
+		ORDER BY ANSWER.A_ID
 	</select>
 	<insert id="replyInsert" parameterType="answer">
 		INSERT INTO ANSWER (

@@ -18,6 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.project.car.services.NewsService;
 import com.project.car.utils.UploadFileUtils;
+import com.project.car.vo.NewsKeywordVO;
 import com.project.car.vo.NewsVO;
 import com.project.car.vo.PageMaker;
 import com.project.car.vo.Pagination;
@@ -131,16 +132,26 @@ public class NewsController {
 	//키워드가 있을때도 있고 없을때도있음 
     //있을때는 가져가고 없을때는 안가져가고 
     @RequestMapping("newsList.do")
-    public ModelAndView newsList(@RequestParam(required=false)String keyword){
+    public ModelAndView newsList(@RequestParam(required=false)String keyword, Model model){
         ModelAndView mav = new ModelAndView();
         
         if(keyword !=null)
         {
             mav.addObject("newsList",NewsService.searchNews(keyword,10,1));
+            NewsService.insKeyword(keyword);
         }
         mav.setViewName("news/newsList");
+       
+        List<NewsKeywordVO> keywordlist = NewsService.selKeyword();
+       
+    	model.addAttribute(keywordlist);
+    	mav.addObject("keywordlist", keywordlist);
+        
         return mav;
     }
+    
+  
+    
     
 	
 	
