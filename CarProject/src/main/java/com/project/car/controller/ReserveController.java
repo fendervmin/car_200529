@@ -61,7 +61,7 @@ public class ReserveController {
 			int result = rService.insertReserve(reserve);
 			
 			if(result > 0) {
-				mv.setViewName("redirect:/user/mypagePage.do");
+				mv.setViewName("redirect:/user/likeItPage.do");
 			}
 			
 			return mv;
