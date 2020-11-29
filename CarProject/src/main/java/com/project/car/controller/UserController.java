@@ -119,6 +119,7 @@ public class UserController {
 		MemberVO loginUser = (MemberVO)session.getAttribute("loginUser");
 		
 		List<ReserveVO> reserveList = rService.selectReserveList(loginUser.getMember_UserId());
+		System.out.println(reserveList);
 		
 		mav.addObject("reserveList", reserveList);
 		mav.setViewName("user/myPage");
@@ -139,9 +140,13 @@ public class UserController {
 	public String likeItPage(Model model, wishlistVO wishlist, HttpSession session, HttpServletRequest request) throws Exception {
 		session = request.getSession();
 		MemberVO loginUser = (MemberVO)session.getAttribute("loginUser");
+		
 		List<GoodsVO> resultList = wishlistservice.selectAllwish(loginUser.getMember_Id());
+		List<ReserveVO> reserveList = rService.selectReserveList(loginUser.getMember_UserId());
 		
 		model.addAttribute("resultList", resultList);
+		model.addAttribute("reserveList",reserveList);
+		System.out.println(reserveList);
 		
 		return "user/likeIt";
 	}

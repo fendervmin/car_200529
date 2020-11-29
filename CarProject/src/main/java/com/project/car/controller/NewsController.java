@@ -59,7 +59,7 @@ public class NewsController {
 		news.setNews_Id(news_Id);
 		NewsService.delNews(news_Id);
 		
-		return "news/admin_delete";
+		return "redirect:/news/newsmainPage.do";
 	}
 	
 	// 관리자 - 뉴스 추가 메소드
@@ -89,7 +89,7 @@ public class NewsController {
 		
 		NewsService.insNews(news);
 		
-		return "news/admin_insert_success";
+		return "redirect:/news/newsmainPage.do";
 	}
 	
 	@RequestMapping(value="updateNewsPage.do")
