@@ -35,6 +35,7 @@ public class BoardDAOImpl implements BoardDAO {
 	public List<BoardVO> list(Pagination pg) throws Exception{
 		List<BoardVO> list = sqlSession.selectList("mappers.boardMapper.listPage",pg);//mappersql경로중요
 		//pg 로딩 성공적
+		System.out.println(pg.getRowStart());
 		return list;//list 객체를  return
 	}
 	@Override

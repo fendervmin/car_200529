@@ -41,9 +41,9 @@ public class BoardController {
 	@Inject
 	AnswerService a_service;
 
-/*	@Inject
+	@Inject
 	UserService u_service;
-*/
+
 	@Resource(name = "uploadPath")
 	private String uploadPath;
 
